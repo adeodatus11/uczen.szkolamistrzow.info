@@ -16,7 +16,7 @@ export const startNotices: StartNotice[] = [
     month: "sierpnia 2026",
     audience: "Tylko szkoła branżowa",
     title: "Umowa o pracę do weryfikacji",
-    description: "Dostarcz umowę kierownikowi szkolenia praktycznego, p. Arkadiuszowi Mocarskiemu, gabinet 25.",
+    description: "Dostarcz umowę kierownikowi szkolenia praktycznego, p. Arkadiuszowi Mocarskiemu, gabinet 25. Telefon: 71 798 69 34, wew. 102.",
     action: "Termin upływa przed rozpoczęciem roku szkolnego.",
     href: "/temat/umowa-do-weryfikacji-2026/",
     tone: "green",

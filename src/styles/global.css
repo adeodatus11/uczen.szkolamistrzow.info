@@ -1524,6 +1524,16 @@ p + p {
   font-weight: 800;
 }
 
+.contact-item-links {
+  display: grid;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.contact-item-links a {
+  margin-top: 0;
+}
+
 .site-footer {
   border-top: 1px solid #31433a;
   background: var(--ink);

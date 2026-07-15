@@ -52,7 +52,7 @@ export const topics: Topic[] = [
     summary: "Podpisaną umowę o pracę ucznia Branżowej Szkoły I stopnia należy dostarczyć do szkoły przed rozpoczęciem roku szkolnego.",
     audiences: ["branżowa", "rodzic"],
     tone: "green",
-    important: "Termin: 20 sierpnia 2026 r. Umowę przyjmuje kierownik szkolenia praktycznego, p. Arkadiusz Mocarski, gabinet 25.",
+    important: "Termin: 20 sierpnia 2026 r. Umowę przyjmuje kierownik szkolenia praktycznego, p. Arkadiusz Mocarski, gabinet 25, tel. 71 798 69 34, wew. 102.",
     facts: [
       "To termin organizacyjny ZSZ5 dotyczący uczniów Branżowej Szkoły I stopnia.",
       "Szkoła weryfikuje umowę, ponieważ uczeń szkoły branżowej realizuje praktyczną naukę zawodu jako pracownik młodociany.",
@@ -62,10 +62,10 @@ export const topics: Topic[] = [
     actions: [
       "Sprawdź, czy umowę podpisali pracodawca i uczeń.",
       "Wykonaj kopię lub skan dla ucznia i rodzica.",
-      "Dostarcz dokument do p. Arkadiusza Mocarskiego, gabinet 25, najpóźniej 20 sierpnia 2026 r.",
+      "Dostarcz dokument do p. Arkadiusza Mocarskiego, gabinet 25, najpóźniej 20 sierpnia 2026 r. W razie pytań zadzwoń pod numer 71 798 69 34, wew. 102.",
       "Jeżeli umowy jeszcze nie ma albo zawiera niejasne zapisy, skontaktuj się ze szkołą przed upływem terminu.",
     ],
-    sourceIds: ["school-start-2026", "pip-mlodociani", "men-mlodociani", "statut-zsz5"],
+    sourceIds: ["school-start-2026", "zsz5-management-2026", "pip-mlodociani", "men-mlodociani", "statut-zsz5"],
   },
   {
     slug: "zebranie-rodzicow-2026",

@@ -64,7 +64,7 @@ export const sources: Source[] = [
     url: "https://zsz5.edupage.org/",
     type: "komunikat",
     verifiedAt: "2026-07-15",
-    description: "Skład dyrekcji i główne obszary odpowiedzialności przekazane do publikacji w portalu.",
+    description: "Skład dyrekcji, główne obszary odpowiedzialności oraz numery wewnętrzne dyrekcji, kierownika szkolenia praktycznego i sekretariatu przekazane do publikacji w portalu.",
   },
   {
     id: "centrum-wsparcia",
