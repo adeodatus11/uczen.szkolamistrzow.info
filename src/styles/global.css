@@ -91,7 +91,7 @@ img {
 }
 
 .header-inner {
-  min-height: 112px;
+  min-height: 108px;
   display: flex;
   align-items: center;
   gap: 28px;
@@ -105,10 +105,8 @@ img {
 }
 
 .brand-logo {
-  width: 180px;
-  height: 100px;
-  object-fit: cover;
-  object-position: center 55%;
+  width: 210px;
+  height: auto;
 }
 
 .desktop-nav {
@@ -1299,13 +1297,12 @@ p + p {
   }
 
   .header-inner {
-    min-height: 86px;
+    min-height: 82px;
     gap: 10px;
   }
 
   .brand-logo {
-    width: 128px;
-    height: 76px;
+    width: 145px;
   }
 
   .search-button {
