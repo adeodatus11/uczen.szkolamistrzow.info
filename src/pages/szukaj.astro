@@ -36,6 +36,13 @@ const extraSearchPages = [
     href: "/dyrekcja/",
     search: "Wiesław Filipiak Małgorzata Kończyńska Marzena Filusz Maciej Najwer dyrektor wicedyrektor sprawy wychowawcze dydaktyczne organizacja nauczania bezpieczeństwo skarga sekretariat wicedyrektor wychowawczy wicedyrektor dydaktyczny wicedyrektor do spraw dydaktycznych wicedyrektor do spraw wychowawczych",
   },
+  {
+    title: "Opłaty i ubezpieczenie",
+    eyebrow: "Dane archiwalne 2025/2026",
+    summary: "Kwoty Rady Rodziców, monitoring, materiały kserograficzne, dzienniczek zajęć praktycznych i ubezpieczenie NNW. Dane wymagają aktualizacji.",
+    href: "/oplaty/",
+    search: "Rada Rodziców 60 zł drugie dziecko 30 zł monitoring 15 zł materiały kserograficzne ksero 15 zł dzienniczek zajęć praktycznych 10 zł TUZ ubezpieczenie NNW 67 zł suma ubezpieczenia 26000 26 000 Santander konto rachunek opłaty składki 2025 2026",
+  },
 ].map((page) => ({ ...page, search: [page.title, page.eyebrow, page.summary, page.search].join(" ").toLocaleLowerCase("pl") }));
 
 const searchData = [...topicSearchData, ...extraSearchPages];

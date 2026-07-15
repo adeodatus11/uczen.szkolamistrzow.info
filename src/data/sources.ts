@@ -212,11 +212,11 @@ export const sources: Source[] = [
   },
   {
     id: "rodzice-archiwum",
-    title: "Archiwalny poradnik dla rodziców",
-    url: "https://www.rodzice.szkolamistrzow.info/home",
+    title: "Archiwalne opłaty i ubezpieczenie 2025/2026",
+    url: "https://www.rodzice.szkolamistrzow.info/konto-rady-rodziców-i-wpłaty-na-rok-szkolny-20232024",
     type: "archiwum",
     verifiedAt: "2026-07-15",
-    description: "Punkt odniesienia dla dotychczasowych treści. Nie należy go traktować jako źródła aktualnego statutu.",
+    description: "Kwoty wpłat, archiwalny rachunek Rady Rodziców i wariant NNW z roku szkolnego 2025/2026. Dane wymagają aktualizacji przed użyciem.",
   },
   {
     id: "szef",

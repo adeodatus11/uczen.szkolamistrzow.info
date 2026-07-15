@@ -5,12 +5,12 @@ import SourceLinks from "@components/SourceLinks.astro";
 import { sitePath } from "../lib/paths";
 ---
 
-<BaseLayout title="Opłaty i ubezpieczenie | Strefa Ucznia ZSZ5" description="Aktualne informacje dla rodziców ZSZ5 o dobrowolnych wpłatach na Radę Rodziców i szkolnym ubezpieczeniu NNW.">
+<BaseLayout title="Opłaty i ubezpieczenie | Strefa Ucznia ZSZ5" description="Informacje dla rodziców ZSZ5 o wpłatach na Radę Rodziców i ubezpieczeniu NNW, z wyraźnym oznaczeniem danych archiwalnych.">
   <section class="page-hero">
     <div class="container">
       <p class="eyebrow">Dla rodziców · rok 2026/2027</p>
       <h1>Opłaty i ubezpieczenie</h1>
-      <p class="lead">Tu będą publikowane wyłącznie potwierdzone dane: wysokość wpłaty, rachunek, tytuł przelewu oraz wariant ubezpieczenia. Dane z poprzednich lat mogą być nieaktualne.</p>
+      <p class="lead">Strona oddziela dane obowiązujące od informacji archiwalnych. Kwoty i rachunek z roku 2025/2026 pozostają widoczne wyłącznie jako punkt odniesienia i wymagają aktualizacji.</p>
     </div>
   </section>
 
@@ -20,13 +20,64 @@ import { sitePath } from "../lib/paths";
         <TriangleAlert size={27} aria-hidden="true" />
         <div>
           <h2 id="payment-status">Dane na rok 2026/2027 nie zostały jeszcze potwierdzone</h2>
-          <p>Na 15 lipca 2026 r. nie publikujemy jeszcze kwoty wpłaty na Radę Rodziców, numeru rachunku, składki NNW ani zakresu polisy. Nie wykonuj przelewu na podstawie informacji z roku 2023/2024 lub 2025/2026.</p>
+          <p>Poniższe kwoty, terminy i numer rachunku pochodzą z roku szkolnego 2025/2026 i wymagają aktualizacji. Nie należy ich używać do wpłat za rok 2026/2027 bez nowego komunikatu szkoły lub Rady Rodziców.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="band" aria-labelledby="fees-list">
+  <section class="band" aria-labelledby="archive-fees">
+    <div class="container">
+      <div class="section-heading">
+        <p class="eyebrow">Dane archiwalne · 2025/2026</p>
+        <h2 id="archive-fees">Kwoty i terminy z poprzedniego roku szkolnego</h2>
+        <p>Informacje pozostają na stronie jako punkt odniesienia. Wszystkie pozycje wymagają potwierdzenia przed wpłatą.</p>
+      </div>
+
+      <div class="info-panel-grid archive-fees-grid">
+        <article class="info-panel">
+          <CircleDollarSign size={28} aria-hidden="true" />
+          <p class="audience-label">Rok szkolny 2025/2026</p>
+          <h3>Wpłaty wskazane przez Radę Rodziców</h3>
+          <dl class="status-list archive-status-list">
+            <div><dt>Fundusz Rady Rodziców</dt><dd>60 zł</dd></div>
+            <div><dt>Drugie lub kolejne dziecko w szkole</dt><dd>30 zł</dd></div>
+            <div><dt>Monitoring szkoły</dt><dd>15 zł · do końca I semestru</dd></div>
+            <div><dt>Materiały kserograficzne</dt><dd>15 zł · do końca września</dd></div>
+            <div><dt>Dzienniczek zajęć praktycznych</dt><dd>10 zł · do 22 września</dd></div>
+          </dl>
+        </article>
+
+        <article class="info-panel">
+          <ShieldCheck size={28} aria-hidden="true" />
+          <p class="audience-label">Rok szkolny 2025/2026</p>
+          <h3>Grupowe ubezpieczenie NNW</h3>
+          <p>Wybrana była oferta TUZ Ubezpieczenia obejmująca NNW oraz odpowiedzialność cywilną ucznia na praktykach.</p>
+          <dl class="status-list archive-status-list">
+            <div><dt>Składka</dt><dd>67 zł</dd></div>
+            <div><dt>Suma ubezpieczenia</dt><dd>26 000 zł</dd></div>
+            <div><dt>Okres ochrony</dt><dd>1.09.2025-31.08.2026</dd></div>
+            <div><dt>Termin wpłaty</dt><dd>21 lub 22.10.2025*</dd></div>
+          </dl>
+          <p class="archive-footnote">* Archiwalna strona podaje dwie różne daty graniczne.</p>
+        </article>
+      </div>
+
+      <div class="archive-account">
+        <div>
+          <p class="audience-label">Archiwalny rachunek · nie używać bez potwierdzenia</p>
+          <h3>Rada Rodziców · Santander Bank</h3>
+          <p class="account-number">02 1090 2529 0000 0001 4875 4698</p>
+        </div>
+        <div>
+          <strong>Tytuł przelewu w 2025/2026</strong>
+          <p>Imię i nazwisko ucznia oraz dokładne oznaczenie klasy, np. „Jan Kowalski, kl. 1W”.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band band-soft" aria-labelledby="fees-list">
     <div class="container">
       <div class="section-heading">
         <p class="eyebrow">Zakres informacji</p>
