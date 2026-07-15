@@ -1,5 +1,5 @@
 ---
-import { ArrowRight, BookOpenCheck, Building2, Mail, PhoneCall, ShieldCheck, UsersRound } from "lucide-astro";
+import { ArrowRight, BookOpenCheck, BriefcaseBusiness, Building2, Mail, PhoneCall, ShieldCheck, UsersRound } from "lucide-astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import { sitePath } from "../lib/paths";
 
@@ -8,6 +8,8 @@ const management = [
     name: "Wiesław Filipiak",
     role: "Dyrektor ZSZ5",
     extension: "101",
+    office: null,
+    email: null,
     icon: Building2,
     matters: [
       "decyzje dotyczące organizacji i funkcjonowania szkoły",
@@ -19,6 +21,8 @@ const management = [
     name: "Małgorzata Kończyńska",
     role: "Wicedyrektor ds. wychowawczych",
     extension: "103",
+    office: null,
+    email: null,
     icon: UsersRound,
     matters: [
       "sprawy wychowawcze, zachowanie i relacje w społeczności szkolnej",
@@ -30,6 +34,8 @@ const management = [
     name: "Marzena Filusz",
     role: "Wicedyrektor ds. dydaktycznych",
     extension: "105",
+    office: null,
+    email: null,
     icon: BookOpenCheck,
     matters: [
       "organizacja nauczania i realizacja zajęć",
@@ -41,6 +47,8 @@ const management = [
     name: "Maciej Najwer",
     role: "Wicedyrektor ds. dydaktycznych",
     extension: "106",
+    office: null,
+    email: null,
     icon: BookOpenCheck,
     matters: [
       "organizacja nauczania i realizacja zajęć",
@@ -48,10 +56,23 @@ const management = [
       "wyjaśnianie problemów dydaktycznych po kontakcie z nauczycielem lub wychowawcą",
     ],
   },
+  {
+    name: "Arkadiusz Mocarski",
+    role: "Kierownik szkolenia praktycznego",
+    extension: "102",
+    office: "Gabinet 25",
+    email: "amocarski@zsz5.edupage.org",
+    icon: BriefcaseBusiness,
+    matters: [
+      "organizacja zajęć praktycznych i praktyk zawodowych",
+      "umowy o pracę oraz dokumenty uczniów będących pracownikami młodocianymi",
+      "współpraca z pracodawcami i zmiana miejsca realizacji przygotowania zawodowego",
+    ],
+  },
 ] as const;
 ---
 
-<BaseLayout title="Dyrekcja ZSZ5 - zakres spraw | Strefa Ucznia ZSZ5" description="Dyrekcja ZSZ5 i praktyczny podział spraw: dyrektor, wicedyrektor do spraw wychowawczych oraz wicedyrektorzy do spraw dydaktycznych.">
+<BaseLayout title="Dyrekcja ZSZ5 - zakres spraw | Strefa Ucznia ZSZ5" description="Dyrekcja ZSZ5 i praktyczny podział spraw: dyrektor, wicedyrektorzy oraz kierownik szkolenia praktycznego.">
   <section class="page-hero">
     <div class="container">
       <p class="eyebrow">Pomoc ze strony dyrekcji</p>
@@ -81,6 +102,8 @@ const management = [
               <h3>{person.name}</h3>
               <div class="specialist-contact">
                 <a href="tel:+48717986934"><PhoneCall size={17} aria-hidden="true" /> 71 798 69 34, wew. {person.extension}</a>
+                {person.office && <span>{person.office}</span>}
+                {person.email && <a href={`mailto:${person.email}`}><Mail size={17} aria-hidden="true" /> {person.email}</a>}
               </div>
               <ul>
                 {person.matters.map((matter) => <li>{matter}</li>)}
