@@ -14,6 +14,20 @@ const {
 } = Astro.props;
 
 const canonical = new URL(Astro.url.pathname, Astro.site);
+const socialImage = new URL(sitePath("/assets/informator-logo.png"), Astro.site);
+const basePath = import.meta.env.BASE_URL.replace(/\/$/, "");
+const currentPath = basePath && Astro.url.pathname.startsWith(basePath)
+  ? Astro.url.pathname.slice(basePath.length) || "/"
+  : Astro.url.pathname;
+
+const navItems = [
+  { href: "/branzowa/", label: "BS I" },
+  { href: "/technikum/", label: "Technikum" },
+  { href: "/rodzice/", label: "Dla rodziców" },
+  { href: "/oplaty/", label: "Opłaty" },
+  { href: "/podreczniki/", label: "Podręczniki" },
+  { href: "/pomoc/", label: "Pomoc" },
+];
 ---
 
 <!doctype html>
@@ -28,7 +42,12 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={socialImage} />
     <title>{title}</title>
+    <link rel="icon" href={sitePath("/assets/zsz5-logo.png")} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   </head>
   <body>
     <a class="skip-link" href="#main-content">Przejdź do treści</a>
@@ -37,18 +56,15 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
         <a class="brand" href={sitePath("/")} aria-label="Strefa Ucznia ZSZ5 - strona główna">
           <img src={sitePath("/assets/zsz5-logo.png")} width="500" height="407" alt="ZSZ5 we Wrocławiu" />
           <span>
-            <strong>Strefa Ucznia</strong>
             <small>Szkoła Mistrzów</small>
+            <strong>Strefa Ucznia</strong>
           </span>
         </a>
 
         <nav class="desktop-nav" aria-label="Główna nawigacja">
-          <a href={sitePath("/branzowa/")}>BS I</a>
-          <a href={sitePath("/technikum/")}>Technikum</a>
-          <a href={sitePath("/rodzice/")}>Dla rodziców</a>
-          <a href={sitePath("/oplaty/")}>Opłaty</a>
-          <a href={sitePath("/podreczniki/")}>Podręczniki</a>
-          <a href={sitePath("/pomoc/")}>Pomoc</a>
+          {navItems.map((item) => (
+            <a href={sitePath(item.href)} aria-current={currentPath === item.href ? "page" : undefined}>{item.label}</a>
+          ))}
         </nav>
 
         <div class="header-actions">

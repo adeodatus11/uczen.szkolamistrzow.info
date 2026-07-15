@@ -1,5 +1,5 @@
 ---
-import { ArrowRight, CheckCircle2, Search, ShieldAlert } from "lucide-astro";
+import { ArrowRight, CheckCircle2, Clock3, Search, ShieldAlert } from "lucide-astro";
 import AudienceHero from "@components/AudienceHero.astro";
 import PathComparison from "@components/PathComparison.astro";
 import StartNotices from "@components/StartNotices.astro";
@@ -24,7 +24,7 @@ const featured = featuredSlugs.map((slug) => topics.find((topic) => topic.slug =
     <div class="container hero-grid">
       <div class="hero-copy">
         <p class="eyebrow">Szkoła · zawód · praca</p>
-        <h1>Informacje dla uczniów i rodziców ZSZ5</h1>
+        <h1>Strefa Ucznia Szkoły Mistrzów</h1>
         <p>
           Najważniejsze informacje dla osób rozpoczynających naukę w Branżowej Szkole I stopnia
           lub Technikum nr 5 oraz dla ich rodziców i opiekunów.
@@ -35,11 +35,26 @@ const featured = featuredSlugs.map((slug) => topics.find((topic) => topic.slug =
           <button type="submit" aria-label="Szukaj"><Search size={22} aria-hidden="true" /></button>
         </form>
       </div>
-      <aside class="verified-panel">
-        <CheckCircle2 size={28} aria-hidden="true" />
-        <strong>Informacje opracowane na podstawie aktualnych źródeł</strong>
-        <p>Statut ZSZ5 obowiązujący od 16.10.2025, Kodeks pracy, PIP, MEN i akty w ELI.</p>
-        <a href={sitePath("/zrodla/")}>Zobacz źródła i daty weryfikacji</a>
+      <aside class="start-dashboard" aria-label="Najważniejsze terminy na początek roku szkolnego">
+        <h2>Najważniejsze terminy</h2>
+        <ol class="dashboard-dates">
+          <li>
+            <time datetime="2026-08-20"><strong>20</strong><span>sie</span></time>
+            <div><strong>Umowa BS I do weryfikacji</strong><p>Gabinet 25, p. Arkadiusz Mocarski.</p></div>
+          </li>
+          <li>
+            <time datetime="2026-09-02T16:00"><strong>2</strong><span>wrz</span></time>
+            <div><strong>Zebranie rodziców klas pierwszych</strong><p><Clock3 size={15} aria-hidden="true" /> 16:00 · obecność obowiązkowa.</p></div>
+          </li>
+          <li>
+            <time datetime="2026-09-30"><strong>30</strong><span>wrz</span></time>
+            <div><strong>Karta zdrowia</strong><p>Najpóźniej do końca września.</p></div>
+          </li>
+        </ol>
+        <div class="dashboard-source">
+          <CheckCircle2 size={19} aria-hidden="true" />
+          <a href={sitePath("/zrodla/")}>Źródła i daty weryfikacji informacji</a>
+        </div>
       </aside>
     </div>
   </section>
