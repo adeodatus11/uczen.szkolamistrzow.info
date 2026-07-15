@@ -4,6 +4,7 @@ import AudienceHero from "@components/AudienceHero.astro";
 import TopicCard from "@components/TopicCard.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import { topics } from "@data/topics";
+import { sitePath } from "../lib/paths";
 
 const featuredSlugs = [
   "vulcan",
@@ -26,7 +27,7 @@ const featured = featuredSlugs.map((slug) => topics.find((topic) => topic.slug =
           Krótkie odpowiedzi dla nowych uczniów i rodziców. Osobno dla Branżowej Szkoły I stopnia,
           Technikum nr 5 i spraw wspólnych: prawa, obowiązki, frekwencja, praktyki i pomoc.
         </p>
-        <form class="hero-search" action="/szukaj/" method="get" role="search">
+        <form class="hero-search" action={sitePath("/szukaj/")} method="get" role="search">
           <label class="sr-only" for="home-search">Szukaj odpowiedzi</label>
           <input id="home-search" name="q" type="search" placeholder="Wpisz temat, np. urlop, L4, praktyki" autocomplete="off" />
           <button type="submit" aria-label="Szukaj"><Search size={22} aria-hidden="true" /></button>
@@ -36,7 +37,7 @@ const featured = featuredSlugs.map((slug) => topics.find((topic) => topic.slug =
         <CheckCircle2 size={28} aria-hidden="true" />
         <strong>Informacje oparte na aktualnych źródłach</strong>
         <p>Statut ZSZ5 obowiązujący od 16.10.2025, Kodeks pracy, PIP, MEN i akty w ELI.</p>
-        <a href="/zrodla/">Zobacz źródła i daty weryfikacji</a>
+        <a href={sitePath("/zrodla/")}>Zobacz źródła i daty weryfikacji</a>
       </aside>
     </div>
   </section>
@@ -60,7 +61,7 @@ const featured = featuredSlugs.map((slug) => topics.find((topic) => topic.slug =
           <h2 id="popular-topics">Odpowiedzi potrzebne od początku</h2>
           <p>Każdy temat kończy się konkretną listą działań i linkami do źródeł.</p>
         </div>
-        <a class="button" href="/szukaj/">Wszystkie tematy <ArrowRight size={18} aria-hidden="true" /></a>
+        <a class="button" href={sitePath("/szukaj/")}>Wszystkie tematy <ArrowRight size={18} aria-hidden="true" /></a>
       </div>
       <div class="topic-grid">
         {featured.map((topic) => topic && <TopicCard topic={topic} />)}
@@ -91,8 +92,8 @@ const featured = featuredSlugs.map((slug) => topics.find((topic) => topic.slug =
           <h2 id="danger-help">Gdy zagrożone jest zdrowie lub bezpieczeństwo</h2>
           <p>Przerwij niebezpieczną czynność, odejdź w bezpieczne miejsce i powiadom osobę dorosłą. W sytuacji nagłej dzwoń pod 112.</p>
           <div class="button-row">
-            <a class="button" href="/temat/bhp-i-wypadek/">BHP i wypadek</a>
-            <a class="button" href="/pomoc/">Pomoc i kontakt</a>
+            <a class="button" href={sitePath("/temat/bhp-i-wypadek/")}>BHP i wypadek</a>
+            <a class="button" href={sitePath("/pomoc/")}>Pomoc i kontakt</a>
           </div>
         </div>
       </div>

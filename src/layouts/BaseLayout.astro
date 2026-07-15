@@ -1,5 +1,6 @@
 ---
 import { Menu, Search, X } from "lucide-astro";
+import { sitePath } from "../lib/paths";
 import "../styles/global.css";
 
 type Props = {
@@ -33,8 +34,8 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     <a class="skip-link" href="#main-content">Przejdź do treści</a>
     <header class="site-header">
       <div class="container header-inner">
-        <a class="brand" href="/" aria-label="Strefa Ucznia ZSZ5 - strona główna">
-          <img src="/assets/zsz5-logo.png" width="500" height="407" alt="ZSZ5 we Wrocławiu" />
+        <a class="brand" href={sitePath("/")} aria-label="Strefa Ucznia ZSZ5 - strona główna">
+          <img src={sitePath("/assets/zsz5-logo.png")} width="500" height="407" alt="ZSZ5 we Wrocławiu" />
           <span>
             <strong>Strefa Ucznia</strong>
             <small>Szkoła Mistrzów</small>
@@ -42,15 +43,15 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
         </a>
 
         <nav class="desktop-nav" aria-label="Główna nawigacja">
-          <a href="/branzowa/">BS I</a>
-          <a href="/technikum/">Technikum</a>
-          <a href="/rodzice/">Dla rodziców</a>
-          <a href="/prawa-i-obowiazki/">Prawa i obowiązki</a>
-          <a href="/pomoc/">Pomoc</a>
+          <a href={sitePath("/branzowa/")}>BS I</a>
+          <a href={sitePath("/technikum/")}>Technikum</a>
+          <a href={sitePath("/rodzice/")}>Dla rodziców</a>
+          <a href={sitePath("/prawa-i-obowiazki/")}>Prawa i obowiązki</a>
+          <a href={sitePath("/pomoc/")}>Pomoc</a>
         </nav>
 
         <div class="header-actions">
-          <a class="icon-button search-button" href="/szukaj/" aria-label="Szukaj w portalu" title="Szukaj">
+          <a class="icon-button search-button" href={sitePath("/szukaj/")} aria-label="Szukaj w portalu" title="Szukaj">
             <Search size={21} aria-hidden="true" />
           </a>
           <button class="icon-button menu-button" type="button" aria-label="Otwórz menu" aria-expanded="false" aria-controls="mobile-menu" title="Menu">
@@ -61,12 +62,12 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
       </div>
       <nav class="mobile-nav" id="mobile-menu" aria-label="Menu mobilne" hidden>
         <div class="container">
-          <a href="/branzowa/">Uczeń BS I</a>
-          <a href="/technikum/">Uczeń technikum</a>
-          <a href="/rodzice/">Rodzic lub opiekun</a>
-          <a href="/prawa-i-obowiazki/">Prawa i obowiązki</a>
-          <a href="/pomoc/">Pomoc i kontakt</a>
-          <a href="/zrodla/">Źródła i aktualność</a>
+          <a href={sitePath("/branzowa/")}>Uczeń BS I</a>
+          <a href={sitePath("/technikum/")}>Uczeń technikum</a>
+          <a href={sitePath("/rodzice/")}>Rodzic lub opiekun</a>
+          <a href={sitePath("/prawa-i-obowiazki/")}>Prawa i obowiązki</a>
+          <a href={sitePath("/pomoc/")}>Pomoc i kontakt</a>
+          <a href={sitePath("/zrodla/")}>Źródła i aktualność</a>
         </div>
       </nav>
     </header>
@@ -83,7 +84,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
           <p><a href="tel:+48717986934">+48 71 798 69 34</a> · <a href="mailto:sekretariat.zsz5@wroclawskaedukacja.pl">sekretariat.zsz5@wroclawskaedukacja.pl</a></p>
         </div>
         <nav aria-label="Linki w stopce">
-          <a href="/zrodla/">Źródła i aktualność</a>
+          <a href={sitePath("/zrodla/")}>Źródła i aktualność</a>
           <a href="https://zsz5.edupage.org/" target="_blank" rel="noreferrer">Oficjalna strona szkoły</a>
           <a href="https://szef.szkolamistrzow.info/" target="_blank" rel="noreferrer">Strefa Pracodawcy</a>
         </nav>

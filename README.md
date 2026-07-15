@@ -46,4 +46,10 @@ Szczególnej kontroli wymagają: statut, wynagrodzenia młodocianych, terminy sz
 
 ## Publikacja
 
-Workflow `.github/workflows/deploy.yml` buduje serwis i publikuje katalog `dist` w GitHub Pages po zmianie na gałęzi `main`. Plik `public/CNAME` ustawia domenę `uczen.szkolamistrzow.info`.
+Workflow `.github/workflows/deploy.yml` buduje serwis i publikuje katalog `dist` w GitHub Pages po zmianie na gałęzi `main`.
+
+Aktualny adres techniczny:
+
+`https://adeodatus11.github.io/uczen.szkolamistrzow.info/`
+
+Przed podłączeniem domeny `uczen.szkolamistrzow.info` trzeba dodać rekord DNS wskazujący GitHub Pages. Następnie należy ustawić domenę w ustawieniach Pages, dodać `public/CNAME` i przełączyć produkcyjny `site` oraz `base` w `astro.config.mjs` na domenę własną.

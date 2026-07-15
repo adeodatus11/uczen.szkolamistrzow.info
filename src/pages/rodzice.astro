@@ -4,6 +4,7 @@ import AudienceHero from "@components/AudienceHero.astro";
 import TopicCard from "@components/TopicCard.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import { topicsFor } from "@data/topics";
+import { sitePath } from "../lib/paths";
 
 const parentTopics = topicsFor("rodzic").filter((topic) => [
   "pierwszy-tydzien",
@@ -25,8 +26,8 @@ const parentTopics = topicsFor("rodzic").filter((topic) => [
       <h1>Pomagaj, ale nie przejmuj odpowiedzialności ucznia</h1>
       <p class="lead">Najlepsze wsparcie to regularny kontakt, znajomość zasad i szybka reakcja na problem. W BS I trzeba patrzeć równocześnie na szkołę i pracę; w T5 na naukę, praktyki i egzaminy.</p>
       <div class="button-row">
-        <a class="button primary" href="/temat/pierwszy-tydzien/">Lista na początek <ArrowRight size={18} aria-hidden="true" /></a>
-        <a class="button" href="/pomoc/">Z czym do kogo</a>
+        <a class="button primary" href={sitePath("/temat/pierwszy-tydzien/")}>Lista na początek <ArrowRight size={18} aria-hidden="true" /></a>
+        <a class="button" href={sitePath("/pomoc/")}>Z czym do kogo</a>
       </div>
     </div>
   </section>

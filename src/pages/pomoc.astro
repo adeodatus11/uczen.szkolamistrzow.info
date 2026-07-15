@@ -1,6 +1,7 @@
 ---
 import { BriefcaseBusiness, Building2, HeartHandshake, PhoneCall, School, ShieldAlert } from "lucide-astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
+import { sitePath } from "../lib/paths";
 ---
 
 <BaseLayout title="Pomoc i kontakt | Strefa Ucznia ZSZ5" description="Ścieżki kontaktu dla uczniów i rodziców ZSZ5: wychowawca, kierownik szkolenia praktycznego, sekretariat, specjaliści, PIP i numer alarmowy.">
@@ -24,7 +25,7 @@ import BaseLayout from "@layouts/BaseLayout.astro";
         <BriefcaseBusiness size={25} aria-hidden="true" />
         <h3>Pracodawca, umowa, zajęcia praktyczne</h3>
         <p>Kierownik szkolenia praktycznego oraz instruktor lub pracodawca.</p>
-        <a href="/temat/z-czym-do-kogo/">Sprawdź ścieżkę działania</a>
+        <a href={sitePath("/temat/z-czym-do-kogo/")}>Sprawdź ścieżkę działania</a>
       </article>
       <article class="contact-item">
         <Building2 size={25} aria-hidden="true" />

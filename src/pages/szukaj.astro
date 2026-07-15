@@ -3,6 +3,7 @@ import { Search } from "lucide-astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import { topics } from "@data/topics";
 
+const basePath = import.meta.env.BASE_URL.replace(/\/$/, "");
 const searchData = topics.map((topic) => ({
   title: topic.title,
   eyebrow: topic.eyebrow,
@@ -29,7 +30,7 @@ const searchData = topics.map((topic) => ({
     </div>
   </section>
 
-  <script is:inline type="application/json" id="topics-data" set:html={JSON.stringify(searchData).replaceAll("<", "\\u003c")}></script>
+  <script is:inline type="application/json" id="topics-data" set:html={JSON.stringify({ basePath, topics: searchData }).replaceAll("<", "\\u003c")}></script>
   <script>
     type SearchItem = {
       title: string;
@@ -44,7 +45,10 @@ const searchData = topics.map((topic) => ({
     const form = document.querySelector("#search-form");
     const results = document.querySelector("#search-results");
     const meta = document.querySelector("#search-meta");
-    const data: SearchItem[] = dataElement?.textContent ? JSON.parse(dataElement.textContent) : [];
+    const payload: { basePath: string; topics: SearchItem[] } = dataElement?.textContent
+      ? JSON.parse(dataElement.textContent)
+      : { basePath: "", topics: [] };
+    const data = payload.topics;
 
     const entities: Record<string, string> = {
       "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;",
@@ -75,7 +79,7 @@ const searchData = topics.map((topic) => ({
       }
 
       results.innerHTML = matches.map((item) => `
-        <a class="search-result" href="/temat/${encodeURIComponent(item.slug)}/">
+        <a class="search-result" href="${payload.basePath}/temat/${encodeURIComponent(item.slug)}/">
           <span><small class="eyebrow">${escapeHtml(item.eyebrow)}</small><strong>${escapeHtml(item.title)}</strong><p>${escapeHtml(item.summary)}</p></span>
           <span aria-hidden="true">→</span>
         </a>

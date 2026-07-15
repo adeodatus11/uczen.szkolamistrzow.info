@@ -4,6 +4,7 @@ import AudienceHero from "@components/AudienceHero.astro";
 import TopicCard from "@components/TopicCard.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import { topicsFor } from "@data/topics";
+import { sitePath } from "../lib/paths";
 
 const sectionTopics = topicsFor("branżowa").filter((topic) => topic.slug !== "pierwszy-tydzien");
 ---
@@ -15,8 +16,8 @@ const sectionTopics = topicsFor("branżowa").filter((topic) => topic.slug !== "p
       <h1>Jesteś uczniem i pracownikiem</h1>
       <p class="lead">W BS I uczysz się w szkole i zdobywasz zawód u pracodawcy. Masz prawa ucznia oraz prawa pracownicze, ale również dwa zestawy obowiązków.</p>
       <div class="button-row">
-        <a class="button primary" href="/temat/mlodociany-pracownik/">Zrozum swój status <ArrowRight size={18} aria-hidden="true" /></a>
-        <a class="button" href="/temat/umowa-o-prace/"><FileText size={18} aria-hidden="true" /> Sprawdź umowę</a>
+        <a class="button primary" href={sitePath("/temat/mlodociany-pracownik/")}>Zrozum swój status <ArrowRight size={18} aria-hidden="true" /></a>
+        <a class="button" href={sitePath("/temat/umowa-o-prace/")}><FileText size={18} aria-hidden="true" /> Sprawdź umowę</a>
       </div>
     </div>
   </section>

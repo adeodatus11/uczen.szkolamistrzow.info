@@ -3,6 +3,7 @@ import { AlertTriangle, ArrowLeft, CheckCircle2 } from "lucide-astro";
 import SourceLinks from "@components/SourceLinks.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import { topics } from "@data/topics";
+import { sitePath } from "../../lib/paths";
 
 export function getStaticPaths() {
   return topics.map((topic) => ({ params: { slug: topic.slug }, props: { topic } }));
@@ -21,7 +22,7 @@ const backHref = topic.audiences.includes("branżowa")
 <BaseLayout title={`${topic.title} | Strefa Ucznia ZSZ5`} description={topic.summary}>
   <header class:list={["topic-hero", `tone-${topic.tone}`]}>
     <div class="container">
-      <a class="text-link" href={backHref}><ArrowLeft size={18} aria-hidden="true" /> Wróć do przewodnika</a>
+      <a class="text-link" href={sitePath(backHref)}><ArrowLeft size={18} aria-hidden="true" /> Wróć do przewodnika</a>
       <p class="eyebrow">{topic.eyebrow}</p>
       <h1>{topic.title}</h1>
       <p class="lead">{topic.summary}</p>
@@ -54,9 +55,9 @@ const backHref = topic.audiences.includes("branżowa")
       <p class="eyebrow">Przejdź dalej</p>
       <nav aria-label="Skróty w odpowiedzi">
         <a href="#sources">Źródła odpowiedzi</a>
-        <a href="/prawa-i-obowiazki/">Prawa i obowiązki</a>
-        <a href="/pomoc/">Pomoc i kontakt</a>
-        <a href="/szukaj/">Znajdź inny temat</a>
+        <a href={sitePath("/prawa-i-obowiazki/")}>Prawa i obowiązki</a>
+        <a href={sitePath("/pomoc/")}>Pomoc i kontakt</a>
+        <a href={sitePath("/szukaj/")}>Znajdź inny temat</a>
       </nav>
       <div class="verified-panel topic-verified">
         <CheckCircle2 size={24} aria-hidden="true" />

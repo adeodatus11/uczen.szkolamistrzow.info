@@ -4,6 +4,7 @@ import AudienceHero from "@components/AudienceHero.astro";
 import TopicCard from "@components/TopicCard.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import { topicsFor } from "@data/topics";
+import { sitePath } from "../lib/paths";
 
 const sectionTopics = topicsFor("technikum").filter((topic) => topic.slug !== "pierwszy-tydzien");
 ---
@@ -15,8 +16,8 @@ const sectionTopics = topicsFor("technikum").filter((topic) => topic.slug !== "p
       <h1>Pięć lat nauki, praktyki i egzaminy</h1>
       <p class="lead">Technikum łączy przedmioty ogólne i zawodowe. Praktyki są częścią programu, a egzaminy zawodowe i matura to dwa odrębne cele.</p>
       <div class="button-row">
-        <a class="button primary" href="/temat/jak-dziala-technikum/">Jak działa T5 <ArrowRight size={18} aria-hidden="true" /></a>
-        <a class="button" href="/temat/praktyki-technikum/"><ClipboardCheck size={18} aria-hidden="true" /> Praktyki zawodowe</a>
+        <a class="button primary" href={sitePath("/temat/jak-dziala-technikum/")}>Jak działa T5 <ArrowRight size={18} aria-hidden="true" /></a>
+        <a class="button" href={sitePath("/temat/praktyki-technikum/")}><ClipboardCheck size={18} aria-hidden="true" /> Praktyki zawodowe</a>
       </div>
     </div>
   </section>
