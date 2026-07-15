@@ -13,15 +13,15 @@ const searchData = topics.map((topic) => ({
 }));
 ---
 
-<BaseLayout title="Szukaj odpowiedzi | Strefa Ucznia ZSZ5" description="Wyszukiwarka odpowiedzi dla uczniów i rodziców ZSZ5.">
+<BaseLayout title="Wyszukiwarka informacji | Strefa Ucznia ZSZ5" description="Wyszukiwarka informacji dla uczniów i rodziców ZSZ5.">
   <section class="page-hero search-page">
     <div class="container">
       <p class="eyebrow">Baza wiedzy</p>
-      <h1>Znajdź odpowiedź</h1>
-      <p class="lead">Szukaj po zwykłych słowach: urlop, L4, praktyki, umowa, wynagrodzenie, oceny albo pomoc.</p>
+      <h1>Wyszukiwarka informacji</h1>
+      <p class="lead">Wpisz nazwę sprawy, na przykład: urlop, zwolnienie lekarskie, praktyki, umowa, wynagrodzenie lub oceny.</p>
       <form class="search-field" role="search" id="search-form">
         <label class="sr-only" for="portal-search">Wpisz szukany temat</label>
-        <input id="portal-search" type="search" name="q" placeholder="Czego szukasz?" autocomplete="off" />
+        <input id="portal-search" type="search" name="q" placeholder="Wpisz temat" autocomplete="off" />
         <button type="submit" aria-label="Szukaj"><Search size={22} aria-hidden="true" /></button>
       </form>
       <p class="search-meta" id="search-meta" aria-live="polite">Wpisz co najmniej 2 znaki.</p>

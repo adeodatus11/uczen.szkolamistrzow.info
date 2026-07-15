@@ -15,11 +15,11 @@ const sectionTopics = topicsFor("branżowa").filter((topic) => topic.slug !== "p
   <section class="page-hero">
     <div class="container">
       <p class="eyebrow">Branżowa Szkoła I stopnia nr 5</p>
-      <h1>Jesteś uczniem i pracownikiem</h1>
-      <p class="lead">W BS I uczysz się w szkole i zdobywasz zawód u pracodawcy. Masz prawa ucznia oraz prawa pracownicze, ale również dwa zestawy obowiązków.</p>
+      <h1>Uczeń BS I jako pracownik młodociany</h1>
+      <p class="lead">Uczeń BS I uczy się w szkole i odbywa przygotowanie zawodowe u pracodawcy. Obowiązują go zarówno prawa i obowiązki ucznia, jak i przepisy prawa pracy.</p>
       <div class="button-row">
-        <a class="button primary" href={sitePath("/temat/mlodociany-pracownik/")}>Zrozum swój status <ArrowRight size={18} aria-hidden="true" /></a>
-        <a class="button" href={sitePath("/temat/umowa-o-prace/")}><FileText size={18} aria-hidden="true" /> Sprawdź umowę</a>
+        <a class="button primary" href={sitePath("/temat/mlodociany-pracownik/")}>Status pracownika młodocianego <ArrowRight size={18} aria-hidden="true" /></a>
+        <a class="button" href={sitePath("/temat/umowa-o-prace/")}><FileText size={18} aria-hidden="true" /> Informacje o umowie</a>
       </div>
     </div>
   </section>
@@ -27,7 +27,7 @@ const sectionTopics = topicsFor("branżowa").filter((topic) => topic.slug !== "p
   <section class="band start-band" aria-labelledby="bs-start-dates">
     <div class="container">
       <div class="section-heading">
-        <p class="eyebrow">Start 2026/2027</p>
+        <p class="eyebrow">Początek roku szkolnego 2026/2027</p>
         <h2 id="bs-start-dates">Terminy ucznia klasy pierwszej BS I</h2>
       </div>
       <StartNotices show="bs" />
@@ -43,9 +43,9 @@ const sectionTopics = topicsFor("branżowa").filter((topic) => topic.slug !== "p
   <section class="band band-soft" aria-labelledby="bs-vs-t5">
     <div class="container">
       <div class="section-heading">
-        <p class="eyebrow">Twój status</p>
-        <h2 id="bs-vs-t5">W BS I umowa o pracę ma znaczenie</h2>
-        <p>To ona odróżnia przygotowanie zawodowe pracownika młodocianego od szkolnej praktyki ucznia technikum.</p>
+        <p class="eyebrow">Status ucznia BS I</p>
+        <h2 id="bs-vs-t5">Umowa o pracę w BS I</h2>
+        <p>Umowa o pracę odróżnia przygotowanie zawodowe pracownika młodocianego od praktyki zawodowej ucznia technikum.</p>
       </div>
       <PathComparison />
     </div>
@@ -56,7 +56,7 @@ const sectionTopics = topicsFor("branżowa").filter((topic) => topic.slug !== "p
       <div class="callout">
         <AlertTriangle size={26} aria-hidden="true" />
         <div>
-          <h2>Najważniejsza zasada</h2>
+          <h2>Nieobecność w szkole i w pracy</h2>
           <p>Nieobecność w szkole i nieobecność w pracy zgłasza się osobno. Ferie szkolne także nie są automatycznie urlopem od pracy.</p>
         </div>
       </div>
@@ -67,8 +67,8 @@ const sectionTopics = topicsFor("branżowa").filter((topic) => topic.slug !== "p
     <div class="container">
       <div class="section-heading">
         <p class="eyebrow">Przewodnik BS I</p>
-        <h2 id="bs-topics">Od umowy do egzaminu</h2>
-        <p>Otwórz temat, którego potrzebujesz. W każdej odpowiedzi znajdziesz fakty, następne kroki i źródła.</p>
+        <h2 id="bs-topics">Najważniejsze informacje dla ucznia BS I</h2>
+        <p>Każdy temat zawiera wyjaśnienie, sposób postępowania i odnośniki do źródeł.</p>
       </div>
       <div class="topic-grid">
         {sectionTopics.map((topic) => <TopicCard topic={topic} compact />)}

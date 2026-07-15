@@ -14,10 +14,10 @@ const sectionTopics = topicsFor("technikum").filter((topic) => topic.slug !== "p
   <section class="page-hero">
     <div class="container">
       <p class="eyebrow">Technikum nr 5 im. Jana Kilińskiego</p>
-      <h1>Pięć lat nauki, praktyki i egzaminy</h1>
+      <h1>Nauka, praktyki i egzaminy w T5</h1>
       <p class="lead">Technikum łączy przedmioty ogólne i zawodowe. Praktyki są częścią programu, a egzaminy zawodowe i matura to dwa odrębne cele.</p>
       <div class="button-row">
-        <a class="button primary" href={sitePath("/temat/jak-dziala-technikum/")}>Jak działa T5 <ArrowRight size={18} aria-hidden="true" /></a>
+        <a class="button primary" href={sitePath("/temat/jak-dziala-technikum/")}>Organizacja nauki w T5 <ArrowRight size={18} aria-hidden="true" /></a>
         <a class="button" href={sitePath("/temat/praktyki-technikum/")}><ClipboardCheck size={18} aria-hidden="true" /> Praktyki zawodowe</a>
       </div>
     </div>
@@ -26,7 +26,7 @@ const sectionTopics = topicsFor("technikum").filter((topic) => topic.slug !== "p
   <section class="band start-band" aria-labelledby="t5-start-dates">
     <div class="container">
       <div class="section-heading">
-        <p class="eyebrow">Start 2026/2027</p>
+        <p class="eyebrow">Początek roku szkolnego 2026/2027</p>
         <h2 id="t5-start-dates">Terminy ucznia klasy pierwszej T5</h2>
         <p>Zebranie rodziców i karta zdrowia dotyczą obu typów szkoły. Termin umowy o pracę dotyczy wyłącznie BS I.</p>
       </div>
@@ -45,7 +45,7 @@ const sectionTopics = topicsFor("technikum").filter((topic) => topic.slug !== "p
       <div class="callout">
         <CalendarDays size={26} aria-hidden="true" />
         <div>
-          <h2>Praktyka w T5 to nie umowa o pracę</h2>
+          <h2>Praktyki zawodowe a zatrudnienie</h2>
           <p>Uczeń technikum nie jest automatycznie pracownikiem młodocianym. Harmonogram praktyk i egzaminów zależy od klasy, zawodu i roku szkolnego; konkretne daty sprawdzaj w VULCAN-ie i komunikatach szkoły.</p>
         </div>
       </div>
@@ -56,8 +56,8 @@ const sectionTopics = topicsFor("technikum").filter((topic) => topic.slug !== "p
     <div class="container">
       <div class="section-heading">
         <p class="eyebrow">Przewodnik T5</p>
-        <h2 id="t5-topics">Nauka i praktyka bez chaosu</h2>
-        <p>Najważniejsze zasady technikum zebrane według spraw, które uczeń rzeczywiście musi załatwić.</p>
+        <h2 id="t5-topics">Najważniejsze informacje dla ucznia T5</h2>
+        <p>Informacje dotyczą organizacji nauki, praktyk zawodowych, nieobecności i egzaminów.</p>
       </div>
       <div class="topic-grid">
         {sectionTopics.map((topic) => <TopicCard topic={topic} compact />)}

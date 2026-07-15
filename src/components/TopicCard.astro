@@ -15,7 +15,7 @@ const { topic, compact = false } = Astro.props;
   <p class="eyebrow">{topic.eyebrow}</p>
   <h3><a href={sitePath(`/temat/${topic.slug}/`)}>{topic.title}</a></h3>
   <p>{topic.summary}</p>
-  <a class="text-link" href={sitePath(`/temat/${topic.slug}/`)} aria-label={`Czytaj: ${topic.title}`}>
-    Czytaj odpowiedź <ArrowRight size={18} aria-hidden="true" />
+  <a class="text-link" href={sitePath(`/temat/${topic.slug}/`)} aria-label={`Więcej informacji: ${topic.title}`}>
+    Więcej informacji <ArrowRight size={18} aria-hidden="true" />
   </a>
 </article>

@@ -7,7 +7,7 @@ type Props = {
   heading?: string;
 };
 
-const { ids, heading = "Źródła tej odpowiedzi" } = Astro.props;
+const { ids, heading = "Źródła informacji" } = Astro.props;
 const selected = ids.map((id) => sourceById.get(id)).filter(Boolean);
 ---
 

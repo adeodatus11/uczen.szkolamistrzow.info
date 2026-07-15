@@ -115,7 +115,7 @@ Treści zmienne, których nie należy publikować bez potwierdzenia: nazwiska i 
 
 Nazwa robocza: „Strefa Ucznia ZSZ5”.
 
-Obietnica: „W ZSZ5 wiesz, co robić dalej”.
+Cel strony: przekazanie uczniom i rodzicom najważniejszych informacji o nauce, praktykach, zatrudnieniu i sprawach organizacyjnych.
 
 Pierwszy ekran realizuje trzy zadania:
 

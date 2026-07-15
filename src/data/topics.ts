@@ -18,9 +18,9 @@ export type Topic = {
 export const topics: Topic[] = [
   {
     slug: "pierwszy-tydzien",
-    title: "Pierwszy tydzień w ZSZ5",
-    eyebrow: "Szybki start",
-    summary: "Pięć spraw, które warto uporządkować od razu po rozpoczęciu nauki.",
+    title: "Pierwsze dni w ZSZ5",
+    eyebrow: "Organizacja",
+    summary: "Najważniejsze sprawy organizacyjne na początku nauki w ZSZ5.",
     audiences: ["wszyscy", "rodzic"],
     tone: "neutral",
     facts: [
@@ -43,7 +43,7 @@ export const topics: Topic[] = [
     slug: "umowa-do-weryfikacji-2026",
     title: "Umowa BS I do weryfikacji do 20 sierpnia",
     eyebrow: "BS I · termin 2026/2027",
-    summary: "Podpisana umowa o pracę ucznia BS I musi trafić do szkoły jeszcze przed rozpoczęciem roku szkolnego.",
+    summary: "Podpisaną umowę o pracę ucznia BS I należy dostarczyć do szkoły przed rozpoczęciem roku szkolnego.",
     audiences: ["branżowa", "rodzic"],
     tone: "green",
     important: "Termin: 20 sierpnia 2026 r. Umowę przyjmuje kierownik szkolenia praktycznego, p. Arkadiusz Mocarski, gabinet 25.",
@@ -55,7 +55,7 @@ export const topics: Topic[] = [
     ],
     actions: [
       "Sprawdź, czy umowę podpisali pracodawca i uczeń.",
-      "Zrób kopię lub skan dla ucznia i rodzica.",
+      "Wykonaj kopię lub skan dla ucznia i rodzica.",
       "Dostarcz dokument do p. Arkadiusza Mocarskiego, gabinet 25, najpóźniej 20 sierpnia 2026 r.",
       "Jeżeli umowy jeszcze nie ma albo zawiera niejasne zapisy, skontaktuj się ze szkołą przed upływem terminu.",
     ],
@@ -125,7 +125,7 @@ export const topics: Topic[] = [
   },
   {
     slug: "mlodociany-pracownik",
-    title: "Co znaczy: młodociany pracownik",
+    title: "Kim jest pracownik młodociany",
     eyebrow: "BS I",
     summary: "W ZSZ5 uczeń BS I uczy się w szkole i pracuje u pracodawcy na podstawie umowy o pracę w celu przygotowania zawodowego.",
     audiences: ["branżowa", "rodzic"],
@@ -133,7 +133,7 @@ export const topics: Topic[] = [
     important: "Pracownik młodociany to nie synonim każdego niepełnoletniego ucznia. Decydują wiek oraz zatrudnienie na podstawie umowy o pracę.",
     facts: [
       "Młodociany to co do zasady osoba, która ukończyła 15 lat i nie przekroczyła 18 lat.",
-      "Pracownikiem stajesz się po zawarciu umowy z pracodawcą. Masz prawo do wynagrodzenia, bezpiecznych warunków, odpoczynku i urlopu, ale masz też obowiązek wykonywania pracy.",
+      "Status pracownika powstaje po zawarciu umowy z pracodawcą. Pracownik młodociany ma prawo do wynagrodzenia, bezpiecznych warunków, odpoczynku i urlopu oraz obowiązek wykonywania pracy.",
       "Uczeń bez kwalifikacji zawodowych jest zatrudniany w celu przygotowania zawodowego; w BS I najczęściej jest to nauka zawodu.",
       "Nauka zawodu łączy zajęcia praktyczne u pracodawcy z dokształcaniem teoretycznym w szkole.",
       "Szkoła odpowiada za naukę i sprawy uczniowskie, a pracodawca za zatrudnienie i organizację pracy. Obie strony współpracują w kształceniu zawodowym.",
@@ -248,7 +248,7 @@ export const topics: Topic[] = [
     actions: [
       "Nie używaj maszyny ani substancji bez instruktażu i wymaganych zabezpieczeń.",
       "Zgłoś uszkodzony sprzęt, brak odzieży ochronnej lub polecenie niezgodne z BHP.",
-      "Po wypadku zadbaj o pomoc medyczną i dokumentację zdarzenia.",
+      "Po wypadku uzyskaj pomoc medyczną i dopilnuj sporządzenia dokumentacji zdarzenia.",
     ],
     sourceIds: ["pip-mlodociani", "kodeks-pracy", "statut-zsz5"],
   },
@@ -278,7 +278,7 @@ export const topics: Topic[] = [
     slug: "zmiana-pracodawcy",
     title: "Rozwiązanie umowy lub zmiana pracodawcy",
     eyebrow: "BS I",
-    summary: "Utrata miejsca nauki zawodu wpływa na status ucznia. Nie odkładaj kontaktu ze szkołą.",
+    summary: "Rozwiązanie umowy i utrata miejsca nauki zawodu wpływają na status ucznia. W takiej sytuacji należy niezwłocznie skontaktować się ze szkołą.",
     audiences: ["branżowa", "rodzic"],
     tone: "red",
     important: "Statut ZSZ5 wymaga dostarczenia kierownikowi szkolenia praktycznego nowej umowy w ciągu 14 dni od rozwiązania poprzedniej.",
@@ -298,14 +298,14 @@ export const topics: Topic[] = [
   },
   {
     slug: "jak-dziala-technikum",
-    title: "Jak działa Technikum nr 5",
+    title: "Organizacja nauki w Technikum nr 5",
     eyebrow: "T5",
     summary: "Pięcioletnie technikum łączy kształcenie ogólne, zawodowe, praktyki, egzaminy zawodowe i możliwość zdawania matury.",
     audiences: ["technikum", "rodzic"],
     tone: "blue",
     facts: [
       "Uczeń technikum nie jest automatycznie pracownikiem młodocianym.",
-      "Praktyki zawodowe są częścią programu nauczania, a nie zwykłą pracą wakacyjną.",
+      "Praktyki zawodowe są częścią programu nauczania i nie stanowią zatrudnienia w ramach pracy wakacyjnej.",
       "Tytuł technika wymaga zdania egzaminów zawodowych ze wszystkich kwalifikacji w zawodzie.",
       "Świadectwo dojrzałości wymaga zdania egzaminu maturalnego.",
     ],
@@ -368,10 +368,10 @@ export const topics: Topic[] = [
     audiences: ["wszyscy", "rodzic"],
     tone: "neutral",
     facts: [
-      "Masz prawo znać program, wymagania edukacyjne i zasady oceniania.",
+      "Uczeń ma prawo znać program, wymagania edukacyjne i zasady oceniania.",
       "Ocena postępów i zachowania ma być jawna i uzasadniona.",
-      "Masz prawo do opieki podczas lekcji i przerw oraz do ochrony przed przemocą i poniżaniem.",
-      "Możesz zwrócić się do wychowawcy, nauczyciela lub dyrektora w sprawie osobistej i oczekiwać pomocy, odpowiedzi oraz wyjaśnień.",
+      "Uczeń ma prawo do opieki podczas lekcji i przerw oraz do ochrony przed przemocą i poniżaniem.",
+      "Uczeń może zwrócić się do wychowawcy, nauczyciela lub dyrektora w sprawie osobistej oraz oczekiwać pomocy, odpowiedzi i wyjaśnień.",
       "Pomoc psychologiczno-pedagogiczna w szkole jest dobrowolna i nieodpłatna.",
     ],
     actions: [
@@ -397,7 +397,7 @@ export const topics: Topic[] = [
     ],
     actions: [
       "Czytaj wiadomości w dzienniku elektronicznym.",
-      "Pilnuj terminów, dokumentacji praktycznej nauki zawodu i usprawiedliwień.",
+      "Przestrzegaj terminów dotyczących dokumentacji praktycznej nauki zawodu i usprawiedliwień.",
       "Gdy nie rozumiesz polecenia lub zasady, poproś o wyjaśnienie przed upływem terminu.",
     ],
     sourceIds: ["statut-zsz5", "pip-mlodociani"],
@@ -405,14 +405,14 @@ export const topics: Topic[] = [
   },
   {
     slug: "z-czym-do-kogo",
-    title: "Z czym do kogo",
+    title: "Jak załatwić sprawę",
     eyebrow: "Pomoc",
-    summary: "Najkrótsza droga do rozwiązania problemu zależy od tego, czy sprawa dotyczy klasy, praktyk, pracy, dokumentów czy bezpieczeństwa.",
+    summary: "Sposób postępowania zależy od tego, czy sprawa dotyczy klasy, praktyk, pracy, dokumentów czy bezpieczeństwa.",
     audiences: ["wszyscy", "rodzic"],
     tone: "yellow",
     facts: [
-      "Sprawy lekcji, ocen, zachowania i klasy zwykle zaczynają się u nauczyciela lub wychowawcy.",
-      "Sprawy zajęć praktycznych, praktyk i umowy kieruj do kierownika szkolenia praktycznego.",
+      "Sprawy dotyczące lekcji, ocen, zachowania i klasy należy w pierwszej kolejności zgłaszać nauczycielowi lub wychowawcy.",
+      "Sprawy zajęć praktycznych, praktyk i umowy należy kierować do kierownika szkolenia praktycznego.",
       "Dokumenty, legitymacje i zaświadczenia obsługuje sekretariat.",
       "Pomoc emocjonalną, wychowawczą i psychologiczną zapewniają pedagog, psycholog i inni specjaliści szkolni.",
       "W razie zagrożenia zdrowia lub życia dzwoń pod 112.",

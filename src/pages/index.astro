@@ -24,20 +24,20 @@ const featured = featuredSlugs.map((slug) => topics.find((topic) => topic.slug =
     <div class="container hero-grid">
       <div class="hero-copy">
         <p class="eyebrow">Szkoła · zawód · praca</p>
-        <h1>W ZSZ5 wiesz, co robić dalej</h1>
+        <h1>Informacje dla uczniów i rodziców ZSZ5</h1>
         <p>
-          Krótkie odpowiedzi dla nowych uczniów i rodziców. Osobno dla Branżowej Szkoły I stopnia,
-          Technikum nr 5 i spraw wspólnych: prawa, obowiązki, frekwencja, praktyki i pomoc.
+          Najważniejsze informacje dla osób rozpoczynających naukę w Branżowej Szkole I stopnia
+          lub Technikum nr 5 oraz dla ich rodziców i opiekunów.
         </p>
         <form class="hero-search" action={sitePath("/szukaj/")} method="get" role="search">
-          <label class="sr-only" for="home-search">Szukaj odpowiedzi</label>
-          <input id="home-search" name="q" type="search" placeholder="Wpisz temat, np. urlop, L4, praktyki" autocomplete="off" />
+          <label class="sr-only" for="home-search">Szukaj informacji</label>
+          <input id="home-search" name="q" type="search" placeholder="Wpisz temat, np. urlop, zwolnienie, praktyki" autocomplete="off" />
           <button type="submit" aria-label="Szukaj"><Search size={22} aria-hidden="true" /></button>
         </form>
       </div>
       <aside class="verified-panel">
         <CheckCircle2 size={28} aria-hidden="true" />
-        <strong>Informacje oparte na aktualnych źródłach</strong>
+        <strong>Informacje opracowane na podstawie aktualnych źródeł</strong>
         <p>Statut ZSZ5 obowiązujący od 16.10.2025, Kodeks pracy, PIP, MEN i akty w ELI.</p>
         <a href={sitePath("/zrodla/")}>Zobacz źródła i daty weryfikacji</a>
       </aside>
@@ -48,11 +48,11 @@ const featured = featuredSlugs.map((slug) => topics.find((topic) => topic.slug =
     <div class="container">
       <div class="section-heading wide">
         <div>
-          <p class="eyebrow">Ważne na start 2026/2027</p>
+          <p class="eyebrow">Początek roku szkolnego 2026/2027</p>
           <h2 id="start-dates">Trzy terminy dla nowych uczniów i rodziców</h2>
           <p>Pierwszy termin dotyczy wyłącznie uczniów BS I. Dwa wrześniowe dotyczą klas pierwszych BS I i T5.</p>
         </div>
-        <a class="button" href={sitePath("/rodzice/")}>Sprawy rodzica <ArrowRight size={18} aria-hidden="true" /></a>
+        <a class="button" href={sitePath("/rodzice/")}>Informacje dla rodziców <ArrowRight size={18} aria-hidden="true" /></a>
       </div>
       <StartNotices />
     </div>
@@ -61,9 +61,9 @@ const featured = featuredSlugs.map((slug) => topics.find((topic) => topic.slug =
   <section class="band band-soft" aria-labelledby="choose-path">
     <div class="container">
       <div class="section-heading">
-        <p class="eyebrow">Zacznij tutaj</p>
-        <h2 id="choose-path">Która ścieżka dotyczy Ciebie?</h2>
-        <p>Nie musisz czytać całego portalu. Wybierz rolę, a pokażemy najważniejsze sprawy w dobrej kolejności.</p>
+        <p class="eyebrow">Wybór zakresu informacji</p>
+        <h2 id="choose-path">Wybierz typ szkoły lub rolę</h2>
+        <p>Informacje są uporządkowane osobno dla uczniów BS I, uczniów T5 oraz rodziców i opiekunów.</p>
       </div>
       <AudienceHero />
     </div>
@@ -72,8 +72,8 @@ const featured = featuredSlugs.map((slug) => topics.find((topic) => topic.slug =
   <section class="band" aria-labelledby="compare-paths">
     <div class="container">
       <div class="section-heading">
-        <p class="eyebrow">Najważniejsze rozróżnienie</p>
-        <h2 id="compare-paths">BS I i T5 działają inaczej</h2>
+        <p class="eyebrow">Porównanie typów szkoły</p>
+        <h2 id="compare-paths">Różnice między BS I a T5</h2>
         <p>Uczeń BS I jest jednocześnie uczniem i pracownikiem młodocianym. Uczeń T5 pozostaje uczniem, a praktyki realizuje w ramach programu szkoły.</p>
       </div>
       <PathComparison />
@@ -85,8 +85,8 @@ const featured = featuredSlugs.map((slug) => topics.find((topic) => topic.slug =
       <div class="section-heading wide">
         <div>
           <p class="eyebrow">Najczęstsze pytania</p>
-          <h2 id="popular-topics">Odpowiedzi potrzebne od początku</h2>
-          <p>Każdy temat kończy się konkretną listą działań i linkami do źródeł.</p>
+          <h2 id="popular-topics">Najważniejsze informacje na początku nauki</h2>
+          <p>Każdy temat zawiera wyjaśnienie, sposób postępowania i odnośniki do źródeł.</p>
         </div>
         <a class="button" href={sitePath("/szukaj/")}>Wszystkie tematy <ArrowRight size={18} aria-hidden="true" /></a>
       </div>
@@ -99,8 +99,8 @@ const featured = featuredSlugs.map((slug) => topics.find((topic) => topic.slug =
   <section class="band band-dark" aria-labelledby="first-week">
     <div class="container">
       <div class="section-heading">
-        <p class="eyebrow">Pierwszy tydzień</p>
-        <h2 id="first-week">Cztery rzeczy do uporządkowania</h2>
+        <p class="eyebrow">Początek roku szkolnego</p>
+        <h2 id="first-week">Cztery sprawy do sprawdzenia</h2>
       </div>
       <ol class="steps">
         <li><strong>Uruchom VULCAN</strong><span>Uczeń i rodzic sprawdzają osobne konta oraz wiadomości.</span></li>
