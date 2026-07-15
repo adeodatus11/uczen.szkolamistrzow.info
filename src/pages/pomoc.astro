@@ -1,5 +1,5 @@
 ---
-import { BriefcaseBusiness, Building2, HeartHandshake, PhoneCall, School, ShieldAlert } from "lucide-astro";
+import { ArrowRight, BriefcaseBusiness, Building2, HeartHandshake, PhoneCall, School, ShieldAlert } from "lucide-astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import { sitePath } from "../lib/paths";
 ---
@@ -13,44 +13,55 @@ import { sitePath } from "../lib/paths";
     </div>
   </section>
 
-  <section class="band band-soft">
-    <div class="container contact-grid">
-      <article class="contact-item">
-        <School size={25} aria-hidden="true" />
-        <h3>Lekcje, oceny, frekwencja, klasa</h3>
-        <p>Najpierw nauczyciel danego przedmiotu lub wychowawca klasy.</p>
-        <a href="https://zsz5.edupage.org/" target="_blank" rel="noreferrer">Przejdź do strony szkoły</a>
-      </article>
-      <article class="contact-item">
-        <BriefcaseBusiness size={25} aria-hidden="true" />
-        <h3>Pracodawca, umowa, zajęcia praktyczne</h3>
-        <p>Kierownik szkolenia praktycznego oraz instruktor lub pracodawca.</p>
-        <a href={sitePath("/temat/z-czym-do-kogo/")}>Sprawdź sposób postępowania</a>
-      </article>
-      <article class="contact-item">
-        <Building2 size={25} aria-hidden="true" />
-        <h3>Dokumenty i zaświadczenia</h3>
-        <p>Sekretariat szkoły: ul. Jana Władysława Dawida 5.</p>
-        <a href="mailto:sekretariat.zsz5@wroclawskaedukacja.pl">Napisz do sekretariatu</a>
-      </article>
-      <article class="contact-item">
-        <HeartHandshake size={25} aria-hidden="true" />
-        <h3>Trudność emocjonalna lub wychowawcza</h3>
-        <p>Wychowawca, pedagog, psycholog albo inny wskazany specjalista szkolny.</p>
-        <a href="tel:+48717986934">Zadzwoń do szkoły</a>
-      </article>
-      <article class="contact-item">
-        <PhoneCall size={25} aria-hidden="true" />
-        <h3>Prawo pracy i warunki zatrudnienia</h3>
-        <p>Państwowa Inspekcja Pracy udziela porad i przyjmuje skargi.</p>
-        <a href="https://www.pip.gov.pl/kontakt" target="_blank" rel="noreferrer">Kontakt z PIP</a>
-      </article>
-      <article class="contact-item">
-        <ShieldAlert size={25} aria-hidden="true" />
-        <h3>Bezpośrednie zagrożenie</h3>
-        <p>Przerwij niebezpieczną czynność, odejdź w bezpieczne miejsce i powiadom osobę dorosłą.</p>
-        <a href="tel:112">Numer alarmowy 112</a>
-      </article>
+  <section class="band band-soft" aria-labelledby="help-entries">
+    <div class="container">
+      <div class="section-heading">
+        <p class="eyebrow">Bezpośrednia pomoc</p>
+        <h2 id="help-entries">Kontakty i zakres odpowiedzialności</h2>
+        <p>Sprawdź dyżury specjalistów albo wybierz osobę z dyrekcji odpowiedzialną za dany rodzaj sprawy.</p>
+      </div>
+      <div class="quick-link-grid help-entry-grid">
+        <a class="quick-link" href={sitePath("/pomoc-psychologiczno-pedagogiczna/")}><strong>Pomoc psychologiczno-pedagogiczna</strong><span>Specjaliści, telefony, e-maile i godziny dyżurów</span><ArrowRight size={20} aria-hidden="true" /></a>
+        <a class="quick-link" href={sitePath("/dyrekcja/")}><strong>Dyrekcja ZSZ5</strong><span>Zakres spraw i sposób umówienia kontaktu</span><ArrowRight size={20} aria-hidden="true" /></a>
+      </div>
+      <div class="contact-grid">
+        <article class="contact-item">
+          <School size={25} aria-hidden="true" />
+          <h3>Lekcje, oceny, frekwencja, klasa</h3>
+          <p>Najpierw nauczyciel danego przedmiotu lub wychowawca klasy.</p>
+          <a href="https://zsz5.edupage.org/" target="_blank" rel="noreferrer">Przejdź do strony szkoły</a>
+        </article>
+        <article class="contact-item">
+          <BriefcaseBusiness size={25} aria-hidden="true" />
+          <h3>Pracodawca, umowa, zajęcia praktyczne</h3>
+          <p>Kierownik szkolenia praktycznego oraz instruktor lub pracodawca.</p>
+          <a href={sitePath("/temat/z-czym-do-kogo/")}>Sprawdź sposób postępowania</a>
+        </article>
+        <article class="contact-item">
+          <Building2 size={25} aria-hidden="true" />
+          <h3>Dokumenty i zaświadczenia</h3>
+          <p>Sekretariat szkoły: ul. Jana Władysława Dawida 5.</p>
+          <a href="mailto:sekretariat.zsz5@wroclawskaedukacja.pl">Napisz do sekretariatu</a>
+        </article>
+        <article class="contact-item">
+          <HeartHandshake size={25} aria-hidden="true" />
+          <h3>Trudność emocjonalna lub wychowawcza</h3>
+          <p>Wychowawca, pedagog, psycholog albo inny wskazany specjalista szkolny.</p>
+          <a href={sitePath("/pomoc-psychologiczno-pedagogiczna/")}>Sprawdź specjalistów i dyżury</a>
+        </article>
+        <article class="contact-item">
+          <PhoneCall size={25} aria-hidden="true" />
+          <h3>Prawo pracy i warunki zatrudnienia</h3>
+          <p>Państwowa Inspekcja Pracy udziela porad i przyjmuje skargi.</p>
+          <a href="https://www.pip.gov.pl/kontakt" target="_blank" rel="noreferrer">Kontakt z PIP</a>
+        </article>
+        <article class="contact-item">
+          <ShieldAlert size={25} aria-hidden="true" />
+          <h3>Bezpośrednie zagrożenie</h3>
+          <p>Przerwij niebezpieczną czynność, odejdź w bezpieczne miejsce i powiadom osobę dorosłą.</p>
+          <a href="tel:112">Numer alarmowy 112</a>
+        </article>
+      </div>
     </div>
   </section>
 

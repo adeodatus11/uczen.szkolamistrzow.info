@@ -1,0 +1,124 @@
+---
+import { CalendarDays, ExternalLink, HeartHandshake, Mail, PhoneCall, ShieldAlert } from "lucide-astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
+
+const specialists = [
+  {
+    name: "Monika Smaczny",
+    role: "Pedagog szkolny",
+    scope: "Sprawy wychowawcze, trudności szkolne i rodzinne, frekwencja, relacje oraz sytuacje wymagające wsparcia ucznia lub rodzica.",
+    extension: "140",
+    email: "msmaczny@zsz5.edupage.org",
+    hours: [
+      ["Poniedziałek", "7:30-14:00"],
+      ["Wtorek", "7:30-14:00"],
+      ["Środa", "10:00-17:00"],
+      ["Czwartek", "7:30-13:30"],
+      ["Piątek", "7:30-13:30"],
+    ],
+  },
+  {
+    name: "Sylwia Bokuniewicz",
+    role: "Psycholog szkolny",
+    scope: "Trudności emocjonalne, stres, kryzys, lęk, obniżony nastrój, problemy w relacjach oraz potrzeba rozmowy i dalszej pomocy.",
+    extension: "142",
+    email: "sbokuniewicz@zsz5.edupage.org",
+    hours: [
+      ["Poniedziałek", "9:00-14:00"],
+      ["Wtorek", "11:00-17:00"],
+      ["Środa", "14:00-17:00"],
+      ["Czwartek", "9:00-13:00"],
+      ["Piątek", "9:00-13:00"],
+    ],
+  },
+  {
+    name: "Maria Kaszak",
+    role: "Pedagog specjalny",
+    scope: "Specjalne potrzeby edukacyjne, dostosowanie wsparcia do sytuacji ucznia oraz współpraca ucznia, rodziców i nauczycieli.",
+    extension: "142",
+    email: "mkaszak@zsz5.edupage.org",
+    hours: [
+      ["Poniedziałek", "12:00-17:00"],
+      ["Wtorek", "12:00-17:00"],
+      ["Środa", "7:30-12:45"],
+      ["Czwartek", "12:00-17:00"],
+      ["Piątek", "12:00-17:00"],
+    ],
+  },
+  {
+    name: "Maria Kaszak",
+    role: "Konsultant ds. uzależnień",
+    scope: "Rozmowa i wskazanie dalszego postępowania, gdy uczeń lub jego bliscy obawiają się problemu z uzależnieniem.",
+    extension: "142",
+    email: "mkaszak@zsz5.edupage.org",
+    hours: [["Piątek", "15:00-16:00"]],
+  },
+] as const;
+---
+
+<BaseLayout title="Pomoc psychologiczno-pedagogiczna | Strefa Ucznia ZSZ5" description="Dyżury, telefony i adresy e-mail pedagoga, psychologa, pedagoga specjalnego i konsultanta do spraw uzależnień w ZSZ5.">
+  <section class="page-hero">
+    <div class="container">
+      <p class="eyebrow">Wsparcie ucznia i rodziny</p>
+      <h1>Pomoc psychologiczno-pedagogiczna</h1>
+      <p class="lead">Uczeń, rodzic lub opiekun może skontaktować się bezpośrednio ze szkolnym specjalistą. Ze względu na interwencje i wcześniej umówione rozmowy spotkanie należy uzgodnić telefonicznie albo e-mailem.</p>
+      <div class="button-row">
+        <a class="button primary" href="tel:+48717986934"><PhoneCall size={18} aria-hidden="true" /> Zadzwoń do szkoły</a>
+        <a class="button" href="https://zsz5.edupage.org/a/pomoc-psychologiczno-pedagogiczna" target="_blank" rel="noreferrer">Oficjalny wykaz dyżurów <ExternalLink size={17} aria-hidden="true" /></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="band band-soft" aria-labelledby="specialists-heading">
+    <div class="container">
+      <div class="section-heading">
+        <p class="eyebrow">Do kogo się zgłosić</p>
+        <h2 id="specialists-heading">Specjaliści i godziny dyżurów</h2>
+        <p>Wszyscy przyjmują w gabinecie 04. Zadzwoń pod numer główny szkoły i podaj numer wewnętrzny właściwej osoby.</p>
+      </div>
+
+      <div class="specialist-grid">
+        {specialists.map((specialist) => (
+          <article class="specialist-card">
+            <div class="specialist-heading">
+              <HeartHandshake size={26} aria-hidden="true" />
+              <div>
+                <p class="audience-label">{specialist.role}</p>
+                <h3>{specialist.name}</h3>
+              </div>
+            </div>
+            <p class="specialist-scope">{specialist.scope}</p>
+            <div class="specialist-contact">
+              <a href="tel:+48717986934"><PhoneCall size={17} aria-hidden="true" /> 71 798 69 34, wew. {specialist.extension}</a>
+              <span>Gabinet 04</span>
+              <a href={`mailto:${specialist.email}`}><Mail size={17} aria-hidden="true" /> {specialist.email}</a>
+            </div>
+            <div class="schedule-heading"><CalendarDays size={18} aria-hidden="true" /><strong>Dyżury</strong></div>
+            <dl class="schedule-list">
+              {specialist.hours.map(([day, time]) => (
+                <div><dt>{day}</dt><dd>{time}</dd></div>
+              ))}
+            </dl>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="band" aria-labelledby="urgent-help">
+    <div class="container">
+      <div class="callout danger">
+        <ShieldAlert size={28} aria-hidden="true" />
+        <div>
+          <h2 id="urgent-help">Gdy pomoc jest potrzebna natychmiast</h2>
+          <p>W bezpośrednim zagrożeniu zdrowia lub życia dzwoń pod numer alarmowy 112. W kryzysie psychicznym można także całodobowo i bezpłatnie skorzystać z Centrum Wsparcia pod numerem 800 70 2222.</p>
+          <div class="button-row">
+            <a class="button" href="tel:112">Numer alarmowy 112</a>
+            <a class="button" href="tel:800702222">Centrum Wsparcia 800 70 2222</a>
+          </div>
+        </div>
+      </div>
+      <p class="source-note">Godziny i dane kontaktowe sprawdzono 15 lipca 2026 r. na oficjalnej stronie ZSZ5. Dyżury mogą ulec zmianie, dlatego przed wizytą należy umówić spotkanie.</p>
+    </div>
+  </section>
+</BaseLayout>

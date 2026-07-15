@@ -1,4 +1,4 @@
-export type SourceType = "szkolne" | "komunikat" | "urzędowe" | "prawo" | "standard" | "archiwum";
+export type SourceType = "szkolne" | "komunikat" | "urzędowe" | "prawo" | "standard" | "pomoc" | "archiwum";
 
 export type Source = {
   id: string;
@@ -33,6 +33,30 @@ export const sources: Source[] = [
     type: "szkolne",
     verifiedAt: "2026-07-15",
     description: "Aktualności, komunikaty, dokumenty szkolne i bieżąca organizacja pracy szkoły.",
+  },
+  {
+    id: "zsz5-psych-support",
+    title: "ZSZ5: Pomoc psychologiczno-pedagogiczna",
+    url: "https://zsz5.edupage.org/a/pomoc-psychologiczno-pedagogiczna",
+    type: "szkolne",
+    verifiedAt: "2026-07-15",
+    description: "Nazwiska specjalistów, numery wewnętrzne, adresy e-mail, gabinet i tygodniowe godziny dyżurów.",
+  },
+  {
+    id: "zsz5-management-2026",
+    title: "Dyrekcja ZSZ5 - podział odpowiedzialności",
+    url: "https://zsz5.edupage.org/",
+    type: "komunikat",
+    verifiedAt: "2026-07-15",
+    description: "Skład dyrekcji i główne obszary odpowiedzialności przekazane do publikacji w portalu.",
+  },
+  {
+    id: "centrum-wsparcia",
+    title: "Centrum Wsparcia dla osób w stanie kryzysu psychicznego",
+    url: "https://centrumwsparcia.pl/",
+    type: "pomoc",
+    verifiedAt: "2026-07-15",
+    description: "Bezpłatne, całodobowe wsparcie pod numerem 800 70 2222.",
   },
   {
     id: "school-start-2026",

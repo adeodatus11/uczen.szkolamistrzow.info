@@ -4,11 +4,11 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 import { topics } from "@data/topics";
 
 const basePath = import.meta.env.BASE_URL.replace(/\/$/, "");
-const searchData = topics.map((topic) => ({
+const topicSearchData = topics.map((topic) => ({
   title: topic.title,
   eyebrow: topic.eyebrow,
   summary: topic.summary,
-  slug: topic.slug,
+  href: `/temat/${topic.slug}/`,
   search: [
     topic.title,
     topic.eyebrow,
@@ -20,6 +20,25 @@ const searchData = topics.map((topic) => ({
     topic.audiences.includes("technikum") ? "T5 Technikum nr 5 technikum" : "",
   ].join(" ").toLocaleLowerCase("pl"),
 }));
+
+const extraSearchPages = [
+  {
+    title: "Pomoc psychologiczno-pedagogiczna",
+    eyebrow: "Pomoc w szkole",
+    summary: "Telefony, adresy e-mail i godziny dyżurów pedagoga, psychologa, pedagoga specjalnego i konsultanta do spraw uzależnień.",
+    href: "/pomoc-psychologiczno-pedagogiczna/",
+    search: "Monika Smaczny Sylwia Bokuniewicz Maria Kaszak pedagog psycholog pedagog specjalny konsultant uzależnień dyżur godziny gabinet 04 telefon 71 798 69 34 wewnętrzny 140 142 pomoc kryzys emocje godziny psychologa godziny pedagoga telefon do psychologa telefon do pedagoga",
+  },
+  {
+    title: "Dyrekcja ZSZ5",
+    eyebrow: "Pomoc i odpowiedzialność",
+    summary: "Dyrektor i wicedyrektorzy: zakres spraw wychowawczych, dydaktycznych, organizacyjnych i dotyczących bezpieczeństwa.",
+    href: "/dyrekcja/",
+    search: "Wiesław Filipiak Małgorzata Kończyńska Marzena Filusz Maciej Najwer dyrektor wicedyrektor sprawy wychowawcze dydaktyczne organizacja nauczania bezpieczeństwo skarga sekretariat wicedyrektor wychowawczy wicedyrektor dydaktyczny wicedyrektor do spraw dydaktycznych wicedyrektor do spraw wychowawczych",
+  },
+].map((page) => ({ ...page, search: [page.title, page.eyebrow, page.summary, page.search].join(" ").toLocaleLowerCase("pl") }));
+
+const searchData = [...topicSearchData, ...extraSearchPages];
 ---
 
 <BaseLayout title="Wyszukiwarka informacji | Strefa Ucznia ZSZ5" description="Wyszukiwarka informacji dla uczniów i rodziców ZSZ5.">
@@ -45,7 +64,7 @@ const searchData = topics.map((topic) => ({
       title: string;
       eyebrow: string;
       summary: string;
-      slug: string;
+      href: string;
       search: string;
     };
 
@@ -88,7 +107,7 @@ const searchData = topics.map((topic) => ({
       }
 
       results.innerHTML = matches.map((item) => `
-        <a class="search-result" href="${payload.basePath}/temat/${encodeURIComponent(item.slug)}/">
+        <a class="search-result" href="${payload.basePath}${escapeHtml(item.href)}">
           <span><small class="eyebrow">${escapeHtml(item.eyebrow)}</small><strong>${escapeHtml(item.title)}</strong><p>${escapeHtml(item.summary)}</p></span>
           <span aria-hidden="true">→</span>
         </a>

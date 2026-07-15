@@ -1,0 +1,111 @@
+---
+import { ArrowRight, BookOpenCheck, Building2, Mail, PhoneCall, ShieldCheck, UsersRound } from "lucide-astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { sitePath } from "../lib/paths";
+
+const management = [
+  {
+    name: "Wiesław Filipiak",
+    role: "Dyrektor ZSZ5",
+    icon: Building2,
+    matters: [
+      "decyzje dotyczące organizacji i funkcjonowania szkoły",
+      "sprawy formalne wymagające decyzji dyrektora",
+      "bezpieczeństwo oraz skargi, których nie udało się wyjaśnić na wcześniejszym etapie",
+    ],
+  },
+  {
+    name: "Małgorzata Kończyńska",
+    role: "Wicedyrektor ds. wychowawczych",
+    icon: UsersRound,
+    matters: [
+      "sprawy wychowawcze, zachowanie i relacje w społeczności szkolnej",
+      "trudne sytuacje ucznia, konflikty oraz współpraca z rodzicami",
+      "wsparcie wychowawcze i kierowanie do odpowiedniej formy pomocy",
+    ],
+  },
+  {
+    name: "Marzena Filusz",
+    role: "Wicedyrektor ds. dydaktycznych",
+    icon: BookOpenCheck,
+    matters: [
+      "organizacja nauczania i realizacja zajęć",
+      "sprawy dotyczące oceniania i przebiegu nauki",
+      "wyjaśnianie problemów dydaktycznych po kontakcie z nauczycielem lub wychowawcą",
+    ],
+  },
+  {
+    name: "Maciej Najwer",
+    role: "Wicedyrektor ds. dydaktycznych",
+    icon: BookOpenCheck,
+    matters: [
+      "organizacja nauczania i realizacja zajęć",
+      "sprawy dotyczące oceniania i przebiegu nauki",
+      "wyjaśnianie problemów dydaktycznych po kontakcie z nauczycielem lub wychowawcą",
+    ],
+  },
+] as const;
+---
+
+<BaseLayout title="Dyrekcja ZSZ5 - zakres spraw | Strefa Ucznia ZSZ5" description="Dyrekcja ZSZ5 i praktyczny podział spraw: dyrektor, wicedyrektor do spraw wychowawczych oraz wicedyrektorzy do spraw dydaktycznych.">
+  <section class="page-hero">
+    <div class="container">
+      <p class="eyebrow">Pomoc ze strony dyrekcji</p>
+      <h1>Dyrekcja ZSZ5</h1>
+      <p class="lead">Do dyrekcji należy zwrócić się, gdy sprawa wymaga decyzji szkoły, dotyczy bezpieczeństwa albo nie została rozwiązana po rozmowie z nauczycielem, wychowawcą lub właściwym pracownikiem.</p>
+      <div class="button-row">
+        <a class="button primary" href="tel:+48717986934"><PhoneCall size={18} aria-hidden="true" /> Kontakt przez sekretariat</a>
+        <a class="button" href={sitePath("/pomoc/")}>Wszystkie ścieżki pomocy <ArrowRight size={17} aria-hidden="true" /></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="band band-soft" aria-labelledby="management-heading">
+    <div class="container">
+      <div class="section-heading">
+        <p class="eyebrow">Podział spraw</p>
+        <h2 id="management-heading">W jakiej sprawie zgłosić się do dyrekcji</h2>
+        <p>Zakresy poniżej pomagają wybrać właściwą osobę. Szczegółowy wewnętrzny podział zadań może się zmieniać; sekretariat wskaże osobę prowadzącą konkretną sprawę.</p>
+      </div>
+      <div class="management-grid">
+        {management.map((person) => {
+          const Icon = person.icon;
+          return (
+            <article class="management-card">
+              <Icon size={27} aria-hidden="true" />
+              <p class="audience-label">{person.role}</p>
+              <h3>{person.name}</h3>
+              <ul>
+                {person.matters.map((matter) => <li>{matter}</li>)}
+              </ul>
+            </article>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+
+  <section class="band" aria-labelledby="management-contact">
+    <div class="container two-column-info">
+      <div>
+        <div class="section-heading">
+          <p class="eyebrow">Przed kontaktem</p>
+          <h2 id="management-contact">Jak przedstawić sprawę</h2>
+        </div>
+        <ol class="plain-steps">
+          <li><strong>Opisz sprawę krótko i konkretnie.</strong><span>Podaj klasę, osoby, daty oraz dotychczas podjęte działania.</span></li>
+          <li><strong>Wskaż, czego potrzebujesz.</strong><span>Może to być rozmowa, wyjaśnienie, decyzja albo wskazanie dalszego postępowania.</span></li>
+          <li><strong>Dołącz potrzebne dokumenty.</strong><span>Wiadomość, pismo lub dokument przedstaw tylko wtedy, gdy pomaga wyjaśnić sprawę.</span></li>
+        </ol>
+      </div>
+      <aside class="contact-panel">
+        <ShieldCheck size={28} aria-hidden="true" />
+        <h2>Kontakt przez sekretariat</h2>
+        <p>Spotkanie z dyrekcją najlepiej umówić wcześniej. Sekretariat przekaże informację lub wskaże właściwą osobę.</p>
+        <a href="tel:+48717986934"><PhoneCall size={18} aria-hidden="true" /> +48 71 798 69 34</a>
+        <a href="mailto:sekretariat.zsz5@wroclawskaedukacja.pl"><Mail size={18} aria-hidden="true" /> sekretariat.zsz5@wroclawskaedukacja.pl</a>
+        <p class="contact-address">ul. Jana Władysława Dawida 5, 50-527 Wrocław</p>
+      </aside>
+    </div>
+  </section>
+</BaseLayout>
