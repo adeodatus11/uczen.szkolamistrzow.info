@@ -1,0 +1,110 @@
+---
+import { Menu, Search, X } from "lucide-astro";
+import "../styles/global.css";
+
+type Props = {
+  title: string;
+  description?: string;
+};
+
+const {
+  title,
+  description = "Praktyczny portal informacyjny dla uczniów i rodziców Zespołu Szkół Zawodowych nr 5 we Wrocławiu.",
+} = Astro.props;
+
+const canonical = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#ffffff" />
+    <link rel="canonical" href={canonical} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Przejdź do treści</a>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="/" aria-label="Strefa Ucznia ZSZ5 - strona główna">
+          <img src="/assets/zsz5-logo.png" width="500" height="407" alt="ZSZ5 we Wrocławiu" />
+          <span>
+            <strong>Strefa Ucznia</strong>
+            <small>Szkoła Mistrzów</small>
+          </span>
+        </a>
+
+        <nav class="desktop-nav" aria-label="Główna nawigacja">
+          <a href="/branzowa/">BS I</a>
+          <a href="/technikum/">Technikum</a>
+          <a href="/rodzice/">Dla rodziców</a>
+          <a href="/prawa-i-obowiazki/">Prawa i obowiązki</a>
+          <a href="/pomoc/">Pomoc</a>
+        </nav>
+
+        <div class="header-actions">
+          <a class="icon-button search-button" href="/szukaj/" aria-label="Szukaj w portalu" title="Szukaj">
+            <Search size={21} aria-hidden="true" />
+          </a>
+          <button class="icon-button menu-button" type="button" aria-label="Otwórz menu" aria-expanded="false" aria-controls="mobile-menu" title="Menu">
+            <Menu class="menu-open-icon" size={22} aria-hidden="true" />
+            <X class="menu-close-icon" size={22} aria-hidden="true" />
+          </button>
+        </div>
+      </div>
+      <nav class="mobile-nav" id="mobile-menu" aria-label="Menu mobilne" hidden>
+        <div class="container">
+          <a href="/branzowa/">Uczeń BS I</a>
+          <a href="/technikum/">Uczeń technikum</a>
+          <a href="/rodzice/">Rodzic lub opiekun</a>
+          <a href="/prawa-i-obowiazki/">Prawa i obowiązki</a>
+          <a href="/pomoc/">Pomoc i kontakt</a>
+          <a href="/zrodla/">Źródła i aktualność</a>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main-content">
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div class="footer-school">
+          <strong>Zespół Szkół Zawodowych nr 5 we Wrocławiu</strong>
+          <p>ul. Jana Władysława Dawida 5, 50-527 Wrocław</p>
+          <p><a href="tel:+48717986934">+48 71 798 69 34</a> · <a href="mailto:sekretariat.zsz5@wroclawskaedukacja.pl">sekretariat.zsz5@wroclawskaedukacja.pl</a></p>
+        </div>
+        <nav aria-label="Linki w stopce">
+          <a href="/zrodla/">Źródła i aktualność</a>
+          <a href="https://zsz5.edupage.org/" target="_blank" rel="noreferrer">Oficjalna strona szkoły</a>
+          <a href="https://szef.szkolamistrzow.info/" target="_blank" rel="noreferrer">Strefa Pracodawcy</a>
+        </nav>
+      </div>
+      <div class="container legal-note">
+        <p>Portal ma charakter informacyjny. W razie różnic wiążą aktualne przepisy, statut szkoły, umowa o pracę i oficjalne komunikaty ZSZ5.</p>
+        <p>Treści prawne sprawdzone 15 lipca 2026 r.</p>
+      </div>
+    </footer>
+
+    <script>
+      const button = document.querySelector(".menu-button");
+      const menu = document.querySelector("#mobile-menu");
+
+      button?.addEventListener("click", () => {
+        const expanded = button.getAttribute("aria-expanded") === "true";
+        button.setAttribute("aria-expanded", String(!expanded));
+        button.setAttribute("aria-label", expanded ? "Otwórz menu" : "Zamknij menu");
+        if (menu instanceof HTMLElement) menu.hidden = expanded;
+        document.body.classList.toggle("menu-is-open", !expanded);
+      });
+    </script>
+  </body>
+</html>

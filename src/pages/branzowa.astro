@@ -1,0 +1,54 @@
+---
+import { AlertTriangle, ArrowRight, FileText } from "lucide-astro";
+import AudienceHero from "@components/AudienceHero.astro";
+import TopicCard from "@components/TopicCard.astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { topicsFor } from "@data/topics";
+
+const sectionTopics = topicsFor("branżowa").filter((topic) => topic.slug !== "pierwszy-tydzien");
+---
+
+<BaseLayout title="Uczeń BS I - młodociany pracownik | Strefa Ucznia ZSZ5" description="Przewodnik dla ucznia Branżowej Szkoły I stopnia nr 5: umowa, czas pracy, wynagrodzenie, urlop, BHP, nieobecności i zmiana pracodawcy.">
+  <section class="page-hero">
+    <div class="container">
+      <p class="eyebrow">Branżowa Szkoła I stopnia nr 5</p>
+      <h1>Jesteś uczniem i pracownikiem</h1>
+      <p class="lead">W BS I uczysz się w szkole i zdobywasz zawód u pracodawcy. Masz prawa ucznia oraz prawa pracownicze, ale również dwa zestawy obowiązków.</p>
+      <div class="button-row">
+        <a class="button primary" href="/temat/mlodociany-pracownik/">Zrozum swój status <ArrowRight size={18} aria-hidden="true" /></a>
+        <a class="button" href="/temat/umowa-o-prace/"><FileText size={18} aria-hidden="true" /> Sprawdź umowę</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="band band-soft">
+    <div class="container">
+      <AudienceHero current="branżowa" />
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="container">
+      <div class="callout">
+        <AlertTriangle size={26} aria-hidden="true" />
+        <div>
+          <h2>Najważniejsza zasada</h2>
+          <p>Nieobecność w szkole i nieobecność w pracy zgłasza się osobno. Ferie szkolne także nie są automatycznie urlopem od pracy.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" aria-labelledby="bs-topics">
+    <div class="container">
+      <div class="section-heading">
+        <p class="eyebrow">Przewodnik BS I</p>
+        <h2 id="bs-topics">Od umowy do egzaminu</h2>
+        <p>Otwórz temat, którego potrzebujesz. W każdej odpowiedzi znajdziesz fakty, następne kroki i źródła.</p>
+      </div>
+      <div class="topic-grid">
+        {sectionTopics.map((topic) => <TopicCard topic={topic} compact />)}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

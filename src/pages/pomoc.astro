@@ -1,0 +1,67 @@
+---
+import { BriefcaseBusiness, Building2, HeartHandshake, PhoneCall, School, ShieldAlert } from "lucide-astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Pomoc i kontakt | Strefa Ucznia ZSZ5" description="Ścieżki kontaktu dla uczniów i rodziców ZSZ5: wychowawca, kierownik szkolenia praktycznego, sekretariat, specjaliści, PIP i numer alarmowy.">
+  <section class="page-hero">
+    <div class="container">
+      <p class="eyebrow">Z czym do kogo</p>
+      <h1>Zacznij od właściwej osoby</h1>
+      <p class="lead">Krótko opisz problem, podaj datę i oczekiwane rozwiązanie. Jeżeli sprawa dotyczy bezpieczeństwa, nie czekaj na najbliższą wywiadówkę.</p>
+    </div>
+  </section>
+
+  <section class="band band-soft">
+    <div class="container contact-grid">
+      <article class="contact-item">
+        <School size={25} aria-hidden="true" />
+        <h3>Lekcje, oceny, frekwencja, klasa</h3>
+        <p>Najpierw nauczyciel danego przedmiotu lub wychowawca klasy.</p>
+        <a href="https://zsz5.edupage.org/" target="_blank" rel="noreferrer">Przejdź do strony szkoły</a>
+      </article>
+      <article class="contact-item">
+        <BriefcaseBusiness size={25} aria-hidden="true" />
+        <h3>Pracodawca, umowa, zajęcia praktyczne</h3>
+        <p>Kierownik szkolenia praktycznego oraz instruktor lub pracodawca.</p>
+        <a href="/temat/z-czym-do-kogo/">Sprawdź ścieżkę działania</a>
+      </article>
+      <article class="contact-item">
+        <Building2 size={25} aria-hidden="true" />
+        <h3>Dokumenty i zaświadczenia</h3>
+        <p>Sekretariat szkoły: ul. Jana Władysława Dawida 5.</p>
+        <a href="mailto:sekretariat.zsz5@wroclawskaedukacja.pl">Napisz do sekretariatu</a>
+      </article>
+      <article class="contact-item">
+        <HeartHandshake size={25} aria-hidden="true" />
+        <h3>Trudność emocjonalna lub wychowawcza</h3>
+        <p>Wychowawca, pedagog, psycholog albo inny wskazany specjalista szkolny.</p>
+        <a href="tel:+48717986934">Zadzwoń do szkoły</a>
+      </article>
+      <article class="contact-item">
+        <PhoneCall size={25} aria-hidden="true" />
+        <h3>Prawo pracy i warunki zatrudnienia</h3>
+        <p>Państwowa Inspekcja Pracy udziela porad i przyjmuje skargi.</p>
+        <a href="https://www.pip.gov.pl/kontakt" target="_blank" rel="noreferrer">Kontakt z PIP</a>
+      </article>
+      <article class="contact-item">
+        <ShieldAlert size={25} aria-hidden="true" />
+        <h3>Bezpośrednie zagrożenie</h3>
+        <p>Przerwij niebezpieczną czynność, odejdź w bezpieczne miejsce i powiadom osobę dorosłą.</p>
+        <a href="tel:112">Numer alarmowy 112</a>
+      </article>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="container">
+      <div class="callout">
+        <PhoneCall size={26} aria-hidden="true" />
+        <div>
+          <h2>Kontakt do szkoły</h2>
+          <p>Zespół Szkół Zawodowych nr 5, ul. Jana Władysława Dawida 5, 50-527 Wrocław. Telefon: <a href="tel:+48717986934">+48 71 798 69 34</a>. E-mail: <a href="mailto:sekretariat.zsz5@wroclawskaedukacja.pl">sekretariat.zsz5@wroclawskaedukacja.pl</a>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

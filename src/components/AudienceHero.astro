@@ -1,0 +1,49 @@
+---
+import { ArrowRight, BriefcaseBusiness, GraduationCap, Users } from "lucide-astro";
+
+type Props = {
+  current?: "branżowa" | "technikum" | "rodzic";
+};
+
+const { current } = Astro.props;
+
+const items = [
+  {
+    id: "branżowa",
+    href: "/branzowa/",
+    label: "Uczeń BS I",
+    detail: "Szkoła i praca u pracodawcy",
+    icon: BriefcaseBusiness,
+  },
+  {
+    id: "technikum",
+    href: "/technikum/",
+    label: "Uczeń T5",
+    detail: "Nauka, praktyki i egzaminy",
+    icon: GraduationCap,
+  },
+  {
+    id: "rodzic",
+    href: "/rodzice/",
+    label: "Rodzic lub opiekun",
+    detail: "Co sprawdzać i jak pomagać",
+    icon: Users,
+  },
+] as const;
+---
+
+<nav class="audience-switch" aria-label="Wybierz swoją ścieżkę">
+  {items.map((item) => {
+    const Icon = item.icon;
+    return (
+      <a href={item.href} class:list={[`audience-${item.id}`, { active: current === item.id }]} aria-current={current === item.id ? "page" : undefined}>
+        <Icon size={24} strokeWidth={2} aria-hidden="true" />
+        <span>
+          <strong>{item.label}</strong>
+          <small>{item.detail}</small>
+        </span>
+        <ArrowRight class="audience-arrow" size={20} aria-hidden="true" />
+      </a>
+    );
+  })}
+</nav>

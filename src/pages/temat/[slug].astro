@@ -1,0 +1,88 @@
+---
+import { AlertTriangle, ArrowLeft, CheckCircle2 } from "lucide-astro";
+import SourceLinks from "@components/SourceLinks.astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { topics } from "@data/topics";
+
+export function getStaticPaths() {
+  return topics.map((topic) => ({ params: { slug: topic.slug }, props: { topic } }));
+}
+
+const { topic } = Astro.props;
+const backHref = topic.audiences.includes("branżowa")
+  ? "/branzowa/"
+  : topic.audiences.includes("technikum")
+    ? "/technikum/"
+    : topic.audiences.includes("rodzic")
+      ? "/rodzice/"
+      : "/";
+---
+
+<BaseLayout title={`${topic.title} | Strefa Ucznia ZSZ5`} description={topic.summary}>
+  <header class:list={["topic-hero", `tone-${topic.tone}`]}>
+    <div class="container">
+      <a class="text-link" href={backHref}><ArrowLeft size={18} aria-hidden="true" /> Wróć do przewodnika</a>
+      <p class="eyebrow">{topic.eyebrow}</p>
+      <h1>{topic.title}</h1>
+      <p class="lead">{topic.summary}</p>
+    </div>
+  </header>
+
+  <div class="container topic-layout">
+    <article class="topic-content">
+      {topic.important && (
+        <div class:list={["callout", { danger: topic.tone === "red" }]}>
+          <AlertTriangle size={25} aria-hidden="true" />
+          <div><strong>Najważniejsze</strong><p>{topic.important}</p></div>
+        </div>
+      )}
+
+      <h2>Co trzeba wiedzieć</h2>
+      <ul class="answer-list">
+        {topic.facts.map((fact) => <li>{fact}</li>)}
+      </ul>
+
+      <h2>Co zrobić</h2>
+      <ul class="answer-list actions">
+        {topic.actions.map((action) => <li>{action}</li>)}
+      </ul>
+
+      {topic.statuteReference && <p class="statute-ref">Podstawa w statucie: {topic.statuteReference}</p>}
+    </article>
+
+    <aside class="topic-sidebar">
+      <p class="eyebrow">Przejdź dalej</p>
+      <nav aria-label="Skróty w odpowiedzi">
+        <a href="#sources">Źródła odpowiedzi</a>
+        <a href="/prawa-i-obowiazki/">Prawa i obowiązki</a>
+        <a href="/pomoc/">Pomoc i kontakt</a>
+        <a href="/szukaj/">Znajdź inny temat</a>
+      </nav>
+      <div class="verified-panel topic-verified">
+        <CheckCircle2 size={24} aria-hidden="true" />
+        <strong>Treść zweryfikowana</strong>
+        <p>Stan źródeł: 15.07.2026.</p>
+      </div>
+    </aside>
+  </div>
+
+  <div id="sources">
+    <SourceLinks ids={topic.sourceIds} />
+  </div>
+</BaseLayout>
+
+<style>
+  .topic-hero .text-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    margin-bottom: 24px;
+    color: var(--muted);
+    font-weight: 750;
+  }
+
+  .topic-verified {
+    margin-top: 24px;
+    padding: 18px;
+  }
+</style>

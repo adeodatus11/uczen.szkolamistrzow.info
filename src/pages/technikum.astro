@@ -1,0 +1,54 @@
+---
+import { ArrowRight, CalendarDays, ClipboardCheck } from "lucide-astro";
+import AudienceHero from "@components/AudienceHero.astro";
+import TopicCard from "@components/TopicCard.astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { topicsFor } from "@data/topics";
+
+const sectionTopics = topicsFor("technikum").filter((topic) => topic.slug !== "pierwszy-tydzien");
+---
+
+<BaseLayout title="Uczeń Technikum nr 5 | Strefa Ucznia ZSZ5" description="Przewodnik dla ucznia Technikum nr 5: organizacja nauki, praktyki zawodowe, nieobecności, prawa, obowiązki i pomoc.">
+  <section class="page-hero">
+    <div class="container">
+      <p class="eyebrow">Technikum nr 5 im. Jana Kilińskiego</p>
+      <h1>Pięć lat nauki, praktyki i egzaminy</h1>
+      <p class="lead">Technikum łączy przedmioty ogólne i zawodowe. Praktyki są częścią programu, a egzaminy zawodowe i matura to dwa odrębne cele.</p>
+      <div class="button-row">
+        <a class="button primary" href="/temat/jak-dziala-technikum/">Jak działa T5 <ArrowRight size={18} aria-hidden="true" /></a>
+        <a class="button" href="/temat/praktyki-technikum/"><ClipboardCheck size={18} aria-hidden="true" /> Praktyki zawodowe</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="band band-soft">
+    <div class="container">
+      <AudienceHero current="technikum" />
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="container">
+      <div class="callout">
+        <CalendarDays size={26} aria-hidden="true" />
+        <div>
+          <h2>Terminy sprawdzaj w komunikatach</h2>
+          <p>Harmonogram praktyk i egzaminów zależy od klasy, zawodu i roku szkolnego. Portal wyjaśnia zasady, a konkretne daty potwierdzaj w VULCAN-ie i komunikatach szkoły.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" aria-labelledby="t5-topics">
+    <div class="container">
+      <div class="section-heading">
+        <p class="eyebrow">Przewodnik T5</p>
+        <h2 id="t5-topics">Nauka i praktyka bez chaosu</h2>
+        <p>Najważniejsze zasady technikum zebrane według spraw, które uczeń rzeczywiście musi załatwić.</p>
+      </div>
+      <div class="topic-grid">
+        {sectionTopics.map((topic) => <TopicCard topic={topic} compact />)}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

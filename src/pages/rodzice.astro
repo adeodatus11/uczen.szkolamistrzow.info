@@ -1,0 +1,66 @@
+---
+import { ArrowRight, BellRing, ShieldCheck } from "lucide-astro";
+import AudienceHero from "@components/AudienceHero.astro";
+import TopicCard from "@components/TopicCard.astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { topicsFor } from "@data/topics";
+
+const parentTopics = topicsFor("rodzic").filter((topic) => [
+  "pierwszy-tydzien",
+  "mlodociany-pracownik",
+  "umowa-o-prace",
+  "czas-pracy",
+  "bhp-i-wypadek",
+  "nieobecnosc-bs1",
+  "praktyki-technikum",
+  "nieobecnosc-technikum",
+  "z-czym-do-kogo",
+].includes(topic.slug));
+---
+
+<BaseLayout title="Dla rodziców i opiekunów | Strefa Ucznia ZSZ5" description="Przewodnik rodzica ucznia ZSZ5: pierwsze kroki, VULCAN, umowa młodocianego, czas pracy, BHP, praktyki, frekwencja i kontakt.">
+  <section class="page-hero">
+    <div class="container">
+      <p class="eyebrow">Rodzic lub opiekun</p>
+      <h1>Pomagaj, ale nie przejmuj odpowiedzialności ucznia</h1>
+      <p class="lead">Najlepsze wsparcie to regularny kontakt, znajomość zasad i szybka reakcja na problem. W BS I trzeba patrzeć równocześnie na szkołę i pracę; w T5 na naukę, praktyki i egzaminy.</p>
+      <div class="button-row">
+        <a class="button primary" href="/temat/pierwszy-tydzien/">Lista na początek <ArrowRight size={18} aria-hidden="true" /></a>
+        <a class="button" href="/pomoc/">Z czym do kogo</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="band band-soft">
+    <div class="container">
+      <AudienceHero current="rodzic" />
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="container">
+      <div class="section-heading">
+        <p class="eyebrow">Rutyna rodzica</p>
+        <h2>Sprawdzaj cztery sygnały</h2>
+      </div>
+      <div class="contact-grid">
+        <article class="contact-item"><BellRing size={24} aria-hidden="true" /><h3>Komunikacja</h3><p>Wiadomości w VULCAN-ie, kontakt z wychowawcą i aktualne komunikaty szkoły.</p></article>
+        <article class="contact-item"><ShieldCheck size={24} aria-hidden="true" /><h3>Bezpieczeństwo</h3><p>Warunki praktyk lub pracy, zmęczenie, BHP, relacje i zachowanie ucznia.</p></article>
+        <article class="contact-item"><ArrowRight size={24} aria-hidden="true" /><h3>Dokumenty</h3><p>Frekwencja, usprawiedliwienia, umowa BS I, dzienniczek praktyk i terminy.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="band band-soft" aria-labelledby="parent-topics">
+    <div class="container">
+      <div class="section-heading">
+        <p class="eyebrow">Przewodnik rodzica</p>
+        <h2 id="parent-topics">Najważniejsze odpowiedzi</h2>
+        <p>Tematy wspólne oraz osobne zasady dla rodziców uczniów BS I i technikum.</p>
+      </div>
+      <div class="topic-grid">
+        {parentTopics.map((topic) => <TopicCard topic={topic} compact />)}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

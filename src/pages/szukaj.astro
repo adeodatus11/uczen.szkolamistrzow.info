@@ -1,0 +1,112 @@
+---
+import { Search } from "lucide-astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { topics } from "@data/topics";
+
+const searchData = topics.map((topic) => ({
+  title: topic.title,
+  eyebrow: topic.eyebrow,
+  summary: topic.summary,
+  slug: topic.slug,
+  search: [topic.title, topic.eyebrow, topic.summary, ...topic.facts, ...topic.actions].join(" ").toLocaleLowerCase("pl"),
+}));
+---
+
+<BaseLayout title="Szukaj odpowiedzi | Strefa Ucznia ZSZ5" description="Wyszukiwarka odpowiedzi dla uczniów i rodziców ZSZ5.">
+  <section class="page-hero search-page">
+    <div class="container">
+      <p class="eyebrow">Baza wiedzy</p>
+      <h1>Znajdź odpowiedź</h1>
+      <p class="lead">Szukaj po zwykłych słowach: urlop, L4, praktyki, umowa, wynagrodzenie, oceny albo pomoc.</p>
+      <form class="search-field" role="search" id="search-form">
+        <label class="sr-only" for="portal-search">Wpisz szukany temat</label>
+        <input id="portal-search" type="search" name="q" placeholder="Czego szukasz?" autocomplete="off" />
+        <button type="submit" aria-label="Szukaj"><Search size={22} aria-hidden="true" /></button>
+      </form>
+      <p class="search-meta" id="search-meta" aria-live="polite">Wpisz co najmniej 2 znaki.</p>
+      <div class="search-results" id="search-results"></div>
+      <noscript><p class="empty-state">Wyszukiwarka wymaga JavaScript. Skorzystaj z menu BS I, Technikum lub Prawa i obowiązki.</p></noscript>
+    </div>
+  </section>
+
+  <script is:inline type="application/json" id="topics-data" set:html={JSON.stringify(searchData).replaceAll("<", "\\u003c")}></script>
+  <script>
+    type SearchItem = {
+      title: string;
+      eyebrow: string;
+      summary: string;
+      slug: string;
+      search: string;
+    };
+
+    const dataElement = document.querySelector("#topics-data");
+    const input = document.querySelector("#portal-search");
+    const form = document.querySelector("#search-form");
+    const results = document.querySelector("#search-results");
+    const meta = document.querySelector("#search-meta");
+    const data: SearchItem[] = dataElement?.textContent ? JSON.parse(dataElement.textContent) : [];
+
+    const entities: Record<string, string> = {
+      "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;",
+    };
+    const escapeHtml = (value: string) => value.replace(/[&<>'"]/g, (char) => entities[char]);
+
+    const render = (rawQuery: string) => {
+      if (!(results instanceof HTMLElement) || !(meta instanceof HTMLElement)) return;
+      const query = rawQuery.trim().toLocaleLowerCase("pl");
+      const url = new URL(window.location.href);
+
+      if (query) url.searchParams.set("q", rawQuery.trim());
+      else url.searchParams.delete("q");
+      window.history.replaceState({}, "", url);
+
+      if (query.length < 2) {
+        results.innerHTML = "";
+        meta.textContent = "Wpisz co najmniej 2 znaki.";
+        return;
+      }
+
+      const matches = data.filter((item) => item.search.includes(query));
+      meta.textContent = matches.length === 1 ? "Znaleziono 1 odpowiedź." : `Znaleziono ${matches.length} odpowiedzi.`;
+
+      if (!matches.length) {
+        results.innerHTML = '<div class="empty-state"><strong>Brak wyników.</strong><p>Spróbuj krótszego hasła albo przejdź do strony Pomoc i kontakt.</p></div>';
+        return;
+      }
+
+      results.innerHTML = matches.map((item) => `
+        <a class="search-result" href="/temat/${encodeURIComponent(item.slug)}/">
+          <span><small class="eyebrow">${escapeHtml(item.eyebrow)}</small><strong>${escapeHtml(item.title)}</strong><p>${escapeHtml(item.summary)}</p></span>
+          <span aria-hidden="true">→</span>
+        </a>
+      `).join("");
+    };
+
+    form?.addEventListener("submit", (event) => {
+      event.preventDefault();
+      if (input instanceof HTMLInputElement) render(input.value);
+    });
+
+    input?.addEventListener("input", () => {
+      if (input instanceof HTMLInputElement) render(input.value);
+    });
+
+    const initial = new URL(window.location.href).searchParams.get("q") ?? "";
+    if (input instanceof HTMLInputElement) {
+      input.value = initial;
+      if (initial) render(initial);
+      input.focus();
+    }
+  </script>
+</BaseLayout>
+
+<style>
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+  }
+</style>

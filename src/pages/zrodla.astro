@@ -1,0 +1,33 @@
+---
+import { ExternalLink } from "lucide-astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { sources } from "@data/sources";
+---
+
+<BaseLayout title="Źródła i aktualność | Strefa Ucznia ZSZ5" description="Rejestr źródeł portalu: statut ZSZ5, Kodeks pracy, PIP, MEN, akty prawne i standardy dostępności wraz z datami weryfikacji.">
+  <section class="page-hero">
+    <div class="container">
+      <p class="eyebrow">Wiarygodność treści</p>
+      <h1>Źródła i daty weryfikacji</h1>
+      <p class="lead">Każda odpowiedź w portalu wskazuje źródła. Gdy zmienia się prawo albo statut, można szybko znaleźć treści wymagające aktualizacji.</p>
+    </div>
+  </section>
+
+  <section class="band band-soft">
+    <div class="container source-grid">
+      {sources.map((source) => (
+        <article class="source-card">
+          <h2>{source.title}</h2>
+          <p>{source.description}</p>
+          <footer>
+            <span class="source-type">{source.type}</span>
+            <span>Sprawdzone: {source.verifiedAt}</span>
+          </footer>
+          <div class="button-row">
+            <a class="button" href={source.url} target="_blank" rel="noreferrer">Otwórz źródło <ExternalLink size={17} aria-hidden="true" /></a>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

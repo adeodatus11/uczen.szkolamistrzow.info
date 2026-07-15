@@ -1,0 +1,18 @@
+---
+import { ArrowLeft, Search } from "lucide-astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Nie znaleziono strony | Strefa Ucznia ZSZ5">
+  <section class="page-hero search-page">
+    <div class="container">
+      <p class="eyebrow">Błąd 404</p>
+      <h1>Nie znaleźliśmy tej strony</h1>
+      <p class="lead">Link mógł się zmienić. Wróć na start albo wyszukaj potrzebny temat.</p>
+      <div class="button-row">
+        <a class="button primary" href="/"><ArrowLeft size={18} aria-hidden="true" /> Strona główna</a>
+        <a class="button" href="/szukaj/"><Search size={18} aria-hidden="true" /> Szukaj</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

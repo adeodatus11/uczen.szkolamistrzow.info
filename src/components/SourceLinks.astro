@@ -1,0 +1,27 @@
+---
+import { ExternalLink } from "lucide-astro";
+import { sourceById } from "@data/sources";
+
+type Props = {
+  ids: string[];
+  heading?: string;
+};
+
+const { ids, heading = "Źródła tej odpowiedzi" } = Astro.props;
+const selected = ids.map((id) => sourceById.get(id)).filter(Boolean);
+---
+
+<section class="source-box" aria-labelledby="source-heading">
+  <h2 id="source-heading">{heading}</h2>
+  <ul>
+    {selected.map((source) => source && (
+      <li>
+        <a href={source.url} target="_blank" rel="noreferrer">
+          <span>{source.title}</span>
+          <ExternalLink size={17} aria-hidden="true" />
+        </a>
+        <small>Sprawdzone: {source.verifiedAt}</small>
+      </li>
+    ))}
+  </ul>
+</section>

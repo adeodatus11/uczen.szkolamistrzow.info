@@ -1,0 +1,34 @@
+---
+import { Scale } from "lucide-astro";
+import TopicCard from "@components/TopicCard.astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { topics } from "@data/topics";
+
+const selected = topics.filter((topic) => ["prawa-ucznia", "obowiazki-ucznia", "nieobecnosc-bs1", "nieobecnosc-technikum"].includes(topic.slug));
+---
+
+<BaseLayout title="Prawa i obowiązki ucznia | Strefa Ucznia ZSZ5" description="Skrót praw, obowiązków i zasad usprawiedliwiania nieobecności w ZSZ nr 5 na podstawie aktualnego statutu.">
+  <section class="page-hero">
+    <div class="container hero-grid">
+      <div>
+        <p class="eyebrow">Statut bez prawniczego języka</p>
+        <h1>Prawa i obowiązki w praktyce</h1>
+        <p class="lead">Najważniejsze zasady wyjaśnione krótko. Przy każdej odpowiedzi podajemy właściwy fragment statutu i link do pełnego dokumentu.</p>
+      </div>
+      <aside class="verified-panel">
+        <Scale size={28} aria-hidden="true" />
+        <strong>Aktualny dokument</strong>
+        <p>Wykorzystujemy statut ZSZ5 obowiązujący od 16 października 2025 r.</p>
+        <a href="https://cloud-c.edupage.org/cloud/Statut_Zespolu_Szkol_Zawodowych_nr_20251015.pdf?z%3Asbu4ax7PRPWla7k0wzDlbS%2Fp%2BaPn9iCk2GiI7HOZH4X2MzM7PeHpRRq1%2BWNm8iGCkrlWuNDpaqwmxbgSMfUDDw%3D%3D=" target="_blank" rel="noreferrer">Otwórz pełny statut</a>
+      </aside>
+    </div>
+  </section>
+
+  <section class="band band-soft">
+    <div class="container">
+      <div class="topic-grid">
+        {selected.map((topic) => <TopicCard topic={topic} />)}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
