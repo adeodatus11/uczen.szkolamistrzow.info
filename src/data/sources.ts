@@ -43,6 +43,22 @@ export const sources: Source[] = [
     description: "Nazwiska specjalistów, numery wewnętrzne, adresy e-mail, gabinet i tygodniowe godziny dyżurów.",
   },
   {
+    id: "zsz5-standards-minors-short",
+    title: "ZSZ5: Standardy Ochrony Małoletnich - wersja skrócona",
+    url: "https://cloud-7.edupage.org/cloud/standardy_ochrony_maloletnich_wer_skrocona.pdf?z%3An25LwRpYFKK%2F4aseMPoWkEj166PCLyhADtHgh36RhcfPdFiKWEjqdnpAf4fx%2BlDo",
+    type: "szkolne",
+    verifiedAt: "2026-07-15",
+    description: "Skrócona wersja zasad ochrony uczniów, przygotowana do szybkiego zapoznania się z najważniejszymi informacjami.",
+  },
+  {
+    id: "zsz5-standards-minors-full",
+    title: "ZSZ5: Standardy Ochrony Małoletnich - wersja pełna",
+    url: "https://cloud-d.edupage.org/cloud/Standardy_Ochrony_Maloletnich_-_wersja_pelna.pdf?z%3AFoArPe278Zpk0QIZljSk8%2FtZOqZEXvoTAp6%2FTj%2FlbjFG0KVmWV%2FgAF2g5MnW9v4L",
+    type: "szkolne",
+    verifiedAt: "2026-07-15",
+    description: "Pełny dokument określający zasady ochrony uczniów oraz procedury reagowania na krzywdzenie obowiązujące w ZSZ5.",
+  },
+  {
     id: "zsz5-management-2026",
     title: "Dyrekcja ZSZ5 - podział odpowiedzialności",
     url: "https://zsz5.edupage.org/",

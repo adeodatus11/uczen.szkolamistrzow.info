@@ -1,0 +1,111 @@
+---
+import { ArrowRight, Download, HeartHandshake, ShieldAlert, ShieldCheck, Smartphone, UsersRound } from "lucide-astro";
+import SourceLinks from "@components/SourceLinks.astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { sitePath } from "../lib/paths";
+
+const standardsFullUrl = "https://cloud-d.edupage.org/cloud/Standardy_Ochrony_Maloletnich_-_wersja_pelna.pdf?z%3AFoArPe278Zpk0QIZljSk8%2FtZOqZEXvoTAp6%2FTj%2FlbjFG0KVmWV%2FgAF2g5MnW9v4L";
+const standardsShortUrl = "https://cloud-7.edupage.org/cloud/standardy_ochrony_maloletnich_wer_skrocona.pdf?z%3An25LwRpYFKK%2F4aseMPoWkEj166PCLyhADtHgh36RhcfPdFiKWEjqdnpAf4fx%2BlDo";
+---
+
+<BaseLayout title="Bezpieczeństwo uczniów w ZSZ5 | Strefa Ucznia ZSZ5" description="Jak zgłosić przemoc, krzywdzenie, wykluczenie, cyberprzemoc lub hejt oraz jak ZSZ5 reaguje zgodnie ze Standardami Ochrony Małoletnich.">
+  <section class="page-hero">
+    <div class="container">
+      <p class="eyebrow">Standardy Ochrony Małoletnich</p>
+      <h1>Bezpieczeństwo uczniów w ZSZ5</h1>
+      <p class="lead">Pomoc uczniom realizujemy zgodnie z obowiązującymi procedurami, w tym Standardami Ochrony Małoletnich. Każde zgłoszenie dotyczące przemocy, krzywdzenia lub zagrożenia dobrostanu ucznia traktujemy poważnie i podejmujemy działania odpowiednie do sytuacji.</p>
+      <div class="button-row">
+        <a class="button primary" href="#zgloszenie">Jak zgłosić problem <ArrowRight size={18} aria-hidden="true" /></a>
+        <a class="button" href={standardsShortUrl} target="_blank" rel="noreferrer">Wersja skrócona standardów <Download size={18} aria-hidden="true" /></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="band band-soft" aria-labelledby="when-report">
+    <div class="container">
+      <div class="section-heading">
+        <p class="eyebrow">Sytuacje wymagające reakcji</p>
+        <h2 id="when-report">Kiedy należy zgłosić problem</h2>
+        <p>Zgłoszenia może dokonać uczeń, rodzic, opiekun albo osoba, która zauważyła niepokojącą sytuację.</p>
+      </div>
+      <div class="info-panel-grid">
+        <article class="info-panel">
+          <ShieldAlert size={27} aria-hidden="true" />
+          <h3>Przemoc lub krzywdzenie</h3>
+          <p>Przemoc fizyczna lub psychiczna, groźby, naruszanie granic albo inne zachowanie, przez które uczeń nie czuje się bezpiecznie.</p>
+        </article>
+        <article class="info-panel">
+          <UsersRound size={27} aria-hidden="true" />
+          <h3>Wykluczenie, hejt lub poniżanie</h3>
+          <p>Ośmieszanie, uporczywe dokuczanie, dyskryminacja, izolowanie ucznia lub naruszanie jego godności.</p>
+        </article>
+        <article class="info-panel">
+          <Smartphone size={27} aria-hidden="true" />
+          <h3>Cyberprzemoc</h3>
+          <p>Nękanie w Internecie, obraźliwe wiadomości albo publikowanie zdjęć, nagrań lub innych treści bez zgody.</p>
+        </article>
+        <article class="info-panel">
+          <HeartHandshake size={27} aria-hidden="true" />
+          <h3>Niepokojące sygnały</h3>
+          <p>Każda sytuacja, w której uczeń obawia się o swoje bezpieczeństwo albo rodzic zauważa wyraźne pogorszenie jego dobrostanu.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="zgloszenie" aria-labelledby="report-heading">
+    <div class="container two-column-info">
+      <div>
+        <div class="section-heading">
+          <p class="eyebrow">Bezpieczne zgłoszenie</p>
+          <h2 id="report-heading">Jak zgłosić problem</h2>
+        </div>
+        <ol class="plain-steps">
+          <li><strong>Powiedz zaufanej osobie dorosłej.</strong><span>Może to być wychowawca, nauczyciel, pedagog, psycholog albo osoba z dyrekcji.</span></li>
+          <li><strong>Opisz najważniejsze fakty.</strong><span>Powiedz, co się wydarzyło, kiedy, gdzie i kto uczestniczył w sytuacji. Przy cyberprzemocy zachowaj wiadomości lub zrzuty ekranu.</span></li>
+          <li><strong>Nie czekaj w sytuacji zagrożenia.</strong><span>Odejdź w bezpieczne miejsce, powiadom osobę dorosłą, a w razie bezpośredniego zagrożenia zdrowia lub życia zadzwoń pod 112.</span></li>
+        </ol>
+      </div>
+      <aside class="contact-panel" aria-label="Kontakt w sprawie bezpieczeństwa">
+        <ShieldCheck size={30} aria-hidden="true" />
+        <h2>Gdzie uzyskać pomoc</h2>
+        <p>Skontaktuj się z wychowawcą, pedagogiem, psychologiem lub dyrekcją. Dane specjalistów i zakres odpowiedzialności dyrekcji są dostępne w portalu.</p>
+        <a href={sitePath("/pomoc-psychologiczno-pedagogiczna/")}>Specjaliści i godziny dyżurów <ArrowRight size={17} aria-hidden="true" /></a>
+        <a href={sitePath("/dyrekcja/")}>Pomoc ze strony dyrekcji <ArrowRight size={17} aria-hidden="true" /></a>
+        <p class="contact-address">W sytuacji nagłej: <a href="tel:112">numer alarmowy 112</a>.</p>
+      </aside>
+    </div>
+  </section>
+
+  <section class="band band-dark" aria-labelledby="school-response">
+    <div class="container">
+      <div class="section-heading">
+        <p class="eyebrow">Postępowanie szkoły</p>
+        <h2 id="school-response">Co dzieje się po zgłoszeniu</h2>
+        <p>Zakres działań zależy od rodzaju i pilności sprawy. Szkoła postępuje zgodnie ze Standardami Ochrony Małoletnich i przepisami prawa.</p>
+      </div>
+      <ol class="steps">
+        <li><strong>Reagujemy na zgłoszenie</strong><span>Rozpoznajemy sytuację i podejmujemy działania służące bezpieczeństwu ucznia.</span></li>
+        <li><strong>Rozmawiamy z uczniem i rodzicami</strong><span>Ustalamy fakty oraz szukamy rozwiązania odpowiedniego do sytuacji.</span></li>
+        <li><strong>Włączamy specjalistów</strong><span>W razie potrzeby angażujemy pedagoga, psychologa lub inne osoby odpowiedzialne za pomoc.</span></li>
+        <li><strong>Zapewniamy dalsze wsparcie</strong><span>W razie potrzeby współpracujemy z właściwymi instytucjami. Prowadzimy też profilaktykę dotyczącą bezpieczeństwa, relacji rówieśniczych, zdrowia psychicznego i korzystania z Internetu.</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="band" aria-labelledby="standards-documents">
+    <div class="container">
+      <div class="section-heading">
+        <p class="eyebrow">Dokumenty szkolne</p>
+        <h2 id="standards-documents">Standardy Ochrony Małoletnich do pobrania</h2>
+        <p>Wersja skrócona przedstawia najważniejsze zasady dla uczniów. Wersja pełna określa szczegółowe procedury obowiązujące w ZSZ5.</p>
+      </div>
+      <div class="quick-link-grid">
+        <a class="quick-link" href={standardsShortUrl} target="_blank" rel="noreferrer"><strong>Wersja skrócona</strong><span>Najważniejsze zasady przedstawione w krótszej formie</span><Download size={20} aria-hidden="true" /></a>
+        <a class="quick-link" href={standardsFullUrl} target="_blank" rel="noreferrer"><strong>Wersja pełna</strong><span>Szczegółowe zasady i procedury obowiązujące w szkole</span><Download size={20} aria-hidden="true" /></a>
+      </div>
+    </div>
+  </section>
+
+  <SourceLinks ids={["zsz5-standards-minors-short", "zsz5-standards-minors-full", "zsz5-psych-support", "statut-zsz5"]} />
+</BaseLayout>

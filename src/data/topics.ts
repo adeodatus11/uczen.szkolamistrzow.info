@@ -618,6 +618,7 @@ export const topics: Topic[] = [
       "Sprawy zajęć praktycznych, praktyk i umowy należy kierować do kierownika szkolenia praktycznego.",
       "Dokumenty, legitymacje i zaświadczenia obsługuje sekretariat.",
       "Pomoc emocjonalną, wychowawczą i psychologiczną zapewniają pedagog, psycholog i inni specjaliści szkolni.",
+      "Zgłoszenia dotyczące przemocy, krzywdzenia, wykluczenia, cyberprzemocy lub hejtu są rozpatrywane zgodnie ze Standardami Ochrony Małoletnich.",
       "W razie zagrożenia zdrowia lub życia dzwoń pod 112.",
     ],
     actions: [
@@ -625,7 +626,7 @@ export const topics: Topic[] = [
       "Dołącz zdjęcie dokumentu lub zrzut wiadomości, jeżeli jest potrzebny do wyjaśnienia sprawy.",
       "Jeżeli pierwszy kontakt nie rozwiąże problemu, poproś o wskazanie kolejnego kroku lub zwróć się do dyrekcji.",
     ],
-    sourceIds: ["statut-zsz5", "zsz5-contact", "pip-mlodociani"],
+    sourceIds: ["statut-zsz5", "zsz5-contact", "zsz5-standards-minors-full", "pip-mlodociani"],
     statuteReference: "Statut ZSZ5: § 74 ust. 6 i § 85.",
   },
 ];

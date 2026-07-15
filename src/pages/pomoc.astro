@@ -4,7 +4,7 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 import { sitePath } from "../lib/paths";
 ---
 
-<BaseLayout title="Pomoc i kontakt | Strefa Ucznia ZSZ5" description="Ścieżki kontaktu dla uczniów i rodziców ZSZ5: wychowawca, kierownik szkolenia praktycznego, sekretariat, specjaliści, PIP i numer alarmowy.">
+<BaseLayout title="Pomoc i kontakt | Strefa Ucznia ZSZ5" description="Ścieżki kontaktu dla uczniów i rodziców ZSZ5: bezpieczeństwo, wychowawca, kierownik szkolenia praktycznego, sekretariat, specjaliści, PIP i numer alarmowy.">
   <section class="page-hero">
     <div class="container">
       <p class="eyebrow">Załatwianie spraw szkolnych</p>
@@ -18,10 +18,11 @@ import { sitePath } from "../lib/paths";
       <div class="section-heading">
         <p class="eyebrow">Bezpośrednia pomoc</p>
         <h2 id="help-entries">Kontakty i zakres odpowiedzialności</h2>
-        <p>Sprawdź dyżury specjalistów albo wybierz osobę z dyrekcji odpowiedzialną za dany rodzaj sprawy.</p>
+        <p>Sprawdź zasady zgłaszania problemów, dyżury specjalistów albo wybierz osobę z dyrekcji odpowiedzialną za dany rodzaj sprawy.</p>
       </div>
       <div class="quick-link-grid help-entry-grid">
         <a class="quick-link" href={sitePath("/pomoc-psychologiczno-pedagogiczna/")}><strong>Pomoc psychologiczno-pedagogiczna</strong><span>Specjaliści, telefony, e-maile i godziny dyżurów</span><ArrowRight size={20} aria-hidden="true" /></a>
+        <a class="quick-link" href={sitePath("/bezpieczenstwo-uczniow/")}><strong>Bezpieczeństwo uczniów</strong><span>Standardy Ochrony Małoletnich i sposób zgłoszenia</span><ArrowRight size={20} aria-hidden="true" /></a>
         <a class="quick-link" href={sitePath("/dyrekcja/")}><strong>Dyrekcja ZSZ5</strong><span>Zakres spraw i sposób umówienia kontaktu</span><ArrowRight size={20} aria-hidden="true" /></a>
       </div>
       <div class="contact-grid">
