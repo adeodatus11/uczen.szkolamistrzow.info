@@ -1,5 +1,5 @@
 ---
-import { ArrowRight, BookOpenCheck, BriefcaseBusiness, Building2, Mail, PhoneCall, ShieldCheck, UsersRound } from "lucide-astro";
+import { ArrowRight, BookOpenCheck, BriefcaseBusiness, Building2, Mail, ShieldCheck, UsersRound } from "lucide-astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import { sitePath } from "../lib/paths";
 
@@ -7,8 +7,6 @@ const management = [
   {
     name: "Wiesław Filipiak",
     role: "Dyrektor ZSZ5",
-    extension: "101",
-    office: null,
     email: "wfilipiak@zsz5.edupage.org",
     icon: Building2,
     matters: [
@@ -20,8 +18,6 @@ const management = [
   {
     name: "Małgorzata Kończyńska",
     role: "Wicedyrektor ds. wychowawczych",
-    extension: "103",
-    office: null,
     email: "mkonczynska@zsz5.edupage.org",
     icon: UsersRound,
     matters: [
@@ -33,8 +29,6 @@ const management = [
   {
     name: "Marzena Filusz",
     role: "Wicedyrektor ds. dydaktycznych",
-    extension: "105",
-    office: null,
     email: "mfilusz@zsz5.edupage.org",
     icon: BookOpenCheck,
     matters: [
@@ -46,8 +40,6 @@ const management = [
   {
     name: "Maciej Najwer",
     role: "Wicedyrektor ds. dydaktycznych",
-    extension: "106",
-    office: null,
     email: "mnajwer@zsz5.edupage.org",
     icon: BookOpenCheck,
     matters: [
@@ -59,8 +51,6 @@ const management = [
   {
     name: "Arkadiusz Mocarski",
     role: "Kierownik szkolenia praktycznego",
-    extension: "102",
-    office: "Gabinet 25",
     email: "amocarski@zsz5.edupage.org",
     icon: BriefcaseBusiness,
     matters: [
@@ -79,7 +69,7 @@ const management = [
       <h1>Dyrekcja ZSZ5</h1>
       <p class="lead">Do dyrekcji należy zwrócić się, gdy sprawa wymaga decyzji szkoły, dotyczy bezpieczeństwa albo nie została rozwiązana po rozmowie z nauczycielem, wychowawcą lub właściwym pracownikiem.</p>
       <div class="button-row">
-        <a class="button primary" href="tel:+48717986934"><PhoneCall size={18} aria-hidden="true" /> Sekretariat, wew. 100</a>
+        <a class="button primary" href="mailto:sekretariat.zsz5@wroclawskaedukacja.pl"><Mail size={18} aria-hidden="true" /> Napisz do sekretariatu</a>
         <a class="button" href={sitePath("/pomoc/")}>Wszystkie ścieżki pomocy <ArrowRight size={17} aria-hidden="true" /></a>
       </div>
     </div>
@@ -101,9 +91,7 @@ const management = [
               <p class="audience-label">{person.role}</p>
               <h3>{person.name}</h3>
               <div class="specialist-contact">
-                <a href="tel:+48717986934"><PhoneCall size={17} aria-hidden="true" /> 71 798 69 34, wew. {person.extension}</a>
-                {person.office && <span>{person.office}</span>}
-                {person.email && <a href={`mailto:${person.email}`}><Mail size={17} aria-hidden="true" /> {person.email}</a>}
+                <a href={`mailto:${person.email}`}><Mail size={17} aria-hidden="true" /> {person.email}</a>
               </div>
               <ul>
                 {person.matters.map((matter) => <li>{matter}</li>)}
@@ -132,7 +120,6 @@ const management = [
         <ShieldCheck size={28} aria-hidden="true" />
         <h2>Kontakt przez sekretariat</h2>
         <p>Spotkanie z dyrekcją najlepiej umówić wcześniej. Sekretariat przekaże informację lub wskaże właściwą osobę.</p>
-        <a href="tel:+48717986934"><PhoneCall size={18} aria-hidden="true" /> +48 71 798 69 34, wew. 100</a>
         <a href="mailto:sekretariat.zsz5@wroclawskaedukacja.pl"><Mail size={18} aria-hidden="true" /> sekretariat.zsz5@wroclawskaedukacja.pl</a>
         <p class="contact-address">ul. Jana Władysława Dawida 5, 50-527 Wrocław</p>
       </aside>
