@@ -1,6 +1,7 @@
 ---
 import { ArrowRight, CheckCircle2, Clock3, Search, ShieldAlert } from "lucide-astro";
 import AudienceHero from "@components/AudienceHero.astro";
+import ParentMeetingModal from "@components/ParentMeetingModal.astro";
 import PathComparison from "@components/PathComparison.astro";
 import StartNotices from "@components/StartNotices.astro";
 import TopicCard from "@components/TopicCard.astro";
@@ -20,6 +21,7 @@ const featured = featuredSlugs.map((slug) => topics.find((topic) => topic.slug =
 ---
 
 <BaseLayout title="Strefa Ucznia ZSZ5 - szkoła, zawód i praca">
+  <ParentMeetingModal />
   <section class="page-hero">
     <div class="container hero-grid">
       <div class="hero-copy">

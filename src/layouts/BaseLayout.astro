@@ -1,5 +1,5 @@
 ---
-import { Menu, Search, X } from "lucide-astro";
+import { Menu, Moon, Search, Sun, X } from "lucide-astro";
 import { sitePath } from "../lib/paths";
 import "../styles/global.css";
 
@@ -35,6 +35,17 @@ const navItems = [
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script is:inline>
+      (() => {
+        try {
+          const savedTheme = localStorage.getItem("zsz5-theme");
+          const systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+          document.documentElement.dataset.theme = savedTheme || (systemDark ? "dark" : "light");
+        } catch {
+          document.documentElement.dataset.theme = "light";
+        }
+      })();
+    </script>
     <meta name="description" content={description} />
     <meta name="theme-color" content="#ffffff" />
     <link rel="canonical" href={canonical} />
@@ -64,6 +75,10 @@ const navItems = [
         </nav>
 
         <div class="header-actions">
+          <button class="icon-button theme-toggle" type="button" aria-label="Włącz tryb ciemny" aria-pressed="false" title="Włącz tryb ciemny">
+            <Moon class="theme-moon-icon" size={20} aria-hidden="true" />
+            <Sun class="theme-sun-icon" size={20} aria-hidden="true" />
+          </button>
           <a class="icon-button search-button" href={sitePath("/szukaj/")} aria-label="Szukaj w portalu" title="Szukaj">
             <Search size={21} aria-hidden="true" />
           </a>
@@ -124,6 +139,30 @@ const navItems = [
     <script>
       const button = document.querySelector(".menu-button");
       const menu = document.querySelector("#mobile-menu");
+      const themeButton = document.querySelector<HTMLButtonElement>(".theme-toggle");
+      const themeColor = document.querySelector<HTMLMetaElement>('meta[name="theme-color"]');
+
+      const updateThemeButton = () => {
+        const dark = document.documentElement.dataset.theme === "dark";
+        const label = dark ? "Włącz tryb jasny" : "Włącz tryb ciemny";
+        themeButton?.setAttribute("aria-pressed", String(dark));
+        themeButton?.setAttribute("aria-label", label);
+        themeButton?.setAttribute("title", label);
+        themeColor?.setAttribute("content", dark ? "#142119" : "#ffffff");
+      };
+
+      updateThemeButton();
+
+      themeButton?.addEventListener("click", () => {
+        const nextTheme = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+        document.documentElement.dataset.theme = nextTheme;
+        try {
+          localStorage.setItem("zsz5-theme", nextTheme);
+        } catch {
+          // The theme remains active even when storage is unavailable.
+        }
+        updateThemeButton();
+      });
 
       button?.addEventListener("click", () => {
         const expanded = button.getAttribute("aria-expanded") === "true";
