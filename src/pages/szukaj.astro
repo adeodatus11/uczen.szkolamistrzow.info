@@ -9,7 +9,14 @@ const searchData = topics.map((topic) => ({
   eyebrow: topic.eyebrow,
   summary: topic.summary,
   slug: topic.slug,
-  search: [topic.title, topic.eyebrow, topic.summary, ...topic.facts, ...topic.actions].join(" ").toLocaleLowerCase("pl"),
+  search: [
+    topic.title,
+    topic.eyebrow,
+    topic.summary,
+    ...topic.facts,
+    ...topic.actions,
+    ...(topic.questions ?? []).flatMap((item) => [item.question, item.answer]),
+  ].join(" ").toLocaleLowerCase("pl"),
 }));
 ---
 

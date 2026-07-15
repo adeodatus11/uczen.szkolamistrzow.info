@@ -1,5 +1,5 @@
 ---
-import { AlertTriangle, ArrowLeft, CheckCircle2 } from "lucide-astro";
+import { AlertTriangle, ArrowLeft, CheckCircle2, ChevronDown } from "lucide-astro";
 import SourceLinks from "@components/SourceLinks.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import { topics } from "@data/topics";
@@ -10,6 +10,7 @@ export function getStaticPaths() {
 }
 
 const { topic } = Astro.props;
+const questions = topic.questions ?? [];
 const backHref = topic.audiences.includes("branżowa")
   ? "/branzowa/"
   : topic.audiences.includes("technikum")
@@ -48,6 +49,23 @@ const backHref = topic.audiences.includes("branżowa")
         {topic.actions.map((action) => <li>{action}</li>)}
       </ul>
 
+      {questions.length > 0 && (
+        <section class="topic-faq" aria-labelledby="topic-faq-heading">
+          <h2 id="topic-faq-heading">Pytania i odpowiedzi</h2>
+          <div class="faq-list">
+            {questions.map((item) => (
+              <details class="faq-item">
+                <summary>
+                  <span>{item.question}</span>
+                  <ChevronDown size={21} aria-hidden="true" />
+                </summary>
+                <p>{item.answer}</p>
+              </details>
+            ))}
+          </div>
+        </section>
+      )}
+
       {topic.statuteReference && <p class="statute-ref">Podstawa w statucie: {topic.statuteReference}</p>}
     </article>
 
@@ -70,6 +88,18 @@ const backHref = topic.audiences.includes("branżowa")
   <div id="sources">
     <SourceLinks ids={topic.sourceIds} />
   </div>
+
+  <script>
+    document.querySelectorAll(".faq-item summary").forEach((summary) => {
+      summary.addEventListener("keydown", (event) => {
+        if (!(event instanceof KeyboardEvent) || (event.key !== "Enter" && event.key !== " ")) return;
+        const details = summary.closest("details");
+        if (!(details instanceof HTMLDetailsElement)) return;
+        event.preventDefault();
+        details.open = !details.open;
+      });
+    });
+  </script>
 </BaseLayout>
 
 <style>
