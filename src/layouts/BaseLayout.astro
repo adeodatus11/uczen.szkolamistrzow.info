@@ -21,7 +21,7 @@ const currentPath = basePath && Astro.url.pathname.startsWith(basePath)
   : Astro.url.pathname;
 
 const navItems = [
-  { href: "/branzowa/", label: "BS I" },
+  { href: "/branzowa/", label: "Szkoła branżowa" },
   { href: "/technikum/", label: "Technikum" },
   { href: "/rodzice/", label: "Dla rodziców" },
   { href: "/oplaty/", label: "Opłaty" },
@@ -75,7 +75,7 @@ const navItems = [
       </div>
       <nav class="mobile-nav" id="mobile-menu" aria-label="Menu mobilne" hidden>
         <div class="container">
-          <a href={sitePath("/branzowa/")}>Uczeń BS I</a>
+          <a href={sitePath("/branzowa/")}>Uczeń szkoły branżowej</a>
           <a href={sitePath("/technikum/")}>Uczeń technikum</a>
           <a href={sitePath("/rodzice/")}>Rodzic lub opiekun</a>
           <a href={sitePath("/oplaty/")}>Opłaty i ubezpieczenie</a>

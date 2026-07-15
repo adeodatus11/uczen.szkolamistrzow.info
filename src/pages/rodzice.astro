@@ -29,7 +29,7 @@ const parentTopics = topicsFor("rodzic").filter((topic) => [
     <div class="container">
       <p class="eyebrow">Rodzic lub opiekun</p>
       <h1>Informacje dla rodziców i opiekunów</h1>
-      <p class="lead">Rodzic lub opiekun powinien znać zasady szkoły, sprawdzać bieżące komunikaty i reagować na problemy ucznia. W BS I informacje dotyczą również zatrudnienia u pracodawcy.</p>
+      <p class="lead">Rodzic lub opiekun powinien znać zasady szkoły, sprawdzać bieżące komunikaty i reagować na problemy ucznia. W przypadku ucznia szkoły branżowej informacje dotyczą również zatrudnienia u pracodawcy.</p>
       <div class="button-row">
         <a class="button primary" href={sitePath("/temat/pierwszy-tydzien/")}>Informacje na początek <ArrowRight size={18} aria-hidden="true" /></a>
         <a class="button" href={sitePath("/pomoc/")}>Jak załatwić sprawę</a>
@@ -43,7 +43,7 @@ const parentTopics = topicsFor("rodzic").filter((topic) => [
         <div>
           <p class="eyebrow">Początek roku szkolnego 2026/2027</p>
           <h2 id="parent-start-dates">Najważniejsze terminy</h2>
-          <p>Termin dostarczenia umowy dotyczy tylko BS I. Zebranie i karta zdrowia dotyczą klas pierwszych BS I i T5.</p>
+          <p>Termin dostarczenia umowy dotyczy tylko ucznia szkoły branżowej. Zebranie i karta zdrowia dotyczą klas pierwszych obu typów szkół.</p>
         </div>
       </div>
       <StartNotices />
@@ -59,7 +59,7 @@ const parentTopics = topicsFor("rodzic").filter((topic) => [
       </div>
       <div class="quick-link-grid">
         <a class="quick-link" href={sitePath("/oplaty/")}><strong>Opłaty i ubezpieczenie</strong><span>Rada Rodziców, NNW i dane do potwierdzenia</span><ArrowRight size={20} aria-hidden="true" /></a>
-        <a class="quick-link" href={sitePath("/podreczniki/")}><strong>Podręczniki 2026/2027</strong><span>Osobne wykazy dla BS I i T5</span><ArrowRight size={20} aria-hidden="true" /></a>
+        <a class="quick-link" href={sitePath("/podreczniki/")}><strong>Podręczniki 2026/2027</strong><span>Osobne wykazy dla szkoły branżowej i technikum</span><ArrowRight size={20} aria-hidden="true" /></a>
       </div>
     </div>
   </section>
@@ -79,7 +79,7 @@ const parentTopics = topicsFor("rodzic").filter((topic) => [
       <div class="contact-grid">
         <article class="contact-item"><BellRing size={24} aria-hidden="true" /><h3>Komunikacja</h3><p>Wiadomości w VULCAN-ie, kontakt z wychowawcą i aktualne komunikaty szkoły.</p></article>
         <article class="contact-item"><ShieldCheck size={24} aria-hidden="true" /><h3>Bezpieczeństwo</h3><p>Warunki praktyk lub pracy, zmęczenie, BHP, relacje i zachowanie ucznia.</p></article>
-        <article class="contact-item"><ArrowRight size={24} aria-hidden="true" /><h3>Dokumenty</h3><p>Frekwencja, usprawiedliwienia, umowa BS I, dzienniczek praktyk i terminy.</p></article>
+        <article class="contact-item"><ArrowRight size={24} aria-hidden="true" /><h3>Dokumenty</h3><p>Frekwencja, usprawiedliwienia, umowa o pracę ucznia szkoły branżowej, dzienniczek praktyk i terminy.</p></article>
       </div>
     </div>
   </section>
@@ -89,7 +89,7 @@ const parentTopics = topicsFor("rodzic").filter((topic) => [
       <div class="section-heading">
         <p class="eyebrow">Przewodnik rodzica</p>
         <h2 id="parent-topics">Najważniejsze informacje</h2>
-        <p>Tematy wspólne oraz osobne zasady dla rodziców uczniów BS I i technikum.</p>
+        <p>Tematy wspólne oraz osobne zasady dla rodziców uczniów szkoły branżowej i technikum.</p>
       </div>
       <div class="topic-grid">
         {parentTopics.map((topic) => <TopicCard topic={topic} compact />)}

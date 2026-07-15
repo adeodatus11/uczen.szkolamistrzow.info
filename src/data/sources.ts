@@ -40,7 +40,7 @@ export const sources: Source[] = [
     url: "https://zsz5.edupage.org/",
     type: "komunikat",
     verifiedAt: "2026-07-15",
-    description: "Informacje przekazane przez szkołę do publikacji w portalu: termin zebrania klas pierwszych, karty zdrowia i weryfikacja umów uczniów BS I.",
+    description: "Informacje przekazane przez szkołę do publikacji w portalu: termin zebrania klas pierwszych, karty zdrowia i weryfikacja umów uczniów szkoły branżowej.",
   },
   {
     id: "vulcan-login",
@@ -88,7 +88,7 @@ export const sources: Source[] = [
     url: "https://www.gov.pl/web/edukacja/przygotowanie-zawodowe-mlodocianych-pracownikow-w-formie-nauki-zawodu.",
     type: "urzędowe",
     verifiedAt: "2026-07-15",
-    description: "Zasady przyjęcia do BS I, badań, czasu pracy, urlopu, współpracy szkoły z pracodawcą i egzaminów.",
+    description: "Zasady przyjęcia do Branżowej Szkoły I stopnia, badań, czasu pracy, urlopu, współpracy szkoły z pracodawcą i egzaminów.",
   },
   {
     id: "kodeks-pracy",

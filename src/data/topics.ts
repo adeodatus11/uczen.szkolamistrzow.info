@@ -32,14 +32,14 @@ export const topics: Topic[] = [
     facts: [
       "Dziennik elektroniczny służy do sprawdzania wiadomości, ocen i frekwencji.",
       "Wychowawca jest pierwszym kontaktem w większości bieżących spraw klasy.",
-      "Uczeń BS I jest uczniem szkoły i - na podstawie umowy - pracownikiem młodocianym u pracodawcy.",
-      "Uczeń T5 jest uczniem technikum; praktyka zawodowa nie czyni go automatycznie pracownikiem.",
+      "Uczeń Branżowej Szkoły I stopnia jest uczniem szkoły i - na podstawie umowy - pracownikiem młodocianym u pracodawcy.",
+      "Uczeń technikum jest uczniem szkoły; praktyka zawodowa nie czyni go automatycznie pracownikiem.",
     ],
     actions: [
       "Aktywuj konto ucznia i rodzica w VULCAN-ie.",
       "Zapisz kontakt do wychowawcy oraz sekretariatu.",
       "Sprawdź plan lekcji i harmonogram praktycznej nauki zawodu.",
-      "Uczeń BS I: zachowaj kopię umowy o pracę i dokumentów z badań oraz BHP.",
+      "Uczeń szkoły branżowej: zachowaj kopię umowy o pracę i dokumentów z badań oraz BHP.",
       "Przygotuj kartę zdrowia do przekazania pielęgniarce we wrześniu.",
       "Przeczytaj skrót praw, obowiązków i zasad usprawiedliwiania nieobecności.",
     ],
@@ -47,17 +47,17 @@ export const topics: Topic[] = [
   },
   {
     slug: "umowa-do-weryfikacji-2026",
-    title: "Umowa BS I do weryfikacji do 20 sierpnia",
-    eyebrow: "BS I · termin 2026/2027",
-    summary: "Podpisaną umowę o pracę ucznia BS I należy dostarczyć do szkoły przed rozpoczęciem roku szkolnego.",
+    title: "Umowa ucznia szkoły branżowej do weryfikacji do 20 sierpnia",
+    eyebrow: "Szkoła branżowa · termin 2026/2027",
+    summary: "Podpisaną umowę o pracę ucznia Branżowej Szkoły I stopnia należy dostarczyć do szkoły przed rozpoczęciem roku szkolnego.",
     audiences: ["branżowa", "rodzic"],
     tone: "green",
     important: "Termin: 20 sierpnia 2026 r. Umowę przyjmuje kierownik szkolenia praktycznego, p. Arkadiusz Mocarski, gabinet 25.",
     facts: [
       "To termin organizacyjny ZSZ5 dotyczący uczniów Branżowej Szkoły I stopnia.",
-      "Szkoła weryfikuje umowę, ponieważ uczeń BS I realizuje praktyczną naukę zawodu jako pracownik młodociany.",
+      "Szkoła weryfikuje umowę, ponieważ uczeń szkoły branżowej realizuje praktyczną naukę zawodu jako pracownik młodociany.",
       "Dokument powinien określać m.in. rodzaj przygotowania zawodowego, miejsce i czas jego realizacji, sposób dokształcania oraz wynagrodzenie.",
-      "Wymóg dostarczenia umowy do szkoły nie dotyczy w tej formie uczniów T5 odbywających szkolne praktyki zawodowe.",
+      "Wymóg dostarczenia umowy do szkoły nie dotyczy w tej formie uczniów technikum odbywających szkolne praktyki zawodowe.",
     ],
     actions: [
       "Sprawdź, czy umowę podpisali pracodawca i uczeń.",
@@ -70,13 +70,13 @@ export const topics: Topic[] = [
   {
     slug: "zebranie-rodzicow-2026",
     title: "Zebranie rodziców klas pierwszych",
-    eyebrow: "BS I i T5 · 2 września",
+    eyebrow: "Szkoła branżowa i technikum · 2 września",
     summary: "Pierwsze zebranie rodziców i opiekunów klas pierwszych odbędzie się 2 września 2026 r. o godz. 16:00.",
     audiences: ["wszyscy", "rodzic"],
     tone: "yellow",
     important: "Obecność rodzica lub opiekuna jest obowiązkowa.",
     facts: [
-      "Termin dotyczy rodziców i opiekunów uczniów klas pierwszych BS I oraz T5.",
+      "Termin dotyczy rodziców i opiekunów uczniów klas pierwszych szkoły branżowej oraz technikum.",
       "Data i godzina: 2 września 2026 r., godz. 16:00.",
       "Numer sali nie został jeszcze wskazany w informacji przekazanej do portalu.",
     ],
@@ -90,13 +90,13 @@ export const topics: Topic[] = [
   {
     slug: "karta-zdrowia",
     title: "Karta zdrowia ucznia",
-    eyebrow: "BS I i T5 · wrzesień 2026",
+    eyebrow: "Szkoła branżowa i technikum · wrzesień 2026",
     summary: "Karty zdrowia będą zbierane przez pielęgniarkę w pierwszych dniach września; ostateczny termin dostarczenia to koniec miesiąca.",
     audiences: ["wszyscy", "rodzic"],
     tone: "blue",
     important: "Kartę zdrowia trzeba dostarczyć najpóźniej do 30 września 2026 r.",
     facts: [
-      "Informacja dotyczy nowych uczniów BS I i T5.",
+      "Informacja dotyczy nowych uczniów szkoły branżowej i technikum.",
       "Pielęgniarka będzie zbierała karty zdrowia w pierwszych dniach września.",
       "Jeżeli uczeń nie przekaże karty podczas zbiórki, dokument należy dostarczyć do końca września.",
     ],
@@ -132,7 +132,7 @@ export const topics: Topic[] = [
   {
     slug: "mlegitymacja-szkolna",
     title: "Legitymacja szkolna w mObywatelu",
-    eyebrow: "BS I i T5 · mObywatel",
+    eyebrow: "Szkoła branżowa i technikum · mObywatel",
     summary: "Uczeń może dodać cyfrową legitymację szkolną do mObywatela Juniora, a rodzic lub opiekun do swojej aplikacji mObywatel.",
     audiences: ["wszyscy", "rodzic"],
     tone: "blue",
@@ -180,18 +180,18 @@ export const topics: Topic[] = [
   {
     slug: "mlodociany-pracownik",
     title: "Kim jest pracownik młodociany",
-    eyebrow: "BS I",
-    summary: "W ZSZ5 uczeń BS I uczy się w szkole i pracuje u pracodawcy na podstawie umowy o pracę w celu przygotowania zawodowego.",
+    eyebrow: "Branżowa Szkoła I stopnia (BS I)",
+    summary: "W ZSZ5 uczeń Branżowej Szkoły I stopnia uczy się w szkole i pracuje u pracodawcy na podstawie umowy o pracę w celu przygotowania zawodowego.",
     audiences: ["branżowa", "rodzic"],
     tone: "green",
     important: "Pracownik młodociany to nie synonim każdego niepełnoletniego ucznia. Decydują wiek oraz zatrudnienie na podstawie umowy o pracę.",
     facts: [
       "Młodociany to co do zasady osoba, która ukończyła 15 lat i nie przekroczyła 18 lat.",
       "Status pracownika powstaje po zawarciu umowy z pracodawcą. Pracownik młodociany ma prawo do wynagrodzenia, bezpiecznych warunków, odpoczynku i urlopu oraz obowiązek wykonywania pracy.",
-      "Uczeń bez kwalifikacji zawodowych jest zatrudniany w celu przygotowania zawodowego; w BS I najczęściej jest to nauka zawodu.",
+      "Uczeń bez kwalifikacji zawodowych jest zatrudniany w celu przygotowania zawodowego; w szkole branżowej najczęściej jest to nauka zawodu.",
       "Nauka zawodu łączy zajęcia praktyczne u pracodawcy z dokształcaniem teoretycznym w szkole.",
       "Szkoła odpowiada za naukę i sprawy uczniowskie, a pracodawca za zatrudnienie i organizację pracy. Obie strony współpracują w kształceniu zawodowym.",
-      "Uczeń T5 nie jest automatycznie pracownikiem młodocianym. Szkolna praktyka zawodowa i umowa o pracę to dwie różne sytuacje.",
+      "Uczeń technikum nie jest automatycznie pracownikiem młodocianym. Szkolna praktyka zawodowa i umowa o pracę to dwie różne sytuacje.",
     ],
     actions: [
       "Przeczytaj własną umowę i sprawdź, kto jest w niej pracodawcą.",
@@ -202,7 +202,7 @@ export const topics: Topic[] = [
     questions: [
       {
         question: "Czy są to zwykłe praktyki szkolne?",
-        answer: "Nie. To nie są praktyki szkolne w pracowni. Uczeń BS I wykonuje praktyczną naukę zawodu u pracodawcy jako pracownik zatrudniony na podstawie umowy o pracę w celu przygotowania zawodowego.",
+        answer: "Nie. To nie są praktyki szkolne w pracowni. Uczeń szkoły branżowej wykonuje praktyczną naukę zawodu u pracodawcy jako pracownik zatrudniony na podstawie umowy o pracę w celu przygotowania zawodowego.",
       },
       {
         question: "Kto jest moim pracodawcą?",
@@ -226,7 +226,7 @@ export const topics: Topic[] = [
   {
     slug: "umowa-o-prace",
     title: "Umowa o pracę w celu przygotowania zawodowego",
-    eyebrow: "BS I",
+    eyebrow: "Szkoła branżowa",
     summary: "Umowa daje prawa pracownicze, ale nakłada też obowiązek pracy, nauki i przygotowania do egzaminu.",
     audiences: ["branżowa", "rodzic"],
     tone: "green",
@@ -266,7 +266,7 @@ export const topics: Topic[] = [
   {
     slug: "czas-pracy",
     title: "Czas pracy, szkoła i odpoczynek",
-    eyebrow: "BS I",
+    eyebrow: "Szkoła branżowa",
     summary: "Czas nauki szkolnej wlicza się do czasu pracy młodocianego, nawet gdy lekcje odbywają się poza godzinami pracy.",
     audiences: ["branżowa", "rodzic"],
     tone: "green",
@@ -305,7 +305,7 @@ export const topics: Topic[] = [
   {
     slug: "wynagrodzenie",
     title: "Wynagrodzenie młodocianego",
-    eyebrow: "BS I",
+    eyebrow: "Szkoła branżowa",
     summary: "Uczeń zatrudniony w celu nauki zawodu jest pracownikiem i ma prawo do wynagrodzenia.",
     audiences: ["branżowa", "rodzic"],
     tone: "green",
@@ -344,7 +344,7 @@ export const topics: Topic[] = [
   {
     slug: "urlop-mlodocianego",
     title: "Urlop młodocianego",
-    eyebrow: "BS I",
+    eyebrow: "Szkoła branżowa",
     summary: "Ferie szkolne nie oznaczają automatycznie wolnego od pracy. Wolne wymaga urlopu udzielonego przez pracodawcę.",
     audiences: ["branżowa", "rodzic"],
     tone: "green",
@@ -421,14 +421,14 @@ export const topics: Topic[] = [
   },
   {
     slug: "nieobecnosc-bs1",
-    title: "Nieobecność w BS I i u pracodawcy",
-    eyebrow: "BS I",
+    title: "Nieobecność ucznia szkoły branżowej i u pracodawcy",
+    eyebrow: "Szkoła branżowa",
     summary: "Nieobecność w szkole i nieobecność w pracy to dwie sprawy. Każdą trzeba zgłosić właściwej osobie i udokumentować.",
     audiences: ["branżowa", "rodzic"],
     tone: "yellow",
     important: "Samo usprawiedliwienie w szkole nie usprawiedliwia nieobecności u pracodawcy.",
     facts: [
-      "Statut wskazuje, że nieobecności uczniów BS I usprawiedliwia wychowawca na podstawie zaświadczenia lekarskiego, zwolnienia od pracodawcy lub innych pism urzędowych.",
+      "Statut wskazuje, że nieobecności uczniów Branżowej Szkoły I stopnia usprawiedliwia wychowawca na podstawie zaświadczenia lekarskiego, zwolnienia od pracodawcy lub innych pism urzędowych.",
       "Usprawiedliwienie należy przedłożyć niezwłocznie po powrocie, najpóźniej na najbliższej godzinie wychowawczej.",
       "Zasady zgłaszania nieobecności w pracy wynikają także z organizacji przyjętej przez pracodawcę.",
       "Dokumentacja i frekwencja na zajęciach praktycznych podlegają kontroli szkoły i zakładu szkolącego.",
@@ -462,7 +462,7 @@ export const topics: Topic[] = [
   {
     slug: "zmiana-pracodawcy",
     title: "Rozwiązanie umowy lub zmiana pracodawcy",
-    eyebrow: "BS I",
+    eyebrow: "Szkoła branżowa",
     summary: "Rozwiązanie umowy i utrata miejsca nauki zawodu wpływają na status ucznia. W takiej sytuacji należy niezwłocznie skontaktować się ze szkołą.",
     audiences: ["branżowa", "rodzic"],
     tone: "red",
@@ -502,7 +502,7 @@ export const topics: Topic[] = [
   {
     slug: "jak-dziala-technikum",
     title: "Organizacja nauki w Technikum nr 5",
-    eyebrow: "T5",
+    eyebrow: "Technikum",
     summary: "Pięcioletnie technikum łączy kształcenie ogólne, zawodowe, praktyki, egzaminy zawodowe i możliwość zdawania matury.",
     audiences: ["technikum", "rodzic"],
     tone: "blue",
@@ -523,7 +523,7 @@ export const topics: Topic[] = [
   {
     slug: "praktyki-technikum",
     title: "Praktyki zawodowe w technikum",
-    eyebrow: "T5",
+    eyebrow: "Technikum",
     summary: "Praktyki służą zastosowaniu i pogłębieniu umiejętności zawodowych w rzeczywistych warunkach pracy.",
     audiences: ["technikum", "rodzic"],
     tone: "blue",
@@ -545,7 +545,7 @@ export const topics: Topic[] = [
   {
     slug: "nieobecnosc-technikum",
     title: "Nieobecność w technikum",
-    eyebrow: "T5",
+    eyebrow: "Technikum",
     summary: "Nieobecność trzeba usprawiedliwić niezwłocznie po powrocie do szkoły, zgodnie z dokumentami dopuszczonymi w statucie.",
     audiences: ["technikum", "rodzic"],
     tone: "yellow",
@@ -594,7 +594,7 @@ export const topics: Topic[] = [
     tone: "neutral",
     facts: [
       "Uczeń ma systematycznie przygotowywać się do zajęć i brać udział w obowiązkowych zajęciach.",
-      "Nieobecności należy usprawiedliwiać według zasad właściwych dla BS I lub technikum.",
+      "Nieobecności należy usprawiedliwiać według zasad właściwych dla szkoły branżowej lub technikum.",
       "Uczeń ma przestrzegać zasad bezpieczeństwa, poleceń pracowników szkoły i regulaminów pracowni.",
       "Młodociany pracownik dodatkowo przestrzega organizacji pracy, BHP i obowiązku dokształcania się.",
     ],

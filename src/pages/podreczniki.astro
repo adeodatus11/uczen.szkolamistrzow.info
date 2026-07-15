@@ -10,7 +10,7 @@ import { sitePath } from "../lib/paths";
     <div class="container">
       <p class="eyebrow">Rok szkolny 2026/2027</p>
       <h1>Podręczniki</h1>
-      <p class="lead">Wykazy dla BS I i T5 są publikowane osobno. Przed zakupem sprawdź typ szkoły, klasę, zawód, język obcy, autora, wydawnictwo i numer ISBN.</p>
+      <p class="lead">Wykazy dla szkoły branżowej i technikum są publikowane osobno. Przed zakupem sprawdź typ szkoły, klasę, zawód, język obcy, autora, wydawnictwo i numer ISBN.</p>
     </div>
   </section>
 
@@ -30,26 +30,26 @@ import { sitePath } from "../lib/paths";
     <div class="container">
       <div class="section-heading">
         <p class="eyebrow">Wybierz właściwy wykaz</p>
-        <h2 id="book-paths">BS I i T5 to osobne listy</h2>
+        <h2 id="book-paths">Szkoła branżowa i technikum mają osobne listy</h2>
         <p>W tym miejscu pojawią się bezpośrednie odnośniki po publikacji oficjalnych plików szkoły.</p>
       </div>
       <div class="book-path-grid">
         <article class="book-path bs">
           <BriefcaseBusiness size={30} aria-hidden="true" />
           <p class="audience-label">Branżowa Szkoła I stopnia</p>
-          <h3>Podręczniki BS I</h3>
+          <h3>Podręczniki dla szkoły branżowej</h3>
           <p>Wybór zależy od klasy i zawodu. Nie korzystaj z wykazu technikum ani z listy dla innego rocznika.</p>
           <div class="publication-status"><span>Status</span><strong>Nie opublikowano wykazu na rok 2026/2027</strong></div>
-          <a class="text-link" href={sitePath("/branzowa/")}>Przewodnik ucznia BS I <ArrowRight size={18} aria-hidden="true" /></a>
+          <a class="text-link" href={sitePath("/branzowa/")}>Przewodnik ucznia szkoły branżowej <ArrowRight size={18} aria-hidden="true" /></a>
         </article>
 
         <article class="book-path t5">
           <GraduationCap size={30} aria-hidden="true" />
           <p class="audience-label">Technikum nr 5</p>
-          <h3>Podręczniki T5</h3>
-          <p>Sprawdź klasę, zawód, zakres przedmiotu oraz język obcy. W technikum obowiązuje inny wykaz niż w BS I.</p>
+          <h3>Podręczniki dla technikum</h3>
+          <p>Sprawdź klasę, zawód, zakres przedmiotu oraz język obcy. W technikum obowiązuje inny wykaz niż w szkole branżowej.</p>
           <div class="publication-status"><span>Status</span><strong>Nie opublikowano wykazu na rok 2026/2027</strong></div>
-          <a class="text-link" href={sitePath("/technikum/")}>Przewodnik ucznia T5 <ArrowRight size={18} aria-hidden="true" /></a>
+          <a class="text-link" href={sitePath("/technikum/")}>Przewodnik ucznia technikum <ArrowRight size={18} aria-hidden="true" /></a>
         </article>
       </div>
     </div>

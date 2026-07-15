@@ -40,7 +40,7 @@ const featured = featuredSlugs.map((slug) => topics.find((topic) => topic.slug =
         <ol class="dashboard-dates">
           <li>
             <time datetime="2026-08-20"><strong>20</strong><span>sie</span></time>
-            <div><strong>Umowa BS I do weryfikacji</strong><p>Gabinet 25, p. Arkadiusz Mocarski.</p></div>
+            <div><strong>Umowa ucznia szkoły branżowej</strong><p>Do weryfikacji w gabinecie 25 u p. Arkadiusza Mocarskiego.</p></div>
           </li>
           <li>
             <time datetime="2026-09-02T16:00"><strong>2</strong><span>wrz</span></time>
@@ -65,7 +65,7 @@ const featured = featuredSlugs.map((slug) => topics.find((topic) => topic.slug =
         <div>
           <p class="eyebrow">Początek roku szkolnego 2026/2027</p>
           <h2 id="start-dates">Trzy terminy dla nowych uczniów i rodziców</h2>
-          <p>Pierwszy termin dotyczy wyłącznie uczniów BS I. Dwa wrześniowe dotyczą klas pierwszych BS I i T5.</p>
+          <p>Pierwszy termin dotyczy wyłącznie uczniów szkoły branżowej. Dwa wrześniowe dotyczą klas pierwszych obu typów szkół.</p>
         </div>
         <a class="button" href={sitePath("/rodzice/")}>Informacje dla rodziców <ArrowRight size={18} aria-hidden="true" /></a>
       </div>
@@ -78,7 +78,7 @@ const featured = featuredSlugs.map((slug) => topics.find((topic) => topic.slug =
       <div class="section-heading">
         <p class="eyebrow">Wybór zakresu informacji</p>
         <h2 id="choose-path">Wybierz typ szkoły lub rolę</h2>
-        <p>Informacje są uporządkowane osobno dla uczniów BS I, uczniów T5 oraz rodziców i opiekunów.</p>
+        <p>Informacje są uporządkowane osobno dla uczniów szkoły branżowej, uczniów technikum oraz rodziców i opiekunów.</p>
       </div>
       <AudienceHero />
     </div>
@@ -88,9 +88,20 @@ const featured = featuredSlugs.map((slug) => topics.find((topic) => topic.slug =
     <div class="container">
       <div class="section-heading">
         <p class="eyebrow">Porównanie typów szkoły</p>
-        <h2 id="compare-paths">Różnice między BS I a T5</h2>
-        <p>Uczeń BS I jest jednocześnie uczniem i pracownikiem młodocianym. Uczeń T5 pozostaje uczniem, a praktyki realizuje w ramach programu szkoły.</p>
+        <h2 id="compare-paths">Branżowa Szkoła I stopnia i technikum</h2>
+        <p>Uczeń szkoły branżowej jest jednocześnie uczniem i pracownikiem młodocianym. Uczeń technikum pozostaje uczniem, a praktyki realizuje w ramach programu szkoły.</p>
       </div>
+      <dl class="school-type-definitions">
+        <div>
+          <dt>Branżowa Szkoła I stopnia nr 5 <span>BS I</span></dt>
+          <dd>W portalu używamy też krótszej nazwy „szkoła branżowa”. Jej uczeń pracuje u pracodawcy jako pracownik młodociany na podstawie umowy o pracę.</dd>
+        </div>
+        <div>
+          <dt>Technikum nr 5 <span>T5</span></dt>
+          <dd>W portalu używamy najczęściej nazwy „technikum”. Praktyki zawodowe są częścią programu szkoły i same nie oznaczają zatrudnienia.</dd>
+        </div>
+      </dl>
+      <p class="school-type-help">Jeżeli nie wiesz, który przewodnik wybrać, sprawdź pełną nazwę szkoły w potwierdzeniu przyjęcia lub w VULCAN-ie.</p>
       <PathComparison />
     </div>
   </section>
@@ -121,7 +132,7 @@ const featured = featuredSlugs.map((slug) => topics.find((topic) => topic.slug =
         <li><strong>Uruchom VULCAN</strong><span>Uczeń i rodzic sprawdzają osobne konta oraz wiadomości.</span></li>
         <li><strong>Poznaj swój plan</strong><span>Lekcje, dni u pracodawcy albo termin praktyk.</span></li>
         <li><strong>Zapisz kontakty</strong><span>Wychowawca, sekretariat i osoba od kształcenia praktycznego.</span></li>
-        <li><strong>Sprawdź dokumenty</strong><span>Statut, umowa BS I, badania, BHP lub dokumenty praktyk T5.</span></li>
+        <li><strong>Sprawdź dokumenty</strong><span>Statut, umowa ucznia szkoły branżowej, badania, BHP lub dokumenty praktyk w technikum.</span></li>
       </ol>
     </div>
   </section>

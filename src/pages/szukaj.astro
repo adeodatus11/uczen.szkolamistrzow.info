@@ -16,6 +16,8 @@ const searchData = topics.map((topic) => ({
     ...topic.facts,
     ...topic.actions,
     ...(topic.questions ?? []).flatMap((item) => [item.question, item.answer]),
+    topic.audiences.includes("branżowa") ? "BS I Branżowa Szkoła I stopnia szkoła branżowa" : "",
+    topic.audiences.includes("technikum") ? "T5 Technikum nr 5 technikum" : "",
   ].join(" ").toLocaleLowerCase("pl"),
 }));
 ---
@@ -33,7 +35,7 @@ const searchData = topics.map((topic) => ({
       </form>
       <p class="search-meta" id="search-meta" aria-live="polite">Wpisz co najmniej 2 znaki.</p>
       <div class="search-results" id="search-results"></div>
-      <noscript><p class="empty-state">Wyszukiwarka wymaga JavaScript. Skorzystaj z menu BS I, Technikum lub Prawa i obowiązki.</p></noscript>
+      <noscript><p class="empty-state">Wyszukiwarka wymaga JavaScript. Skorzystaj z menu Szkoła branżowa, Technikum lub Prawa i obowiązki.</p></noscript>
     </div>
   </section>
 
