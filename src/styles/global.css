@@ -859,6 +859,25 @@ p + p {
   overflow-wrap: anywhere;
 }
 
+.archive-instructions {
+  margin-top: 34px;
+  border-top: 1px solid var(--line);
+  padding-top: 30px;
+}
+
+.archive-instructions .section-heading {
+  margin-bottom: 22px;
+}
+
+.archive-instructions .section-heading h3 {
+  margin-top: 6px;
+  font-size: 1.7rem;
+}
+
+.archive-instructions .button-row {
+  margin-top: 26px;
+}
+
 .compact-section {
   max-width: 920px;
 }

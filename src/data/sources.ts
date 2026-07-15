@@ -231,8 +231,16 @@ export const sources: Source[] = [
     title: "Archiwalne opłaty i ubezpieczenie 2025/2026",
     url: "https://www.rodzice.szkolamistrzow.info/konto-rady-rodziców-i-wpłaty-na-rok-szkolny-20232024",
     type: "archiwum",
-    verifiedAt: "2026-07-15",
-    description: "Kwoty wpłat, archiwalny rachunek Rady Rodziców i wariant NNW z roku szkolnego 2025/2026. Dane wymagają aktualizacji przed użyciem.",
+    verifiedAt: "2026-07-16",
+    description: "Kwoty, terminy wpłat, archiwalny rachunek Rady Rodziców i wariant NNW z roku szkolnego 2025/2026. Komunikaty zawierają rozbieżność terminu 21 lub 22 października.",
+  },
+  {
+    id: "ubezpieczenie-materialy-2025",
+    title: "Archiwalne materiały do ubezpieczenia NNW 2025/2026",
+    url: "https://drive.google.com/drive/folders/1Xf2OIz0cJKAQjTV2cQv5VKHq023xHAQs?usp=sharing",
+    type: "archiwum",
+    verifiedAt: "2026-07-16",
+    description: "Folder wskazany w komunikacie Rady Rodziców jako miejsce publikacji szczegółów wariantu ubezpieczenia i sposobu zgłaszania szkód.",
   },
   {
     id: "szef",
