@@ -1,6 +1,7 @@
 ---
 import { ArrowRight, BellRing, ShieldCheck } from "lucide-astro";
 import AudienceHero from "@components/AudienceHero.astro";
+import StartNotices from "@components/StartNotices.astro";
 import TopicCard from "@components/TopicCard.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import { topicsFor } from "@data/topics";
@@ -8,6 +9,9 @@ import { sitePath } from "../lib/paths";
 
 const parentTopics = topicsFor("rodzic").filter((topic) => [
   "pierwszy-tydzien",
+  "umowa-do-weryfikacji-2026",
+  "zebranie-rodzicow-2026",
+  "karta-zdrowia",
   "mlodociany-pracownik",
   "umowa-o-prace",
   "czas-pracy",
@@ -28,6 +32,33 @@ const parentTopics = topicsFor("rodzic").filter((topic) => [
       <div class="button-row">
         <a class="button primary" href={sitePath("/temat/pierwszy-tydzien/")}>Lista na początek <ArrowRight size={18} aria-hidden="true" /></a>
         <a class="button" href={sitePath("/pomoc/")}>Z czym do kogo</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="band start-band" aria-labelledby="parent-start-dates">
+    <div class="container">
+      <div class="section-heading wide">
+        <div>
+          <p class="eyebrow">Ważne na start 2026/2027</p>
+          <h2 id="parent-start-dates">Terminy do wpisania w kalendarz</h2>
+          <p>Zielony komunikat dotyczy tylko BS I. Zebranie i karta zdrowia dotyczą klas pierwszych BS I i T5.</p>
+        </div>
+      </div>
+      <StartNotices />
+    </div>
+  </section>
+
+  <section class="band band-soft" aria-labelledby="parent-documents">
+    <div class="container">
+      <div class="section-heading">
+        <p class="eyebrow">Sprawy organizacyjne</p>
+        <h2 id="parent-documents">Płatności i książki w jednym miejscu</h2>
+        <p>Portal nie powiela nieaktualnych numerów rachunków ani starych wykazów podręczników. Każda strona pokazuje status danych na rok 2026/2027.</p>
+      </div>
+      <div class="quick-link-grid">
+        <a class="quick-link" href={sitePath("/oplaty/")}><strong>Opłaty i ubezpieczenie</strong><span>Rada Rodziców, NNW i dane do potwierdzenia</span><ArrowRight size={20} aria-hidden="true" /></a>
+        <a class="quick-link" href={sitePath("/podreczniki/")}><strong>Podręczniki 2026/2027</strong><span>Osobne wykazy dla BS I i T5</span><ArrowRight size={20} aria-hidden="true" /></a>
       </div>
     </div>
   </section>

@@ -1,0 +1,33 @@
+---
+import { ArrowRight, Clock3 } from "lucide-astro";
+import { startNotices } from "@data/start";
+import { sitePath } from "../lib/paths";
+
+type Props = {
+  show?: "all" | "bs" | "common";
+};
+
+const { show = "all" } = Astro.props;
+const visibleNotices = show === "common"
+  ? startNotices.filter((notice) => notice.audience === "BS I i T5")
+  : startNotices;
+---
+
+<div class="notice-grid">
+  {visibleNotices.map((notice) => (
+    <article class:list={["notice-card", `tone-${notice.tone}`]}>
+      <div class="notice-date" aria-label={`${notice.day} ${notice.month}${notice.time ? `, godzina ${notice.time}` : ""}`}>
+        <strong>{notice.day}</strong>
+        <span>{notice.month}</span>
+        {notice.time && <small><Clock3 size={16} aria-hidden="true" /> {notice.time}</small>}
+      </div>
+      <div class="notice-content">
+        <p class="audience-label">{notice.audience}</p>
+        <h3>{notice.title}</h3>
+        <p>{notice.description}</p>
+        <strong class="notice-action">{notice.action}</strong>
+        <a class="text-link" href={sitePath(notice.href)}>Pełna informacja <ArrowRight size={17} aria-hidden="true" /></a>
+      </div>
+    </article>
+  ))}
+</div>

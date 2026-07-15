@@ -29,8 +29,9 @@ npm run preview
 ## Struktura
 
 - `src/data/topics.ts` - odpowiedzi, listy działań i przypisanie źródeł,
+- `src/data/start.ts` - komunikaty i terminy na rozpoczęcie roku szkolnego,
 - `src/data/sources.ts` - rejestr źródeł i dat weryfikacji,
-- `src/pages/` - strony ścieżek i wyszukiwarka,
+- `src/pages/` - strony ścieżek, opłat, podręczników i wyszukiwarka,
 - `src/pages/temat/[slug].astro` - automatycznie generowane strony odpowiedzi,
 - `docs/audyt-research-koncepcja.md` - audyt, research i decyzje projektowe.
 
@@ -42,7 +43,7 @@ npm run preview
 4. Uruchom `npm run build`.
 5. Sprawdź stronę na telefonie i komputerze.
 
-Szczególnej kontroli wymagają: statut, wynagrodzenia młodocianych, terminy szkolne i egzaminacyjne, osoby kontaktowe oraz instrukcje VULCAN.
+Szczególnej kontroli wymagają: statut, wynagrodzenia młodocianych, terminy szkolne i egzaminacyjne, osoby kontaktowe, wykazy podręczników, dane do wpłat i instrukcje VULCAN.
 
 ## Publikacja
 

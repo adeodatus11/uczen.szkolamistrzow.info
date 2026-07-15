@@ -1,0 +1,84 @@
+---
+import { ArrowRight, BadgeCheck, CircleDollarSign, ShieldCheck, TriangleAlert } from "lucide-astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import SourceLinks from "@components/SourceLinks.astro";
+import { sitePath } from "../lib/paths";
+---
+
+<BaseLayout title="Opłaty i ubezpieczenie | Strefa Ucznia ZSZ5" description="Aktualne informacje dla rodziców ZSZ5 o dobrowolnych wpłatach na Radę Rodziców i szkolnym ubezpieczeniu NNW.">
+  <section class="page-hero">
+    <div class="container">
+      <p class="eyebrow">Dla rodziców · rok 2026/2027</p>
+      <h1>Opłaty i ubezpieczenie</h1>
+      <p class="lead">Tu będą publikowane wyłącznie potwierdzone dane: wysokość wpłaty, rachunek, tytuł przelewu oraz wariant ubezpieczenia. Dane z poprzednich lat mogą być nieaktualne.</p>
+    </div>
+  </section>
+
+  <section class="band band-soft" aria-labelledby="payment-status">
+    <div class="container">
+      <div class="callout">
+        <TriangleAlert size={27} aria-hidden="true" />
+        <div>
+          <h2 id="payment-status">Dane na 2026/2027 czekają na potwierdzenie</h2>
+          <p>Na 15 lipca 2026 r. nie publikujemy jeszcze kwoty wpłaty na Radę Rodziców, numeru rachunku, składki NNW ani zakresu polisy. Nie wykonuj przelewu na podstawie informacji z roku 2023/2024 lub 2025/2026.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" aria-labelledby="fees-list">
+    <div class="container">
+      <div class="section-heading">
+        <p class="eyebrow">Co warto wiedzieć</p>
+        <h2 id="fees-list">Dwie różne decyzje</h2>
+      </div>
+      <div class="info-panel-grid">
+        <article class="info-panel">
+          <CircleDollarSign size={28} aria-hidden="true" />
+          <p class="audience-label">Dobrowolna wpłata</p>
+          <h3>Fundusz Rady Rodziców</h3>
+          <p>Rada Rodziców może gromadzić środki z dobrowolnych składek. Nie jest to obowiązkowa opłata za naukę ani warunek korzystania przez ucznia z praw szkolnych.</p>
+          <dl class="status-list">
+            <div><dt>Sugerowana kwota 2026/2027</dt><dd>Do potwierdzenia</dd></div>
+            <div><dt>Numer rachunku</dt><dd>Do potwierdzenia</dd></div>
+            <div><dt>Tytuł przelewu</dt><dd>Do potwierdzenia</dd></div>
+          </dl>
+        </article>
+
+        <article class="info-panel">
+          <ShieldCheck size={28} aria-hidden="true" />
+          <p class="audience-label">Dobrowolne ubezpieczenie</p>
+          <h3>Ubezpieczenie NNW ucznia</h3>
+          <p>Prawo nie nakłada na rodzica obowiązku wykupienia szkolnego NNW. Przed wyborem warto porównać nie tylko cenę, lecz także sumę ubezpieczenia, wyłączenia i sposób zgłoszenia szkody.</p>
+          <dl class="status-list">
+            <div><dt>Ubezpieczyciel 2026/2027</dt><dd>Do potwierdzenia</dd></div>
+            <div><dt>Składka i wariant</dt><dd>Do potwierdzenia</dd></div>
+            <div><dt>Okres ochrony</dt><dd>Do potwierdzenia</dd></div>
+          </dl>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="band band-dark" aria-labelledby="before-payment">
+    <div class="container compact-section">
+      <div class="section-heading">
+        <p class="eyebrow">Przed wpłatą</p>
+        <h2 id="before-payment">Sprawdź cztery elementy</h2>
+      </div>
+      <ul class="check-list">
+        <li><BadgeCheck size={20} aria-hidden="true" /><span>czy komunikat dotyczy roku szkolnego 2026/2027,</span></li>
+        <li><BadgeCheck size={20} aria-hidden="true" /><span>czy rachunek i odbiorca pochodzą z oficjalnej informacji szkoły lub Rady Rodziców,</span></li>
+        <li><BadgeCheck size={20} aria-hidden="true" /><span>jaki tytuł przelewu trzeba wpisać,</span></li>
+        <li><BadgeCheck size={20} aria-hidden="true" /><span>co obejmuje polisa NNW i w jakich sytuacjach świadczenie nie przysługuje.</span></li>
+      </ul>
+      <div class="button-row">
+        <a class="button" href={sitePath("/rodzice/")}>Wróć do przewodnika rodzica <ArrowRight size={18} aria-hidden="true" /></a>
+      </div>
+    </div>
+  </section>
+
+  <div id="sources">
+    <SourceLinks ids={["rady-rodzicow", "rf-ubezpieczenie", "zsz5-main", "rodzice-archiwum"]} />
+  </div>
+</BaseLayout>

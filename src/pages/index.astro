@@ -1,6 +1,8 @@
 ---
 import { ArrowRight, CheckCircle2, Search, ShieldAlert } from "lucide-astro";
 import AudienceHero from "@components/AudienceHero.astro";
+import PathComparison from "@components/PathComparison.astro";
+import StartNotices from "@components/StartNotices.astro";
 import TopicCard from "@components/TopicCard.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import { topics } from "@data/topics";
@@ -42,6 +44,20 @@ const featured = featuredSlugs.map((slug) => topics.find((topic) => topic.slug =
     </div>
   </section>
 
+  <section class="band start-band" aria-labelledby="start-dates">
+    <div class="container">
+      <div class="section-heading wide">
+        <div>
+          <p class="eyebrow">Ważne na start 2026/2027</p>
+          <h2 id="start-dates">Trzy terminy dla nowych uczniów i rodziców</h2>
+          <p>Pierwszy termin dotyczy wyłącznie uczniów BS I. Dwa wrześniowe dotyczą klas pierwszych BS I i T5.</p>
+        </div>
+        <a class="button" href={sitePath("/rodzice/")}>Sprawy rodzica <ArrowRight size={18} aria-hidden="true" /></a>
+      </div>
+      <StartNotices />
+    </div>
+  </section>
+
   <section class="band band-soft" aria-labelledby="choose-path">
     <div class="container">
       <div class="section-heading">
@@ -50,6 +66,17 @@ const featured = featuredSlugs.map((slug) => topics.find((topic) => topic.slug =
         <p>Nie musisz czytać całego portalu. Wybierz rolę, a pokażemy najważniejsze sprawy w dobrej kolejności.</p>
       </div>
       <AudienceHero />
+    </div>
+  </section>
+
+  <section class="band" aria-labelledby="compare-paths">
+    <div class="container">
+      <div class="section-heading">
+        <p class="eyebrow">Najważniejsze rozróżnienie</p>
+        <h2 id="compare-paths">BS I i T5 działają inaczej</h2>
+        <p>Uczeń BS I jest jednocześnie uczniem i pracownikiem młodocianym. Uczeń T5 pozostaje uczniem, a praktyki realizuje w ramach programu szkoły.</p>
+      </div>
+      <PathComparison />
     </div>
   </section>
 

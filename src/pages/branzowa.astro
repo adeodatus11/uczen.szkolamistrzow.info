@@ -1,6 +1,8 @@
 ---
 import { AlertTriangle, ArrowRight, FileText } from "lucide-astro";
 import AudienceHero from "@components/AudienceHero.astro";
+import PathComparison from "@components/PathComparison.astro";
+import StartNotices from "@components/StartNotices.astro";
 import TopicCard from "@components/TopicCard.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import { topicsFor } from "@data/topics";
@@ -22,9 +24,30 @@ const sectionTopics = topicsFor("branżowa").filter((topic) => topic.slug !== "p
     </div>
   </section>
 
+  <section class="band start-band" aria-labelledby="bs-start-dates">
+    <div class="container">
+      <div class="section-heading">
+        <p class="eyebrow">Start 2026/2027</p>
+        <h2 id="bs-start-dates">Terminy ucznia klasy pierwszej BS I</h2>
+      </div>
+      <StartNotices show="bs" />
+    </div>
+  </section>
+
   <section class="band band-soft">
     <div class="container">
       <AudienceHero current="branżowa" />
+    </div>
+  </section>
+
+  <section class="band band-soft" aria-labelledby="bs-vs-t5">
+    <div class="container">
+      <div class="section-heading">
+        <p class="eyebrow">Twój status</p>
+        <h2 id="bs-vs-t5">W BS I umowa o pracę ma znaczenie</h2>
+        <p>To ona odróżnia przygotowanie zawodowe pracownika młodocianego od szkolnej praktyki ucznia technikum.</p>
+      </div>
+      <PathComparison />
     </div>
   </section>
 

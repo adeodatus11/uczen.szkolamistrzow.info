@@ -1,6 +1,7 @@
 ---
 import { ArrowRight, CalendarDays, ClipboardCheck } from "lucide-astro";
 import AudienceHero from "@components/AudienceHero.astro";
+import StartNotices from "@components/StartNotices.astro";
 import TopicCard from "@components/TopicCard.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import { topicsFor } from "@data/topics";
@@ -22,6 +23,17 @@ const sectionTopics = topicsFor("technikum").filter((topic) => topic.slug !== "p
     </div>
   </section>
 
+  <section class="band start-band" aria-labelledby="t5-start-dates">
+    <div class="container">
+      <div class="section-heading">
+        <p class="eyebrow">Start 2026/2027</p>
+        <h2 id="t5-start-dates">Terminy ucznia klasy pierwszej T5</h2>
+        <p>Zebranie rodziców i karta zdrowia dotyczą obu typów szkoły. Termin umowy o pracę dotyczy wyłącznie BS I.</p>
+      </div>
+      <StartNotices show="common" />
+    </div>
+  </section>
+
   <section class="band band-soft">
     <div class="container">
       <AudienceHero current="technikum" />
@@ -33,8 +45,8 @@ const sectionTopics = topicsFor("technikum").filter((topic) => topic.slug !== "p
       <div class="callout">
         <CalendarDays size={26} aria-hidden="true" />
         <div>
-          <h2>Terminy sprawdzaj w komunikatach</h2>
-          <p>Harmonogram praktyk i egzaminów zależy od klasy, zawodu i roku szkolnego. Portal wyjaśnia zasady, a konkretne daty potwierdzaj w VULCAN-ie i komunikatach szkoły.</p>
+          <h2>Praktyka w T5 to nie umowa o pracę</h2>
+          <p>Uczeń technikum nie jest automatycznie pracownikiem młodocianym. Harmonogram praktyk i egzaminów zależy od klasy, zawodu i roku szkolnego; konkretne daty sprawdzaj w VULCAN-ie i komunikatach szkoły.</p>
         </div>
       </div>
     </div>

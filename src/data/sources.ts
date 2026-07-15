@@ -1,4 +1,4 @@
-export type SourceType = "szkolne" | "urzędowe" | "prawo" | "standard" | "archiwum";
+export type SourceType = "szkolne" | "komunikat" | "urzędowe" | "prawo" | "standard" | "archiwum";
 
 export type Source = {
   id: string;
@@ -33,6 +33,14 @@ export const sources: Source[] = [
     type: "szkolne",
     verifiedAt: "2026-07-15",
     description: "Aktualności, komunikaty, dokumenty szkolne i bieżąca organizacja pracy szkoły.",
+  },
+  {
+    id: "school-start-2026",
+    title: "Komunikat organizacyjny ZSZ5 na start roku 2026/2027",
+    url: "https://zsz5.edupage.org/",
+    type: "komunikat",
+    verifiedAt: "2026-07-15",
+    description: "Informacje przekazane przez szkołę do publikacji w portalu: termin zebrania klas pierwszych, karty zdrowia i weryfikacja umów uczniów BS I.",
   },
   {
     id: "vulcan-login",
@@ -89,6 +97,22 @@ export const sources: Source[] = [
     type: "prawo",
     verifiedAt: "2026-07-15",
     description: "Organizacja zajęć praktycznych i praktyk zawodowych oraz zadania szkoły, pracodawcy i opiekuna.",
+  },
+  {
+    id: "rady-rodzicow",
+    title: "Portal Gov.pl: Rady rodziców",
+    url: "https://www.gov.pl/web/nauka/rady-rodzicow",
+    type: "urzędowe",
+    verifiedAt: "2026-07-15",
+    description: "Wyjaśnienie zasad działania rady rodziców, w tym dobrowolnego charakteru wpłat na jej fundusz.",
+  },
+  {
+    id: "rf-ubezpieczenie",
+    title: "Rzecznik Finansowy: ubezpieczenia szkolne",
+    url: "https://rf.gov.pl/edukacja/baza-wiedzy/najczestsze-pytania-i-odpowiedzi-faq/ubezpieczenia-szkolne-pytania-i-odpowiedzi/",
+    type: "urzędowe",
+    verifiedAt: "2026-07-15",
+    description: "Informacja o dobrowolności szkolnego ubezpieczenia NNW i wskazówki dotyczące porównywania zakresu ochrony.",
   },
   {
     id: "wcag-22",
