@@ -1,5 +1,5 @@
 ---
-import { AlertTriangle, ArrowLeft, CheckCircle2, ChevronDown } from "lucide-astro";
+import { AlertTriangle, ArrowLeft, CheckCircle2, ChevronDown, ExternalLink } from "lucide-astro";
 import SourceLinks from "@components/SourceLinks.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import { topics } from "@data/topics";
@@ -12,6 +12,7 @@ export function getStaticPaths() {
 const { topic } = Astro.props;
 const questions = topic.questions ?? [];
 const locations = topic.locations ?? [];
+const resourceLinks = topic.resourceLinks ?? [];
 const backHref = topic.audiences.includes("branżowa")
   ? "/branzowa/"
   : topic.audiences.includes("technikum")
@@ -58,6 +59,20 @@ const backHref = topic.audiences.includes("branżowa")
       <ul class="answer-list actions">
         {topic.actions.map((action) => <li>{action}</li>)}
       </ul>
+
+      {resourceLinks.length > 0 && (
+        <section class="topic-resources" aria-labelledby="topic-resources-heading">
+          <h2 id="topic-resources-heading">Lista pracodawców</h2>
+          <div class="topic-resource-list">
+            {resourceLinks.map((link) => (
+              <a href={link.href} target="_blank" rel="noreferrer">
+                <span><strong>{link.label}</strong><small>{link.description}</small></span>
+                <ExternalLink size={20} aria-hidden="true" />
+              </a>
+            ))}
+          </div>
+        </section>
+      )}
 
       {questions.length > 0 && (
         <section class="topic-faq" aria-labelledby="topic-faq-heading">
@@ -126,5 +141,53 @@ const backHref = topic.audiences.includes("branżowa")
   .topic-verified {
     margin-top: 24px;
     padding: 18px;
+  }
+
+  .topic-resources {
+    margin-top: 38px;
+  }
+
+  .topic-resources h2 {
+    margin-top: 0;
+  }
+
+  .topic-resource-list {
+    display: grid;
+    gap: 12px;
+    margin-top: 18px;
+  }
+
+  .topic-resource-list a {
+    min-height: 92px;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 18px;
+    align-items: center;
+    border: 1px solid var(--line);
+    border-left: 5px solid var(--green);
+    border-radius: 8px;
+    background: var(--paper);
+    padding: 18px 20px;
+    text-decoration: none;
+  }
+
+  .topic-resource-list a:hover {
+    box-shadow: var(--shadow);
+  }
+
+  .topic-resource-list strong,
+  .topic-resource-list small {
+    display: block;
+  }
+
+  .topic-resource-list small {
+    margin-top: 5px;
+    color: var(--muted);
+    font-size: 0.9rem;
+    line-height: 1.45;
+  }
+
+  .topic-resource-list svg {
+    color: var(--green-dark);
   }
 </style>

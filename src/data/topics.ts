@@ -11,6 +11,12 @@ export type TopicLocation = {
   address: string;
 };
 
+export type TopicResourceLink = {
+  label: string;
+  description: string;
+  href: string;
+};
+
 export type Topic = {
   slug: string;
   title: string;
@@ -23,6 +29,7 @@ export type Topic = {
   actions: string[];
   questions?: TopicQuestion[];
   locations?: TopicLocation[];
+  resourceLinks?: TopicResourceLink[];
   sourceIds: string[];
   statuteReference?: string;
 };
@@ -126,6 +133,13 @@ export const topics: Topic[] = [
       "Wykonaj kopię lub skan dla ucznia i rodzica.",
       "Dostarcz dokument do p. Arkadiusza Mocarskiego, gabinet 25, najpóźniej 20 sierpnia 2026 r. W razie pytań napisz na adres amocarski@zsz5.edupage.org.",
       "Jeżeli umowy jeszcze nie ma albo zawiera niejasne zapisy, skontaktuj się ze szkołą przed upływem terminu.",
+    ],
+    resourceLinks: [
+      {
+        label: "Znajdź pracodawcę dla swojego zawodu",
+        description: "Lista firm, cechów i kontaktów według zawodów na stronie Szkoły Mistrzów: szkolamistrzow.info/pracodawcy.html",
+        href: "https://www.szkolamistrzow.info/pracodawcy.html",
+      },
     ],
     questions: [
       {
