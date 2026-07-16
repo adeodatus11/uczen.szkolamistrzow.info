@@ -2,6 +2,7 @@
 import { Search } from "lucide-astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import { topics } from "@data/topics";
+import { youthWorkerPosterSearchText } from "@data/youthWorkerPosters";
 
 const basePath = import.meta.env.BASE_URL.replace(/\/$/, "");
 const topicSearchData = topics.map((topic) => ({
@@ -23,6 +24,13 @@ const topicSearchData = topics.map((topic) => ({
 }));
 
 const extraSearchPages = [
+  {
+    title: "Prawa pracownika młodocianego w obrazach",
+    eyebrow: "Uczeń Branżowej Szkoły I stopnia",
+    summary: "Dziesięć plakatów o umowie o pracę, BHP, nauce zawodu, czasie pracy, przerwach, wynagrodzeniu i zgłaszaniu problemów.",
+    href: "/prawa-pracownika-mlodocianego/",
+    search: youthWorkerPosterSearchText,
+  },
   {
     title: "Bezpieczeństwo uczniów w ZSZ5",
     eyebrow: "Standardy Ochrony Małoletnich",

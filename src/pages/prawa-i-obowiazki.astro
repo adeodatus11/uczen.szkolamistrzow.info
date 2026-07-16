@@ -1,8 +1,9 @@
 ---
-import { Scale } from "lucide-astro";
+import { ArrowRight, Images, Scale } from "lucide-astro";
 import TopicCard from "@components/TopicCard.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import { topics } from "@data/topics";
+import { sitePath } from "../lib/paths";
 
 const selected = topics.filter((topic) => ["prawa-ucznia", "obowiazki-ucznia", "nieobecnosc-bs1", "nieobecnosc-technikum"].includes(topic.slug));
 ---
@@ -14,6 +15,9 @@ const selected = topics.filter((topic) => ["prawa-ucznia", "obowiazki-ucznia", "
         <p class="eyebrow">Wyjaśnienia na podstawie statutu</p>
         <h1>Prawa i obowiązki ucznia</h1>
         <p class="lead">Najważniejsze zasady przedstawiono w skróconej formie. Każdy temat zawiera odwołanie do odpowiedniego fragmentu statutu oraz link do pełnego dokumentu.</p>
+        <div class="button-row">
+          <a class="button primary" href={sitePath("/prawa-pracownika-mlodocianego/")}><Images size={18} aria-hidden="true" /> Prawa pracownika młodocianego w obrazach <ArrowRight size={18} aria-hidden="true" /></a>
+        </div>
       </div>
       <aside class="verified-panel">
         <Scale size={28} aria-hidden="true" />

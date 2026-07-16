@@ -1,5 +1,5 @@
 ---
-import { AlertTriangle, ArrowRight, FileText } from "lucide-astro";
+import { AlertTriangle, ArrowRight, FileText, Images } from "lucide-astro";
 import AudienceHero from "@components/AudienceHero.astro";
 import PathComparison from "@components/PathComparison.astro";
 import StartNotices from "@components/StartNotices.astro";
@@ -65,6 +65,20 @@ const sectionTopics = topicsFor("branżowa").filter((topic) => topic.slug !== "p
     </div>
   </section>
 
+  <section class="band visual-rights-feature" aria-labelledby="visual-rights-heading">
+    <div class="container visual-rights-grid">
+      <div class="visual-rights-copy">
+        <p class="eyebrow">Prawa w obrazach</p>
+        <h2 id="visual-rights-heading">To nie są zwykłe praktyki szkolne</h2>
+        <p>Dziesięć plakatów wyjaśnia podstawowe prawa ucznia zatrudnionego jako pracownik młodociany: umowę, BHP, czas pracy, przerwy, wynagrodzenie i sposób zgłoszenia problemu.</p>
+        <a class="button primary" href={sitePath("/prawa-pracownika-mlodocianego/")}><Images size={18} aria-hidden="true" /> Zobacz przewodnik <ArrowRight size={18} aria-hidden="true" /></a>
+      </div>
+      <a class="visual-rights-poster" href={sitePath("/prawa-pracownika-mlodocianego/")} aria-label="Otwórz przewodnik Prawa pracownika młodocianego w obrazach">
+        <img src={sitePath("/assets/prawa-pracownika-mlodocianego/umowa-o-prace.jpg")} width="1100" height="1556" loading="lazy" decoding="async" alt="Plakat ZSZ5: To nie są zwykłe praktyki. Umowa o pracę jest podstawą przygotowania zawodowego." />
+      </a>
+    </div>
+  </section>
+
   <section class="band">
     <div class="container">
       <div class="callout">
@@ -90,3 +104,49 @@ const sectionTopics = topicsFor("branżowa").filter((topic) => topic.slug !== "p
     </div>
   </section>
 </BaseLayout>
+
+<style>
+  .visual-rights-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(260px, 390px);
+    gap: 58px;
+    align-items: center;
+  }
+
+  .visual-rights-copy > p:not(.eyebrow) {
+    max-width: 680px;
+    margin-top: 16px;
+    color: var(--muted);
+    font-size: 1.08rem;
+  }
+
+  .visual-rights-copy .button {
+    margin-top: 24px;
+  }
+
+  .visual-rights-poster {
+    display: block;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: white;
+    box-shadow: var(--shadow);
+  }
+
+  .visual-rights-poster img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  @media (max-width: 760px) {
+    .visual-rights-grid {
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+
+    .visual-rights-poster {
+      max-width: 420px;
+    }
+  }
+</style>

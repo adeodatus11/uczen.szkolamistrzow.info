@@ -83,6 +83,7 @@ const backHref = topic.audiences.includes("branżowa")
       <p class="eyebrow">Powiązane informacje</p>
       <nav aria-label="Skróty w odpowiedzi">
         <a href="#sources">Źródła informacji</a>
+        {topic.audiences.includes("branżowa") && <a href={sitePath("/prawa-pracownika-mlodocianego/")}>Prawa pracownika w obrazach</a>}
         <a href={sitePath("/prawa-i-obowiazki/")}>Prawa i obowiązki</a>
         <a href={sitePath("/pomoc/")}>Pomoc i kontakt</a>
         <a href={sitePath("/szukaj/")}>Znajdź inny temat</a>

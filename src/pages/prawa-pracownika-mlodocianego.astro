@@ -1,0 +1,261 @@
+---
+import { ArrowRight, CheckCircle2, ExternalLink, Info } from "lucide-astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { youthWorkerPosterGroups } from "@data/youthWorkerPosters";
+import { sitePath } from "../lib/paths";
+---
+
+<BaseLayout
+  title="Prawa pracownika młodocianego w obrazach | Strefa Ucznia ZSZ5"
+  description="Wizualny przewodnik dla ucznia Branżowej Szkoły I stopnia: umowa o pracę, BHP, czas pracy, wynagrodzenie i zgłaszanie problemów."
+>
+  <section class="page-hero">
+    <div class="container">
+      <p class="eyebrow">Uczeń Branżowej Szkoły I stopnia</p>
+      <h1>Prawa pracownika młodocianego w obrazach</h1>
+      <p class="lead">Dziesięć plakatów porządkuje najważniejsze zasady nauki zawodu u pracodawcy. Pod każdym plakatem znajduje się odsyłacz do pełnego wyjaśnienia.</p>
+      <div class="button-row">
+        <a class="button primary" href={sitePath("/temat/mlodociany-pracownik/")}>Kim jest pracownik młodociany <ArrowRight size={18} aria-hidden="true" /></a>
+        <a class="button" href={sitePath("/temat/umowa-o-prace/")}>Umowa o pracę</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="band visual-guide-notice" aria-labelledby="guide-notice-heading">
+    <div class="container">
+      <div class="visual-guide-intro">
+        <Info size={27} aria-hidden="true" />
+        <div>
+          <h2 id="guide-notice-heading">Plakat pomaga zapamiętać. Pełny temat wyjaśnia zasadę.</h2>
+          <p>Grafiki są materiałami edukacyjnymi i zawierają skrót informacji. W konkretnej sprawie należy przeczytać podlinkowany temat, sprawdzić umowę oraz aktualne przepisy.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {youthWorkerPosterGroups.map((group, groupIndex) => (
+    <section class:list={["band", { "band-soft": groupIndex % 2 === 1 }]} aria-labelledby={group.id}>
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">{group.eyebrow}</p>
+          <h2 id={group.id}>{group.title}</h2>
+          <p>{group.description}</p>
+        </div>
+
+        <div class="poster-grid">
+          {group.posters.map((poster, posterIndex) => (
+            <figure class="poster-item">
+              <a
+                class="poster-media"
+                href={sitePath(poster.image)}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={`Otwórz plakat w pełnym rozmiarze: ${poster.title}`}
+              >
+                <img
+                  src={sitePath(poster.image)}
+                  width="1100"
+                  height="1556"
+                  loading={groupIndex === 0 && posterIndex === 0 ? "eager" : "lazy"}
+                  decoding="async"
+                  alt={poster.alt}
+                />
+                <span class="poster-open"><ExternalLink size={18} aria-hidden="true" /> Otwórz plakat</span>
+              </a>
+              <figcaption>
+                <h3>{poster.title}</h3>
+                <p>{poster.description}</p>
+                {poster.note && <p class="poster-note"><Info size={17} aria-hidden="true" /> <span>{poster.note}</span></p>}
+                <a class="poster-topic-link" href={sitePath(poster.topicHref)}>{poster.topicLabel} <ArrowRight size={18} aria-hidden="true" /></a>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+      </div>
+    </section>
+  ))}
+
+  <section class="band guide-close" aria-labelledby="guide-close-heading">
+    <div class="container">
+      <div class="guide-close-inner">
+        <CheckCircle2 size={28} aria-hidden="true" />
+        <div>
+          <h2 id="guide-close-heading">Masz prawo prosić o wyjaśnienie</h2>
+          <p>Jeżeli zasada, polecenie lub rozliczenie czasu pracy jest niejasne, najpierw poproś pracodawcę lub instruktora o wyjaśnienie. W razie dalszych wątpliwości skontaktuj się ze szkołą.</p>
+        </div>
+        <a class="button" href={sitePath("/pomoc/")}>Jak uzyskać pomoc</a>
+      </div>
+      <p class="project-credit">Materiały powstały w ramach projektu WIN4SMEs, inicjatywy COVE Polska, współfinansowanej ze środków Unii Europejskiej.</p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .visual-guide-notice {
+    padding-block: 34px;
+  }
+
+  .visual-guide-intro {
+    max-width: 920px;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 16px;
+    border-left: 5px solid var(--blue);
+    background: var(--blue-soft);
+    padding: 22px 24px;
+  }
+
+  .visual-guide-intro > svg {
+    color: var(--blue-dark);
+  }
+
+  .visual-guide-intro h2 {
+    font-size: 1.35rem;
+  }
+
+  .visual-guide-intro p {
+    margin-top: 8px;
+    color: var(--muted);
+  }
+
+  .poster-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 46px 28px;
+  }
+
+  .poster-item {
+    min-width: 0;
+    margin: 0;
+  }
+
+  .poster-media {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: white;
+    box-shadow: var(--shadow);
+  }
+
+  .poster-media img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1100 / 1556;
+    object-fit: contain;
+  }
+
+  .poster-open {
+    position: absolute;
+    right: 12px;
+    bottom: 12px;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    border-radius: 6px;
+    background: rgba(20, 33, 25, 0.94);
+    color: white;
+    padding: 8px 10px;
+    font-size: 0.86rem;
+    font-weight: 800;
+  }
+
+  .poster-media:hover .poster-open {
+    background: var(--green-dark);
+  }
+
+  .poster-item figcaption {
+    padding-top: 16px;
+  }
+
+  .poster-item figcaption > p {
+    margin-top: 10px;
+    color: var(--muted);
+  }
+
+  .poster-note {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 8px;
+    border-left: 4px solid var(--yellow);
+    background: var(--yellow-soft);
+    padding: 12px 14px;
+    color: var(--ink) !important;
+    font-size: 0.92rem;
+  }
+
+  .poster-note svg {
+    margin-top: 3px;
+    color: var(--yellow);
+  }
+
+  .poster-topic-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    margin-top: 15px;
+    color: var(--green-dark);
+    font-weight: 800;
+    text-decoration: none;
+  }
+
+  .guide-close {
+    border-top: 1px solid var(--line);
+  }
+
+  .guide-close-inner {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    gap: 18px;
+    align-items: center;
+  }
+
+  .guide-close-inner > svg {
+    color: var(--green-dark);
+  }
+
+  .guide-close h2 {
+    font-size: 1.55rem;
+  }
+
+  .guide-close p {
+    max-width: 760px;
+    margin-top: 7px;
+    color: var(--muted);
+  }
+
+  .project-credit {
+    margin-top: 26px;
+    border-top: 1px solid var(--line);
+    padding-top: 18px;
+    color: var(--muted);
+    font-size: 0.88rem;
+  }
+
+  @media (max-width: 760px) {
+    .poster-grid {
+      grid-template-columns: 1fr;
+      gap: 38px;
+    }
+
+    .guide-close-inner {
+      grid-template-columns: auto 1fr;
+      align-items: start;
+    }
+
+    .guide-close-inner .button {
+      grid-column: 1 / -1;
+      justify-self: start;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .visual-guide-intro {
+      grid-template-columns: 1fr;
+      padding: 20px;
+    }
+  }
+</style>
