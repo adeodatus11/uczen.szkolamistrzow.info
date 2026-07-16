@@ -16,6 +16,7 @@ const topicSearchData = topics.map((topic) => ({
     ...topic.facts,
     ...topic.actions,
     ...(topic.questions ?? []).flatMap((item) => [item.question, item.answer]),
+    ...(topic.locations ?? []).flatMap((item) => [item.name, item.address]),
     topic.audiences.includes("branżowa") ? "BS I Branżowa Szkoła I stopnia szkoła branżowa" : "",
     topic.audiences.includes("technikum") ? "T5 Technikum nr 5 technikum" : "",
   ].join(" ").toLocaleLowerCase("pl"),

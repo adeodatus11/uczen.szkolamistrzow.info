@@ -11,6 +11,7 @@ export function getStaticPaths() {
 
 const { topic } = Astro.props;
 const questions = topic.questions ?? [];
+const locations = topic.locations ?? [];
 const backHref = topic.audiences.includes("branżowa")
   ? "/branzowa/"
   : topic.audiences.includes("technikum")
@@ -43,6 +44,15 @@ const backHref = topic.audiences.includes("branżowa")
       <ul class="answer-list">
         {topic.facts.map((fact) => <li>{fact}</li>)}
       </ul>
+
+      {locations.length > 0 && (
+        <section aria-labelledby="topic-locations-heading">
+          <h2 id="topic-locations-heading">Orientacyjna lista placówek we Wrocławiu</h2>
+          <ul class="answer-list">
+            {locations.map((location) => <li><strong>{location.name}</strong><br />{location.address}</li>)}
+          </ul>
+        </section>
+      )}
 
       <h2>Sposób postępowania</h2>
       <ul class="answer-list actions">
@@ -80,7 +90,7 @@ const backHref = topic.audiences.includes("branżowa")
       <div class="verified-panel topic-verified">
         <CheckCircle2 size={24} aria-hidden="true" />
         <strong>Treść zweryfikowana</strong>
-        <p>Stan źródeł: 15.07.2026.</p>
+        <p>Stan źródeł: 16.07.2026.</p>
       </div>
     </aside>
   </div>

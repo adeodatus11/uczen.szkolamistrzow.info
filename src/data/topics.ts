@@ -6,6 +6,11 @@ export type TopicQuestion = {
   answer: string;
 };
 
+export type TopicLocation = {
+  name: string;
+  address: string;
+};
+
 export type Topic = {
   slug: string;
   title: string;
@@ -17,6 +22,7 @@ export type Topic = {
   facts: string[];
   actions: string[];
   questions?: TopicQuestion[];
+  locations?: TopicLocation[];
   sourceIds: string[];
   statuteReference?: string;
 };
@@ -39,11 +45,66 @@ export const topics: Topic[] = [
       "Aktywuj konto ucznia i rodzica w VULCAN-ie.",
       "Zapisz kontakt do wychowawcy oraz sekretariatu.",
       "Sprawdź plan lekcji i harmonogram praktycznej nauki zawodu.",
-      "Uczeń szkoły branżowej: zachowaj kopię umowy o pracę i dokumentów z badań oraz BHP.",
+      "Zachowaj kopię zaświadczenia lekarskiego wymaganego przez szkołę. Uczeń szkoły branżowej powinien także zachować kopię umowy o pracę oraz dokumentów z badań pracowniczych i BHP.",
       "Przygotuj kartę zdrowia do przekazania pielęgniarce we wrześniu.",
       "Przeczytaj skrót praw, obowiązków i zasad usprawiedliwiania nieobecności.",
     ],
     sourceIds: ["statut-zsz5", "zsz5-contact", "school-start-2026"],
+  },
+  {
+    slug: "badania-lekarskie-rekrutacja-2026",
+    title: "Badania lekarskie i zaświadczenie do 20 sierpnia",
+    eyebrow: "Rekrutacja · szkoła branżowa i technikum",
+    summary: "Kandydat do szkoły branżowej lub technikum musi dostarczyć zaświadczenie o braku przeciwwskazań zdrowotnych do kształcenia w wybranym zawodzie.",
+    audiences: ["wszyscy", "rodzic"],
+    tone: "blue",
+    important: "Zaświadczenie wydane na podstawie skierowania otrzymanego w szkole należy dostarczyć do ZSZ5 najpóźniej 20 sierpnia 2026 r.",
+    facts: [
+      "Termin dotyczy kandydatów do Branżowej Szkoły I stopnia oraz Technikum nr 5.",
+      "Szkoła potrzebuje zaświadczenia dotyczącego braku przeciwwskazań zdrowotnych do kształcenia w wybranym zawodzie, wydanego na podstawie skierowania otrzymanego w ZSZ5.",
+      "Badanie może być wykonane nieodpłatnie w placówce realizującej badania uczniów na podstawie aktualnej umowy. Dostępność świadczenia i zasady rejestracji trzeba potwierdzić bezpośrednio w placówce.",
+      "Badanie można również wykonać odpłatnie w wybranej placówce uprawnionej do przeprowadzania takich badań. ZSZ5 nie wskazuje ani nie rekomenduje prywatnego świadczeniodawcy.",
+      "Poniższa lista ma charakter orientacyjny. Placówki powtarzają się w wykazach dotyczących badań uczniów, ale nie potwierdzono jeszcze telefonicznie przyjęć kandydatów ZSZ5 w wakacje 2026 r.",
+      "W wykazach występuje rozbieżność dotycząca miejsca badań DWOMP: pojawiają się adresy przy ul. Oławskiej 14 oraz ul. Joannitów 10-12. Właściwy adres należy potwierdzić podczas rejestracji.",
+      "Uczeń szkoły branżowej podlega ponadto osobnym badaniom wstępnym pracownika. Skierowanie wystawia pracodawca i pokrywa koszt tych badań; bez aktualnego orzeczenia nie może dopuścić młodocianego do pracy.",
+      "Jeżeli przy wykonywaniu pracy istnieje możliwość przeniesienia zakażenia na inne osoby, mogą być wymagane badania sanitarno-epidemiologiczne. Zakres badań, w tym ewentualnych badań laboratoryjnych, należy ustalić z pracodawcą i placówką medyczną.",
+    ],
+    locations: [
+      { name: "Dolnośląski Wojewódzki Ośrodek Medycyny Pracy", address: "ul. Oławska 14, Wrocław - przed rejestracją potwierdź właściwy adres" },
+      { name: "Dolnośląskie Centrum Medycyny Profilaktycznej i Bezpieczeństwa Pracy PRO-MED Sp. z o.o.", address: "ul. Gwarna 6A, Wrocław" },
+      { name: "Specjalistyczny Zakład Profilaktyczno-Leczniczy PROVITA", address: "ul. Bierutowska 63, Wrocław" },
+      { name: "Centrum Usług Medycznych Proximum", address: "ul. Żelazna 34, Wrocław" },
+      { name: "Wrocławskie Centrum Zdrowia Sp. z o.o.", address: "ul. Podróżnicza 26/28, Wrocław" },
+      { name: "Przychodnia Specjalistyczno-Rehabilitacyjna PULSANTIS Sp. z o.o.", address: "ul. Ostrowskiego 3, Wrocław" },
+      { name: "Zespół Usług Medycznych Lek-Trans Sp. z o.o.", address: "ul. Kręta 25, Wrocław" },
+      { name: "AAVITA Sp. z o.o. Lekarska Przychodnia Leczniczo-Profilaktyczna NZOZ", address: "ul. Racławicka 15/19, Wrocław" },
+    ],
+    actions: [
+      "Odbierz w ZSZ5 skierowanie na badanie dotyczące kształcenia w wybranym zawodzie.",
+      "Przed wizytą skontaktuj się z placówką i potwierdź, czy wykonuje nieodpłatne badania na podstawie skierowania szkoły w wakacje 2026 r., czy wymaga rejestracji oraz jakie dokumenty trzeba przynieść.",
+      "Na badanie zabierz oryginał skierowania i dokument tożsamości. W przypadku osoby niepełnoletniej zapytaj podczas rejestracji, czy wymagana jest obecność rodzica lub opiekuna.",
+      "Po badaniu odbierz zaświadczenie i dostarcz je do ZSZ5 najpóźniej 20 sierpnia 2026 r.",
+      "Uczeń szkoły branżowej: osobno porozmawiaj z pracodawcą o skierowaniu na wstępne badania pracownicze oraz o ewentualnych badaniach sanitarno-epidemiologicznych.",
+    ],
+    questions: [
+      {
+        question: "Czy skierowanie ze szkoły wystarcza uczniowi szkoły branżowej?",
+        answer: "Nie w sprawach zatrudnienia. Szkoła potrzebuje zaświadczenia dotyczącego kształcenia w zawodzie. Przed rozpoczęciem pracy młodociany otrzymuje od pracodawcy osobne skierowanie na badania wstępne pracownika. Pracodawca organizuje i finansuje te badania.",
+      },
+      {
+        question: "Czy badanie na podstawie skierowania szkoły jest bezpłatne?",
+        answer: "Może być wykonane nieodpłatnie w placówce, która w danym okresie realizuje finansowane badania uczniów. Przed wizytą trzeba potwierdzić aktualną dostępność i zasady rejestracji. Można też wykonać badanie prywatnie na własny koszt.",
+      },
+      {
+        question: "Czy każdy uczeń szkoły branżowej potrzebuje badań sanitarno-epidemiologicznych?",
+        answer: "Nie. Obowiązek zależy od rodzaju wykonywanej pracy i ryzyka przeniesienia zakażenia na inne osoby. Dotyczy to w szczególności części prac związanych z żywnością. Wymagania i sposób skierowania należy ustalić z pracodawcą.",
+      },
+      {
+        question: "Czy szkoła poleca konkretną prywatną przychodnię?",
+        answer: "Nie. Kandydat może wybrać uprawnioną placówkę. Lista na tej stronie pomaga rozpocząć poszukiwania, ale przed wizytą trzeba potwierdzić zakres badań, termin, koszt i wymagane dokumenty.",
+      },
+    ],
+    sourceIds: ["school-medical-2026", "dwomp-providers-2026", "pip-badania-pracownikow", "pip-zatrudnienie-pracownika", "men-mlodociani", "ustawa-zakazenia"],
   },
   {
     slug: "umowa-do-weryfikacji-2026",
@@ -52,20 +113,31 @@ export const topics: Topic[] = [
     summary: "Podpisaną umowę o pracę ucznia Branżowej Szkoły I stopnia należy dostarczyć do szkoły przed rozpoczęciem roku szkolnego.",
     audiences: ["branżowa", "rodzic"],
     tone: "green",
-    important: "Termin: 20 sierpnia 2026 r. Umowę przyjmuje kierownik szkolenia praktycznego, p. Arkadiusz Mocarski, gabinet 25, tel. 71 798 69 34, wew. 102, e-mail: amocarski@zsz5.edupage.org.",
+    important: "Termin: 20 sierpnia 2026 r. Umowę przyjmuje kierownik szkolenia praktycznego, p. Arkadiusz Mocarski, gabinet 25, e-mail: amocarski@zsz5.edupage.org.",
     facts: [
       "To termin organizacyjny ZSZ5 dotyczący uczniów Branżowej Szkoły I stopnia.",
       "Szkoła weryfikuje umowę, ponieważ uczeń szkoły branżowej realizuje praktyczną naukę zawodu jako pracownik młodociany.",
+      "Przyjęcie młodocianego do klasy I publicznej Branżowej Szkoły I stopnia wymaga umowy o pracę w celu przygotowania zawodowego. Bez pracodawcy i podpisanej umowy kandydat nie może rozpocząć nauki w tym modelu.",
       "Dokument powinien określać m.in. rodzaj przygotowania zawodowego, miejsce i czas jego realizacji, sposób dokształcania oraz wynagrodzenie.",
       "Wymóg dostarczenia umowy do szkoły nie dotyczy w tej formie uczniów technikum odbywających szkolne praktyki zawodowe.",
     ],
     actions: [
       "Sprawdź, czy umowę podpisali pracodawca i uczeń.",
       "Wykonaj kopię lub skan dla ucznia i rodzica.",
-      "Dostarcz dokument do p. Arkadiusza Mocarskiego, gabinet 25, najpóźniej 20 sierpnia 2026 r. W razie pytań zadzwoń pod numer 71 798 69 34, wew. 102, albo napisz na adres amocarski@zsz5.edupage.org.",
+      "Dostarcz dokument do p. Arkadiusza Mocarskiego, gabinet 25, najpóźniej 20 sierpnia 2026 r. W razie pytań napisz na adres amocarski@zsz5.edupage.org.",
       "Jeżeli umowy jeszcze nie ma albo zawiera niejasne zapisy, skontaktuj się ze szkołą przed upływem terminu.",
     ],
-    sourceIds: ["school-start-2026", "zsz5-management-2026", "pip-mlodociani", "men-mlodociani", "statut-zsz5"],
+    questions: [
+      {
+        question: "Gdzie kandydat może szukać pracodawcy?",
+        answer: "Na stronie szkolamistrzow.info znajduje się zakładka „Pracodawcy” z firmami i kontaktami do cechów według zawodów. Kandydat powinien sprawdzić również pełny przewodnik rekrutacyjny i rozpocząć poszukiwania odpowiednio wcześnie.",
+      },
+      {
+        question: "Czy można zostać uczniem szkoły branżowej bez umowy o pracę?",
+        answer: "Nie w modelu kształcenia młodocianego pracownika realizowanym w ZSZ5. Przyjęcie do klasy I wymaga umowy o pracę w celu przygotowania zawodowego, a podpisany dokument trzeba przekazać szkole do weryfikacji.",
+      },
+    ],
+    sourceIds: ["school-start-2026", "zsz5-management-2026", "school-recruitment-2026", "school-employers-2026", "pip-mlodociani", "men-mlodociani", "statut-zsz5"],
   },
   {
     slug: "zebranie-rodzicow-2026",
@@ -236,10 +308,13 @@ export const topics: Topic[] = [
       "Co do zasady stosuje się do niej przepisy dotyczące umowy na czas nieokreślony.",
       "Pracodawca nie może wpisać obowiązku odpracowania kosztów nauki po zakończeniu przygotowania zawodowego.",
       "Rozwiązanie umowy przez pracodawcę jest możliwe tylko w przypadkach wskazanych w przepisach.",
+      "Przed dopuszczeniem młodocianego do pracy pracodawca wystawia skierowanie na wstępne badania pracownicze i pokrywa ich koszt. Jest to odrębna sprawa od zaświadczenia wymaganego przez szkołę.",
+      "W zależności od rodzaju pracy pracodawca może również wymagać aktualnego orzeczenia do celów sanitarno-epidemiologicznych.",
     ],
     actions: [
       "Zachowaj własną kopię podpisanej umowy.",
       "Sprawdź dane pracodawcy, miejsce pracy, zawód, wynagrodzenie i sposób dokształcania.",
+      "Przed pierwszym dniem pracy ustal z pracodawcą termin badań wstępnych i sprawdź, czy w danym zawodzie potrzebne są badania sanitarno-epidemiologiczne.",
       "Przed podpisaniem niezrozumiałego zapisu poproś o wyjaśnienie rodzica, szkołę lub PIP.",
     ],
     questions: [
@@ -259,8 +334,12 @@ export const topics: Topic[] = [
         question: "Co zrobić z podpisaną umową?",
         answer: "Zachowaj jeden egzemplarz, sprawdź wszystkie dane i dostarcz umowę do weryfikacji w szkole w terminie podanym przez ZSZ5. Na rok 2026/2027 termin dla nowych uczniów upływa 20 sierpnia 2026 r.",
       },
+      {
+        question: "Kto kieruje młodocianego na badania przed rozpoczęciem pracy?",
+        answer: "Pracodawca wystawia skierowanie na wstępne badania pracownicze, organizuje je i pokrywa koszt. Nie wolno mu dopuścić młodocianego do pracy bez aktualnego orzeczenia o braku przeciwwskazań do pracy na wskazanym stanowisku.",
+      },
     ],
-    sourceIds: ["pip-mlodociani", "kodeks-pracy", "statut-zsz5"],
+    sourceIds: ["pip-mlodociani", "pip-badania-pracownikow", "ustawa-zakazenia", "kodeks-pracy", "statut-zsz5"],
     statuteReference: "Statut ZSZ5: § 70 ust. 6c oraz § 71 ust. 15.",
   },
   {
