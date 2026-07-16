@@ -79,7 +79,9 @@ import { sitePath } from "../lib/paths";
 <style>
   .meeting-dialog {
     position: fixed;
-    width: min(900px, calc(100% - 32px));
+    box-sizing: border-box;
+    width: min(900px, calc(100vw - 32px));
+    max-width: calc(100vw - 32px);
     max-height: calc(100dvh - 32px);
     margin: auto;
     border: 1px solid #b8c7bd;
@@ -98,7 +100,13 @@ import { sitePath } from "../lib/paths";
   .meeting-dialog-layout {
     display: grid;
     grid-template-columns: minmax(300px, 0.86fr) minmax(360px, 1.14fr);
+    min-width: 0;
     min-height: 590px;
+  }
+
+  .meeting-dialog-poster,
+  .meeting-dialog-copy {
+    min-width: 0;
   }
 
   .meeting-dialog-poster {
@@ -187,7 +195,8 @@ import { sitePath } from "../lib/paths";
 
   @media (max-width: 720px) {
     .meeting-dialog {
-      width: calc(100% - 20px);
+      width: calc(100vw - 20px);
+      max-width: calc(100vw - 20px);
       max-height: calc(100dvh - 20px);
       overflow-y: auto;
     }
