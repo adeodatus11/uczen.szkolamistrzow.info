@@ -1,5 +1,5 @@
 ---
-import { ArrowRight, X } from "lucide-astro";
+import { ArrowRight, CalendarDays, X } from "lucide-astro";
 import { sitePath } from "../lib/paths";
 ---
 
@@ -8,26 +8,27 @@ import { sitePath } from "../lib/paths";
     <X size={22} aria-hidden="true" />
   </button>
   <div class="meeting-dialog-layout">
-    <div class="meeting-dialog-poster">
-      <img
-        src={sitePath("/assets/zebranie-rodzicow-klas-pierwszych-2026-z-logo.jpg")}
-        width="1003"
-        height="1568"
-        alt="Zebranie rodziców klas pierwszych, 2 września 2026 r. o godz. 16:00. Obecność obowiązkowa."
-      />
+    <div class="meeting-dialog-poster" aria-hidden="true">
+      <div class="meeting-poster-content">
+        <img src={sitePath("/assets/zsz5-logo.png")} width="490" height="390" alt="" />
+        <p>Zebranie rodziców<br />klas pierwszych</p>
+        <div class="meeting-poster-date"><CalendarDays size={34} /><strong>Pierwszy tydzień września</strong></div>
+        <span>Dokładny termin podamy później</span>
+        <b>Bardzo ważne spotkanie</b>
+      </div>
     </div>
     <div class="meeting-dialog-copy">
-      <p class="eyebrow">Ważny termin dla klas pierwszych</p>
+      <p class="eyebrow">Bardzo ważna informacja dla klas pierwszych</p>
       <h2 id="meeting-dialog-title">Zebranie rodziców i opiekunów</h2>
       <p id="meeting-dialog-description">Spotkanie dotyczy rodziców i opiekunów uczniów klas pierwszych Branżowej Szkoły I stopnia oraz Technikum nr 5.</p>
       <dl class="meeting-dialog-facts">
-        <div><dt>Data</dt><dd>2 września 2026 r.</dd></div>
-        <div><dt>Godzina</dt><dd>16:00</dd></div>
-        <div><dt>Obecność</dt><dd>Obowiązkowa</dd></div>
+        <div><dt>Termin</dt><dd>Pierwszy tydzień września 2026 r.</dd></div>
+        <div><dt>Szczegóły</dt><dd>Dokładna data, godzina i miejsce zostaną podane później.</dd></div>
+        <div><dt>Znaczenie</dt><dd>To bardzo ważne spotkanie organizacyjne.</dd></div>
       </dl>
-      <p class="meeting-dialog-note">Numer sali należy sprawdzić przed zebraniem w VULCAN-ie lub w komunikacie szkoły.</p>
+      <p class="meeting-dialog-note">Dalsze informacje zostaną przekazane w oficjalnym komunikacie szkoły lub w VULCAN-ie.</p>
       <div class="button-row">
-        <a class="button primary" data-meeting-dismiss href={sitePath("/temat/zebranie-rodzicow-2026/")}>Sprawdź szczegóły <ArrowRight size={18} aria-hidden="true" /></a>
+        <a class="button primary" data-meeting-dismiss href={sitePath("/temat/zebranie-rodzicow-2026/")}>Przeczytaj informację <ArrowRight size={18} aria-hidden="true" /></a>
       </div>
     </div>
   </div>
@@ -112,15 +113,61 @@ import { sitePath } from "../lib/paths";
   .meeting-dialog-poster {
     display: grid;
     place-items: center;
-    background: #eff6f0;
+    background: #eaf3ed;
+    padding: 34px;
   }
 
-  .meeting-dialog-poster img {
-    display: block;
+  .meeting-poster-content {
     width: 100%;
-    height: 100%;
-    max-height: calc(100dvh - 32px);
-    object-fit: contain;
+    display: grid;
+    gap: 22px;
+    border-top: 8px solid #0d4c2d;
+    border-bottom: 8px solid #0d4c2d;
+    background: #ffffff;
+    padding: 34px 28px;
+    color: #103826;
+    text-align: center;
+  }
+
+  .meeting-poster-content > img {
+    width: 132px;
+    height: auto;
+    margin-inline: auto;
+  }
+
+  .meeting-poster-content > p {
+    margin: 0;
+    font-size: 2rem;
+    font-weight: 850;
+    line-height: 1.04;
+    text-transform: uppercase;
+  }
+
+  .meeting-poster-date {
+    display: grid;
+    gap: 10px;
+    justify-items: center;
+    border-block: 1px solid #aac3b3;
+    padding-block: 20px;
+  }
+
+  .meeting-poster-date strong {
+    font-size: 1.3rem;
+    line-height: 1.15;
+    text-transform: uppercase;
+  }
+
+  .meeting-poster-content > span {
+    color: #51675b;
+    font-weight: 750;
+  }
+
+  .meeting-poster-content > b {
+    background: #0d4c2d;
+    color: white;
+    padding: 11px 12px;
+    font-size: 0.95rem;
+    text-transform: uppercase;
   }
 
   .meeting-dialog-copy {
@@ -207,9 +254,33 @@ import { sitePath } from "../lib/paths";
     }
 
     .meeting-dialog-poster img {
-      width: auto;
-      max-width: 100%;
-      height: min(47dvh, 520px);
+      width: 92px;
+    }
+
+    .meeting-dialog-poster {
+      padding: 18px;
+    }
+
+    .meeting-poster-content {
+      gap: 13px;
+      padding: 20px 18px;
+    }
+
+    .meeting-poster-content > p {
+      font-size: 1.5rem;
+    }
+
+    .meeting-poster-date {
+      grid-template-columns: auto 1fr;
+      gap: 10px;
+      align-items: center;
+      justify-items: start;
+      padding-block: 13px;
+      text-align: left;
+    }
+
+    .meeting-poster-date strong {
+      font-size: 1.05rem;
     }
 
     .meeting-dialog-copy {
