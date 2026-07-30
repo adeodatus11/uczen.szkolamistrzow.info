@@ -79,7 +79,7 @@ export const sources: Source[] = [
     title: "Komunikat organizacyjny ZSZ5 na start roku 2026/2027",
     url: "https://zsz5.edupage.org/",
     type: "komunikat",
-    verifiedAt: "2026-07-15",
+    verifiedAt: "2026-07-30",
     description: "Informacje przekazane przez szkołę do publikacji w portalu: terminy dokumentów rekrutacyjnych, zebrania klas pierwszych, kart zdrowia i weryfikacji umów uczniów szkoły branżowej.",
   },
   {
