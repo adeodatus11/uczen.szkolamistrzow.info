@@ -3,6 +3,7 @@ import { Search } from "lucide-astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import { topics } from "@data/topics";
 import { youthWorkerPosterSearchText } from "@data/youthWorkerPosters";
+import { textbookSearchText } from "@data/textbooks";
 
 const basePath = import.meta.env.BASE_URL.replace(/\/$/, "");
 const topicSearchData = topics.map((topic) => ({
@@ -25,6 +26,13 @@ const topicSearchData = topics.map((topic) => ({
 }));
 
 const extraSearchPages = [
+  {
+    title: "Podręczniki 2026/2027",
+    eyebrow: "Aktualne wykazy ZSZ5",
+    summary: "Wykazy dla szkoły branżowej i technikum z podziałem na klasy, zawody i kierunki kształcenia.",
+    href: "/podreczniki/",
+    search: `${textbookSearchText} biblioteka szkolna zamówienie grupowe PDF ISBN podręcznik podręczniki książki wykaz`,
+  },
   {
     title: "Prawa pracownika młodocianego w obrazach",
     eyebrow: "Uczeń Branżowej Szkoły I stopnia",

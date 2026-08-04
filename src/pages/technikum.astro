@@ -1,5 +1,5 @@
 ---
-import { ArrowRight, CalendarDays, ClipboardCheck } from "lucide-astro";
+import { ArrowRight, BookOpenCheck, CalendarDays, ClipboardCheck } from "lucide-astro";
 import AudienceHero from "@components/AudienceHero.astro";
 import StartNotices from "@components/StartNotices.astro";
 import TopicCard from "@components/TopicCard.astro";
@@ -19,6 +19,7 @@ const sectionTopics = topicsFor("technikum").filter((topic) => topic.slug !== "p
       <div class="button-row">
         <a class="button primary" href={sitePath("/temat/jak-dziala-technikum/")}>Organizacja nauki w technikum <ArrowRight size={18} aria-hidden="true" /></a>
         <a class="button" href={sitePath("/temat/praktyki-technikum/")}><ClipboardCheck size={18} aria-hidden="true" /> Praktyki zawodowe</a>
+        <a class="button" href={sitePath("/podreczniki/")}><BookOpenCheck size={18} aria-hidden="true" /> Podręczniki 2026/2027</a>
       </div>
     </div>
   </section>

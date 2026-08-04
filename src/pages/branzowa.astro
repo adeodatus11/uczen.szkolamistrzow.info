@@ -1,5 +1,5 @@
 ---
-import { AlertTriangle, ArrowRight, FileText, Images } from "lucide-astro";
+import { AlertTriangle, ArrowRight, BookOpenCheck, FileText, Images } from "lucide-astro";
 import AudienceHero from "@components/AudienceHero.astro";
 import PathComparison from "@components/PathComparison.astro";
 import StartNotices from "@components/StartNotices.astro";
@@ -20,6 +20,7 @@ const sectionTopics = topicsFor("branżowa").filter((topic) => topic.slug !== "p
       <div class="button-row">
         <a class="button primary" href={sitePath("/temat/mlodociany-pracownik/")}>Status pracownika młodocianego <ArrowRight size={18} aria-hidden="true" /></a>
         <a class="button" href={sitePath("/temat/umowa-o-prace/")}><FileText size={18} aria-hidden="true" /> Informacje o umowie</a>
+        <a class="button" href={sitePath("/podreczniki/")}><BookOpenCheck size={18} aria-hidden="true" /> Podręczniki 2026/2027</a>
       </div>
     </div>
   </section>

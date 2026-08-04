@@ -35,6 +35,14 @@ export const sources: Source[] = [
     description: "Aktualności, komunikaty, dokumenty szkolne i bieżąca organizacja pracy szkoły.",
   },
   {
+    id: "zsz5-textbooks-2026",
+    title: "ZSZ5: podręczniki na rok szkolny 2026/2027",
+    url: "https://zsz5.edupage.org/a/podreczniki",
+    type: "szkolne",
+    verifiedAt: "2026-08-04",
+    description: "Oficjalna strona szkoły z wykazami dla Branżowej Szkoły I stopnia nr 5 i Technikum nr 5 oraz informacją o bibliotece szkolnej i zamówieniach grupowych.",
+  },
+  {
     id: "zsz5-psych-support",
     title: "ZSZ5: Pomoc psychologiczno-pedagogiczna",
     url: "https://zsz5.edupage.org/a/pomoc-psychologiczno-pedagogiczna",
