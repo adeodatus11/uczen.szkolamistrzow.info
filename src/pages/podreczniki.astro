@@ -4,14 +4,15 @@ import {
   ArrowRight,
   BookCheck,
   CheckCircle2,
+  Download,
   ExternalLink,
   FileText,
   GraduationCap,
   LibraryBig,
-  ShoppingCart,
 } from "lucide-astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import SourceLinks from "@components/SourceLinks.astro";
+import TextbookBrowser from "@components/TextbookBrowser.astro";
 import { textbookDocuments } from "@data/textbooks";
 import { sitePath } from "../lib/paths";
 
@@ -25,7 +26,7 @@ const technical = textbookDocuments.find((document) => document.id === "techniku
       <div>
         <p class="eyebrow">Aktualne wykazy ZSZ5 · rok szkolny 2026/2027</p>
         <h1>Podręczniki</h1>
-        <p class="lead">Najpierw wybierz typ szkoły oraz zawód lub kierunek kształcenia. Następnie w oficjalnym wykazie znajdź swoją klasę i sprawdź wszystkie uwagi przy danym przedmiocie.</p>
+        <p class="lead">Wybierz typ szkoły, a następnie kliknij swój zawód lub kierunek. Zobaczysz przypisane podręczniki, klasy i części bez przeglądania całej tabeli PDF.</p>
       </div>
       <aside class="publication-card" aria-label="Status wykazów">
         <BookCheck size={30} aria-hidden="true" />
@@ -48,11 +49,11 @@ const technical = textbookDocuments.find((document) => document.id === "techniku
     <div class="container two-column-info">
       <div>
         <p class="eyebrow">Zanim otworzysz wykaz</p>
-        <h2 id="before-download">Trzy informacje, których potrzebujesz</h2>
+        <h2 id="before-download">Jak znaleźć właściwą książkę</h2>
         <ol class="decision-steps">
           <li><span>1</span><div><strong>Typ szkoły</strong><p>Branżowa Szkoła I stopnia albo Technikum.</p></div></li>
-          <li><span>2</span><div><strong>Zawód lub kierunek</strong><p>Na przykład fryzjer, sprzedawca albo technik handlowiec.</p></div></li>
-          <li><span>3</span><div><strong>Klasa</strong><p>Ten sam przedmiot może mieć inną część podręcznika w klasie 1, 2 lub 3.</p></div></li>
+          <li><span>2</span><div><strong>Zawód lub kierunek</strong><p>Kliknij na przykład „Cukiernik”, „Fryzjer” albo „Technik handlowiec”.</p></div></li>
+          <li><span>3</span><div><strong>Klasa</strong><p>Na rozwiniętej liście sprawdź oznaczenie klasy oraz właściwą część książki.</p></div></li>
         </ol>
       </div>
       <aside class="library-note">
@@ -71,27 +72,17 @@ const technical = textbookDocuments.find((document) => document.id === "techniku
           <h2 id="branzowa-heading">{vocationalSchool.title}</h2>
           <p>{vocationalSchool.description}</p>
         </div>
-        <a class="document-link" href={vocationalSchool.href} target="_blank" rel="noreferrer">
-          <FileText size={25} aria-hidden="true" />
-          <span><strong>Otwórz oficjalny wykaz</strong><small>PDF · {vocationalSchool.fileSize} · {vocationalSchool.pages} strony</small></span>
-          <ExternalLink size={19} aria-hidden="true" />
-        </a>
+        <div class="document-actions">
+          <a class="document-link" href={sitePath(vocationalSchool.href)} target="_blank" rel="noreferrer">
+            <FileText size={25} aria-hidden="true" />
+            <span><strong>Otwórz pełny wykaz</strong><small>Lokalna kopia PDF · {vocationalSchool.fileSize} · {vocationalSchool.pages} strony</small></span>
+            <Download size={19} aria-hidden="true" />
+          </a>
+          <a class="official-document-link" href={vocationalSchool.officialHref} target="_blank" rel="noreferrer">Oryginał dokumentu w EduPage <ExternalLink size={16} aria-hidden="true" /></a>
+        </div>
       </div>
 
-      <div class="programme-list">
-        {vocationalSchool.programmes.map((programme) => (
-          <article class="programme-row">
-            <div class="programme-name">
-              <h3>{programme.name}</h3>
-              <span>{programme.classes}</span>
-            </div>
-            <div>
-              <p>{programme.description}</p>
-              {programme.notice && <p class="order-notice"><ShoppingCart size={18} aria-hidden="true" /> <strong>{programme.notice}</strong></p>}
-            </div>
-          </article>
-        ))}
-      </div>
+      <TextbookBrowser document={vocationalSchool} />
 
       <a class="text-link guide-link" href={sitePath("/branzowa/")}>Przejdź do przewodnika ucznia Branżowej Szkoły I stopnia <ArrowRight size={18} aria-hidden="true" /></a>
     </div>
@@ -105,27 +96,17 @@ const technical = textbookDocuments.find((document) => document.id === "techniku
           <h2 id="technikum-heading">{technical.title}</h2>
           <p>{technical.description}</p>
         </div>
-        <a class="document-link" href={technical.href} target="_blank" rel="noreferrer">
-          <FileText size={25} aria-hidden="true" />
-          <span><strong>Otwórz oficjalny wykaz</strong><small>PDF · {technical.fileSize} · {technical.pages} stron</small></span>
-          <ExternalLink size={19} aria-hidden="true" />
-        </a>
+        <div class="document-actions">
+          <a class="document-link" href={sitePath(technical.href)} target="_blank" rel="noreferrer">
+            <FileText size={25} aria-hidden="true" />
+            <span><strong>Otwórz pełny wykaz</strong><small>Lokalna kopia PDF · {technical.fileSize} · {technical.pages} stron</small></span>
+            <Download size={19} aria-hidden="true" />
+          </a>
+          <a class="official-document-link" href={technical.officialHref} target="_blank" rel="noreferrer">Oryginał dokumentu w EduPage <ExternalLink size={16} aria-hidden="true" /></a>
+        </div>
       </div>
 
-      <div class="programme-list">
-        {technical.programmes.map((programme) => (
-          <article class="programme-row">
-            <div class="programme-name">
-              <h3>{programme.name}</h3>
-              <span>{programme.classes}</span>
-            </div>
-            <div>
-              <p>{programme.description}</p>
-              {programme.notice && <p class="order-notice"><ShoppingCart size={18} aria-hidden="true" /> <strong>{programme.notice}</strong></p>}
-            </div>
-          </article>
-        ))}
-      </div>
+      <TextbookBrowser document={technical} />
 
       <a class="text-link guide-link" href={sitePath("/technikum/")}>Przejdź do przewodnika ucznia Technikum nr 5 <ArrowRight size={18} aria-hidden="true" /></a>
     </div>
@@ -153,8 +134,8 @@ const technical = textbookDocuments.find((document) => document.id === "techniku
       <div class="callout">
         <GraduationCap size={27} aria-hidden="true" />
         <div>
-          <h2>Wykaz PDF jest dokumentem nadrzędnym</h2>
-          <p>Podział według zawodów na tej stronie ułatwia znalezienie właściwego pliku. Pełne tytuły, autorów, części, wydawnictwa i numery dopuszczenia należy zawsze sprawdzić w oficjalnym wykazie szkoły.</p>
+          <h2>Pełny PDF jest dokumentem źródłowym</h2>
+          <p>Listy według zawodów zostały opracowane na podstawie szkolnych wykazów. Przed zakupem porównaj tytuł, część, autora i wydawnictwo z pełnym PDF-em. Kopie PDF zapisane w informatorze odpowiadają plikom opublikowanym przez szkołę 3 sierpnia 2026 r.</p>
           <div class="button-row">
             <a class="button secondary" href="https://zsz5.edupage.org/a/podreczniki" target="_blank" rel="noreferrer">Strona podręczników w EduPage <ExternalLink size={18} aria-hidden="true" /></a>
           </div>
@@ -293,6 +274,11 @@ const technical = textbookDocuments.find((document) => document.id === "techniku
     border-bottom: 1px solid var(--line);
   }
 
+  .document-actions {
+    display: grid;
+    gap: 9px;
+  }
+
   .document-heading > div > p:last-child {
     max-width: 68ch;
     margin-top: 12px;
@@ -332,57 +318,14 @@ const technical = textbookDocuments.find((document) => document.id === "techniku
     color: var(--muted);
   }
 
-  .programme-list {
-    margin-top: 10px;
-  }
-
-  .programme-row {
-    display: grid;
-    grid-template-columns: minmax(220px, 0.34fr) minmax(0, 1fr);
-    gap: 36px;
-    border-bottom: 1px solid var(--line);
-    padding: 23px 0;
-  }
-
-  .programme-name h3,
-  .programme-name span {
-    display: block;
-  }
-
-  .programme-name h3 {
-    font-size: 1.08rem;
-  }
-
-  .programme-name span {
-    margin-top: 3px;
-    color: var(--green-dark);
-    font-size: 0.83rem;
-    font-weight: 850;
-    text-transform: uppercase;
-  }
-
-  .t5-section .programme-name span {
-    color: var(--blue-dark);
-  }
-
-  .programme-row p {
-    margin: 0;
-  }
-
-  .order-notice {
-    display: flex;
-    gap: 9px;
-    align-items: flex-start;
-    margin-top: 13px !important;
-    border-left: 4px solid var(--yellow);
-    background: var(--yellow-soft);
-    padding: 12px 14px;
-  }
-
-  .order-notice svg {
-    flex: 0 0 auto;
-    margin-top: 3px;
-    color: var(--yellow);
+  .official-document-link {
+    display: inline-flex;
+    justify-self: start;
+    align-items: center;
+    gap: 6px;
+    color: var(--muted);
+    font-size: 0.87rem;
+    font-weight: 750;
   }
 
   .guide-link {
@@ -468,11 +411,6 @@ const technical = textbookDocuments.find((document) => document.id === "techniku
 
     .textbook-section {
       scroll-margin-top: 82px;
-    }
-
-    .programme-row {
-      grid-template-columns: 1fr;
-      gap: 10px;
     }
 
     .document-link {

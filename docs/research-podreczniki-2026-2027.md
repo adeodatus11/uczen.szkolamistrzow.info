@@ -38,12 +38,18 @@ Szkoła informuje, że wiele podręczników może być dostępnych w bibliotece,
 ## Przyjęta koncepcja
 
 - dwa wyraźne punkty wejścia: Branżowa Szkoła I stopnia oraz Technikum,
-- warstwa HTML z listą zawodów i kierunków oraz klasami,
+- warstwa HTML z rozwijanymi listami książek dla każdego zawodu i kierunku,
 - szczególne oznaczenie zamówień grupowych,
 - opisane linki do oficjalnych PDF-ów z formatem, rozmiarem i liczbą stron,
 - lista kontrolna przed zakupem,
 - dodanie nazw zawodów i kierunków do wyszukiwarki portalu,
-- bez kopiowania plików do repozytorium, aby nie tworzyć niekontrolowanej, nieaktualnej kopii oficjalnego dokumentu.
+- lokalne kopie obu PDF-ów, aby wykazy nie przestały działać po zmianie adresu w EduPage; obok nich pozostaje link do dokumentu źródłowego,
+- obowiązek ponownego pobrania plików i aktualizacji list HTML po każdej zmianie wykazu na stronie szkoły.
+
+Lokalne kopie zapisane 4 sierpnia 2026 r.:
+
+- Branżowa Szkoła I stopnia: `public/documents/podreczniki-2026-2027/podreczniki-branzowa-szkola-2026-2027.pdf`, SHA-256 `2404440caa7c31940b8df19eacb79c341e2fbcdc6b1da4fc48cca982f096a6f4`,
+- Technikum: `public/documents/podreczniki-2026-2027/podreczniki-technikum-2026-2027.pdf`, SHA-256 `f8577dd4b131a3c391245b1a14443b0599a70c73144c07c127c56c980095edfd`.
 
 ## Źródła dobrych praktyk
 

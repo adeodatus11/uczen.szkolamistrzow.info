@@ -1,0 +1,321 @@
+---
+import { BookOpenCheck, ShoppingCart } from "lucide-astro";
+import type { TextbookDocument, TextbookEntry } from "@data/textbooks";
+
+type Props = {
+  document: TextbookDocument;
+};
+
+const { document } = Astro.props;
+const groups: TextbookEntry["group"][] = ["Przedmioty ogólne", "Przedmioty zawodowe"];
+---
+
+<div class:list={["textbook-browser", `browser-${document.id}`]} data-textbook-browser>
+  <div class="programme-tabs" role="tablist" aria-label={`Wybierz zawód lub kierunek: ${document.audience}`}>
+    {document.programmes.map((programme, index) => (
+      <button
+        type="button"
+        role="tab"
+        id={`${document.id}-${programme.slug}-tab`}
+        aria-selected={index === 0 ? "true" : "false"}
+        aria-controls={`${document.id}-${programme.slug}-panel`}
+        tabindex={index === 0 ? 0 : -1}
+      >
+        <BookOpenCheck size={20} aria-hidden="true" />
+        <span><strong>{programme.name}</strong><small>{programme.classes}</small></span>
+      </button>
+    ))}
+  </div>
+
+  {document.programmes.map((programme, index) => (
+    <section
+      class="programme-panel"
+      id={`${document.id}-${programme.slug}-panel`}
+      role="tabpanel"
+      aria-labelledby={`${document.id}-${programme.slug}-tab`}
+      tabindex="0"
+      hidden={index !== 0}
+    >
+      <div class="panel-heading">
+        <p class="audience-label">Wybrany wykaz · {programme.classes}</p>
+        <h3>{programme.name}</h3>
+        <p>{programme.description}</p>
+      </div>
+
+      {programme.notice && (
+        <p class="catalogue-notice"><ShoppingCart size={18} aria-hidden="true" /><strong>{programme.notice}</strong></p>
+      )}
+
+      {groups.map((group) => {
+        const entries = programme.entries.filter((entry) => entry.group === group);
+        if (!entries.length) return null;
+        return (
+          <section class="entry-group" aria-labelledby={`${document.id}-${programme.slug}-${group === "Przedmioty ogólne" ? "ogolne" : "zawodowe"}`}>
+            <div class="entry-group-heading">
+              <h4 id={`${document.id}-${programme.slug}-${group === "Przedmioty ogólne" ? "ogolne" : "zawodowe"}`}>{group}</h4>
+              <span>{entries.length} {entries.length === 1 ? "pozycja" : entries.length < 5 ? "pozycje" : "pozycji"}</span>
+            </div>
+            <div class="entry-list">
+              {entries.map((entry) => (
+                <article class="textbook-entry">
+                  <div class="entry-subject">
+                    <strong>{entry.subject}</strong>
+                    <span>{entry.classes}</span>
+                  </div>
+                  <div class="entry-book">
+                    <h5>{entry.title}</h5>
+                    {entry.details && <p>{entry.details}</p>}
+                    {entry.note && <p class="entry-note">{entry.note}</p>}
+                  </div>
+                </article>
+              ))}
+            </div>
+          </section>
+        );
+      })}
+    </section>
+  ))}
+
+  <noscript><p class="no-script-note">Wybór zawodu wymaga JavaScript. Pełny wykaz jest dostępny w lokalnym pliku PDF powyżej.</p></noscript>
+</div>
+
+<script>
+  document.querySelectorAll<HTMLElement>("[data-textbook-browser]").forEach((browser) => {
+    const tabs = [...browser.querySelectorAll<HTMLButtonElement>('[role="tab"]')];
+    const panels = [...browser.querySelectorAll<HTMLElement>('[role="tabpanel"]')];
+
+    const activate = (tab: HTMLButtonElement, focus = true) => {
+      tabs.forEach((item) => {
+        const selected = item === tab;
+        item.setAttribute("aria-selected", String(selected));
+        item.tabIndex = selected ? 0 : -1;
+      });
+      panels.forEach((panel) => {
+        panel.hidden = panel.id !== tab.getAttribute("aria-controls");
+      });
+      if (focus) tab.focus();
+    };
+
+    tabs.forEach((tab, index) => {
+      tab.addEventListener("click", () => activate(tab, false));
+      tab.addEventListener("keydown", (event) => {
+        let nextIndex: number | undefined;
+        if (event.key === "ArrowRight" || event.key === "ArrowDown") nextIndex = (index + 1) % tabs.length;
+        if (event.key === "ArrowLeft" || event.key === "ArrowUp") nextIndex = (index - 1 + tabs.length) % tabs.length;
+        if (event.key === "Home") nextIndex = 0;
+        if (event.key === "End") nextIndex = tabs.length - 1;
+        if (nextIndex === undefined) return;
+        event.preventDefault();
+        activate(tabs[nextIndex]);
+      });
+    });
+  });
+</script>
+
+<style>
+  .textbook-browser {
+    margin-top: 28px;
+  }
+
+  .programme-tabs {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 190px), 1fr));
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+
+  .programme-tabs button {
+    min-height: 72px;
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 11px;
+    align-items: center;
+    border: 1px solid var(--line);
+    border-bottom: 4px solid var(--line);
+    border-radius: 7px;
+    background: var(--paper);
+    color: var(--ink);
+    padding: 12px 14px;
+    cursor: pointer;
+    text-align: left;
+  }
+
+  .programme-tabs button:hover {
+    border-bottom-color: var(--green);
+  }
+
+  .browser-technikum .programme-tabs button:hover {
+    border-bottom-color: var(--blue);
+  }
+
+  .programme-tabs button[aria-selected="true"] {
+    border-color: var(--green);
+    border-bottom-color: var(--green);
+    background: var(--green-soft);
+    color: var(--green-dark);
+  }
+
+  .browser-technikum .programme-tabs button[aria-selected="true"] {
+    border-color: var(--blue);
+    border-bottom-color: var(--blue);
+    background: var(--blue-soft);
+    color: var(--blue-dark);
+  }
+
+  .programme-tabs svg {
+    align-self: start;
+    margin-top: 2px;
+  }
+
+  .programme-tabs strong,
+  .programme-tabs small {
+    display: block;
+  }
+
+  .programme-tabs strong {
+    line-height: 1.25;
+  }
+
+  .programme-tabs small {
+    margin-top: 3px;
+    color: var(--muted);
+  }
+
+  .programme-panel {
+    border: 1px solid var(--line);
+    border-top: 5px solid var(--green);
+    border-radius: 8px;
+    background: var(--paper);
+    padding: 26px 24px 30px;
+  }
+
+  .browser-technikum .programme-panel {
+    border-top-color: var(--blue);
+  }
+
+  .programme-panel[hidden] {
+    display: none;
+  }
+
+  .panel-heading h3 {
+    font-size: 1.55rem;
+  }
+
+  .panel-heading > p:last-child {
+    max-width: 76ch;
+    margin-top: 8px;
+    color: var(--muted);
+  }
+
+  .catalogue-notice {
+    display: flex;
+    gap: 9px;
+    align-items: flex-start;
+    margin-top: 16px;
+    border-left: 4px solid var(--yellow);
+    background: var(--yellow-soft);
+    padding: 12px 14px;
+  }
+
+  .catalogue-notice svg {
+    flex: 0 0 auto;
+    margin-top: 3px;
+    color: var(--yellow);
+  }
+
+  .entry-group {
+    margin-top: 28px;
+  }
+
+  .entry-group-heading {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 18px;
+    border-bottom: 2px solid var(--ink);
+    padding-bottom: 8px;
+  }
+
+  .entry-group-heading h4 {
+    margin: 0;
+    font-size: 1.2rem;
+  }
+
+  .entry-group-heading span {
+    color: var(--muted);
+    font-size: 0.85rem;
+    font-weight: 750;
+  }
+
+  .textbook-entry {
+    display: grid;
+    grid-template-columns: minmax(190px, 0.34fr) minmax(0, 1fr);
+    gap: 28px;
+    border-bottom: 1px solid var(--line);
+    padding: 17px 0;
+  }
+
+  .entry-subject strong,
+  .entry-subject span {
+    display: block;
+  }
+
+  .entry-subject span {
+    margin-top: 3px;
+    color: var(--green-dark);
+    font-size: 0.79rem;
+    font-weight: 850;
+    text-transform: uppercase;
+  }
+
+  .browser-technikum .entry-subject span {
+    color: var(--blue-dark);
+  }
+
+  .entry-book h5 {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.35;
+  }
+
+  .entry-book p {
+    margin-top: 5px;
+    color: var(--muted);
+  }
+
+  .entry-book .entry-note {
+    color: var(--yellow);
+    font-weight: 800;
+  }
+
+  .no-script-note {
+    border-left: 4px solid var(--yellow);
+    background: var(--yellow-soft);
+    padding: 14px;
+  }
+
+  @media (max-width: 680px) {
+    .programme-tabs {
+      grid-template-columns: 1fr;
+    }
+
+    .programme-tabs button {
+      min-height: 62px;
+    }
+
+    .programme-panel {
+      padding: 22px 16px 24px;
+    }
+
+    .textbook-entry {
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+
+    .entry-group-heading {
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 2px;
+    }
+  }
+</style>
