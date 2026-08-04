@@ -91,6 +91,14 @@ export const sources: Source[] = [
     description: "Informacje przekazane przez szkołę do publikacji w portalu: terminy dokumentów rekrutacyjnych, zebrania klas pierwszych, kart zdrowia i weryfikacji umów uczniów szkoły branżowej.",
   },
   {
+    id: "school-fees-2026",
+    title: "ZSZ5: wpłaty na Radę Rodziców i informacja o NNW 2026/2027",
+    url: "https://zsz5.edupage.org/",
+    type: "komunikat",
+    verifiedAt: "2026-08-04",
+    description: "Kwoty wpłat, rachunek Rady Rodziców oraz termin przekazania informacji o ubezpieczeniu NNW przekazane przez szkołę do publikacji w portalu.",
+  },
+  {
     id: "school-medical-2026",
     title: "ZSZ5: badania i dokumenty rekrutacyjne na rok 2026/2027",
     url: "https://zsz5.edupage.org/",

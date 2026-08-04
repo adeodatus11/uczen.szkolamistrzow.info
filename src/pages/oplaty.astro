@@ -1,132 +1,66 @@
 ---
-import { ArrowRight, BadgeCheck, CircleDollarSign, ShieldCheck, TriangleAlert } from "lucide-astro";
+import { ArrowRight, BadgeCheck, CalendarDays, CircleDollarSign, ShieldCheck } from "lucide-astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import SourceLinks from "@components/SourceLinks.astro";
 import { sitePath } from "../lib/paths";
 ---
 
-<BaseLayout title="Opłaty i ubezpieczenie | Strefa Ucznia ZSZ5" description="Informacje dla rodziców ZSZ5 o wpłatach na Radę Rodziców i ubezpieczeniu NNW, z wyraźnym oznaczeniem danych archiwalnych.">
+<BaseLayout title="Opłaty i ubezpieczenie 2026/2027 | Strefa Ucznia ZSZ5" description="Aktualne informacje o wpłatach na Radę Rodziców ZSZ5 oraz terminie przekazania informacji o ubezpieczeniu NNW na rok szkolny 2026/2027.">
   <section class="page-hero">
     <div class="container">
-      <p class="eyebrow">Dla rodziców · rok 2026/2027</p>
+      <p class="eyebrow">Dla rodziców · rok szkolny 2026/2027</p>
       <h1>Opłaty i ubezpieczenie</h1>
-      <p class="lead">Strona oddziela dane obowiązujące od informacji archiwalnych. Kwoty i rachunek z roku 2025/2026 pozostają widoczne wyłącznie jako punkt odniesienia i wymagają aktualizacji.</p>
+      <p class="lead">Poniżej znajdują się aktualne kwoty wpłat na Radę Rodziców i numer rachunku. Informacje o ubezpieczeniu NNW zostaną przekazane we wrześniu.</p>
     </div>
   </section>
 
-  <section class="band band-soft" aria-labelledby="payment-status">
-    <div class="container">
-      <div class="callout">
-        <TriangleAlert size={27} aria-hidden="true" />
-        <div>
-          <h2 id="payment-status">Dane na rok 2026/2027 nie zostały jeszcze potwierdzone</h2>
-          <p>Poniższe kwoty, terminy i numer rachunku pochodzą z roku szkolnego 2025/2026 i wymagają aktualizacji. Nie należy ich używać do wpłat za rok 2026/2027 bez nowego komunikatu szkoły lub Rady Rodziców.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="band" aria-labelledby="archive-fees">
+  <section class="band" aria-labelledby="current-fees">
     <div class="container">
       <div class="section-heading">
-        <p class="eyebrow">Dane archiwalne · 2025/2026</p>
-        <h2 id="archive-fees">Kwoty i terminy z poprzedniego roku szkolnego</h2>
-        <p>Informacje pozostają na stronie jako punkt odniesienia. Wszystkie pozycje wymagają potwierdzenia przed wpłatą.</p>
+        <p class="eyebrow">Obowiązujące informacje · 2026/2027</p>
+        <h2 id="current-fees">Wpłaty wskazane przez Radę Rodziców</h2>
+        <p>Przed wykonaniem przelewu sprawdź właściwą kwotę, termin oraz dokładne oznaczenie klasy ucznia.</p>
       </div>
 
-      <div class="info-panel-grid archive-fees-grid">
-        <article class="info-panel">
-          <CircleDollarSign size={28} aria-hidden="true" />
-          <p class="audience-label">Rok szkolny 2025/2026</p>
-          <h3>Wpłaty wskazane przez Radę Rodziców</h3>
-          <dl class="status-list archive-status-list">
-            <div><dt>Fundusz Rady Rodziców</dt><dd>60 zł</dd></div>
-            <div><dt>Drugie lub kolejne dziecko w szkole</dt><dd>30 zł</dd></div>
-            <div><dt>Monitoring szkoły</dt><dd>15 zł · do końca I semestru</dd></div>
-            <div><dt>Materiały kserograficzne</dt><dd>15 zł · do końca września</dd></div>
-            <div><dt>Dzienniczek zajęć praktycznych</dt><dd>10 zł · do 22 września</dd></div>
-          </dl>
-          <p class="archive-footnote">Komunikat zbiorczy zawierał również ogólną prośbę o wpłaty do 21 października 2025 r., mimo odrębnych terminów podanych przy monitoringu, materiałach i dzienniczku.</p>
-        </article>
-
-        <article class="info-panel">
-          <ShieldCheck size={28} aria-hidden="true" />
-          <p class="audience-label">Rok szkolny 2025/2026</p>
-          <h3>Grupowe ubezpieczenie NNW</h3>
-          <p>Archiwalny komunikat opisywał ofertę TUZ Ubezpieczenia jako ochronę działającą całodobowo: w domu, w życiu prywatnym, w szkole i podczas zajęć sportowych, na całym świecie. Zakres obejmował NNW oraz odpowiedzialność cywilną ucznia na praktykach.</p>
-          <dl class="status-list archive-status-list">
-            <div><dt>Składka</dt><dd>67 zł</dd></div>
-            <div><dt>Suma ubezpieczenia</dt><dd>26 000 zł</dd></div>
-            <div><dt>Zakres</dt><dd>NNW + OC ucznia na praktykach</dd></div>
-            <div><dt>Czas i miejsce ochrony</dt><dd>24 godziny na dobę · cały świat</dd></div>
-            <div><dt>Okres ochrony</dt><dd>1.09.2025-31.08.2026</dd></div>
-            <div><dt>Sposób przystąpienia</dt><dd>Wpłata na rachunek Rady Rodziców</dd></div>
-            <div><dt>Termin wpłaty</dt><dd>21 lub 22.10.2025*</dd></div>
-          </dl>
-          <p class="archive-footnote">* Komunikaty podają dwie różne daty graniczne. W jednym nagłówku pojawia się także rok 2024/2025, ale wskazany okres ochrony dotyczy roku szkolnego 2025/2026.</p>
-        </article>
+      <div class="info-panel current-fees-panel">
+        <CircleDollarSign size={28} aria-hidden="true" />
+        <p class="audience-label">Rok szkolny 2026/2027</p>
+        <h3>Tabela opłat</h3>
+        <dl class="status-list current-status-list">
+          <div><dt>Fundusz Rady Rodziców</dt><dd>60 zł</dd></div>
+          <div><dt>Drugie lub kolejne dziecko w szkole</dt><dd>30 zł</dd></div>
+          <div><dt>Monitoring szkoły</dt><dd>15 zł · do końca I semestru</dd></div>
+          <div><dt>Materiały kserograficzne</dt><dd>15 zł · do końca września</dd></div>
+          <div><dt>Dzienniczek zajęć praktycznych</dt><dd>10 zł · do 22 września</dd></div>
+        </dl>
       </div>
 
-      <div class="archive-account">
+      <div class="archive-account current-account">
         <div>
-          <p class="audience-label">Archiwalny rachunek · nie używać bez potwierdzenia</p>
-          <h3>Rada Rodziców · Santander Bank</h3>
+          <p class="audience-label">Rachunek Rady Rodziców</p>
+          <h3>Santander Bank</h3>
           <p class="account-number">02 1090 2529 0000 0001 4875 4698</p>
         </div>
         <div>
-          <strong>Tytuł przelewu w 2025/2026</strong>
+          <strong>Tytuł przelewu</strong>
           <p>Imię i nazwisko ucznia oraz dokładne oznaczenie klasy, np. „Jan Kowalski, kl. 1W”.</p>
-        </div>
-      </div>
-
-      <div class="archive-instructions">
-        <div class="section-heading">
-          <p class="eyebrow">Archiwalna instrukcja · 2025/2026</p>
-          <h3>Jak przystępowano do ubezpieczenia grupowego</h3>
-        </div>
-        <ol class="plain-steps">
-          <li><strong>Wpłata trafiała bezpośrednio na rachunek Rady Rodziców.</strong><span>W ten sposób, zgodnie z komunikatem, uczeń przystępował do wariantu grupowego.</span></li>
-          <li><strong>Wpłacano 67 zł za wariant z sumą ubezpieczenia 26 000 zł.</strong><span>Komunikat wskazywał NNW oraz OC ucznia podczas praktyk.</span></li>
-          <li><strong>W tytule przelewu podawano imię, nazwisko i dokładną klasę ucznia.</strong><span>Należało wpisać pełne oznaczenie, np. 1W albo 1K, a nie tylko „klasa 1”.</span></li>
-          <li><strong>Przelew należało wykonać przed terminem granicznym.</strong><span>Komunikat informował, że późniejsze przelewy będą zwracane. Ze względu na rozbieżność dat nie należy stosować tej instrukcji do nowych wpłat.</span></li>
-        </ol>
-        <div class="button-row">
-          <a class="button" href="https://drive.google.com/drive/folders/1Xf2OIz0cJKAQjTV2cQv5VKHq023xHAQs?usp=sharing" target="_blank" rel="noreferrer">Archiwalne materiały o ubezpieczeniu <ArrowRight size={18} aria-hidden="true" /></a>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="band band-soft" aria-labelledby="fees-list">
-    <div class="container">
-      <div class="section-heading">
-        <p class="eyebrow">Zakres informacji</p>
-        <h2 id="fees-list">Wpłata na Radę Rodziców i ubezpieczenie NNW</h2>
-      </div>
-      <div class="info-panel-grid">
-        <article class="info-panel">
-          <CircleDollarSign size={28} aria-hidden="true" />
-          <p class="audience-label">Dobrowolna wpłata</p>
-          <h3>Fundusz Rady Rodziców</h3>
-          <p>Rada Rodziców może gromadzić środki z dobrowolnych składek. Nie jest to obowiązkowa opłata za naukę ani warunek korzystania przez ucznia z praw szkolnych.</p>
-          <dl class="status-list">
-            <div><dt>Sugerowana kwota 2026/2027</dt><dd>Do potwierdzenia</dd></div>
-            <div><dt>Numer rachunku</dt><dd>Do potwierdzenia</dd></div>
-            <div><dt>Tytuł przelewu</dt><dd>Do potwierdzenia</dd></div>
-          </dl>
-        </article>
-
-        <article class="info-panel">
-          <ShieldCheck size={28} aria-hidden="true" />
-          <p class="audience-label">Dobrowolne ubezpieczenie</p>
-          <h3>Ubezpieczenie NNW ucznia</h3>
-          <p>Prawo nie nakłada na rodzica obowiązku wykupienia szkolnego NNW. Przed wyborem warto porównać nie tylko cenę, lecz także sumę ubezpieczenia, wyłączenia i sposób zgłoszenia szkody.</p>
-          <dl class="status-list">
-            <div><dt>Ubezpieczyciel 2026/2027</dt><dd>Do potwierdzenia</dd></div>
-            <div><dt>Składka i wariant</dt><dd>Do potwierdzenia</dd></div>
-            <div><dt>Okres ochrony</dt><dd>Do potwierdzenia</dd></div>
-          </dl>
-        </article>
+  <section class="band band-soft" aria-labelledby="insurance-info">
+    <div class="container compact-section">
+      <div class="callout insurance-notice">
+        <ShieldCheck size={27} aria-hidden="true" />
+        <div>
+          <p class="eyebrow">Ubezpieczenie NNW 2026/2027</p>
+          <h2 id="insurance-info">Informacje zostaną podane we wrześniu</h2>
+          <p>Warunki ubezpieczenia, wysokość składki i sposób przystąpienia zostaną przedstawione podczas zebrania rodziców 4 września 2026 r. o godz. 16:00. Informacja zostanie również opublikowana w późniejszym terminie we wrześniu.</p>
+          <div class="button-row">
+            <a class="button" href={sitePath("/temat/zebranie-rodzicow-2026/")}><CalendarDays size={18} aria-hidden="true" /> Informacja o zebraniu <ArrowRight size={18} aria-hidden="true" /></a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -135,13 +69,13 @@ import { sitePath } from "../lib/paths";
     <div class="container compact-section">
       <div class="section-heading">
         <p class="eyebrow">Przed wpłatą</p>
-        <h2 id="before-payment">Informacje wymagające sprawdzenia</h2>
+        <h2 id="before-payment">Sprawdź dane przelewu</h2>
       </div>
       <ul class="check-list">
-        <li><BadgeCheck size={20} aria-hidden="true" /><span>czy komunikat dotyczy roku szkolnego 2026/2027,</span></li>
-        <li><BadgeCheck size={20} aria-hidden="true" /><span>czy rachunek i odbiorca pochodzą z oficjalnej informacji szkoły lub Rady Rodziców,</span></li>
-        <li><BadgeCheck size={20} aria-hidden="true" /><span>jaki tytuł przelewu trzeba wpisać,</span></li>
-        <li><BadgeCheck size={20} aria-hidden="true" /><span>co obejmuje polisa NNW i w jakich sytuacjach świadczenie nie przysługuje.</span></li>
+        <li><BadgeCheck size={20} aria-hidden="true" /><span>wybierz kwotę i termin właściwe dla danej pozycji w tabeli,</span></li>
+        <li><BadgeCheck size={20} aria-hidden="true" /><span>wpłać środki na rachunek Rady Rodziców podany na tej stronie,</span></li>
+        <li><BadgeCheck size={20} aria-hidden="true" /><span>w tytule wpisz imię i nazwisko ucznia oraz pełne oznaczenie klasy,</span></li>
+        <li><BadgeCheck size={20} aria-hidden="true" /><span>w sprawie ubezpieczenia NNW poczekaj na informację przekazaną we wrześniu.</span></li>
       </ul>
       <div class="button-row">
         <a class="button" href={sitePath("/rodzice/")}>Informacje dla rodziców <ArrowRight size={18} aria-hidden="true" /></a>
@@ -150,6 +84,51 @@ import { sitePath } from "../lib/paths";
   </section>
 
   <div id="sources">
-    <SourceLinks ids={["rady-rodzicow", "rf-ubezpieczenie", "zsz5-main", "rodzice-archiwum", "ubezpieczenie-materialy-2025"]} />
+    <SourceLinks ids={["rady-rodzicow", "school-fees-2026", "zsz5-main"]} />
   </div>
 </BaseLayout>
+
+<style>
+  .current-fees-panel {
+    max-width: 920px;
+    border-top-color: var(--green);
+  }
+
+  .current-status-list > div {
+    grid-template-columns: minmax(0, 1fr) minmax(220px, auto);
+  }
+
+  .current-status-list dd {
+    color: var(--ink);
+  }
+
+  .current-account {
+    max-width: 920px;
+    border-left-color: var(--green);
+    background: var(--green-soft);
+  }
+
+  .insurance-notice {
+    border-left-color: var(--blue);
+    background: var(--blue-soft);
+  }
+
+  .insurance-notice > svg {
+    color: var(--blue-dark);
+  }
+
+  .insurance-notice .eyebrow {
+    margin-bottom: 6px;
+    color: var(--blue-dark);
+  }
+
+  .insurance-notice p:not(.eyebrow) {
+    color: var(--muted);
+  }
+
+  @media (max-width: 680px) {
+    .current-status-list > div {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

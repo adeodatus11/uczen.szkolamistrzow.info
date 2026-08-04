@@ -1593,6 +1593,11 @@ html[data-theme="dark"] .site-header {
   background: rgba(20, 33, 25, 0.98);
 }
 
+html[data-theme="dark"] .brand-logo {
+  filter: invert(1) hue-rotate(180deg) brightness(1.18) saturate(0.9);
+  mix-blend-mode: screen;
+}
+
 html[data-theme="dark"] .page-hero {
   border-bottom-color: var(--line);
   background: #182a20;
