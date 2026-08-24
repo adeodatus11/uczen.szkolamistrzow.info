@@ -3,7 +3,6 @@ import { ArrowRight, CheckCircle2, Search, ShieldAlert } from "lucide-astro";
 import AudienceHero from "@components/AudienceHero.astro";
 import ParentMeetingModal from "@components/ParentMeetingModal.astro";
 import PathComparison from "@components/PathComparison.astro";
-import StartNotices from "@components/StartNotices.astro";
 import TopicCard from "@components/TopicCard.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import { topics } from "@data/topics";
@@ -41,16 +40,20 @@ const featured = featuredSlugs.map((slug) => topics.find((topic) => topic.slug =
         <h2>Najważniejsze terminy</h2>
         <ol class="dashboard-dates">
           <li>
-            <time datetime="2026-08-20"><strong>20</strong><span>sie</span></time>
-            <div><strong>Dokumenty rekrutacyjne</strong><p>Zaświadczenie lekarskie dla obu typów szkół. Uczeń szkoły branżowej dostarcza także umowę o pracę.</p></div>
+            <time datetime="2026-09-01T08:00"><strong>1</strong><span>wrz</span></time>
+            <div><strong>Klasy starsze BS I i technikum</strong><p>Godz. 8:00, sale lekcyjne, spotkania z wychowawcami.</p></div>
+          </li>
+          <li>
+            <time datetime="2026-09-01T09:00"><strong>1</strong><span>wrz</span></time>
+            <div><strong>Klasy pierwsze BS I i technikum</strong><p>Godz. 9:00, boisko szkolne.</p></div>
+          </li>
+          <li>
+            <time datetime="2026-09-03T14:00"><strong>3</strong><span>wrz</span></time>
+            <div><strong>Semestr 1 i 3 BS II stopnia</strong><p>Godz. 14:00, pierwsze zajęcia i spotkanie organizacyjne.</p></div>
           </li>
           <li>
             <time datetime="2026-09-04T16:00"><strong>4</strong><span>wrz</span></time>
-            <div><strong>Bardzo ważne zebranie rodziców klas pierwszych</strong><p>4 września 2026 r. o godz. 16:00.</p></div>
-          </li>
-          <li>
-            <time datetime="2026-09-30"><strong>30</strong><span>wrz</span></time>
-            <div><strong>Karta zdrowia</strong><p>Najpóźniej do końca września.</p></div>
+            <div><strong>Zebranie rodziców klas pierwszych</strong><p>Godz. 16:00, szczegóły w popupie i osobnym komunikacie.</p></div>
           </li>
         </ol>
         <div class="dashboard-source">
@@ -66,12 +69,53 @@ const featured = featuredSlugs.map((slug) => topics.find((topic) => topic.slug =
       <div class="section-heading wide">
         <div>
           <p class="eyebrow">Początek roku szkolnego 2026/2027</p>
-          <h2 id="start-dates">Terminy dla nowych uczniów i rodziców</h2>
-          <p>Do 20 sierpnia obie grupy uczniów dostarczają zaświadczenie lekarskie. Kandydat do szkoły branżowej przekazuje również umowę o pracę.</p>
+          <h2 id="start-dates">Rozpoczęcie roku szkolnego</h2>
+          <p>1 września 2026 r. uczniowie rozpoczynają rok szkolny według poniższego harmonogramu.</p>
         </div>
         <a class="button" href={sitePath("/rodzice/")}>Informacje dla rodziców <ArrowRight size={18} aria-hidden="true" /></a>
       </div>
-      <StartNotices />
+      <div class="notice-grid opening-notices">
+        <article class="notice-card tone-green">
+          <div class="notice-date" aria-label="1 września 2026, godzina 9:00">
+            <strong>1</strong>
+            <span>września 2026</span>
+            <small>9:00</small>
+          </div>
+          <div class="notice-content">
+            <p class="audience-label">Klasy pierwsze</p>
+            <h3>Branżowa Szkoła I stopnia i Technikum nr 5</h3>
+            <p>Uroczyste rozpoczęcie roku szkolnego odbędzie się na boisku szkolnym.</p>
+            <strong class="notice-action">Dotyczy klas 1 Branżowej Szkoły I stopnia oraz klas 1 technikum.</strong>
+          </div>
+        </article>
+        <article class="notice-card tone-blue">
+          <div class="notice-date" aria-label="1 września 2026, godzina 8:00">
+            <strong>1</strong>
+            <span>września 2026</span>
+            <small>8:00</small>
+          </div>
+          <div class="notice-content">
+            <p class="audience-label">Klasy starsze</p>
+            <h3>Branżowa Szkoła I stopnia i technikum</h3>
+            <p>Uczniowie spotykają się z wychowawcami w salach lekcyjnych.</p>
+            <strong class="notice-action">Dotyczy klas starszych obu szkół.</strong>
+          </div>
+        </article>
+        <article class="notice-card tone-yellow">
+          <div class="notice-date" aria-label="3 września 2026, godzina 14:00">
+            <strong>3</strong>
+            <span>września 2026</span>
+            <small>14:00</small>
+          </div>
+          <div class="notice-content">
+            <p class="audience-label">BS II stopnia</p>
+            <h3>Semestr 1 i semestr 3</h3>
+            <p>Odbędą się pierwsze zajęcia oraz spotkanie organizacyjne.</p>
+            <p>Zajęcia BS II stopnia będą realizowane w poniedziałki, wtorki, czwartki i piątki w godzinach 14:00-19:50.</p>
+            <strong class="notice-action">Dotyczy słuchaczy semestru 1 i 3 Branżowej Szkoły II stopnia.</strong>
+          </div>
+        </article>
+      </div>
     </div>
   </section>
 
