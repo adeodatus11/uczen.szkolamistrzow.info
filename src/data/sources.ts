@@ -96,7 +96,7 @@ export const sources: Source[] = [
     url: "https://zsz5.edupage.org/",
     type: "komunikat",
     verifiedAt: "2026-08-04",
-    description: "Kwoty wpłat, rachunek Rady Rodziców oraz termin przekazania informacji o ubezpieczeniu NNW przekazane przez szkołę do publikacji w portalu.",
+    description: "Kwoty wpłat, rachunek Rady Rodziców, składka ubezpieczenia NNW + OC oraz informacje o tytule przelewu przekazane przez szkołę do publikacji w portalu.",
   },
   {
     id: "school-medical-2026",

@@ -64,9 +64,9 @@ const extraSearchPages = [
   {
     title: "Opłaty i ubezpieczenie",
     eyebrow: "Rok szkolny 2026/2027",
-    summary: "Aktualne kwoty i rachunek Rady Rodziców oraz termin przekazania informacji o ubezpieczeniu NNW.",
+    summary: "Aktualne kwoty, rachunek Rady Rodziców, składka NNW + OC oraz dane do tytułu przelewu.",
     href: "/oplaty/",
-    search: "Rada Rodziców 60 zł drugie dziecko 30 zł monitoring 15 zł materiały kserograficzne ksero 15 zł dzienniczek zajęć praktycznych 10 zł Santander konto rachunek 02 1090 2529 0000 0001 4875 4698 tytuł przelewu imię nazwisko dokładna klasa 1W 1K opłaty składki 2026 2027 ubezpieczenie NNW wrzesień zebranie rodziców 4 września godzina 16",
+    search: "Rada Rodziców 60 zł drugie dziecko 30 zł monitoring 15 zł materiały kserograficzne ksero 15 zł dzienniczek zajęć praktycznych 10 zł ubezpieczenie NNW OC 65 zł Santander konto rachunek 02 1090 2529 0000 0001 4875 4698 tytuł przelewu imię nazwisko dokładna klasa 1W 1K za co opłata RR monitoring ksero NNW OC opłaty składki 2026 2027",
   },
 ].map((page) => ({ ...page, search: [page.title, page.eyebrow, page.summary, page.search].join(" ").toLocaleLowerCase("pl") }));
 

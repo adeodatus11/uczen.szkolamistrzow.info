@@ -5,12 +5,12 @@ import SourceLinks from "@components/SourceLinks.astro";
 import { sitePath } from "../lib/paths";
 ---
 
-<BaseLayout title="Opłaty i ubezpieczenie 2026/2027 | Strefa Ucznia ZSZ5" description="Aktualne informacje o wpłatach na Radę Rodziców ZSZ5 oraz terminie przekazania informacji o ubezpieczeniu NNW na rok szkolny 2026/2027.">
+<BaseLayout title="Opłaty i ubezpieczenie 2026/2027 | Strefa Ucznia ZSZ5" description="Aktualne informacje o wpłatach na Radę Rodziców ZSZ5, ubezpieczeniu NNW + OC oraz danych do przelewu na rok szkolny 2026/2027.">
   <section class="page-hero">
     <div class="container">
       <p class="eyebrow">Dla rodziców · rok szkolny 2026/2027</p>
       <h1>Opłaty i ubezpieczenie</h1>
-      <p class="lead">Poniżej znajdują się aktualne kwoty wpłat na Radę Rodziców i numer rachunku. Informacje o ubezpieczeniu NNW zostaną przekazane we wrześniu.</p>
+      <p class="lead">Poniżej znajdują się aktualne kwoty wpłat na Radę Rodziców, składka ubezpieczenia NNW + OC oraz numer rachunku.</p>
     </div>
   </section>
 
@@ -32,6 +32,7 @@ import { sitePath } from "../lib/paths";
           <div><dt>Monitoring szkoły</dt><dd>15 zł · do końca I semestru</dd></div>
           <div><dt>Materiały kserograficzne</dt><dd>15 zł · do końca września</dd></div>
           <div><dt>Dzienniczek zajęć praktycznych</dt><dd>10 zł · do 22 września</dd></div>
+          <div><dt>Ubezpieczenie NNW + OC</dt><dd>65 zł</dd></div>
         </dl>
       </div>
 
@@ -43,7 +44,7 @@ import { sitePath } from "../lib/paths";
         </div>
         <div>
           <strong>Tytuł przelewu</strong>
-          <p>Imię i nazwisko ucznia oraz dokładne oznaczenie klasy, np. „Jan Kowalski, kl. 1W”.</p>
+          <p>Imię i nazwisko ucznia, dokładne oznaczenie klasy oraz informacja, czego dotyczy wpłata, np. „Jan Kowalski, kl. 1W, RR”, „monitoring”, „ksero” albo „NNW + OC”.</p>
         </div>
       </div>
     </div>
@@ -54,9 +55,9 @@ import { sitePath } from "../lib/paths";
       <div class="callout insurance-notice">
         <ShieldCheck size={27} aria-hidden="true" />
         <div>
-          <p class="eyebrow">Ubezpieczenie NNW 2026/2027</p>
-          <h2 id="insurance-info">Informacje zostaną podane we wrześniu</h2>
-          <p>Warunki ubezpieczenia, wysokość składki i sposób przystąpienia zostaną przedstawione podczas zebrania rodziców 4 września 2026 r. o godz. 16:00. Informacja zostanie również opublikowana w późniejszym terminie we wrześniu.</p>
+          <p class="eyebrow">Ubezpieczenie 2026/2027</p>
+          <h2 id="insurance-info">NNW + OC</h2>
+          <p>Składka na ubezpieczenie NNW + OC wynosi 65 zł. W tytule przelewu należy dopisać, że wpłata dotyczy ubezpieczenia NNW + OC.</p>
           <div class="button-row">
             <a class="button" href={sitePath("/temat/zebranie-rodzicow-2026/")}><CalendarDays size={18} aria-hidden="true" /> Informacja o zebraniu <ArrowRight size={18} aria-hidden="true" /></a>
           </div>
@@ -74,8 +75,8 @@ import { sitePath } from "../lib/paths";
       <ul class="check-list">
         <li><BadgeCheck size={20} aria-hidden="true" /><span>wybierz kwotę i termin właściwe dla danej pozycji w tabeli,</span></li>
         <li><BadgeCheck size={20} aria-hidden="true" /><span>wpłać środki na rachunek Rady Rodziców podany na tej stronie,</span></li>
-        <li><BadgeCheck size={20} aria-hidden="true" /><span>w tytule wpisz imię i nazwisko ucznia oraz pełne oznaczenie klasy,</span></li>
-        <li><BadgeCheck size={20} aria-hidden="true" /><span>w sprawie ubezpieczenia NNW poczekaj na informację przekazaną we wrześniu.</span></li>
+        <li><BadgeCheck size={20} aria-hidden="true" /><span>w tytule wpisz imię i nazwisko ucznia, pełne oznaczenie klasy oraz nazwę opłaty, np. RR, monitoring, ksero albo NNW + OC,</span></li>
+        <li><BadgeCheck size={20} aria-hidden="true" /><span>dla ubezpieczenia NNW + OC zastosuj składkę 65 zł.</span></li>
       </ul>
       <div class="button-row">
         <a class="button" href={sitePath("/rodzice/")}>Informacje dla rodziców <ArrowRight size={18} aria-hidden="true" /></a>
