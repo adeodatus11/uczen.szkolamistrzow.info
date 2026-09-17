@@ -1,0 +1,28 @@
+---
+import ArticleCard from "@components/ArticleCard.astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { articles } from "@data/articles";
+
+const sorted = [...articles].sort((first, second) => second.publishedAt.localeCompare(first.publishedAt));
+---
+
+<BaseLayout
+  title="Działania szkoły | Strefa Ucznia ZSZ5"
+  description="Dlaczego szkoła podejmuje określone działania wychowawcze i organizacyjne. Teksty dla rodziców i opiekunów uczniów ZSZ5."
+>
+  <section class="page-hero">
+    <div class="container">
+      <p class="eyebrow">Dla rodziców i opiekunów</p>
+      <h1>Działania szkoły</h1>
+      <p class="lead">Wyjaśniamy, dlaczego wprowadzamy określone zasady i na czym nam zależy. Piszemy prosto, bez moralizowania, wskazując źródła, do których można zajrzeć samodzielnie.</p>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="container">
+      <div class="article-grid">
+        {sorted.map((article) => <ArticleCard article={article} />)}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,11 +1,13 @@
 ---
 import { ArrowRight, CheckCircle2, Search, ShieldAlert } from "lucide-astro";
+import ArticleCard from "@components/ArticleCard.astro";
 import AudienceHero from "@components/AudienceHero.astro";
 import EventNotices from "@components/EventNotices.astro";
 import ParentMeetingModal from "@components/ParentMeetingModal.astro";
 import PathComparison from "@components/PathComparison.astro";
 import TopicCard from "@components/TopicCard.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
+import { articles } from "@data/articles";
 import { upcomingEvents } from "@data/calendar";
 import { topics } from "@data/topics";
 import { dayNumber, eventTimeLabel, shortMonth } from "../lib/eventDate";
@@ -21,6 +23,9 @@ const featuredSlugs = [
 ];
 const featured = featuredSlugs.map((slug) => topics.find((topic) => topic.slug === slug)).filter(Boolean);
 const nextDates = upcomingEvents().slice(0, 4);
+const latestArticles = [...articles]
+  .sort((first, second) => second.publishedAt.localeCompare(first.publishedAt))
+  .slice(0, 2);
 
 function dateDetail(time: string | undefined, audience: string) {
   return time ? `Godz. ${time}. ${audience}.` : `${audience}.`;
@@ -76,6 +81,22 @@ function dateDetail(time: string | undefined, audience: string) {
         <a class="button" href={sitePath("/terminarz/")}>Pełny terminarz <ArrowRight size={18} aria-hidden="true" /></a>
       </div>
       <EventNotices limit={3} />
+    </div>
+  </section>
+
+  <section class="band" aria-labelledby="school-actions">
+    <div class="container">
+      <div class="section-heading wide">
+        <div>
+          <p class="eyebrow">Działania szkoły</p>
+          <h2 id="school-actions">Dlaczego robimy to, co robimy</h2>
+          <p>Teksty dla rodziców i opiekunów. Wyjaśniamy zasady, pokazujemy źródła i podpowiadamy, co można zrobić w domu.</p>
+        </div>
+        <a class="button" href={sitePath("/dzialania-szkoly/")}>Wszystkie teksty <ArrowRight size={18} aria-hidden="true" /></a>
+      </div>
+      <div class="article-grid">
+        {latestArticles.map((article) => <ArticleCard article={article} />)}
+      </div>
     </div>
   </section>
 

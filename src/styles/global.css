@@ -2084,3 +2084,155 @@ html[data-theme="dark"] .event-entry.past {
     font-size: 1.4rem;
   }
 }
+
+/* Działania szkoły: artykuły dla rodziców */
+
+.article-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
+  gap: 18px;
+}
+
+.article-card {
+  border: 1px solid var(--line);
+  border-top: 5px solid var(--line);
+  border-radius: 8px;
+  background: var(--paper);
+  padding: 24px;
+}
+
+.article-card.tone-green {
+  border-top-color: var(--green);
+}
+
+.article-card.tone-blue {
+  border-top-color: var(--blue);
+}
+
+.article-card.tone-yellow {
+  border-top-color: #d99b17;
+}
+
+.article-card h3 {
+  margin: 0;
+  font-size: 1.6rem;
+  line-height: 1.2;
+}
+
+.article-card h3 a {
+  text-decoration: none;
+}
+
+.article-card > p:not(.audience-label):not(.article-meta) {
+  margin: 12px 0 0;
+  color: var(--muted);
+}
+
+.article-card .text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 16px;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.article-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 18px;
+  margin: 16px 0 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-weight: 750;
+}
+
+.article-meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.article-layout {
+  max-width: 920px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 270px;
+  gap: 44px;
+  padding-block: 48px 64px;
+}
+
+.article-body h2 {
+  margin-top: 40px;
+  font-size: 1.55rem;
+  line-height: 1.25;
+}
+
+.article-body p {
+  margin: 16px 0 0;
+  font-size: 1.05rem;
+}
+
+.article-intro {
+  margin-top: 0;
+  font-size: 1.16rem;
+  font-weight: 650;
+}
+
+.article-box {
+  margin-top: 40px;
+  border: 1px solid var(--line);
+  border-left: 5px solid var(--blue);
+  border-radius: 8px;
+  background: var(--soft);
+  padding: 24px 26px;
+}
+
+.article-box.school-box {
+  border-left-color: var(--green);
+}
+
+.box-heading {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 4px;
+  font-size: 1.4rem;
+}
+
+.article-box > p {
+  color: var(--muted);
+}
+
+.box-list {
+  margin: 16px 0 0;
+  padding-left: 22px;
+}
+
+.box-list li + li {
+  margin-top: 12px;
+}
+
+.article-sources {
+  margin-top: 46px;
+  border-top: 1px solid var(--line);
+  padding-top: 26px;
+}
+
+.article-sources h2 {
+  margin-top: 0;
+}
+
+.article-sources > p {
+  color: var(--muted);
+}
+
+.article-sources .topic-resource-list {
+  margin-top: 18px;
+}
+
+@media (max-width: 980px) {
+  .article-layout {
+    grid-template-columns: 1fr;
+    gap: 34px;
+  }
+}

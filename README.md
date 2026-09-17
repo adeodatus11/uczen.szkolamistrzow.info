@@ -33,8 +33,10 @@ npm run preview
 - `src/data/sources.ts` - rejestr źródeł i dat weryfikacji,
 - `src/pages/` - strony ścieżek, opłat, podręczników i wyszukiwarka,
 - `src/pages/terminarz/` - terminarz, archiwum terminów i pliki `.ics` do zapisania w kalendarzu,
+- `src/data/articles.ts` i `src/pages/dzialania-szkoly/` - sekcja „Działania szkoły”: teksty dla rodziców,
 - `src/pages/temat/[slug].astro` - automatycznie generowane strony odpowiedzi,
-- `docs/audyt-research-koncepcja.md` - audyt, research i decyzje projektowe.
+- `docs/audyt-research-koncepcja.md` - audyt, research i decyzje projektowe,
+- `docs/higiena-cyfrowa-kwerenda.md` - notatka z kwerendy do tekstu o higienie cyfrowej.
 
 ## Terminarz
 

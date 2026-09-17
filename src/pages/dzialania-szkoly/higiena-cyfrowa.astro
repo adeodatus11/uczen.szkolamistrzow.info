@@ -1,0 +1,167 @@
+---
+import { ArrowLeft, Clock3, ExternalLink, Home, School } from "lucide-astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { articleBySlug } from "@data/articles";
+import { fullDate } from "../../lib/eventDate";
+import { sitePath } from "../../lib/paths";
+
+const article = articleBySlug("higiena-cyfrowa")!;
+---
+
+<BaseLayout title={`${article.title} | Strefa Ucznia ZSZ5`} description={article.summary}>
+  <header class:list={["topic-hero", `tone-${article.tone}`]}>
+    <div class="container">
+      <a class="text-link" href={sitePath("/dzialania-szkoly/")}><ArrowLeft size={18} aria-hidden="true" /> Działania szkoły</a>
+      <p class="eyebrow">{article.eyebrow}</p>
+      <h1>{article.title}</h1>
+      <p class="lead">{article.lead}</p>
+      <p class="article-meta">
+        <time datetime={article.publishedAt}>{fullDate(article.publishedAt)}</time>
+        <span><Clock3 size={16} aria-hidden="true" /> czas czytania: {article.readingMinutes} minut</span>
+      </p>
+    </div>
+  </header>
+
+  <div class="container article-layout">
+    <article class="article-body">
+      <p class="article-intro">Bierzemy telefon do ręki, żeby sprawdzić jedną wiadomość. Po chwili czytamy drugą, zaglądamy w pogodę, przewijamy wiadomości albo media społecznościowe. Miało być pięć minut, minęło dwadzieścia.</p>
+
+      <p>To nie jest kwestia charakteru. Aplikacje są projektowane tak, żeby przyciągać uwagę i utrudniać jej odzyskanie. Dorosły, który ma za sobą lata pracy nad własną organizacją dnia, też przegrywa te pięć minut - zwykle w biegu, między jedną a drugą sprawą.</p>
+
+      <p>Nastolatek dopiero się tego uczy. I robi to w klasie, w której siedzi jeszcze kilkanaście osób z telefonami w kieszeniach.</p>
+
+      <p>Dlatego zaczynamy ten tekst nie od zakazu, tylko od zwykłego doświadczenia, które zna większość z nas. Nie chcemy przekonywać, że telefony są złe. Chcemy wyjaśnić, o co nam chodzi, kiedy ograniczamy korzystanie z nich na lekcjach - i co z tego może wynikać dla domu.</p>
+
+      <h2>Co widać na lekcji</h2>
+
+      <p>Rozproszenie na lekcji nie jest problemem marginalnym. W badaniu PISA 2025 aż 41 procent polskich 15-latków deklarowało, że podczas większości lub wszystkich lekcji przedmiotów przyrodniczych uczniowie są rozpraszani przez urządzenia cyfrowe. Średnia dla krajów OECD wynosi 28 procent, a Polska znalazła się na piątym miejscu wśród 83 krajów z dostępnymi danymi (OECD, PISA 2025).</p>
+
+      <p>Co ważne, rozprasza nie tylko własny telefon. We wcześniejszym badaniu PISA 2022 jedna czwarta uczniów mówiła, że przeszkadza im korzystanie z urządzeń przez kolegów z klasy - i grupa ta osiągała wyraźnie niższe wyniki z matematyki. Uczeń, który sam telefonu nie wyjmuje, też płaci więc część tej ceny.</p>
+
+      <p>Mechanizm jest prosty i dobrze opisany. Uwaga nie dzieli się na dwoje - ona przeskakuje. Każdy powrót do lekcji po zerknięciu na ekran kosztuje kilka sekund i trochę wysiłku. Przy kilkunastu takich przeskokach z lekcji zostaje mniej, niż się wydaje.</p>
+
+      <p>Nie napiszemy przy tym, że „telefon niszczy mózg”. Popularna teza, że sama obecność telefonu na ławce obniża zdolność myślenia, nie obroniła się w badaniach - metaanaliza 56 eksperymentów nie potwierdziła takiego efektu. Problemem nie jest przedmiot leżący na stole, tylko to, co dzieje się wtedy, gdy przychodzi powiadomienie.</p>
+
+      <h2>Trzy rzeczy, o które nam chodzi</h2>
+
+      <p><strong>Łatwiej się skupić.</strong> Telefon zawsze ma w zanadrzu coś potencjalnie ciekawszego niż akurat omawiany temat: wiadomość, film, powiadomienie, grę. Lekcja bez tej konkurencji jest po prostu łatwiejsza - dla ucznia i dla nauczyciela.</p>
+
+      <p><strong>Potrzebny jest też czas bez ekranu.</strong> Przerwa, na której wszyscy patrzą w telefony, jest cicha, ale nie jest ani odpoczynkiem, ani rozmową. Nie chodzi o to, żeby się nudzić dla zasady. Chodzi o to, żeby nie każda wolna chwila wypełniała się automatycznie.</p>
+
+      <p><strong>Odłożenie telefonu również jest kompetencją cyfrową.</strong> W szkole uczymy korzystania z komputerów, internetu, coraz częściej także z narzędzi sztucznej inteligencji - według PISA 2025 ponad połowa polskich uczniów korzysta z chatbotów w nauce co najmniej raz w tygodniu, częściej niż wynosi średnia OECD. Do kompletu potrzebna jest umiejętność odwrotna: świadomie zdecydować, że teraz z telefonu nie korzystam. Higiena cyfrowa nie oznacza życia bez internetu, podobnie jak higiena snu nie oznacza, że mamy spać przez cały dzień.</p>
+
+      <h2>Czego nie napiszemy</h2>
+
+      <p>Chcemy być uczciwi także wtedy, gdy badania nie potwierdzają wygodnej dla nas tezy.</p>
+
+      <p><strong>Sam zakaz nie rozwiązuje problemu.</strong> Największe dotychczas badanie szkolnych ograniczeń, obejmujące około 4600 amerykańskich szkół, nie wykazało istotnej poprawy wyników w pierwszych trzech latach od ich wprowadzenia. Badania z Anglii i Florydy pokazały umiarkowaną poprawę. Wyniki są więc mieszane i wiele zależy od sposobu wdrożenia. Co więcej, w szkołach z zakazem i tak część uczniów sięgała po telefon kilka razy dziennie (OECD, PISA 2022). Ograniczenie telefonu na lekcji tworzy lepsze warunki do skupienia, ale samo w sobie nie nauczy nikogo higieny cyfrowej.</p>
+
+      <p><strong>Liczby wymagają ostrożności.</strong> W krajach OECD uczniowie zgłaszający rozproszenie cyfrowe osiągali średnio nieco niższe wyniki, ale Polska należy do mniejszości krajów, w których ta różnica nie była istotna statystycznie. Wysoki odsetek rozproszenia mówi więc przede wszystkim o tym, jak wygląda lekcja, a nie o tym, że telefon wprost obniża oceny.</p>
+
+      <p><strong>Nie każda zależność jest przyczyną.</strong> Nie powiemy, że telefon albo media społecznościowe „powodują” problemy psychiczne młodych ludzi. Badania w tym obszarze są w większości korelacyjne, a ich wyniki niejednoznaczne. Wiemy natomiast, że około 11 procent nastolatków w Europie wykazuje oznaki problematycznego korzystania z mediów społecznościowych - to wzrost z 7 procent w 2018 roku (WHO Europe, HBSC 2024). Problematyczne korzystanie to jednak co innego niż korzystanie intensywne i co innego niż uzależnienie.</p>
+
+      <p><strong>Czas przed ekranem to nie jedna liczba.</strong> Dwie godziny rozmowy z przyjaciółmi, montowania filmu albo nauki programowania to zupełnie inne doświadczenie niż dwie godziny bezrefleksyjnego przewijania. Pytanie „ile godzin?” jest mniej ciekawe niż pytanie „co z tego masz?”.</p>
+
+      <h2>Sen to obszar, w którym dowody są mocne</h2>
+
+      <p>Jeżeli mielibyśmy wskazać jedną rzecz najlepiej potwierdzoną badaniami, byłby to sen. Przeglądy obejmujące setki badań pokazują, że każda dodatkowa godzina korzystania z ekranu wiąże się ze skróceniem snu o kilka minut i z późniejszym zasypianiem - średnio o kilkanaście minut. Największe znaczenie ma korzystanie bezpośrednio przed snem i w nocy.</p>
+
+      <p>Kilkanaście minut brzmi niegroźnie. Ale w tygodniu, w którym trzeba wstać o wpół do siódmej, te minuty się sumują - a brak snu widać potem na pierwszej lekcji.</p>
+
+      <p>Warto też znać jedną liczbę z polskiego podwórka. W badaniu NASK „Nastolatki 3.0” nastolatki deklarowały około pięciu godzin dziennie spędzanych w internecie w dni powszednie. Ich opiekunowie szacowali ten czas na niecałe cztery godziny. Ta różnica nie jest zarzutem wobec rodziców - pokazuje po prostu, że część życia cyfrowego dziecka dzieje się poza naszym polem widzenia. To dobry punkt wyjścia do rozmowy.</p>
+
+      <h2>Co mówią przepisy</h2>
+
+      <p>Od 1 września 2026 roku obowiązuje nowelizacja Prawa oświatowego. W przedszkolach i szkołach podstawowych wprowadziła ona zakaz korzystania z telefonów. W szkołach ponadpodstawowych, a więc również w technikum i w szkole branżowej, zasady określa statut szkoły - może to być zakaz albo inne warunki korzystania. Szkoły mają czas na dostosowanie statutów do 31 grudnia 2026 roku, a Ministerstwo Edukacji Narodowej zaleca, aby wypracować te zasady wspólnie z rodzicami, uczniami i nauczycielami.</p>
+
+      <p>Ustawa przewiduje wyraźne wyjątki. Należą do nich: korzystanie z urządzenia za zgodą nauczyciela, na przykład do celów lekcji, pilny kontakt z rodzicem, sytuacja zagrożenia życia, zdrowia lub mienia, a także okresowa zgoda dyrektora ze względów zdrowotnych, z uwagi na niepełnosprawność albo inne szczególne potrzeby ucznia. Szkoła nie może natomiast zakazać wnoszenia telefonu na swój teren.</p>
+
+      <h2>„A jeżeli będę musiał szybko skontaktować się z dzieckiem?”</h2>
+
+      <p>To pytanie zadaje prawie każdy rodzic i jest całkowicie zrozumiałe.</p>
+
+      <p>Po pierwsze, pilny kontakt jest możliwy. Prowadzi przez sekretariat i wychowawcę, a w nagłej sprawie uczeń może skorzystać z własnego telefonu - tak stanowi ustawa.</p>
+
+      <p>Po drugie, wiadomość wysłana w trakcie lekcji rzadko wymaga odpowiedzi w tej samej minucie. Uczeń, który wie, że ma odpisać natychmiast, siedzi na lekcji jednym uchem. Zdanie „odpiszę po lekcji” jest dla niego dużym ułatwieniem - o ile wie, że w domu nikt nie odbierze tego jako ignorowania.</p>
+
+      <p>Po trzecie, w sytuacjach naprawdę trudnych, takich jak ewakuacja czy wypadek, najbezpieczniej jest wtedy, gdy uczeń słucha poleceń dorosłych na miejscu. Specjaliści od bezpieczeństwa szkolnego zwracają uwagę, że kilkadziesiąt telefonów naraz raczej utrudnia niż ułatwia pracę służb.</p>
+
+      <p>Najprościej umówić się na początku roku: w jakiej sprawie dzwonimy do sekretariatu, kiedy piszemy przez dziennik elektroniczny, a co może poczekać do końca lekcji.</p>
+
+      <h2>Szkoła nie zastąpi domu - i nie chce tego robić</h2>
+
+      <p>Szkoła może zapewnić kilka godzin dziennie, w czasie których telefon nie konkuruje bez przerwy o uwagę ucznia. Uczy korzystania z technologii, rozmawia o bezpieczeństwie w sieci, o mediach społecznościowych, o sztucznej inteligencji i o higienie cyfrowej. Stara się, żeby zasady były jasne i przewidywalne.</p>
+
+      <p>Nie zdecyduje natomiast, czy telefon leży obok poduszki o pierwszej w nocy, czy przy niedzielnym obiedzie odkładamy urządzenia i co dzieje się z telefonem przez pozostałe kilkanaście godzin doby.</p>
+
+      <p>To nie jest zdanie w stylu „to sprawa rodziców”. Szkoła odpowiada za swoją część dnia i traktuje to poważnie. Reszta doby jest po prostu poza jej zasięgiem - i tam najwięcej może zdziałać dom. Nie dlatego, że ktokolwiek zawinił. Telefony weszły w nasze życie bardzo szybko i wszyscy uczymy się z nimi żyć w biegu: rozrywka, praca, znajomi i powiadomienia są dostępne przez całą dobę, również dla dorosłych.</p>
+
+      <p>Badania nad rodzinami pokazują jeszcze jedno. U nastolatków sama kontrola działa coraz słabiej wraz z wiekiem, a coraz więcej znaczą wspólne ustalenia i to, co robią dorośli. Telefon rodzica odłożony przy stole mówi więcej niż długa rozmowa o zasadach.</p>
+
+      <h2>Jedna zmiana na początek wystarczy</h2>
+
+      <p>Nie trzeba zaczynać od cyfrowej rewolucji ani od regulaminu na lodówce. Nie trzeba też znać się na technologii. Wystarczy wybrać jedną zasadę, którą da się utrzymać przez miesiąc - i która obowiązuje wszystkich w domu, także dorosłych.</p>
+
+      <p>Jeżeli po przeczytaniu tego tekstu pojawi się myśl „u nas sprawdziłoby się to przy kolacji” albo „może rzeczywiście telefon nie musi spać na poduszce” - to zupełnie wystarczy na początek.</p>
+
+      <div class="article-box">
+        <h2 class="box-heading"><Home size={24} aria-hidden="true" /> Od czego możemy zacząć w domu?</h2>
+        <p>Nie traktujcie tego jako listy obowiązków. Wybierzcie jedną rzecz, którą jesteście w stanie wprowadzić razem.</p>
+        <ol class="box-list">
+          <li><strong>Telefon nie śpi z nami.</strong> Ładowarka poza sypialnią to najprostsza zmiana o największym potwierdzonym efekcie - dla snu i dla porannej formy.</li>
+          <li><strong>Przy części wspólnych posiłków odkładamy telefony.</strong> Nie przy każdym - przy tym jednym, który i tak jemy razem. Zasada dotyczy również dorosłych.</li>
+          <li><strong>Nie oczekujemy natychmiastowej odpowiedzi w czasie lekcji.</strong> Warto powiedzieć to dziecku wprost: „odpisz po lekcji, nic się nie stanie”.</li>
+          <li><strong>Ustalamy jeden regularny czas albo jedno miejsce bez telefonu.</strong> Może to być droga do szkoły, sobotni spacer albo pierwsze pół godziny po powrocie do domu.</li>
+          <li><strong>Dorośli też próbują.</strong> Nastolatek szybciej przyjmie zasadę, która obowiązuje wszystkich, niż taką, która dotyczy tylko jego.</li>
+        </ol>
+      </div>
+
+      <div class="article-box school-box">
+        <h2 class="box-heading"><School size={24} aria-hidden="true" /> Co robimy w szkole?</h2>
+        <p>Ograniczenie korzystania z telefonu podczas lekcji jest częścią szerszego dbania o higienę cyfrową, a nie walką z technologią.</p>
+        <ul class="box-list">
+          <li>Na lekcjach dbamy o czas, w którym telefon nie konkuruje o uwagę ucznia.</li>
+          <li>Korzystamy z technologii wtedy, gdy służy nauce - również z narzędzi cyfrowych i sztucznej inteligencji.</li>
+          <li>Rozmawiamy z uczniami o bezpieczeństwie w sieci, mediach społecznościowych i higienie cyfrowej.</li>
+          <li>Zasady dotyczące urządzeń w naszej szkole zapisane są w statucie i są dostosowywane do przepisów obowiązujących od 1 września 2026 roku.</li>
+          <li>W pilnych sprawach kontakt z uczniem jest możliwy przez sekretariat i wychowawcę.</li>
+        </ul>
+      </div>
+
+      <section class="article-sources" aria-labelledby="article-sources-heading">
+        <h2 id="article-sources-heading">Warto przeczytać</h2>
+        <p>Materiały, z których korzystaliśmy, przygotowując ten tekst. Wszystkie są dostępne bezpłatnie.</p>
+        <div class="topic-resource-list">
+          {article.furtherReading.map((link) => (
+            <a href={link.href} target="_blank" rel="noreferrer">
+              <span><strong>{link.label}</strong><small>{link.description}</small></span>
+              <ExternalLink size={20} aria-hidden="true" />
+            </a>
+          ))}
+        </div>
+      </section>
+    </article>
+
+    <aside class="topic-sidebar">
+      <p class="eyebrow">Powiązane informacje</p>
+      <nav aria-label="Skróty">
+        <a href={sitePath("/rodzice/")}>Informacje dla rodziców</a>
+        <a href={sitePath("/pomoc-psychologiczno-pedagogiczna/")}>Pomoc psychologiczno-pedagogiczna</a>
+        <a href={sitePath("/bezpieczenstwo-uczniow/")}>Bezpieczeństwo uczniów</a>
+        <a href={sitePath("/terminarz/")}>Terminarz zebrań i konsultacji</a>
+        <a href={sitePath("/pomoc/")}>Pomoc i kontakt</a>
+      </nav>
+    </aside>
+  </div>
+</BaseLayout>
+
+<style>
+  .topic-hero .text-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    margin-bottom: 24px;
+    color: var(--muted);
+    font-weight: 750;
+  }
+</style>

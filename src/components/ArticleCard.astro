@@ -1,0 +1,24 @@
+---
+import { ArrowRight, Clock3 } from "lucide-astro";
+import type { Article } from "@data/articles";
+import { fullDate } from "../lib/eventDate";
+import { sitePath } from "../lib/paths";
+
+type Props = {
+  article: Article;
+};
+
+const { article } = Astro.props;
+const href = sitePath(`/dzialania-szkoly/${article.slug}/`);
+---
+
+<article class:list={["article-card", `tone-${article.tone}`]}>
+  <p class="audience-label">{article.eyebrow}</p>
+  <h3><a href={href}>{article.title}</a></h3>
+  <p>{article.summary}</p>
+  <p class="article-meta">
+    <time datetime={article.publishedAt}>{fullDate(article.publishedAt)}</time>
+    <span><Clock3 size={16} aria-hidden="true" /> czas czytania: {article.readingMinutes} minut</span>
+  </p>
+  <a class="text-link" href={href}>Przeczytaj <ArrowRight size={17} aria-hidden="true" /></a>
+</article>
