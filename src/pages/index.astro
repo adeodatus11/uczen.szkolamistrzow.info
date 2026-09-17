@@ -1,11 +1,14 @@
 ---
 import { ArrowRight, CheckCircle2, Search, ShieldAlert } from "lucide-astro";
 import AudienceHero from "@components/AudienceHero.astro";
+import EventNotices from "@components/EventNotices.astro";
 import ParentMeetingModal from "@components/ParentMeetingModal.astro";
 import PathComparison from "@components/PathComparison.astro";
 import TopicCard from "@components/TopicCard.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
+import { upcomingEvents } from "@data/calendar";
 import { topics } from "@data/topics";
+import { dayNumber, eventTimeLabel, shortMonth } from "../lib/eventDate";
 import { sitePath } from "../lib/paths";
 
 const featuredSlugs = [
@@ -17,6 +20,11 @@ const featuredSlugs = [
   "praktyki-technikum",
 ];
 const featured = featuredSlugs.map((slug) => topics.find((topic) => topic.slug === slug)).filter(Boolean);
+const nextDates = upcomingEvents().slice(0, 4);
+
+function dateDetail(time: string | undefined, audience: string) {
+  return time ? `Godz. ${time}. ${audience}.` : `${audience}.`;
+}
 ---
 
 <BaseLayout title="Strefa Ucznia ZSZ5 - szkoła, zawód i praca">
@@ -36,26 +44,19 @@ const featured = featuredSlugs.map((slug) => topics.find((topic) => topic.slug =
           <button type="submit" aria-label="Szukaj"><Search size={22} aria-hidden="true" /></button>
         </form>
       </div>
-      <aside class="start-dashboard" aria-label="Najważniejsze terminy na początek roku szkolnego">
-        <h2>Najważniejsze terminy</h2>
+      <aside class="start-dashboard" aria-label="Najbliższe terminy w roku szkolnym 2026/2027">
+        <h2>Najbliższe terminy</h2>
         <ol class="dashboard-dates">
-          <li>
-            <time datetime="2026-09-01T08:00"><strong>1</strong><span>wrz</span></time>
-            <div><strong>Klasy starsze BS I i technikum</strong><p>Godz. 8:00, sale lekcyjne, spotkania z wychowawcami.</p></div>
-          </li>
-          <li>
-            <time datetime="2026-09-01T09:00"><strong>1</strong><span>wrz</span></time>
-            <div><strong>Klasy pierwsze BS I i technikum</strong><p>Godz. 9:00, boisko szkolne.</p></div>
-          </li>
-          <li>
-            <time datetime="2026-09-03T13:15"><strong>3</strong><span>wrz</span></time>
-            <div><strong>Semestr 1 i 3 BS II stopnia</strong><p>Godz. 13:15, pierwsze zajęcia i spotkanie organizacyjne.</p></div>
-          </li>
-          <li>
-            <time datetime="2026-09-04T16:00"><strong>4</strong><span>wrz</span></time>
-            <div><strong>Zebranie rodziców klas pierwszych</strong><p>Godz. 16:00, szczegóły w popupie i osobnym komunikacie.</p></div>
-          </li>
+          {nextDates.map((event) => (
+            <li>
+              <time datetime={event.startTime ? `${event.date}T${event.startTime}` : event.date}>
+                <strong>{dayNumber(event.date)}</strong><span>{shortMonth(event.date)}</span>
+              </time>
+              <div><strong>{event.title}</strong><p>{dateDetail(eventTimeLabel(event), event.audience)}</p></div>
+            </li>
+          ))}
         </ol>
+        <a class="text-link dashboard-more" href={sitePath("/terminarz/")}>Pełny terminarz i archiwum <ArrowRight size={17} aria-hidden="true" /></a>
         <div class="dashboard-source">
           <CheckCircle2 size={19} aria-hidden="true" />
           <a href={sitePath("/zrodla/")}>Źródła i daty weryfikacji informacji</a>
@@ -68,54 +69,13 @@ const featured = featuredSlugs.map((slug) => topics.find((topic) => topic.slug =
     <div class="container">
       <div class="section-heading wide">
         <div>
-          <p class="eyebrow">Początek roku szkolnego 2026/2027</p>
-          <h2 id="start-dates">Rozpoczęcie roku szkolnego</h2>
-          <p>1 września 2026 r. uczniowie rozpoczynają rok szkolny według poniższego harmonogramu.</p>
+          <p class="eyebrow">Rok szkolny 2026/2027</p>
+          <h2 id="start-dates">Najbliższe terminy</h2>
+          <p>Zebrania z rodzicami, konsultacje, wystawianie ocen i dni wolne. Terminy, które już minęły, znajdziesz w archiwum terminarza.</p>
         </div>
-        <a class="button" href={sitePath("/rodzice/")}>Informacje dla rodziców <ArrowRight size={18} aria-hidden="true" /></a>
+        <a class="button" href={sitePath("/terminarz/")}>Pełny terminarz <ArrowRight size={18} aria-hidden="true" /></a>
       </div>
-      <div class="notice-grid opening-notices">
-        <article class="notice-card tone-green">
-          <div class="notice-date" aria-label="1 września 2026, godzina 9:00">
-            <strong>1</strong>
-            <span>września 2026</span>
-            <small>9:00</small>
-          </div>
-          <div class="notice-content">
-            <p class="audience-label">Klasy pierwsze</p>
-            <h3>Branżowa Szkoła I stopnia i Technikum nr 5</h3>
-            <p>Uroczyste rozpoczęcie roku szkolnego odbędzie się na boisku szkolnym.</p>
-            <strong class="notice-action">Dotyczy klas 1 Branżowej Szkoły I stopnia oraz klas 1 technikum.</strong>
-          </div>
-        </article>
-        <article class="notice-card tone-blue">
-          <div class="notice-date" aria-label="1 września 2026, godzina 8:00">
-            <strong>1</strong>
-            <span>września 2026</span>
-            <small>8:00</small>
-          </div>
-          <div class="notice-content">
-            <p class="audience-label">Klasy starsze</p>
-            <h3>Branżowa Szkoła I stopnia i technikum</h3>
-            <p>Uczniowie spotykają się z wychowawcami w salach lekcyjnych.</p>
-            <strong class="notice-action">Dotyczy klas starszych obu szkół.</strong>
-          </div>
-        </article>
-        <article class="notice-card tone-yellow">
-          <div class="notice-date" aria-label="3 września 2026, godzina 13:15">
-            <strong>3</strong>
-            <span>września 2026</span>
-            <small>13:15</small>
-          </div>
-          <div class="notice-content">
-            <p class="audience-label">BS II stopnia</p>
-            <h3>Semestr 1 i semestr 3</h3>
-            <p>Odbędą się pierwsze zajęcia oraz spotkanie organizacyjne.</p>
-            <p>Zajęcia BS II stopnia będą realizowane w poniedziałki, wtorki, czwartki i piątki w godzinach 13:15-19:00.</p>
-            <strong class="notice-action">Dotyczy słuchaczy semestru 1 i 3 Branżowej Szkoły II stopnia.</strong>
-          </div>
-        </article>
-      </div>
+      <EventNotices limit={3} />
     </div>
   </section>
 

@@ -1,0 +1,43 @@
+---
+import { ArrowRight, CalendarPlus } from "lucide-astro";
+import type { CalendarEvent } from "@data/calendar";
+import { eventDateLabel, eventTimeLabel } from "../lib/eventDate";
+import { sitePath } from "../lib/paths";
+
+type Props = {
+  events: CalendarEvent[];
+  past?: boolean;
+};
+
+const { events, past = false } = Astro.props;
+const groups: { label: string; events: CalendarEvent[] }[] = [];
+
+for (const event of events) {
+  const label = eventDateLabel(event);
+  const group = groups.find((item) => item.label === label);
+  if (group) group.events.push(event);
+  else groups.push({ label, events: [event] });
+}
+---
+
+<ol class="event-timeline">
+  {groups.map((group) => (
+    <li>
+      <p class="event-day">{group.label}</p>
+      <div class="event-day-list">
+        {group.events.map((event) => (
+          <article class:list={["event-entry", `tone-${event.tone}`, { past }]}>
+            <p class="audience-label">{event.audience}{eventTimeLabel(event) && ` · ${eventTimeLabel(event)}`}</p>
+            <h3>{event.title}</h3>
+            <p>{event.description}</p>
+            {event.action && <strong class="event-action">{event.action}</strong>}
+            <div class="event-links">
+              {event.href && <a class="text-link" href={sitePath(event.href)}>Szczegóły wydarzenia <ArrowRight size={17} aria-hidden="true" /></a>}
+              {!past && <a class="text-link subtle" href={sitePath(`/terminarz/${event.id}.ics`)} download>Dodaj do kalendarza (.ics) <CalendarPlus size={17} aria-hidden="true" /></a>}
+            </div>
+          </article>
+        ))}
+      </div>
+    </li>
+  ))}
+</ol>

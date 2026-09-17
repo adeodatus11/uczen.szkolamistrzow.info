@@ -23,6 +23,7 @@ const currentPath = basePath && Astro.url.pathname.startsWith(basePath)
 const navItems = [
   { href: "/branzowa/", label: "Szkoła branżowa" },
   { href: "/technikum/", label: "Technikum" },
+  { href: "/terminarz/", label: "Terminarz" },
   { href: "/rodzice/", label: "Dla rodziców" },
   { href: "/oplaty/", label: "Opłaty" },
   { href: "/podreczniki/", label: "Podręczniki" },
@@ -93,6 +94,7 @@ const navItems = [
           <a href={sitePath("/branzowa/")}>Uczeń szkoły branżowej</a>
           <a href={sitePath("/technikum/")}>Uczeń technikum</a>
           <a href={sitePath("/rodzice/")}>Rodzic lub opiekun</a>
+          <a href={sitePath("/terminarz/")}>Terminarz 2026/2027</a>
           <a href={sitePath("/oplaty/")}>Opłaty i ubezpieczenie</a>
           <a href={sitePath("/podreczniki/")}>Podręczniki 2026/2027</a>
           <a href={sitePath("/temat/mlegitymacja-szkolna/")}>Legitymacja w mObywatelu</a>
@@ -119,6 +121,7 @@ const navItems = [
           <p><a href="tel:+48717986934">+48 71 798 69 34, wew. 100</a> · <a href="mailto:sekretariat.zsz5@wroclawskaedukacja.pl">sekretariat.zsz5@wroclawskaedukacja.pl</a></p>
         </div>
         <nav aria-label="Linki w stopce">
+          <a href={sitePath("/terminarz/")}>Terminarz 2026/2027</a>
           <a href={sitePath("/oplaty/")}>Opłaty i ubezpieczenie</a>
           <a href={sitePath("/podreczniki/")}>Podręczniki 2026/2027</a>
           <a href={sitePath("/temat/mlegitymacja-szkolna/")}>Legitymacja w mObywatelu</a>

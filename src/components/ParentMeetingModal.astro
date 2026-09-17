@@ -1,45 +1,54 @@
 ---
-import { ArrowRight, CalendarDays, X } from "lucide-astro";
+import { ArrowRight, CalendarDays, CalendarPlus, X } from "lucide-astro";
+import { announcedEventId, eventById, eventsOnDay, isPast } from "@data/calendar";
+import { eventTimeLabel, fullDate, weekday } from "../lib/eventDate";
 import { sitePath } from "../lib/paths";
+
+const meeting = eventById(announcedEventId);
+const sameDay = meeting ? eventsOnDay(meeting.date).filter((event) => event.startTime) : [];
+const show = meeting && !isPast(meeting);
 ---
 
-<dialog class="meeting-dialog" id="parent-meeting-dialog" aria-labelledby="meeting-dialog-title" aria-describedby="meeting-dialog-description">
-  <button class="meeting-dialog-close" type="button" data-meeting-close aria-label="Zamknij informację o zebraniu" title="Zamknij">
-    <X size={22} aria-hidden="true" />
-  </button>
-  <div class="meeting-dialog-layout">
-    <div class="meeting-dialog-poster" aria-hidden="true">
-      <div class="meeting-poster-content">
-        <img src={sitePath("/assets/zsz5-logo.png")} width="490" height="390" alt="" />
-        <p>Zebranie rodziców<br />klas pierwszych</p>
-        <div class="meeting-poster-date"><CalendarDays size={34} /><strong>4 września 2026 r.</strong></div>
-        <span>Godzina 16:00</span>
-        <b>Bardzo ważne spotkanie</b>
+{show && meeting && (
+  <dialog class="meeting-dialog" id="parent-meeting-dialog" aria-labelledby="meeting-dialog-title" aria-describedby="meeting-dialog-description">
+    <button class="meeting-dialog-close" type="button" data-meeting-close aria-label="Zamknij informację o zebraniu" title="Zamknij">
+      <X size={22} aria-hidden="true" />
+    </button>
+    <div class="meeting-dialog-layout">
+      <div class="meeting-dialog-poster" aria-hidden="true">
+        <div class="meeting-poster-content">
+          <img src={sitePath("/assets/zsz5-logo.png")} width="490" height="390" alt="" />
+          <p>Zebrania<br />i konsultacje</p>
+          <div class="meeting-poster-date"><CalendarDays size={34} /><strong>{fullDate(meeting.date)} r.</strong></div>
+          <span>Godzina {meeting.startTime}</span>
+          <b>Najbliższe spotkanie w szkole</b>
+        </div>
+      </div>
+      <div class="meeting-dialog-copy">
+        <p class="eyebrow">Najbliższe spotkanie w szkole</p>
+        <h2 id="meeting-dialog-title">Zebrania z rodzicami i konsultacje</h2>
+        <p id="meeting-dialog-description">W tym dniu wychowawcy klas 5 technikum prowadzą zebrania z rodzicami na zakończenie I półrocza, a pozostali nauczyciele - konsultacje dla uczniów i rodziców.</p>
+        <dl class="meeting-dialog-facts">
+          <div><dt>Termin</dt><dd>{weekday(meeting.date)}, {fullDate(meeting.date)} r.</dd></div>
+          {sameDay.map((event) => (
+            <div><dt>{event.audience}</dt><dd>{event.title.replace(/^[^:]+: /, "")}{eventTimeLabel(event) && `, godz. ${eventTimeLabel(event)}`}</dd></div>
+          ))}
+        </dl>
+        <p class="meeting-dialog-note">Informacja o salach i szczegółach organizacyjnych jest przekazywana w komunikacie szkoły lub w VULCAN-ie.</p>
+        <div class="button-row">
+          {meeting.href && <a class="button primary" data-meeting-dismiss href={sitePath(meeting.href)}>Przeczytaj informację <ArrowRight size={18} aria-hidden="true" /></a>}
+          <a class="button" data-meeting-dismiss href={sitePath("/terminarz/")}>Terminarz <CalendarPlus size={18} aria-hidden="true" /></a>
+        </div>
       </div>
     </div>
-    <div class="meeting-dialog-copy">
-      <p class="eyebrow">Bardzo ważna informacja dla klas pierwszych</p>
-      <h2 id="meeting-dialog-title">Zebranie rodziców i opiekunów</h2>
-      <p id="meeting-dialog-description">Spotkanie dotyczy rodziców i opiekunów uczniów klas pierwszych Branżowej Szkoły I stopnia oraz Technikum nr 5.</p>
-      <dl class="meeting-dialog-facts">
-        <div><dt>Termin</dt><dd>4 września 2026 r.</dd></div>
-        <div><dt>Godzina</dt><dd>16:00</dd></div>
-        <div><dt>Miejsce</dt><dd>Informacja o miejscu spotkania zostanie przekazana osobnym komunikatem.</dd></div>
-        <div><dt>Znaczenie</dt><dd>To bardzo ważne spotkanie organizacyjne.</dd></div>
-      </dl>
-      <p class="meeting-dialog-note">Informacja o miejscu spotkania zostanie przekazana w oficjalnym komunikacie szkoły lub w VULCAN-ie.</p>
-      <div class="button-row">
-        <a class="button primary" data-meeting-dismiss href={sitePath("/temat/zebranie-rodzicow-2026/")}>Przeczytaj informację <ArrowRight size={18} aria-hidden="true" /></a>
-      </div>
-    </div>
-  </div>
-</dialog>
+  </dialog>
+)}
 
 <script>
   const meetingDialog = document.querySelector<HTMLDialogElement>("#parent-meeting-dialog");
   const closeButton = meetingDialog?.querySelector<HTMLButtonElement>("[data-meeting-close]");
   const dismissLinks = meetingDialog?.querySelectorAll<HTMLElement>("[data-meeting-dismiss]");
-  const storageKey = "zsz5-parent-meeting-2026-dismissed";
+  const storageKey = "zsz5-meeting-2026-12-09-dismissed";
 
   const rememberDismissal = () => {
     try {

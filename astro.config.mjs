@@ -5,5 +5,5 @@ export default defineConfig({
   site: "https://informator.szkolamistrzow.info",
   base: "/",
   output: "static",
-  integrations: [sitemap()],
+  integrations: [sitemap({ filter: (page) => !page.endsWith(".ics") })],
 });

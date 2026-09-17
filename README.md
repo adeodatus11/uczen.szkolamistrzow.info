@@ -29,11 +29,21 @@ npm run preview
 ## Struktura
 
 - `src/data/topics.ts` - odpowiedzi, listy działań i przypisanie źródeł,
-- `src/data/start.ts` - komunikaty i terminy na rozpoczęcie roku szkolnego,
+- `src/data/calendar.ts` - terminarz roku szkolnego: zebrania, konsultacje, wystawianie ocen, dni wolne i przerwy,
 - `src/data/sources.ts` - rejestr źródeł i dat weryfikacji,
 - `src/pages/` - strony ścieżek, opłat, podręczników i wyszukiwarka,
+- `src/pages/terminarz/` - terminarz, archiwum terminów i pliki `.ics` do zapisania w kalendarzu,
 - `src/pages/temat/[slug].astro` - automatycznie generowane strony odpowiedzi,
 - `docs/audyt-research-koncepcja.md` - audyt, research i decyzje projektowe.
+
+## Terminarz
+
+Wszystkie terminy są w `src/data/calendar.ts`. Każdy wpis ma datę w formacie `YYYY-MM-DD`
+(oraz `endDate` przy wydarzeniach wielodniowych), więc podział na terminy nadchodzące
+i archiwalne powstaje automatycznie przy budowaniu strony - terminu nie trzeba ręcznie
+przenosić do archiwum. Po zmianie w kalendarzu szkoły wystarczy dopisać albo poprawić wpis
+i przebudować serwis. Pole `announcedEventId` wskazuje wydarzenie pokazywane w oknie
+na stronie głównej; okno znika samo, gdy termin minie.
 
 ## Aktualizacja treści
 
@@ -49,8 +59,8 @@ Szczególnej kontroli wymagają: statut, wynagrodzenia młodocianych, terminy sz
 
 Workflow `.github/workflows/deploy.yml` buduje serwis i publikuje katalog `dist` w GitHub Pages po zmianie na gałęzi `main`.
 
-Aktualny adres techniczny:
+Serwis działa pod adresem:
 
-`https://adeodatus11.github.io/uczen.szkolamistrzow.info/`
+`https://informator.szkolamistrzow.info/`
 
-Przed podłączeniem domeny `uczen.szkolamistrzow.info` trzeba dodać rekord DNS wskazujący GitHub Pages. Następnie należy ustawić domenę w ustawieniach Pages, dodać `public/CNAME` i przełączyć produkcyjny `site` oraz `base` w `astro.config.mjs` na domenę własną.
+Domena własna jest zapisana w `public/CNAME` oraz w polu `site` w `astro.config.mjs`. Adres zapasowy GitHub Pages to `https://adeodatus11.github.io/uczen.szkolamistrzow.info/`.

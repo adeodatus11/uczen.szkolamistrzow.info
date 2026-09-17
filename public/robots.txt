@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://uczen.szkolamistrzow.info/sitemap-index.xml
+Sitemap: https://informator.szkolamistrzow.info/sitemap-index.xml

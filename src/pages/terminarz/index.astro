@@ -1,0 +1,88 @@
+---
+import { ArrowRight, CalendarPlus, CheckCircle2, History } from "lucide-astro";
+import EventTimeline from "@components/EventTimeline.astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { announcedEventId, archivedEvents, eventById, eventsOnDay, isPast, schoolYear, upcomingEvents } from "@data/calendar";
+import { eventHeadline, eventTimeLabel } from "../../lib/eventDate";
+import { sitePath } from "../../lib/paths";
+
+const upcoming = upcomingEvents();
+const archived = archivedEvents();
+const announced = eventById(announcedEventId);
+const nextMeeting = announced && !isPast(announced) ? announced : undefined;
+const meetingDay = nextMeeting ? eventsOnDay(nextMeeting.date) : [];
+---
+
+<BaseLayout
+  title={`Terminarz ${schoolYear} | Strefa Ucznia ZSZ5`}
+  description="Terminarz ZSZ5 na rok szkolny 2026/2027: zebrania z rodzicami, konsultacje, wystawianie ocen, dni wolne i przerwy świąteczne."
+>
+  <section class="page-hero">
+    <div class="container">
+      <p class="eyebrow">Rok szkolny {schoolYear}</p>
+      <h1>Terminarz</h1>
+      <p class="lead">Terminy zebrań, konsultacji, wystawiania ocen oraz dni wolnych. Każdy termin możesz zapisać we własnym kalendarzu w telefonie lub w komputerze.</p>
+      <div class="button-row">
+        <a class="button" href={sitePath("/terminarz/archiwum/")}>Archiwum terminów <History size={18} aria-hidden="true" /></a>
+      </div>
+    </div>
+  </section>
+
+  {nextMeeting && (
+    <section class="band start-band" aria-labelledby="next-meeting">
+      <div class="container">
+        <div class="next-meeting">
+          <div class="next-meeting-head">
+            <p class="eyebrow">Najbliższe spotkanie</p>
+            <h2 id="next-meeting">{eventHeadline(nextMeeting)}</h2>
+          </div>
+          <ul class="next-meeting-list">
+            {meetingDay.map((event) => (
+              <li>
+                <p class="audience-label">{event.audience}{eventTimeLabel(event) && ` · ${eventTimeLabel(event)}`}</p>
+                <strong>{event.title}</strong>
+                <p>{event.description}</p>
+                <a class="text-link subtle" href={sitePath(`/terminarz/${event.id}.ics`)} download>Dodaj do kalendarza (.ics) <CalendarPlus size={17} aria-hidden="true" /></a>
+              </li>
+            ))}
+          </ul>
+          {nextMeeting.href && (
+            <a class="button primary" href={sitePath(nextMeeting.href)}>Przeczytaj informację <ArrowRight size={18} aria-hidden="true" /></a>
+          )}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <section class="band" aria-labelledby="upcoming-dates">
+    <div class="container">
+      <div class="section-heading">
+        <p class="eyebrow">Nadchodzące terminy</p>
+        <h2 id="upcoming-dates">Co jeszcze przed nami</h2>
+        <p>Terminy pochodzą z kalendarza szkoły. Gdy szkoła zmieni termin, informacja w VULCAN-ie i w oficjalnym komunikacie jest wiążąca.</p>
+      </div>
+      {upcoming.length === 0
+        ? <p class="notice-empty">Wszystkie zapisane terminy już minęły. Zajrzyj do <a href={sitePath("/terminarz/archiwum/")}>archiwum terminarza</a>.</p>
+        : <EventTimeline events={upcoming} />}
+    </div>
+  </section>
+
+  <section class="band band-soft">
+    <div class="container">
+      <div class="callout">
+        <History size={26} aria-hidden="true" />
+        <div>
+          <h2>Terminy, które już minęły</h2>
+          <p>W archiwum znajdziesz {archived.length} zapisanych terminów z tego roku szkolnego, między innymi rozpoczęcie roku i wrześniowe zebranie rodziców klas pierwszych.</p>
+          <div class="button-row">
+            <a class="button" href={sitePath("/terminarz/archiwum/")}>Otwórz archiwum <ArrowRight size={18} aria-hidden="true" /></a>
+          </div>
+        </div>
+      </div>
+      <div class="dashboard-source terminarz-source">
+        <CheckCircle2 size={19} aria-hidden="true" />
+        <a href={sitePath("/zrodla/")}>Źródła i daty weryfikacji informacji</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -2,7 +2,7 @@
 import { AlertTriangle, ArrowRight, BookOpenCheck, FileText, Images } from "lucide-astro";
 import AudienceHero from "@components/AudienceHero.astro";
 import PathComparison from "@components/PathComparison.astro";
-import StartNotices from "@components/StartNotices.astro";
+import EventNotices from "@components/EventNotices.astro";
 import TopicCard from "@components/TopicCard.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import { topicsFor } from "@data/topics";
@@ -28,10 +28,11 @@ const sectionTopics = topicsFor("branżowa").filter((topic) => topic.slug !== "p
   <section class="band start-band" aria-labelledby="bs-start-dates">
     <div class="container">
       <div class="section-heading">
-        <p class="eyebrow">Początek roku szkolnego 2026/2027</p>
-        <h2 id="bs-start-dates">Terminy ucznia klasy pierwszej szkoły branżowej</h2>
+        <p class="eyebrow">Rok szkolny 2026/2027</p>
+        <h2 id="bs-start-dates">Najbliższe terminy ucznia szkoły branżowej</h2>
+        <p>Terminy wspólne dla obu typów szkoły oraz terminy dotyczące wyłącznie szkoły branżowej. Pełną listę wraz z archiwum znajdziesz w <a href={sitePath("/terminarz/")}>terminarzu</a>.</p>
       </div>
-      <StartNotices show="bs" />
+      <EventNotices scope="bs" />
     </div>
   </section>
 

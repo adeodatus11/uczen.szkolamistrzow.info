@@ -1,7 +1,7 @@
 ---
 import { ArrowRight, BellRing, ShieldCheck } from "lucide-astro";
 import AudienceHero from "@components/AudienceHero.astro";
-import StartNotices from "@components/StartNotices.astro";
+import EventNotices from "@components/EventNotices.astro";
 import TopicCard from "@components/TopicCard.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import { topicsFor } from "@data/topics";
@@ -11,7 +11,7 @@ const parentTopics = topicsFor("rodzic").filter((topic) => [
   "pierwszy-tydzien",
   "badania-lekarskie-rekrutacja-2026",
   "umowa-do-weryfikacji-2026",
-  "zebranie-rodzicow-2026",
+  "zebranie-rodzicow-grudzien-2026",
   "karta-zdrowia",
   "mlegitymacja-szkolna",
   "mlodociany-pracownik",
@@ -42,12 +42,13 @@ const parentTopics = topicsFor("rodzic").filter((topic) => [
     <div class="container">
       <div class="section-heading wide">
         <div>
-          <p class="eyebrow">Początek roku szkolnego 2026/2027</p>
-          <h2 id="parent-start-dates">Najważniejsze terminy</h2>
-          <p>Zaświadczenie lekarskie należy dostarczyć w obu typach szkół. Umowa o pracę dotyczy tylko ucznia szkoły branżowej. Zebranie i karta zdrowia dotyczą klas pierwszych obu typów szkół.</p>
+          <p class="eyebrow">Rok szkolny 2026/2027</p>
+          <h2 id="parent-start-dates">Najbliższe terminy</h2>
+          <p>Terminy, które jeszcze przed nami. Każdy z nich możesz zapisać we własnym kalendarzu. Terminy, które minęły, znajdziesz w archiwum terminarza.</p>
         </div>
+        <a class="button" href={sitePath("/terminarz/")}>Pełny terminarz <ArrowRight size={18} aria-hidden="true" /></a>
       </div>
-      <StartNotices />
+      <EventNotices />
     </div>
   </section>
 

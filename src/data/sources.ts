@@ -91,6 +91,14 @@ export const sources: Source[] = [
     description: "Informacje przekazane przez szkołę do publikacji w portalu: terminy dokumentów rekrutacyjnych, zebrania klas pierwszych, kart zdrowia i weryfikacji umów uczniów szkoły branżowej.",
   },
   {
+    id: "school-calendar-2026-2027",
+    title: "Kalendarz roku szkolnego 2026/2027 w ZSZ5",
+    url: "https://zsz5.edupage.org/",
+    type: "komunikat",
+    verifiedAt: "2026-09-17",
+    description: "Szkolny kalendarz wydarzeń: zebrania z rodzicami i konsultacje, terminy wystawiania ocen, dni wolne od zajęć dydaktyczno-wychowawczych oraz przerwy świąteczne.",
+  },
+  {
     id: "school-fees-2026",
     title: "ZSZ5: wpłaty na Radę Rodziców i informacja o NNW 2026/2027",
     url: "https://zsz5.edupage.org/",
