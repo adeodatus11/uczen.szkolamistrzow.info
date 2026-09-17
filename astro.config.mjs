@@ -6,4 +6,8 @@ export default defineConfig({
   base: "/",
   output: "static",
   integrations: [sitemap({ filter: (page) => !page.endsWith(".ics") })],
+  redirects: {
+    "/dzialania-szkoly": "/nasze-dzialania",
+    "/dzialania-szkoly/higiena-cyfrowa": "/nasze-dzialania/higiena-cyfrowa",
+  },
 });

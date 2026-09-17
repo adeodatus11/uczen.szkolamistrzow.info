@@ -2064,14 +2064,28 @@ html[data-theme="dark"] .event-entry.past {
   background: #182a20;
 }
 
-@media (max-width: 1120px) {
+@media (max-width: 1280px) {
   .desktop-nav {
     gap: 0;
   }
 
   .desktop-nav a {
-    padding: 8px 7px;
-    font-size: 0.85rem;
+    padding: 8px 8px;
+    font-size: 0.87rem;
+  }
+}
+
+@media (max-width: 1120px) {
+  .desktop-nav {
+    display: none;
+  }
+
+  .header-actions {
+    margin-left: auto;
+  }
+
+  .menu-button {
+    display: inline-flex;
   }
 }
 
@@ -2085,7 +2099,7 @@ html[data-theme="dark"] .event-entry.past {
   }
 }
 
-/* Działania szkoły: artykuły dla rodziców */
+/* Nasze działania: artykuły dla rodziców */
 
 .article-grid {
   display: grid;

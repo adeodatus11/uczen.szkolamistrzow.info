@@ -1,6 +1,6 @@
 # Higiena cyfrowa - notatka z kwerendy
 
-Notatka przygotowana przed artykułem „Miało być pięć minut” (`/dzialania-szkoly/higiena-cyfrowa/`).
+Notatka przygotowana przed artykułem „Miało być pięć minut” (`/nasze-dzialania/higiena-cyfrowa/`).
 Stan kwerendy: 17 września 2026 r.
 
 Uwaga metodologiczna: w środowisku, w którym powstawała notatka, bezpośrednie pobieranie

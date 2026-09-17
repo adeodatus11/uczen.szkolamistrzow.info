@@ -11,7 +11,7 @@ const article = articleBySlug("higiena-cyfrowa")!;
 <BaseLayout title={`${article.title} | Strefa Ucznia ZSZ5`} description={article.summary}>
   <header class:list={["topic-hero", `tone-${article.tone}`]}>
     <div class="container">
-      <a class="text-link" href={sitePath("/dzialania-szkoly/")}><ArrowLeft size={18} aria-hidden="true" /> Działania szkoły</a>
+      <a class="text-link" href={sitePath("/nasze-dzialania/")}><ArrowLeft size={18} aria-hidden="true" /> Nasze działania</a>
       <p class="eyebrow">{article.eyebrow}</p>
       <h1>{article.title}</h1>
       <p class="lead">{article.lead}</p>
