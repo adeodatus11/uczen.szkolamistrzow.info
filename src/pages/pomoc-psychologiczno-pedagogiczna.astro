@@ -4,59 +4,51 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 
 const specialists = [
   {
-    name: "Monika Smaczny",
+    name: "Sylwia Bokuniewicz",
     role: "Pedagog szkolny",
     scope: "Sprawy wychowawcze, trudności szkolne i rodzinne, frekwencja, relacje oraz sytuacje wymagające wsparcia ucznia lub rodzica.",
-    extension: "140",
-    email: "msmaczny@zsz5.edupage.org",
-    hours: [
-      ["Poniedziałek", "7:30-14:00"],
-      ["Wtorek", "7:30-14:00"],
-      ["Środa", "10:00-17:00"],
-      ["Czwartek", "7:30-13:30"],
-      ["Piątek", "7:30-13:30"],
-    ],
-  },
-  {
-    name: "Sylwia Bokuniewicz",
-    role: "Psycholog szkolny",
-    scope: "Trudności emocjonalne, stres, kryzys, lęk, obniżony nastrój, problemy w relacjach oraz potrzeba rozmowy i dalszej pomocy.",
     extension: "142",
     email: "sbokuniewicz@zsz5.edupage.org",
     hours: [
-      ["Poniedziałek", "9:00-14:00"],
-      ["Wtorek", "11:00-17:00"],
-      ["Środa", "14:00-17:00"],
-      ["Czwartek", "9:00-13:00"],
-      ["Piątek", "9:00-13:00"],
+      ["Poniedziałek", "10:00-17:30"],
+      ["Wtorek", "8:00-14:36"],
+      ["Środa", "10:00-14:00"],
+      ["Czwartek", "8:00-12:00"],
+      ["Piątek", "11:00-17:30"],
     ],
   },
   {
     name: "Maria Kaszak",
     role: "Pedagog specjalny",
     scope: "Specjalne potrzeby edukacyjne, dostosowanie wsparcia do sytuacji ucznia oraz współpraca ucznia, rodziców i nauczycieli.",
-    extension: "142",
+    extension: "140",
     email: "mkaszak@zsz5.edupage.org",
     hours: [
-      ["Poniedziałek", "12:00-17:00"],
-      ["Wtorek", "12:00-17:00"],
-      ["Środa", "7:30-12:45"],
-      ["Czwartek", "12:00-17:00"],
-      ["Piątek", "12:00-17:00"],
+      ["Poniedziałek", "8:00-12:00"],
+      ["Wtorek", "12:30-17:30"],
+      ["Środa", "8:00-12:00"],
+      ["Czwartek", "12:30-17:30"],
+      ["Piątek", "9:00-13:00"],
     ],
   },
   {
-    name: "Maria Kaszak",
-    role: "Konsultant ds. uzależnień",
-    scope: "Rozmowa i wskazanie dalszego postępowania, gdy uczeń lub jego bliscy obawiają się problemu z uzależnieniem.",
+    name: "Aleksandra Aszkiełowicz",
+    role: "Psycholog szkolny",
+    scope: "Trudności emocjonalne, stres, kryzys, lęk, obniżony nastrój, problemy w relacjach oraz potrzeba rozmowy i dalszej pomocy.",
     extension: "142",
-    email: "mkaszak@zsz5.edupage.org",
-    hours: [["Piątek", "15:00-16:00"]],
+    email: "aaszkielowicz@zsz5.edupage.org",
+    hours: [
+      ["Poniedziałek", "8:00-13:00"],
+      ["Wtorek", "11:00-17:00"],
+      ["Środa", "10:00-16:00"],
+      ["Czwartek", "10:00-17:00"],
+      ["Piątek", "8:00-12:36"],
+    ],
   },
 ] as const;
 ---
 
-<BaseLayout title="Pomoc psychologiczno-pedagogiczna | Strefa Ucznia ZSZ5" description="Dyżury, telefony i adresy e-mail pedagoga, psychologa, pedagoga specjalnego i konsultanta do spraw uzależnień w ZSZ5.">
+<BaseLayout title="Pomoc psychologiczno-pedagogiczna | Strefa Ucznia ZSZ5" description="Dyżury, telefony i adresy e-mail pedagoga, pedagoga specjalnego i psychologa w ZSZ5 w roku szkolnym 2026/2027.">
   <section class="page-hero">
     <div class="container">
       <p class="eyebrow">Wsparcie ucznia i rodziny</p>
@@ -73,7 +65,7 @@ const specialists = [
     <div class="container">
       <div class="section-heading">
         <p class="eyebrow">Do kogo się zgłosić</p>
-        <h2 id="specialists-heading">Specjaliści i godziny dyżurów</h2>
+        <h2 id="specialists-heading">Specjaliści i godziny dyżurów w roku szkolnym 2026/2027</h2>
         <p>Wszyscy przyjmują w gabinecie 04. Zadzwoń pod numer główny szkoły i podaj numer wewnętrzny właściwej osoby.</p>
       </div>
 
@@ -118,7 +110,7 @@ const specialists = [
           </div>
         </div>
       </div>
-      <p class="source-note">Godziny i dane kontaktowe sprawdzono 15 lipca 2026 r. na oficjalnej stronie ZSZ5. Dyżury mogą ulec zmianie, dlatego przed wizytą należy umówić spotkanie.</p>
+      <p class="source-note">Godziny dyżurów pochodzą z grafiku pracy zespołu pomocy psychologiczno-pedagogicznej zaktualizowanego 16 września 2026 r. Dyżury mogą ulec zmianie, dlatego przed wizytą należy umówić spotkanie.</p>
     </div>
   </section>
 </BaseLayout>
