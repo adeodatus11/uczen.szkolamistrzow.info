@@ -18,6 +18,48 @@ export type Article = {
 
 export const articles: Article[] = [
   {
+    slug: "warsztaty-rozwoju-emocjonalno-spolecznego",
+    title: "Kiedy start w nowej szkole jest trudny",
+    eyebrow: "Wsparcie poza szkołą · dla rodziców i opiekunów",
+    lead: "Pierwsze tygodnie w nowej klasie dla części uczniów są ekscytujące, a dla części po prostu ciężkie. Pokazujemy jedną konkretną, bezpłatną możliwość wsparcia poza szkołą - warsztaty rozwoju emocjonalno-społecznego prowadzone przez Centrum Neuropsychiatrii NEUROMED.",
+    summary: "Bezpłatne warsztaty dla uczniów rozpoczynających naukę w szkole ponadpodstawowej: dla kogo są, czym różnią się od psychoterapii, jak wygląda konsultacja kwalifikacyjna i jak się zapisać.",
+    publishedAt: "2026-09-18",
+    readingMinutes: 5,
+    tone: "green",
+    furtherReading: [
+      {
+        label: "Formularz zapisu na konsultację (NEUROMED)",
+        description: "Ten sam formularz obsługuje kilka projektów, dlatego w zgłoszeniu trzeba zaznaczyć: warsztaty M. Kubów.",
+        href: "https://docs.google.com/forms/d/e/1FAIpQLSeoJAimnpRQGpdYiwkkauR_o-LM0gj9x-dMcguXGtdD7wHyLw/viewform",
+      },
+      {
+        label: "NEUROMED: programy finansowane przez miasto Wrocław",
+        description: "Lista bezpłatnych programów prowadzonych przez Centrum Neuropsychiatrii, w tym ten, w ramach którego odbywają się warsztaty.",
+        href: "https://neuropsychiatria.com/programy-finansowane-przez-miasto-wroclaw/",
+      },
+      {
+        label: "NEUROMED: program wsparcia psychologicznego dla dzieci, młodzieży oraz ich opiekunów",
+        description: "Opis programu organizatora: zakres wsparcia, warunki uczestnictwa i dane kontaktowe.",
+        href: "https://neuropsychiatria.com/program-wsparcia-psychologicznego-dla-dzieci-mlodziezy-oraz-ich-opiekunow/",
+      },
+      {
+        label: "wroclaw.pl: pomoc psychologiczna dla dzieci i młodzieży - bez skierowania i za darmo",
+        description: "Miejski przegląd bezpłatnych form pomocy, jeżeli te warsztaty okażą się nietrafione albo zabraknie miejsc.",
+        href: "https://www.wroclaw.pl/dla-mieszkanca/pomoc-psychologiczna-dla-dzieci-i-mlodziezy-bez-skierowania-i-za-darmo",
+      },
+      {
+        label: "Telefon zaufania dla dzieci i młodzieży 116 111",
+        description: "Bezpłatna, całodobowa linia dla nastolatków; dla dorosłych działa równolegle numer 800 100 100.",
+        href: "https://116111.pl/",
+      },
+      {
+        label: "Centrum Wsparcia dla osób w kryzysie psychicznym 800 70 2222",
+        description: "Całodobowa i bezpłatna pomoc dla osób w kryzysie oraz dla ich bliskich.",
+        href: "https://centrumwsparcia.pl/",
+      },
+    ],
+  },
+  {
     slug: "higiena-cyfrowa",
     title: "Miało być pięć minut",
     eyebrow: "Higiena cyfrowa · dla rodziców i opiekunów",

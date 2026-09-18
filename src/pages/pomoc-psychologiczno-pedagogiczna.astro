@@ -1,6 +1,7 @@
 ---
-import { CalendarDays, ExternalLink, HeartHandshake, Mail, PhoneCall, ShieldAlert } from "lucide-astro";
+import { ArrowRight, CalendarDays, ExternalLink, HeartHandshake, Mail, PhoneCall, ShieldAlert } from "lucide-astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
+import { sitePath } from "../lib/paths";
 
 const specialists = [
   {
@@ -105,7 +106,21 @@ const specialists = [
     </div>
   </section>
 
-  <section class="band" aria-labelledby="urgent-help">
+  <section class="band" aria-labelledby="outside-support">
+    <div class="container">
+      <div class="section-heading">
+        <p class="eyebrow">Wsparcie poza szkołą</p>
+        <h2 id="outside-support">Bezpłatna pomoc w mieście</h2>
+        <p>Część form wsparcia prowadzą placówki miejskie. Zapisy prowadzi wtedy organizator, a nie szkoła.</p>
+      </div>
+      <div class="quick-link-grid">
+        <a class="quick-link" href={sitePath("/nasze-dzialania/warsztaty-rozwoju-emocjonalno-spolecznego/")}><strong>Warsztaty rozwoju emocjonalno-społecznego</strong><span>Bezpłatne zajęcia NEUROMED dla uczniów zaczynających szkołę ponadpodstawową</span><ArrowRight size={20} aria-hidden="true" /></a>
+        <a class="quick-link" href="https://www.wroclaw.pl/dla-mieszkanca/pomoc-psychologiczna-dla-dzieci-i-mlodziezy-bez-skierowania-i-za-darmo" target="_blank" rel="noreferrer"><strong>Pomoc psychologiczna bez skierowania</strong><span>Miejski przegląd bezpłatnych form pomocy dla dzieci i młodzieży</span><ExternalLink size={20} aria-hidden="true" /></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="band band-soft" aria-labelledby="urgent-help">
     <div class="container">
       <div class="callout danger">
         <ShieldAlert size={28} aria-hidden="true" />

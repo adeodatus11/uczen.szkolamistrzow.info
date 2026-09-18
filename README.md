@@ -36,7 +36,8 @@ npm run preview
 - `src/data/articles.ts` i `src/pages/nasze-dzialania/` - sekcja „Nasze działania”: teksty dla rodziców,
 - `src/pages/temat/[slug].astro` - automatycznie generowane strony odpowiedzi,
 - `docs/audyt-research-koncepcja.md` - audyt, research i decyzje projektowe,
-- `docs/higiena-cyfrowa-kwerenda.md` - notatka z kwerendy do tekstu o higienie cyfrowej.
+- `docs/higiena-cyfrowa-kwerenda.md` - notatka z kwerendy do tekstu o higienie cyfrowej,
+- `docs/warsztaty-neuromed-zrodla.md` - notatka źródłowa do tekstu o warsztatach NEUROMED.
 
 ## Terminarz
 

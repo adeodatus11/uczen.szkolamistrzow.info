@@ -1,0 +1,175 @@
+---
+import { ArrowLeft, ClipboardCheck, Clock3, ExternalLink, FileText, School, ShieldAlert } from "lucide-astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { articleBySlug } from "@data/articles";
+import { fullDate } from "../../lib/eventDate";
+import { sitePath } from "../../lib/paths";
+
+const article = articleBySlug("warsztaty-rozwoju-emocjonalno-spolecznego")!;
+const signupForm = "https://docs.google.com/forms/d/e/1FAIpQLSeoJAimnpRQGpdYiwkkauR_o-LM0gj9x-dMcguXGtdD7wHyLw/viewform";
+const flyer = sitePath("/documents/warsztaty-neuromed/ulotka-warsztaty-rozwoju-emocjonalno-spolecznego.pdf");
+---
+
+<BaseLayout title={`${article.title} | Strefa Ucznia ZSZ5`} description={article.summary}>
+  <header class:list={["topic-hero", `tone-${article.tone}`]}>
+    <div class="container">
+      <a class="text-link" href={sitePath("/nasze-dzialania/")}><ArrowLeft size={18} aria-hidden="true" /> Nasze działania</a>
+      <p class="eyebrow">{article.eyebrow}</p>
+      <h1>{article.title}</h1>
+      <p class="lead">{article.lead}</p>
+      <p class="article-meta">
+        <time datetime={article.publishedAt}>{fullDate(article.publishedAt)}</time>
+        <span><Clock3 size={16} aria-hidden="true" /> czas czytania: {article.readingMinutes} minut</span>
+      </p>
+    </div>
+  </header>
+
+  <div class="container article-layout">
+    <article class="article-body">
+      <p class="article-intro">Zmiana szkoły to jedna z tych sytuacji, w których wszystko dzieje się naraz: nowa klasa, nowi nauczyciele, inny rozkład dnia, czasem dojazdy i pierwsze zajęcia praktyczne. Dla jednych uczniów to przygoda, dla innych kilka tygodni ciągłego napięcia.</p>
+
+      <p>Zwykle mija samo. Czasem jednak widać, że nie mija: uczeń wraca do domu wyczerpany, nie mówi o nikim z klasy, unika wyjść, coraz częściej szuka powodu, żeby zostać w domu. Nie musi to oznaczać niczego poważnego - ale nie musi też oznaczać, że trzeba tylko poczekać.</p>
+
+      <p>Ten tekst jest o jednej konkretnej możliwości, z której rodzic może skorzystać poza szkołą. Nie zastępuje szkolnego pedagoga ani psychologa, a my nie jesteśmy organizatorem tych zajęć. Przekazujemy informację dalej, bo dotyczy dokładnie tej grupy, o której mowa: uczniów rozpoczynających naukę w szkole ponadpodstawowej.</p>
+
+      <h2>Co to za warsztaty</h2>
+
+      <p>Centrum Neuropsychiatrii NEUROMED SP ZOZ we Wrocławiu, przy ul. Białowieskiej 74a, prowadzi program wsparcia psychologiczno-psychiatrycznego dzieci i młodzieży zagrożonych kryzysem zdrowia psychicznego oraz negatywnymi skutkami spożywania alkoholu i innych substancji psychoaktywnych. W ramach tego programu zaprasza uczniów rozpoczynających naukę w szkole średniej na warsztaty rozwoju emocjonalno-społecznego.</p>
+
+      <p>Spotkania odbywają się raz w tygodniu, w środy o godzinie 17:00. Cykl rozpoczął się 16 września i potrwa do 16 grudnia 2026 roku. Grupa jest zamknięta i liczy 10 osób, czyli jest to ten rodzaj zajęć, w którym uczestnicy przez kilkanaście tygodni pracują w stałym składzie. Prowadzi je Małgorzata Kubów, psycholog i psychoterapeutka.</p>
+
+      <p>Udział jest bezpłatny - program finansuje miasto Wrocław.</p>
+
+      <h2>Czego dotyczą spotkania</h2>
+
+      <p>Organizator wymienia, że podczas cotygodniowych spotkań uczestnicy będą mieli okazję:</p>
+
+      <ul class="box-list plain-list">
+        <li>łatwiej odnaleźć się w nowym środowisku i budować relacje z rówieśnikami,</li>
+        <li>rozwinąć pewność siebie i wzmocnić poczucie własnej wartości,</li>
+        <li>lepiej rozpoznawać, wyrażać i regulować emocje,</li>
+        <li>skuteczniej radzić sobie ze stresem i trudnymi sytuacjami,</li>
+        <li>rozwijać umiejętności komunikacyjne, takie jak wyrażanie własnego zdania, proszenie o pomoc i stawianie granic,</li>
+        <li>przełamywać nieśmiałość oraz zmniejszać lęk przed oceną,</li>
+        <li>doświadczyć wsparcia grupy i poczucia, że nie jest się samemu z podobnymi trudnościami.</li>
+      </ul>
+
+      <p>Brzmi to jak lista kompetencji przydatnych każdemu i tak rzeczywiście jest. Różnica polega na tym, że na warsztatach ćwiczy się je w grupie rówieśników, a nie dowiaduje się o nich z rozmowy z dorosłym.</p>
+
+      <h2>To nie jest psychoterapia</h2>
+
+      <p>Organizator pisze o tym wprost i warto to powtórzyć, bo dla wielu rodziców jest to pierwsze pytanie. Warsztaty mają charakter psychoedukacyjny i rozwojowy. Nie są psychoterapią, lecz formą wsparcia pomagającą młodzieży lepiej odnaleźć się w nowym środowisku szkolnym i rozwijać umiejętności przydatne zarówno w relacjach z innymi, jak i w codziennym funkcjonowaniu.</p>
+
+      <p>W praktyce oznacza to dwie rzeczy. Po pierwsze, zapisanie się nie jest przyznaniem, że „coś jest nie tak”. Po drugie, jeżeli uczeń potrzebuje czegoś innego niż zajęcia grupowe, warsztaty tego nie zastąpią - i właśnie temu służy rozmowa przed rozpoczęciem cyklu.</p>
+
+      <h2>Najpierw rozmowa, dopiero potem zapisy</h2>
+
+      <p>Przed rozpoczęciem cyklu uczeń razem z rodzicem uczestniczy w konsultacji kwalifikacyjnej. Podczas niej organizator wspólnie z rodziną ocenia, czy warsztaty będą odpowiednią formą wsparcia.</p>
+
+      <p>To dobra wiadomość dla osób, które wahają się, czy „to już ten moment”. Na konsultacji można po prostu opowiedzieć, co się dzieje, i usłyszeć, czy grupa jest właściwym miejscem, czy raczej warto poszukać innej formy pomocy. Zapisujemy się więc najpierw na rozmowę ze specjalistą, a nie od razu na trzy miesiące zajęć.</p>
+
+      <div class="article-box">
+        <h2 class="box-heading"><ClipboardCheck size={24} aria-hidden="true" /> Jak się zapisać</h2>
+        <p>Zapisy prowadzi organizator, czyli NEUROMED. Szkoła nie zbiera zgłoszeń i nie kwalifikuje uczniów na te zajęcia.</p>
+        <ol class="box-list">
+          <li><strong>Formularz zgłoszeniowy.</strong> Zapisy na spotkanie ze specjalistą odbywają się przez <a href={signupForm} target="_blank" rel="noreferrer">formularz organizatora</a>. Ten sam formularz obsługuje kilka niezależnych projektów, dlatego trzeba podać wszystkie wymagane informacje i zaznaczyć: <strong>warsztaty M. Kubów</strong>.</li>
+          <li><strong>Albo telefonicznie.</strong> Pod numerem <a href="tel:690580652">690 580 652</a> w godzinach 11:00-14:00.</li>
+          <li><strong>Konsultacja kwalifikacyjna.</strong> Na spotkanie przychodzi uczeń razem z rodzicem lub opiekunem.</li>
+          <li><strong>Miejsce zajęć.</strong> Centrum Neuropsychiatrii NEUROMED, ul. Białowieska 74a we Wrocławiu, środy o 17:00.</li>
+        </ol>
+        <p class="box-note">Cykl ruszył 16 września 2026 r., a grupa jest zamknięta i liczy 10 osób. Przy zgłoszeniu warto więc zapytać, czy są jeszcze wolne miejsca, a jeśli nie - o termin kolejnej edycji albo o inną formę wsparcia w ramach programu.</p>
+        <p class="box-note"><a href={flyer} target="_blank" rel="noreferrer"><FileText size={17} aria-hidden="true" /> Ulotka organizatora (PDF)</a> - wszystkie informacje w oryginalnym brzmieniu.</p>
+      </div>
+
+      <h2>Jak o tym rozmawiać w domu</h2>
+
+      <p>Nastolatek rzadko reaguje entuzjazmem na zdanie „zapisałam cię na zajęcia”. Łatwiej, gdy propozycja jest konkretna i ograniczona w czasie: raz w tygodniu, w stałej grupie, do połowy grudnia, a najpierw jedna rozmowa, po której można się wycofać.</p>
+
+      <p>Pomaga też nazwanie celu po imieniu. Nie „bo masz problem”, tylko „bo w nowej klasie jest trudniej niż myśleliśmy” albo „bo chcesz umieć powiedzieć, czego potrzebujesz, i nie zamilknąć”. Decyzja podjęta razem ma po prostu większą szansę przetrwać do trzeciego spotkania.</p>
+
+      <p>Jeżeli uczeń odmawia, nie warto tego forsować. Można wrócić do tematu za kilka tygodni albo zacząć od rozmowy ze szkolnym psychologiem lub pedagogiem - to nie są konkurencyjne ścieżki.</p>
+
+      <div class="article-box school-box">
+        <h2 class="box-heading"><School size={24} aria-hidden="true" /> Co robimy w szkole</h2>
+        <p>Nie każdą trudność trzeba załatwiać poza szkołą. Pierwszym krokiem może być rozmowa na miejscu.</p>
+        <ul class="box-list">
+          <li>W szkole pracują pedagog, psycholog, pedagog specjalny i konsultant do spraw uzależnień - dyżury, telefony i adresy e-mail są na stronie <a href={sitePath("/pomoc-psychologiczno-pedagogiczna/")}>pomocy psychologiczno-pedagogicznej</a>.</li>
+          <li>Z każdą sprawą można zacząć od wychowawcy; jeżeli sprawa go przerasta, przekaże ją dalej.</li>
+          <li>Rodzic może umówić rozmowę ze specjalistą tak samo jak uczeń - telefonicznie albo e-mailem.</li>
+          <li>Informacje o zewnętrznych formach wsparcia przekazujemy dalej, ale nie prowadzimy zapisów i nie oceniamy, komu dane zajęcia są potrzebne.</li>
+        </ul>
+      </div>
+
+      <div class="callout danger">
+        <ShieldAlert size={28} aria-hidden="true" />
+        <div>
+          <h2>Gdy pomoc jest potrzebna natychmiast</h2>
+          <p>Warsztaty są formą wsparcia rozłożoną na tygodnie i nie służą do sytuacji nagłych. W bezpośrednim zagrożeniu zdrowia lub życia dzwoń pod numer 112. Całodobowo i bezpłatnie działają też Centrum Wsparcia dla osób w kryzysie psychicznym pod numerem 800 70 2222 oraz telefon zaufania dla dzieci i młodzieży 116 111.</p>
+        </div>
+      </div>
+
+      <section class="article-sources" aria-labelledby="article-sources-heading">
+        <h2 id="article-sources-heading">Skąd te informacje i gdzie szukać dalej</h2>
+        <p>Treść warsztatów opisaliśmy na podstawie ulotki organizatora. Pozostałe odnośniki prowadzą do stron, które warto sprawdzić przed zapisaniem dziecka.</p>
+        <div class="topic-resource-list">
+          {article.furtherReading.map((link) => (
+            <a href={link.href} target="_blank" rel="noreferrer">
+              <span><strong>{link.label}</strong><small>{link.description}</small></span>
+              <ExternalLink size={20} aria-hidden="true" />
+            </a>
+          ))}
+        </div>
+        <p class="source-note">Informacje o warsztatach pochodzą z ulotki Centrum Neuropsychiatrii NEUROMED SP ZOZ, przekazanej szkole we wrześniu 2026 r. Terminy, godziny i liczbę wolnych miejsc potwierdza wyłącznie organizator.</p>
+      </section>
+    </article>
+
+    <aside class="topic-sidebar">
+      <p class="eyebrow">Powiązane informacje</p>
+      <nav aria-label="Skróty">
+        <a href={sitePath("/pomoc-psychologiczno-pedagogiczna/")}>Pomoc psychologiczno-pedagogiczna</a>
+        <a href={sitePath("/rodzice/")}>Informacje dla rodziców</a>
+        <a href={sitePath("/nasze-dzialania/higiena-cyfrowa/")}>Telefony i higiena cyfrowa</a>
+        <a href={sitePath("/bezpieczenstwo-uczniow/")}>Bezpieczeństwo uczniów</a>
+        <a href={sitePath("/pomoc/")}>Pomoc i kontakt</a>
+      </nav>
+    </aside>
+  </div>
+</BaseLayout>
+
+<style>
+  .topic-hero .text-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    margin-bottom: 24px;
+    color: var(--muted);
+    font-weight: 750;
+  }
+
+  .article-body .plain-list {
+    margin-top: 16px;
+    font-size: 1.05rem;
+  }
+
+  .article-box .box-note {
+    margin-top: 16px;
+    color: var(--muted);
+    font-size: 0.97rem;
+  }
+
+  .article-box .box-note a {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 750;
+  }
+
+  .article-body .callout {
+    margin-top: 40px;
+  }
+
+  .article-body .callout h2 {
+    margin-top: 0;
+    font-size: 1.4rem;
+  }
+</style>
