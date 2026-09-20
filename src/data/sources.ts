@@ -47,8 +47,8 @@ export const sources: Source[] = [
     title: "ZSZ5: Pomoc psychologiczno-pedagogiczna",
     url: "https://zsz5.edupage.org/a/pomoc-psychologiczno-pedagogiczna",
     type: "szkolne",
-    verifiedAt: "2026-07-15",
-    description: "Nazwiska specjalistów, numery wewnętrzne, adresy e-mail, gabinet i tygodniowe godziny dyżurów.",
+    verifiedAt: "2026-09-16",
+    description: "Nazwiska specjalistów, numery wewnętrzne, adresy e-mail, gabinet i tygodniowe godziny dyżurów w roku szkolnym 2026/2027.",
   },
   {
     id: "zsz5-standards-minors-short",
