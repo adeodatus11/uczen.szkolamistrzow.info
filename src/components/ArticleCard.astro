@@ -9,7 +9,7 @@ type Props = {
 };
 
 const { article } = Astro.props;
-const href = sitePath(`/nasze-dzialania/${article.slug}/`);
+const href = sitePath(`/aktualnosci/${article.slug}/`);
 ---
 
 <article class:list={["article-card", `tone-${article.tone}`]}>

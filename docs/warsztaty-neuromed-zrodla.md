@@ -1,7 +1,7 @@
 # Warsztaty rozwoju emocjonalno-społecznego NEUROMED - notatka źródłowa
 
 Notatka przygotowana przed artykułem „Kiedy start w nowej szkole jest trudny”
-(`/nasze-dzialania/warsztaty-rozwoju-emocjonalno-spolecznego/`).
+(`/aktualnosci/warsztaty-rozwoju-emocjonalno-spolecznego/`).
 Stan na 18 września 2026 r.
 
 Uwaga metodologiczna: bezpośrednie pobieranie strony organizatora (`neuropsychiatria.com`)

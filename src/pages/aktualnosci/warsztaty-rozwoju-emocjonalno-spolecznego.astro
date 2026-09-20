@@ -13,7 +13,7 @@ const flyer = sitePath("/documents/warsztaty-neuromed/ulotka-warsztaty-rozwoju-e
 <BaseLayout title={`${article.title} | Strefa Ucznia ZSZ5`} description={article.summary}>
   <header class:list={["topic-hero", `tone-${article.tone}`]}>
     <div class="container">
-      <a class="text-link" href={sitePath("/nasze-dzialania/")}><ArrowLeft size={18} aria-hidden="true" /> Nasze działania</a>
+      <a class="text-link" href={sitePath("/aktualnosci/")}><ArrowLeft size={18} aria-hidden="true" /> Aktualności</a>
       <p class="eyebrow">{article.eyebrow}</p>
       <h1>{article.title}</h1>
       <p class="lead">{article.lead}</p>
@@ -128,7 +128,7 @@ const flyer = sitePath("/documents/warsztaty-neuromed/ulotka-warsztaty-rozwoju-e
       <nav aria-label="Skróty">
         <a href={sitePath("/pomoc-psychologiczno-pedagogiczna/")}>Pomoc psychologiczno-pedagogiczna</a>
         <a href={sitePath("/rodzice/")}>Informacje dla rodziców</a>
-        <a href={sitePath("/nasze-dzialania/higiena-cyfrowa/")}>Telefony i higiena cyfrowa</a>
+        <a href={sitePath("/aktualnosci/higiena-cyfrowa/")}>Telefony i higiena cyfrowa</a>
         <a href={sitePath("/bezpieczenstwo-uczniow/")}>Bezpieczeństwo uczniów</a>
         <a href={sitePath("/pomoc/")}>Pomoc i kontakt</a>
       </nav>

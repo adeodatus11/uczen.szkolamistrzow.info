@@ -84,15 +84,15 @@ function dateDetail(time: string | undefined, audience: string) {
     </div>
   </section>
 
-  <section class="band" aria-labelledby="school-actions">
+  <section class="band" aria-labelledby="latest-articles">
     <div class="container">
       <div class="section-heading wide">
         <div>
-          <p class="eyebrow">Nasze działania</p>
-          <h2 id="school-actions">Dlaczego robimy to, co robimy</h2>
-          <p>Teksty dla rodziców i opiekunów. Wyjaśniamy zasady, pokazujemy źródła i podpowiadamy, co można zrobić w domu.</p>
+          <p class="eyebrow">Dla rodziców i opiekunów</p>
+          <h2 id="latest-articles">Aktualności</h2>
+          <p>Wyjaśniamy szkolne zasady, pokazujemy źródła i podajemy dalej informacje o wsparciu dla uczniów.</p>
         </div>
-        <a class="button" href={sitePath("/nasze-dzialania/")}>Wszystkie teksty <ArrowRight size={18} aria-hidden="true" /></a>
+        <a class="button" href={sitePath("/aktualnosci/")}>Wszystkie teksty <ArrowRight size={18} aria-hidden="true" /></a>
       </div>
       <div class="article-grid">
         {latestArticles.map((article) => <ArticleCard article={article} />)}

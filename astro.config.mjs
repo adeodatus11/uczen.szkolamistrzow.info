@@ -7,7 +7,9 @@ export default defineConfig({
   output: "static",
   integrations: [sitemap({ filter: (page) => !page.endsWith(".ics") })],
   redirects: {
-    "/dzialania-szkoly": "/nasze-dzialania",
-    "/dzialania-szkoly/higiena-cyfrowa": "/nasze-dzialania/higiena-cyfrowa",
+    "/dzialania-szkoly": "/aktualnosci",
+    "/dzialania-szkoly/higiena-cyfrowa": "/aktualnosci/higiena-cyfrowa",
+    "/nasze-dzialania": "/aktualnosci",
+    "/nasze-dzialania/higiena-cyfrowa": "/aktualnosci/higiena-cyfrowa",
   },
 });
