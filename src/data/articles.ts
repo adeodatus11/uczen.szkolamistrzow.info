@@ -18,6 +18,65 @@ export type Article = {
 
 export const articles: Article[] = [
   {
+    slug: "zajecia-grupowe-iskierka",
+    title: "Zostały miejsca w grupach dla nastolatków",
+    eyebrow: "Wsparcie poza szkołą · nabór jesień 2026",
+    lead: "Stowarzyszenie Pomocy Iskierka kończy nabór na jesienną edycję zajęć grupowych. Część grup jest już pełna, ale w tych dla młodzieży - od 13 do 18 lat - miejsca jeszcze są.",
+    summary: "Trening Umiejętności Społecznych, warsztaty socjoterapeutyczne i Trening Zastępowania Agresji: czym różnią się te zajęcia, dla jakich roczników zostały wolne miejsca i gdzie znaleźć formularze zgłoszeniowe.",
+    publishedAt: "2026-09-22",
+    readingMinutes: 3,
+    tone: "green",
+    furtherReading: [
+      {
+        label: "Iskierka: nabory na edycję jesień 2026",
+        description: "Lista grup wraz z formularzami zgłoszeniowymi - zapisy prowadzi wyłącznie stowarzyszenie.",
+        href: "https://www.iskierkawroc.pl/2026/08/17/nowe-nabory-2026-edycja-jesien-2026-start-zajec-wrzesien/",
+      },
+      {
+        label: "Strona Stowarzyszenia Pomocy Iskierka",
+        description: "Pozostała oferta, dane kontaktowe i aktualne informacje o naborach.",
+        href: "https://www.iskierkawroc.pl/",
+      },
+      {
+        label: "wroclaw.pl: pomoc psychologiczna dla dzieci i młodzieży - bez skierowania i za darmo",
+        description: "Miejski przegląd bezpłatnych form pomocy, gdy zabraknie miejsc albo potrzebne jest coś innego.",
+        href: "https://www.wroclaw.pl/dla-mieszkanca/pomoc-psychologiczna-dla-dzieci-i-mlodziezy-bez-skierowania-i-za-darmo",
+      },
+    ],
+  },
+  {
+    slug: "kurs-kompetencji-wychowawczych",
+    title: "Jak mówić, żeby nastolatek słuchał",
+    eyebrow: "Wsparcie dla rodziców · kurs bezpłatny",
+    lead: "Poradnia Psychologiczno-Pedagogiczna nr 9 prowadzi bezpłatny kurs kompetencji wychowawczych metodą Faber i Mazlish. To zajęcia dla dorosłych: przez kilkanaście tygodni ćwiczy się na nich rozmowę z własnym dzieckiem.",
+    summary: "Kilkanaście cotygodniowych spotkań dla rodziców w poradni przy ul. Krakowskiej 102: czego dotyczą zajęcia, jak wyglądają zapisy, na co zwrócić uwagę przy wyborze grupy i co zrobić, gdy zabraknie miejsc.",
+    publishedAt: "2026-09-22",
+    readingMinutes: 4,
+    tone: "yellow",
+    furtherReading: [
+      {
+        label: "PPP9: kurs kompetencji wychowawczych metodą Faber i Mazlish",
+        description: "Ogłoszenie organizatora wraz z formularzem zgłoszeniowym - to jedyne miejsce, w którym prowadzone są zapisy.",
+        href: "https://ppp9-wroc.pl/kurs-kompetencji-wychowawczych-dla-rodzicow-w-oparciu-o-metode-faber-i-mazlish-3/",
+      },
+      {
+        label: "Strona Poradni Psychologiczno-Pedagogicznej nr 9",
+        description: "Pozostała oferta poradni, godziny pracy i dane kontaktowe.",
+        href: "https://ppp9-wroc.pl/",
+      },
+      {
+        label: "Poradnia nr 9 na Facebooku",
+        description: "Tu poradnia zapowiada nabory, w tym lutową edycję kursu.",
+        href: "https://www.facebook.com/poradnia9",
+      },
+      {
+        label: "wroclaw.pl: pomoc psychologiczna dla dzieci i młodzieży - bez skierowania i za darmo",
+        description: "Miejski przegląd bezpłatnych form pomocy, gdy potrzebne jest coś innego niż kurs dla rodziców.",
+        href: "https://www.wroclaw.pl/dla-mieszkanca/pomoc-psychologiczna-dla-dzieci-i-mlodziezy-bez-skierowania-i-za-darmo",
+      },
+    ],
+  },
+  {
     slug: "warsztaty-rozwoju-emocjonalno-spolecznego",
     title: "Kiedy start w nowej szkole jest trudny",
     eyebrow: "Wsparcie poza szkołą · dla rodziców i opiekunów",

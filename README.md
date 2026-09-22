@@ -37,7 +37,9 @@ npm run preview
 - `src/pages/temat/[slug].astro` - automatycznie generowane strony odpowiedzi,
 - `docs/audyt-research-koncepcja.md` - audyt, research i decyzje projektowe,
 - `docs/higiena-cyfrowa-kwerenda.md` - notatka z kwerendy do tekstu o higienie cyfrowej,
-- `docs/warsztaty-neuromed-zrodla.md` - notatka źródłowa do tekstu o warsztatach NEUROMED.
+- `docs/warsztaty-neuromed-zrodla.md` - notatka źródłowa do tekstu o warsztatach NEUROMED,
+- `docs/oferta-zewnetrzna-wrzesien-2026-zrodla.md` - notatka źródłowa do tekstów o kursie
+  Poradni nr 9 i naborach Stowarzyszenia Iskierka.
 
 ## Terminarz
 

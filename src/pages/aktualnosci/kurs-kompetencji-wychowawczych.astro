@@ -1,0 +1,162 @@
+---
+import { ArrowLeft, CalendarClock, ClipboardCheck, Clock3, ExternalLink, School } from "lucide-astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { articleBySlug } from "@data/articles";
+import { fullDate } from "../../lib/eventDate";
+import { sitePath } from "../../lib/paths";
+
+const article = articleBySlug("kurs-kompetencji-wychowawczych")!;
+const coursePage = "https://ppp9-wroc.pl/kurs-kompetencji-wychowawczych-dla-rodzicow-w-oparciu-o-metode-faber-i-mazlish-3/";
+
+const topics = [
+  "wyrażanie oczekiwań i zasad tak, aby były przez dziecko respektowane,",
+  "rozpoznawanie, wyrażanie i akceptowanie uczuć,",
+  "aktywne, wspierające słuchanie,",
+  "motywowanie dziecka do współdziałania,",
+  "modyfikowanie niepożądanych lub nieodpowiednich zachowań dziecka,",
+  "uwalnianie dzieci od grania narzuconych ról w domu i szkole,",
+  "wspieranie procesu usamodzielniania się dziecka,",
+  "budowanie realnego poczucia własnej wartości dziecka,",
+  "konstruktywne rozwiązywanie konfliktów.",
+];
+---
+
+<BaseLayout title={`${article.title} | Strefa Ucznia ZSZ5`} description={article.summary}>
+  <header class:list={["topic-hero", `tone-${article.tone}`]}>
+    <div class="container">
+      <a class="text-link" href={sitePath("/aktualnosci/")}><ArrowLeft size={18} aria-hidden="true" /> Aktualności</a>
+      <p class="eyebrow">{article.eyebrow}</p>
+      <h1>{article.title}</h1>
+      <p class="lead">{article.lead}</p>
+      <p class="article-meta">
+        <time datetime={article.publishedAt}>{fullDate(article.publishedAt)}</time>
+        <span><Clock3 size={16} aria-hidden="true" /> czas czytania: {article.readingMinutes} minut</span>
+      </p>
+    </div>
+  </header>
+
+  <div class="container article-layout">
+    <article class="article-body">
+      <p class="article-intro">Rozmowa z nastolatkiem potrafi utknąć w tym samym miejscu co tydzień wcześniej. Pytanie o szkołę kończy się na „normalnie”, prośba o pomoc w domu na „zaraz”, a uwaga o godzinie powrotu na trzaśnięciu drzwiami. Zwykle nie brakuje w tym dobrej woli po żadnej ze stron - brakuje sposobu.</p>
+
+      <p>Poradnia Psychologiczno-Pedagogiczna nr 9 zaprasza rodziców i opiekunów na bezpłatny kurs kompetencji wychowawczych prowadzony metodą Faber i Mazlish. To oferta dla wszystkich, którzy chcą poszerzyć swoje umiejętności rodzicielskie i bardziej świadomie budować relacje z własnymi dziećmi. Nie trzeba mieć „problemu”, żeby się zapisać.</p>
+
+      <p>Przekazujemy to ogłoszenie dalej, bo dotyczy okresu, w którym dziecko wchodzi w nową szkołę, coraz częściej pracuje u pracodawcy i coraz bardziej się usamodzielnia. Szkoła nie jest organizatorem kursu i nie prowadzi zapisów.</p>
+
+      <h2>Kiedy i gdzie</h2>
+
+      <p>Kurs obejmuje 12-15 spotkań odbywających się raz w tygodniu w głównej siedzibie poradni przy ul. Krakowskiej 102 we Wrocławiu. Początek zaplanowano na pierwsze dni października 2026 roku. Powstaną dwie grupy:</p>
+
+      <ul class="box-list plain-list">
+        <li><strong>wtorki, godz. 13:00-15:00,</strong></li>
+        <li><strong>środy, godz. 8:45-10:45.</strong></li>
+      </ul>
+
+      <p>Zajęcia prowadzą mgr Dorota Urbańczyk, pedagog, oraz mgr Joanna Arsłanowow, psycholog.</p>
+
+      <p>Obie grupy spotykają się w godzinach pracy i warto policzyć to sobie na spokojnie przed zapisaniem się: kilkanaście tygodni z rzędu, dwie godziny plus dojazd. Kurs, na który przychodzi się co drugi raz, traci sens - grupa pracuje w stałym składzie i kolejne spotkania opierają się na poprzednich. Jeżeli teraz się nie da, poradnia zapowiada kolejną edycję w lutym 2027 roku.</p>
+
+      <h2>Na czym polega metoda</h2>
+
+      <p>Adele Faber i Elaine Mazlish to autorki poradników o porozumiewaniu się z dziećmi, znanych w Polsce przede wszystkim z książki „Jak mówić, żeby dzieci nas słuchały. Jak słuchać, żeby dzieci do nas mówiły”. Kurs prowadzony ich metodą to zajęcia warsztatowe: ćwiczy się na nich konkretne sposoby mówienia i słuchania, omawia własne sytuacje z domu i wypróbowuje nowe reakcje między spotkaniami.</p>
+
+      <p>To nie jest terapia rodzinna ani indywidualna porada wychowawcza, choć jedno i drugie poradnia prowadzi osobno. To także nie jest kurs o tym, jak sprawić, by dziecko było posłuszne. Bliżej mu do nauki języka: część zdań, które wypowiadamy automatycznie, zamyka rozmowę, a inne ją otwierają - i tego da się nauczyć.</p>
+
+      <h2>Czego dotyczą zajęcia</h2>
+
+      <p>Organizator zapowiada, że tematem przewodnim jest budowanie relacji dorosły - dziecko, a w szczególności:</p>
+
+      <ul class="box-list plain-list">
+        {topics.map((topic) => <li>{topic}</li>)}
+      </ul>
+
+      <p>Ostatni punkt bywa najbardziej praktyczny dla rodziców nastolatków. Konflikt o telefon, godzinę powrotu albo obowiązki w domu i tak się wydarzy; pytanie brzmi, czy skończy się ustaleniem, czy cichymi dniami.</p>
+
+      <div class="article-box">
+        <h2 class="box-heading"><ClipboardCheck size={24} aria-hidden="true" /> Jak się zapisać</h2>
+        <p>Zapisy prowadzi wyłącznie poradnia. Szkoła nie zbiera zgłoszeń i nie pośredniczy w kwalifikacji.</p>
+        <ol class="box-list">
+          <li><strong>Formularz zgłoszeniowy.</strong> Poradnia zapowiedziała jego publikację na 21 września 2026 r. na stronie <a href={coursePage} target="_blank" rel="noreferrer">ppp9-wroc.pl</a>. W zgłoszeniu wskazuje się preferowany termin: wtorek albo środę.</li>
+          <li><strong>Decyduje kolejność zgłoszeń.</strong> Nie ma rekrutacji ani rozmowy kwalifikacyjnej - liczy się to, kto zapisze się wcześniej.</li>
+          <li><strong>Potwierdzenie.</strong> Z zakwalifikowanymi uczestnikami poradnia kontaktuje się mailowo lub telefonicznie i wtedy podaje termin pierwszego spotkania.</li>
+          <li><strong>Gdy zabraknie miejsc.</strong> Warto śledzić stronę poradni i jej <a href="https://www.facebook.com/poradnia9" target="_blank" rel="noreferrer">profil na Facebooku</a> i zapisać się na kolejną edycję w lutym 2027 roku.</li>
+        </ol>
+        <p class="box-note">Poradnia Psychologiczno-Pedagogiczna nr 9, ul. Krakowska 102, 50-427 Wrocław. Sekretariat: <a href="tel:+48717986832">71 798 68 32</a>, <a href="mailto:sekretariat.ppp9@wroclawskaedukacja.pl">sekretariat.ppp9@wroclawskaedukacja.pl</a>.</p>
+      </div>
+
+      <div class="article-box school-box">
+        <h2 class="box-heading"><School size={24} aria-hidden="true" /> Co robimy w szkole</h2>
+        <p>Kurs jest ofertą poradni, ale część spraw można załatwić bliżej.</p>
+        <ul class="box-list">
+          <li>Rozmowę o konkretnej sytuacji ucznia można umówić z wychowawcą albo ze szkolnym specjalistą - dyżury i kontakty są na stronie <a href={sitePath("/pomoc-psychologiczno-pedagogiczna/")}>pomocy psychologiczno-pedagogicznej</a>.</li>
+          <li>Poradnia nr 9 jest też miejscem, w którym wydawane są opinie i orzeczenia dotyczące uczniów - to odrębna ścieżka od kursu dla rodziców.</li>
+          <li>Informacje o bezpłatnym wsparciu w mieście zbieramy w <a href={sitePath("/aktualnosci/")}>Aktualnościach</a>; dla uczniów pierwszych klas opisaliśmy osobno <a href={sitePath("/aktualnosci/warsztaty-rozwoju-emocjonalno-spolecznego/")}>warsztaty rozwoju emocjonalno-społecznego</a>.</li>
+        </ul>
+      </div>
+
+      <div class="callout">
+        <CalendarClock size={28} aria-hidden="true" />
+        <div>
+          <h2>Terminy w skrócie</h2>
+          <p>Formularz na stronie poradni od 21 września 2026 r. Start kursu: początek października 2026 r. Spotkania: wtorki 13:00-15:00 albo środy 8:45-10:45, raz w tygodniu, 12-15 razy. Kolejna edycja: luty 2027 r.</p>
+        </div>
+      </div>
+
+      <section class="article-sources" aria-labelledby="article-sources-heading">
+        <h2 id="article-sources-heading">Skąd te informacje i gdzie szukać dalej</h2>
+        <p>Opis kursu pochodzi z ogłoszenia poradni. Terminy i dostępność miejsc potwierdza wyłącznie organizator.</p>
+        <div class="topic-resource-list">
+          {article.furtherReading.map((link) => (
+            <a href={link.href} target="_blank" rel="noreferrer">
+              <span><strong>{link.label}</strong><small>{link.description}</small></span>
+              <ExternalLink size={20} aria-hidden="true" />
+            </a>
+          ))}
+        </div>
+        <p class="source-note">Ogłoszenie Poradni Psychologiczno-Pedagogicznej nr 9, przekazane szkole we wrześniu 2026 r. Adres, telefon i adres e-mail sekretariatu sprawdziliśmy 22 września 2026 r. w publicznych rejestrach placówek oświatowych.</p>
+      </section>
+    </article>
+
+    <aside class="topic-sidebar">
+      <p class="eyebrow">Powiązane informacje</p>
+      <nav aria-label="Skróty">
+        <a href={sitePath("/rodzice/")}>Informacje dla rodziców</a>
+        <a href={sitePath("/pomoc-psychologiczno-pedagogiczna/")}>Pomoc psychologiczno-pedagogiczna</a>
+        <a href={sitePath("/aktualnosci/warsztaty-rozwoju-emocjonalno-spolecznego/")}>Warsztaty dla pierwszoklasistów</a>
+        <a href={sitePath("/aktualnosci/higiena-cyfrowa/")}>Telefony i higiena cyfrowa</a>
+        <a href={sitePath("/pomoc/")}>Pomoc i kontakt</a>
+      </nav>
+    </aside>
+  </div>
+</BaseLayout>
+
+<style>
+  .topic-hero .text-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    margin-bottom: 24px;
+    color: var(--muted);
+    font-weight: 750;
+  }
+
+  .article-body .plain-list {
+    margin-top: 16px;
+    font-size: 1.05rem;
+  }
+
+  .article-box .box-note {
+    margin-top: 16px;
+    color: var(--muted);
+    font-size: 0.97rem;
+  }
+
+  .article-body .callout {
+    margin-top: 40px;
+  }
+
+  .article-body .callout h2 {
+    margin-top: 0;
+    font-size: 1.4rem;
+  }
+</style>

@@ -1,0 +1,145 @@
+---
+import { ArrowLeft, ClipboardCheck, Clock3, ExternalLink, School, Users } from "lucide-astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { articleBySlug } from "@data/articles";
+import { fullDate } from "../../lib/eventDate";
+import { sitePath } from "../../lib/paths";
+
+const article = articleBySlug("zajecia-grupowe-iskierka")!;
+const recruitmentPage = "https://www.iskierkawroc.pl/2026/08/17/nowe-nabory-2026-edycja-jesien-2026-start-zajec-wrzesien/";
+---
+
+<BaseLayout title={`${article.title} | Strefa Ucznia ZSZ5`} description={article.summary}>
+  <header class:list={["topic-hero", `tone-${article.tone}`]}>
+    <div class="container">
+      <a class="text-link" href={sitePath("/aktualnosci/")}><ArrowLeft size={18} aria-hidden="true" /> Aktualności</a>
+      <p class="eyebrow">{article.eyebrow}</p>
+      <h1>{article.title}</h1>
+      <p class="lead">{article.lead}</p>
+      <p class="article-meta">
+        <time datetime={article.publishedAt}>{fullDate(article.publishedAt)}</time>
+        <span><Clock3 size={16} aria-hidden="true" /> czas czytania: {article.readingMinutes} minut</span>
+      </p>
+    </div>
+  </header>
+
+  <div class="container article-layout">
+    <article class="article-body">
+      <p class="article-intro">Zajęcia grupowe dla nastolatków mają jedną niewygodną cechę: ogłoszenia o naborze pojawiają się we wrześniu, czyli wtedy, gdy w domu i tak dzieje się najwięcej. Potem okazuje się, że grupy są pełne, a kolejna edycja rusza dopiero po feriach.</p>
+
+      <p>Stowarzyszenie Pomocy Iskierka informuje, że nabór na jesienną edycję 2026 zbliża się ku końcowi i część grup jest już zapełniona. Sporo wolnych miejsc zostało jednak właśnie w grupach młodzieżowych, a te w innych naborach zwykle znikają najwolniej.</p>
+
+      <p>Przekazujemy tę informację dalej. Szkoła nie jest organizatorem zajęć, nie prowadzi zapisów i nie zgłasza uczniów - decyzję podejmuje rodzic razem z dzieckiem.</p>
+
+      <h2>Jakie grupy mają jeszcze miejsca</h2>
+
+      <p>Stowarzyszenie wskazuje wolne miejsca w grupach dla uczestników w wieku:</p>
+
+      <ul class="box-list plain-list">
+        <li>13-14 lat,</li>
+        <li>15-17 lat,</li>
+        <li>15-18 lat,</li>
+        <li>16-18 lat.</li>
+      </ul>
+
+      <p>Przedziały wiekowe zachodzą na siebie, bo odpowiadają różnym rodzajom zajęć. Który konkretnie dzień, godzina i miejsce - to widać dopiero przy formularzu danej grupy na stronie naboru.</p>
+
+      <h2>Czym różnią się te zajęcia</h2>
+
+      <p>W ofercie jesiennej edycji są trzy rodzaje zajęć dla dzieci i młodzieży. Warto wiedzieć, czym się różnią, zanim wybierze się formularz.</p>
+
+      <p><strong>Trening Umiejętności Społecznych (TUS).</strong> Zajęcia, na których ćwiczy się konkretne umiejętności: rozpoczęcie rozmowy, proszenie o pomoc, odmawianie, współpracę w grupie, radzenie sobie z emocjami przy innych ludziach. Grupa jest tu narzędziem - część rzeczy da się przećwiczyć tylko z rówieśnikami.</p>
+
+      <p><strong>Warsztaty socjoterapeutyczne.</strong> Praca w stałej grupie nad tym, co utrudnia funkcjonowanie w relacjach: konfliktami, wycofaniem, reakcjami, które przynoszą kłopoty w szkole i w domu. Bliżej im do pracy nad sobą niż do kursu umiejętności.</p>
+
+      <p><strong>Trening Zastępowania Agresji (TZA).</strong> Program uczący reakcji, które można postawić w miejsce zachowań agresywnych: kontroli złości, umiejętności prospołecznych i myślenia o konsekwencjach. Stowarzyszenie prowadzi go w projekcie przeciwdziałania przemocy wśród uczniów wrocławskich szkół.</p>
+
+      <p>Żadna z tych form nie jest psychoterapią ani diagnozą. To zajęcia grupowe - sensowne wtedy, gdy nastolatek ma je odbyć dobrowolnie, a nie w ramach kary za coś, co wydarzyło się w szkole.</p>
+
+      <div class="article-box">
+        <h2 class="box-heading"><ClipboardCheck size={24} aria-hidden="true" /> Jak się zapisać</h2>
+        <p>Zapisy prowadzi wyłącznie stowarzyszenie, przez formularze przy poszczególnych naborach.</p>
+        <ol class="box-list">
+          <li><strong>Strona naboru.</strong> Opisy grup i formularze zgłoszeniowe są na stronie <a href={recruitmentPage} target="_blank" rel="noreferrer">nowych naborów na edycję jesień 2026</a>.</li>
+          <li><strong>Liczba miejsc jest ograniczona.</strong> Część grup została już zamknięta, więc im wcześniejsze zgłoszenie, tym większa szansa na wybraną grupę.</li>
+          <li><strong>Pytania.</strong> Biuro stowarzyszenia: pl. św. Macieja 5 we Wrocławiu, <a href="tel:+48713224114">71 322 41 14</a>, <a href="mailto:iskierka.wroc@gmail.com">iskierka.wroc@gmail.com</a>. Poszczególne placówki mają własne numery podane przy naborach.</li>
+        </ol>
+        <p class="box-note">Zajęcia stowarzyszenia prowadzone są w projektach współfinansowanych przez gminę Wrocław i dla uczestników są bezpłatne. Przy konkretnym naborze warto to potwierdzić, bo warunki bywają różne dla różnych projektów.</p>
+      </div>
+
+      <div class="article-box school-box">
+        <h2 class="box-heading"><School size={24} aria-hidden="true" /> Co robimy w szkole</h2>
+        <p>Zapisanie się na zajęcia poza szkołą nie wymaga żadnej zgody ani zaświadczenia od nas.</p>
+        <ul class="box-list">
+          <li>Jeżeli nie wiadomo, czy takie zajęcia mają sens w konkretnej sytuacji, można to omówić ze szkolnym pedagogiem lub psychologiem - kontakty są na stronie <a href={sitePath("/pomoc-psychologiczno-pedagogiczna/")}>pomocy psychologiczno-pedagogicznej</a>.</li>
+          <li>Gdy zajęcia wypadają w godzinach lekcyjnych, nieobecność trzeba usprawiedliwić na zwykłych zasadach - warto uprzedzić wychowawcę.</li>
+          <li>Inne bezpłatne formy wsparcia zbieramy w <a href={sitePath("/aktualnosci/")}>Aktualnościach</a>: są tam <a href={sitePath("/aktualnosci/warsztaty-rozwoju-emocjonalno-spolecznego/")}>warsztaty dla pierwszoklasistów</a> i <a href={sitePath("/aktualnosci/kurs-kompetencji-wychowawczych/")}>kurs dla rodziców</a>.</li>
+        </ul>
+      </div>
+
+      <div class="callout">
+        <Users size={28} aria-hidden="true" />
+        <div>
+          <h2>Najkrócej</h2>
+          <p>Wolne miejsca są w grupach 13-14, 15-17, 15-18 i 16-18 lat. Nabór kończy się, część grup jest pełna. Formularze: strona naborów Iskierki. Zajęcia bezpłatne, prowadzone w projektach gminy Wrocław.</p>
+        </div>
+      </div>
+
+      <section class="article-sources" aria-labelledby="article-sources-heading">
+        <h2 id="article-sources-heading">Skąd te informacje i gdzie szukać dalej</h2>
+        <p>Informacja o naborze pochodzi od organizatora. Aktualną listę wolnych miejsc ma wyłącznie stowarzyszenie.</p>
+        <div class="topic-resource-list">
+          {article.furtherReading.map((link) => (
+            <a href={link.href} target="_blank" rel="noreferrer">
+              <span><strong>{link.label}</strong><small>{link.description}</small></span>
+              <ExternalLink size={20} aria-hidden="true" />
+            </a>
+          ))}
+        </div>
+        <p class="source-note">Wiadomość Stowarzyszenia Pomocy Iskierka przekazana szkole 22 września 2026 r. Adres biura, telefon, adres e-mail oraz informację o finansowaniu zajęć ze środków gminy Wrocław sprawdziliśmy tego samego dnia w publicznych rejestrach organizacji i na stronie stowarzyszenia.</p>
+      </section>
+    </article>
+
+    <aside class="topic-sidebar">
+      <p class="eyebrow">Powiązane informacje</p>
+      <nav aria-label="Skróty">
+        <a href={sitePath("/rodzice/")}>Informacje dla rodziców</a>
+        <a href={sitePath("/pomoc-psychologiczno-pedagogiczna/")}>Pomoc psychologiczno-pedagogiczna</a>
+        <a href={sitePath("/aktualnosci/warsztaty-rozwoju-emocjonalno-spolecznego/")}>Warsztaty dla pierwszoklasistów</a>
+        <a href={sitePath("/aktualnosci/kurs-kompetencji-wychowawczych/")}>Kurs dla rodziców</a>
+        <a href={sitePath("/pomoc/")}>Pomoc i kontakt</a>
+      </nav>
+    </aside>
+  </div>
+</BaseLayout>
+
+<style>
+  .topic-hero .text-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    margin-bottom: 24px;
+    color: var(--muted);
+    font-weight: 750;
+  }
+
+  .article-body .plain-list {
+    margin-top: 16px;
+    font-size: 1.05rem;
+  }
+
+  .article-box .box-note {
+    margin-top: 16px;
+    color: var(--muted);
+    font-size: 0.97rem;
+  }
+
+  .article-body .callout {
+    margin-top: 40px;
+  }
+
+  .article-body .callout h2 {
+    margin-top: 0;
+    font-size: 1.4rem;
+  }
+</style>
