@@ -17,10 +17,11 @@ import { sitePath } from "../lib/paths";
     <div class="container">
       <div class="section-heading">
         <p class="eyebrow">Bezpośrednia pomoc</p>
-        <h2 id="help-entries">Kontakty i zakres odpowiedzialności</h2>
-        <p>Sprawdź zasady zgłaszania problemów, dyżury specjalistów albo wybierz osobę z dyrekcji odpowiedzialną za dany rodzaj sprawy.</p>
+        <h2 id="help-entries">Instrukcje i kontakty</h2>
+        <p>Sprawdź, jak dodać mLegitymację, zgłosić problem lub skontaktować się z osobą odpowiedzialną za Twoją sprawę.</p>
       </div>
       <div class="quick-link-grid help-entry-grid">
+        <a class="quick-link" href={sitePath("/temat/mlegitymacja-szkolna/")}><strong>mLegitymacja w mObywatelu</strong><span>Film instruktażowy, link do ZPE i pomoc przy zmianie telefonu</span><ArrowRight size={20} aria-hidden="true" /></a>
         <a class="quick-link" href={sitePath("/pomoc-psychologiczno-pedagogiczna/")}><strong>Pomoc psychologiczno-pedagogiczna</strong><span>Specjaliści, telefony, e-maile i godziny dyżurów</span><ArrowRight size={20} aria-hidden="true" /></a>
         <a class="quick-link" href={sitePath("/bezpieczenstwo-uczniow/")}><strong>Bezpieczeństwo uczniów</strong><span>Standardy Ochrony Małoletnich i sposób zgłoszenia</span><ArrowRight size={20} aria-hidden="true" /></a>
         <a class="quick-link" href={sitePath("/dyrekcja/")}><strong>Dyrekcja ZSZ5</strong><span>Zakres spraw i sposób umówienia kontaktu</span><ArrowRight size={20} aria-hidden="true" /></a>
@@ -49,6 +50,7 @@ import { sitePath } from "../lib/paths";
           <div class="contact-item-links">
             <a href="tel:+48717986934">Zadzwoń do sekretariatu</a>
             <a href="mailto:sekretariat.zsz5@wroclawskaedukacja.pl">Napisz do sekretariatu</a>
+            <a href={sitePath("/temat/mlegitymacja-szkolna/")}>mLegitymacja — aktywacja i rozwiązywanie problemów</a>
           </div>
         </article>
         <article class="contact-item">

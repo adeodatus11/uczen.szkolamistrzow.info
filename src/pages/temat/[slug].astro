@@ -1,6 +1,7 @@
 ---
 import { AlertTriangle, ArrowLeft, CheckCircle2, ChevronDown, ExternalLink } from "lucide-astro";
 import SourceLinks from "@components/SourceLinks.astro";
+import MLegitymacjaGuide from "@components/MLegitymacjaGuide.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import { topics } from "@data/topics";
 import { sitePath } from "../../lib/paths";
@@ -40,6 +41,8 @@ const backHref = topic.audiences.includes("branżowa")
           <div><strong>Najważniejsze</strong><p>{topic.important}</p></div>
         </div>
       )}
+
+      {topic.slug === "mlegitymacja-szkolna" && <MLegitymacjaGuide />}
 
       <h2>Najważniejsze informacje</h2>
       <ul class="answer-list">
