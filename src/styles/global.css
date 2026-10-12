@@ -2099,6 +2099,137 @@ html[data-theme="dark"] .event-entry.past {
   }
 }
 
+/* Baner z jednorazowym komunikatem szkoły */
+
+.site-notice {
+  border-bottom: 1px solid var(--line);
+  border-top: 4px solid var(--yellow);
+  background: var(--yellow-soft);
+}
+
+.site-notice-inner {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 16px;
+  padding-block: 20px;
+}
+
+.site-notice-icon {
+  margin-top: 2px;
+  color: var(--yellow);
+}
+
+.site-notice-body {
+  min-width: 0;
+}
+
+.site-notice h2 {
+  margin: 2px 0 0;
+  font-size: 1.3rem;
+  line-height: 1.25;
+}
+
+.site-notice p {
+  margin: 8px 0 0;
+  max-width: 76ch;
+}
+
+.site-notice .eyebrow {
+  margin: 0;
+  color: var(--yellow);
+}
+
+.site-notice .text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 14px;
+  font-weight: 800;
+}
+
+.site-notice-details {
+  margin-top: 12px;
+}
+
+.site-notice-details summary {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.site-notice-details summary {
+  gap: 8px;
+  list-style: none;
+}
+
+.site-notice-details summary::-webkit-details-marker {
+  display: none;
+}
+
+.site-notice-chevron {
+  flex: none;
+  transition: transform 0.15s ease;
+}
+
+.site-notice-details[open] .site-notice-chevron {
+  transform: rotate(180deg);
+}
+
+.site-notice-details summary:focus-visible {
+  outline: 3px solid var(--yellow);
+  outline-offset: 3px;
+}
+
+.site-notice-more {
+  padding-bottom: 4px;
+}
+
+.site-notice-schedule-heading {
+  font-weight: 800;
+}
+
+.site-notice-schedule {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 190px), 1fr));
+  gap: 8px;
+  margin: 12px 0 4px;
+}
+
+.site-notice-schedule > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--paper);
+  padding: 10px 14px;
+}
+
+.site-notice-schedule dt {
+  font-weight: 750;
+}
+
+.site-notice-schedule dd {
+  margin: 0;
+  font-variant-numeric: tabular-nums;
+}
+
+@media (max-width: 640px) {
+  .site-notice-inner {
+    gap: 12px;
+  }
+
+  .site-notice-icon {
+    display: none;
+  }
+
+  .site-notice-inner {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
 /* Lista odnośników do źródeł: strony tematów i artykuły */
 
 .topic-resource-list {

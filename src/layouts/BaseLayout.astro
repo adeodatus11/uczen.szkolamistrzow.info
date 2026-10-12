@@ -1,5 +1,6 @@
 ---
 import { Menu, Moon, Search, Sun, X } from "lucide-astro";
+import SiteNotice from "@components/SiteNotice.astro";
 import { sitePath } from "../lib/paths";
 import "../styles/global.css";
 
@@ -110,6 +111,8 @@ const navItems = [
         </div>
       </nav>
     </header>
+
+    <SiteNotice />
 
     <main id="main-content">
       <slot />

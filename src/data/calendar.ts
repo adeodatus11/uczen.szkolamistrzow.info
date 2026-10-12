@@ -110,6 +110,16 @@ export const calendarEvents: CalendarEvent[] = [
     href: "/temat/karta-zdrowia/",
   },
   {
+    id: "akademia-den-skrocone-lekcje-2026",
+    date: "2026-10-13",
+    title: "Akademia z okazji Dnia Edukacji Narodowej - skrócone lekcje",
+    audience: "Oba typy szkół",
+    scope: "all",
+    tone: "yellow",
+    description: "Od 8. godziny lekcyjnej zajęcia są skrócone: 8. godzina 14:05-14:35, 9. godzina 14:40-15:10, 10. godzina 15:15-15:45, 11. godzina 15:50-16:20. Wcześniejsze godziny odbywają się według standardowego rozkładu zajęć.",
+    action: "Zmiana jednorazowa, dotyczy tylko wtorku 13 października.",
+  },
+  {
     id: "dzien-edukacji-narodowej-2026",
     date: "2026-10-14",
     title: "Dzień Edukacji Narodowej - dzień wolny",

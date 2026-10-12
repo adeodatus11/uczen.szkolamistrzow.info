@@ -1,0 +1,62 @@
+---
+import { ArrowRight, ChevronDown, Megaphone } from "lucide-astro";
+import { noticeIsCurrent, siteNotice } from "@data/notice";
+import { sitePath } from "../lib/paths";
+
+const notice = noticeIsCurrent(siteNotice) ? siteNotice : null;
+---
+
+{notice && (
+  <section
+    class="site-notice"
+    id="site-notice"
+    aria-labelledby="site-notice-title"
+    data-expires-at={notice.expiresAt}
+  >
+    <div class="container site-notice-inner">
+      <Megaphone class="site-notice-icon" size={26} aria-hidden="true" />
+      <div class="site-notice-body">
+        <p class="eyebrow">{notice.eyebrow}</p>
+        <h2 id="site-notice-title">{notice.title}</h2>
+        {notice.summary.map((line) => <p>{line}</p>)}
+
+        <details class="site-notice-details">
+          <summary><ChevronDown class="site-notice-chevron" size={18} aria-hidden="true" /> {notice.detailsLabel}</summary>
+          <div class="site-notice-more">
+            <p class="site-notice-schedule-heading">{notice.scheduleHeading}</p>
+            <dl class="site-notice-schedule">
+              {notice.schedule.map((row) => (
+                <div><dt>{row.label}</dt><dd>{row.value}</dd></div>
+              ))}
+            </dl>
+            {notice.details.map((paragraph) => <p>{paragraph}</p>)}
+          </div>
+        </details>
+
+        {notice.href && (
+          <a class="text-link" href={sitePath(notice.href)}>{notice.linkLabel ?? "Szczegóły"} <ArrowRight size={17} aria-hidden="true" /></a>
+        )}
+      </div>
+    </div>
+  </section>
+)}
+
+<script>
+  /**
+   * Baner jest wbudowany w statyczne strony, więc bez tego skryptu wisiałby
+   * aż do kolejnego wdrożenia. Tutaj znika sam o godzinie z `data-expires-at`.
+   */
+  const notice = document.querySelector<HTMLElement>("#site-notice");
+  const expiresAt = notice?.dataset.expiresAt ? Date.parse(notice.dataset.expiresAt) : Number.NaN;
+
+  if (notice && !Number.isNaN(expiresAt)) {
+    const hide = () => notice.remove();
+    const remaining = expiresAt - Date.now();
+
+    if (remaining <= 0) {
+      hide();
+    } else if (remaining < 2_147_483_647) {
+      window.setTimeout(hide, remaining);
+    }
+  }
+</script>
