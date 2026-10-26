@@ -5,7 +5,7 @@ import { sitePath } from "../lib/paths";
 
 const documents = [
   { file: "informacja-dla-rodzicow.pdf", title: "Informacja dla rodziców", description: "Cele badania, organizacja, anonimowość i kontakt do zespołu HBSC.", meta: "1 strona · 243 KB" },
-  { file: "zgoda-rodzica-opiekuna-i-rodo.pdf", title: "Zgoda rodzica lub opiekuna i RODO", description: "Formularz do podpisania oraz klauzula dotycząca przetwarzania danych osobowych.", meta: "3 strony · 267 KB" },
+  { file: "zgoda-rodzica-opiekuna-i-rodo.pdf", title: "Zgoda rodzica lub opiekuna i RODO", description: "Dokument organizatora z treścią zgody i klauzulą RODO. W naszej szkole zgodę przekazujemy przez dziennik elektroniczny.", meta: "3 strony · 267 KB" },
   { file: "wzor-ankiety.pdf", title: "Wzór ankiety dla uczniów", description: "Pełny zakres pytań z oznaczeniami części przeznaczonych dla wybranych grup wiekowych.", meta: "52 strony · 1,07 MB" },
   { file: "opinia-komisji-bioetycznej.pdf", title: "Opinia Komisji Bioetycznej", description: "Pozytywna opinia przy Instytucie Matki i Dziecka. Uchwała nr 37/2025 z 5 listopada 2025 r.", meta: "4 strony · 354 KB" },
 ];
@@ -15,8 +15,8 @@ const questions = [
   { title: "Czy udział jest obowiązkowy?", answer: "Nie. Udział jest dobrowolny. Rodzic lub opiekun może nie wyrazić zgody na udział dziecka albo wycofać zgodę w każdej chwili. Uczeń może pominąć pytanie, które jest dla niego trudne lub niewygodne." },
   { title: "Czy nauczyciele lub rodzice zobaczą odpowiedzi?", answer: "Zgodnie z informacją organizatorów ankieta jest anonimowa: uczeń nie podaje imienia ani nazwiska. Indywidualne odpowiedzi są dostępne wyłącznie osobom prowadzącym badanie. Szkoła i rodzice nie mają do nich dostępu." },
   { title: "Czy każdy uczeń otrzyma te same pytania?", answer: "Nie. Część pytań jest przeznaczona tylko dla wybranych grup wiekowych, co zaznaczono we wzorze ankiety. Udostępniony PDF pozwala zapoznać się z pełnym zakresem badania; nie oznacza to, że wszystkie pytania zostaną zadane każdemu uczniowi." },
-  { title: "Czy odpowiedź w dzienniku zastępuje podpisaną zgodę?", answer: "Przy wyrażeniu zgody należy również wypełnić i podpisać formularz oraz przekazać go szkole przed rozpoczęciem badania, w sposób wskazany przez nauczyciela. Sama odpowiedź w wiadomości nie zastępuje podpisanego formularza." },
-  { title: "Kiedy i gdzie odbędzie się badanie?", answer: "Ankieta będzie wypełniana online na szkolnych komputerach, pod opieką osoby prowadzącej badanie. Organizatorzy przewidują 1–2 godziny lekcyjne, zależnie od wieku uczniów. Termin i szczegóły organizacyjne szkoła przekaże zaproszonym uczniom oraz rodzicom bezpośrednio." },
+  { title: "Jak wyrazić zgodę przez dziennik elektroniczny?", answer: "Wystarczy odpowiedzieć bezpośrednio na wiadomość Macieja Najwera w dzienniku elektronicznym, podając imię i nazwisko dziecka oraz treść zgody zamieszczoną na tej stronie. Nie trzeba niczego drukować ani podpisywać na papierze. Odpowiedź prosimy przesłać przed najbliższą lekcją informatyki. W przypadku braku zgody również prosimy o krótką informację." },
+  { title: "Kiedy i gdzie odbędzie się badanie?", answer: "Badanie zaplanowano na najbliższą lekcję informatyki: w środę 28 lub czwartek 29 października 2026 r., zgodnie z planem lekcji danej grupy. Szkoła przeznacza na ankietę jedną godzinę lekcyjną. Uczniowie wypełnią ją online na szkolnych komputerach, pod opieką osoby prowadzącej. W materiałach organizatorów przewidywany czas wynosi 1–2 godziny lekcyjne, zależnie od wieku uczniów." },
 ];
 ---
 
@@ -28,7 +28,7 @@ const questions = [
           <p class="eyebrow">ZSZ nr 5 we Wrocławiu · HBSC 2026</p>
           <h1 id="hbsc-title">Zdrowie i codzienność młodych ludzi.</h1>
           <p class="hbsc-intro">Badanie HBSC — informacje dla uczniów, rodziców i opiekunów.</p>
-          <p class="hbsc-lead">Wybrani w drodze losowania uczniowie naszej szkoły zostali zaproszeni do międzynarodowego badania. Tutaj można spokojnie zapoznać się z jego celem, tematami pytań i dokumentami przed podjęciem decyzji o udziale.</p>
+          <p class="hbsc-lead">Uczniowie naszej szkoły zostali wybrani do udziału w międzynarodowym badaniu HBSC. Tutaj można spokojnie zapoznać się z jego celem, tematami pytań i dokumentami przed podjęciem decyzji o udziale.</p>
           <div class="button-row">
             <a class="button primary" href="#dokumenty">Dokumenty do pobrania <ArrowDown size={18} aria-hidden="true" /></a>
             <a class="button" href="#dla-rodzicow">Jak przekazać zgodę</a>
@@ -40,7 +40,7 @@ const questions = [
           <ul>
             <li><Check size={21} aria-hidden="true" /><span><strong>Udział jest dobrowolny.</strong> Można nie wyrazić zgody lub ją wycofać.</span></li>
             <li><ShieldCheck size={21} aria-hidden="true" /><span><strong>Ankieta jest anonimowa.</strong> Bez imienia i nazwiska.</span></li>
-            <li><Clock3 size={21} aria-hidden="true" /><span><strong>Około 1–2 godzin lekcyjnych.</strong> Na szkolnym komputerze, pod opieką prowadzącego.</span></li>
+            <li><Clock3 size={21} aria-hidden="true" /><span><strong>Jedna lekcja informatyki.</strong> 28 lub 29 października 2026 r., zgodnie z planem lekcji grupy.</span></li>
           </ul>
         </aside>
       </div>
@@ -88,7 +88,7 @@ const questions = [
         <p>Liczy się to, co naprawdę myślisz i czujesz. Czytaj uważnie pytania i wskazówki: w jednych pytaniach wybierzesz jedną odpowiedź, w innych możesz zaznaczyć kilka.</p>
         <p><strong>Jeśli pytanie jest zbyt trudne lub niewygodne, możesz je pominąć i przejść dalej.</strong> Udział w badaniu jest dobrowolny.</p>
         <p>Zgodnie z informacją zespołu HBSC nie podajesz imienia ani nazwiska, a Twoich indywidualnych odpowiedzi nie zobaczą nauczyciele ani rodzice. Dostęp do nich mają wyłącznie osoby prowadzące badanie.</p>
-        <p>Badanie odbędzie się online na szkolnym komputerze, pod opieką osoby prowadzącej. PDF na tej stronie to wzór do zapoznania się z pytaniami.</p>
+        <p>Badanie odbędzie się online na szkolnym komputerze, pod opieką osoby prowadzącej, podczas najbliższej lekcji informatyki: w środę 28 lub czwartek 29 października 2026 r., zgodnie z planem Twojej grupy. Szkoła zaplanowała na nie jedną godzinę lekcyjną. PDF na tej stronie to wzór do zapoznania się z pytaniami.</p>
       </div>
     </section>
 
@@ -97,10 +97,20 @@ const questions = [
         <div class="hbsc-section-heading"><p class="eyebrow">Dla rodziców i opiekunów</p><h2 id="parents-title">Spokojna, świadoma decyzja.</h2><p>Prosimy o zapoznanie się z dokumentami i przekazanie szkole decyzji zgodnie z wiadomością otrzymaną od nauczyciela.</p></div>
         <ol class="hbsc-steps">
           <li><strong>Zapoznaj się z badaniem.</strong><p>Przeczytaj informację dla rodziców i wzór ankiety. Sprawdź także klauzulę RODO dołączoną do formularza zgody.</p></li>
-          <li><strong>Przekaż swoją decyzję.</strong><p>Udział jest dobrowolny. Możesz nie wyrazić zgody na udział dziecka lub wycofać ją w każdej chwili.</p></li>
-          <li><strong>Jeśli wyrażasz zgodę — podpisz formularz.</strong><p>Wypełniony i podpisany dokument przekaż przed rozpoczęciem badania w sposób wskazany przez szkołę.</p></li>
+          <li><strong>Odpowiedz w dzienniku elektronicznym.</strong><p>Prześlij odpowiedź bezpośrednio na wiadomość Macieja Najwera. Wpisz imię i nazwisko dziecka oraz zamieszczoną poniżej treść zgody. Jeśli nie wyrażasz zgody, również przekaż krótką informację.</p></li>
+          <li><strong>Przekaż decyzję przed informatyką.</strong><p>Prosimy o odpowiedź przed najbliższą lekcją: 28 lub 29 października 2026 r., zgodnie z planem grupy. Nie trzeba niczego drukować ani podpisywać na papierze.</p></li>
         </ol>
-        <div class="hbsc-parent-note"><strong>Ważne przy przekazywaniu zgody</strong><p>Odpowiedź w dzienniku elektronicznym nie zastępuje podpisanego formularza. Termin badania oraz sposób i termin zwrotu zgody szkoła przekaże bezpośrednio. W razie wątpliwości skontaktuj się z nauczycielem przez dziennik.</p></div>
+        <div class="hbsc-parent-note"><strong>Organizacja badania w naszej szkole</strong><p>Na wypełnienie ankiety zaplanowaliśmy jedną godzinę lekcyjną podczas najbliższej informatyki — w środę 28 lub czwartek 29 października 2026 r. W dokumentach organizatorów podano przewidywany czas 1–2 godzin lekcyjnych, zależnie od wieku uczniów.</p></div>
+        <div class="hbsc-consent" aria-labelledby="consent-title">
+          <h3 id="consent-title">Treść zgody do przesłania w odpowiedzi</h3>
+          <p>Skopiuj poniższą treść do odpowiedzi w dzienniku elektronicznym i uzupełnij imię oraz nazwisko dziecka. Przed wysłaniem zapoznaj się z informacją o badaniu, wzorem ankiety i <a href={pdfPath("zgoda-rodzica-opiekuna-i-rodo.pdf")} rel="nofollow">klauzulą RODO (PDF)</a>.</p>
+          <blockquote>
+            <p><strong>Imię i nazwisko dziecka: …</strong></p>
+            <p>Wyrażam pełną, świadomą i dobrowolną zgodę na udział mojego dziecka w badaniu ankietowym HBSC oraz na przetwarzanie, udostępnianie i publikację anonimowych wyników badania. Akceptuję przedstawione warunki i formę jego przeprowadzenia.</p>
+            <p>Potwierdzam zapoznanie się z informacją o celu, przebiegu i przewidywanym czasie badania, wzorem ankiety oraz informacją o przetwarzaniu danych osobowych. Wiem, że udział jest dobrowolny, zgodę mogę wycofać, a dziecko może pominąć pytania, na które nie chce odpowiadać.</p>
+          </blockquote>
+          <p>Udział jest dobrowolny. Możesz odmówić zgody lub wycofać ją w każdej chwili, kontaktując się z nauczycielem przez dziennik elektroniczny.</p>
+        </div>
       </div>
     </section>
 
@@ -177,6 +187,11 @@ const questions = [
   .hbsc-steps p { margin: 12px 0 0; color: var(--muted); }
   .hbsc-parent-note { background: var(--paper); border-left: 4px solid var(--hbsc-accent); padding: 22px 26px; max-width: 970px; }
   .hbsc-parent-note p { margin: 6px 0 0; }
+  .hbsc-consent { max-width: 970px; margin-top: 36px; }
+  .hbsc-consent h3 { font-size: 1.45rem; line-height: 1.3; margin-bottom: 16px; }
+  .hbsc-consent blockquote { margin: 24px 0; padding: 24px 28px; background: var(--paper); border: 1px solid var(--line); border-radius: 10px; }
+  .hbsc-consent blockquote p { margin: 0 0 18px; }
+  .hbsc-consent blockquote p:last-child { margin-bottom: 0; }
   .hbsc-documents { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
   .hbsc-document { display: grid; grid-template-columns: 28px 1fr 22px; gap: 17px; align-items: start; border: 1px solid var(--line); padding: 26px; border-radius: 10px; text-decoration: none; transition: border-color .15s, background .15s; }
   .hbsc-document:hover { border-color: var(--hbsc-accent); background: var(--hbsc-soft); }
