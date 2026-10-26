@@ -7,10 +7,12 @@ import "../styles/global.css";
 type Props = {
   title: string;
   description?: string;
+  noindex?: boolean;
 };
 
 const {
   title,
+  noindex = false,
   description = "Praktyczny portal informacyjny dla uczniów i rodziców Zespołu Szkół Zawodowych nr 5 we Wrocławiu.",
 } = Astro.props;
 
@@ -50,6 +52,7 @@ const navItems = [
       })();
     </script>
     <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex, nofollow, noarchive, noimageindex" />}
     <meta name="theme-color" content="#ffffff" />
     <link rel="canonical" href={canonical} />
     <meta property="og:title" content={title} />

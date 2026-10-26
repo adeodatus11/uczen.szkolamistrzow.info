@@ -1,0 +1,231 @@
+---
+import { ArrowDown, ArrowUpRight, Check, Clock3, FileText, Mail, Phone, ShieldCheck } from "lucide-astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { sitePath } from "../lib/paths";
+
+const documents = [
+  { file: "informacja-dla-rodzicow.pdf", title: "Informacja dla rodziców", description: "Cele badania, organizacja, anonimowość i kontakt do zespołu HBSC.", meta: "1 strona · 243 KB" },
+  { file: "zgoda-rodzica-opiekuna-i-rodo.pdf", title: "Zgoda rodzica lub opiekuna i RODO", description: "Formularz do podpisania oraz klauzula dotycząca przetwarzania danych osobowych.", meta: "3 strony · 267 KB" },
+  { file: "wzor-ankiety.pdf", title: "Wzór ankiety dla uczniów", description: "Pełny zakres pytań z oznaczeniami części przeznaczonych dla wybranych grup wiekowych.", meta: "52 strony · 1,07 MB" },
+  { file: "opinia-komisji-bioetycznej.pdf", title: "Opinia Komisji Bioetycznej", description: "Pozytywna opinia przy Instytucie Matki i Dziecka. Uchwała nr 37/2025 z 5 listopada 2025 r.", meta: "4 strony · 354 KB" },
+];
+const pdfPath = (file: string) => sitePath(`/documents/hbsc-2026/${file}`);
+
+const questions = [
+  { title: "Czy udział jest obowiązkowy?", answer: "Nie. Udział jest dobrowolny. Rodzic lub opiekun może nie wyrazić zgody na udział dziecka albo wycofać zgodę w każdej chwili. Uczeń może pominąć pytanie, które jest dla niego trudne lub niewygodne." },
+  { title: "Czy nauczyciele lub rodzice zobaczą odpowiedzi?", answer: "Zgodnie z informacją organizatorów ankieta jest anonimowa: uczeń nie podaje imienia ani nazwiska. Indywidualne odpowiedzi są dostępne wyłącznie osobom prowadzącym badanie. Szkoła i rodzice nie mają do nich dostępu." },
+  { title: "Czy każdy uczeń otrzyma te same pytania?", answer: "Nie. Część pytań jest przeznaczona tylko dla wybranych grup wiekowych, co zaznaczono we wzorze ankiety. Udostępniony PDF pozwala zapoznać się z pełnym zakresem badania; nie oznacza to, że wszystkie pytania zostaną zadane każdemu uczniowi." },
+  { title: "Czy odpowiedź w dzienniku zastępuje podpisaną zgodę?", answer: "Przy wyrażeniu zgody należy również wypełnić i podpisać formularz oraz przekazać go szkole przed rozpoczęciem badania, w sposób wskazany przez nauczyciela. Sama odpowiedź w wiadomości nie zastępuje podpisanego formularza." },
+  { title: "Kiedy i gdzie odbędzie się badanie?", answer: "Ankieta będzie wypełniana online na szkolnych komputerach, pod opieką osoby prowadzącej badanie. Organizatorzy przewidują 1–2 godziny lekcyjne, zależnie od wieku uczniów. Termin i szczegóły organizacyjne szkoła przekaże zaproszonym uczniom oraz rodzicom bezpośrednio." },
+];
+---
+
+<BaseLayout title="Badanie HBSC 2026 — informacje dla uczniów i rodziców | ZSZ5" description="Pakiet informacji o badaniu HBSC w ZSZ5: cel i zakres ankiety, dobrowolność udziału, informacje dla rodziców oraz dokumenty do pobrania." noindex>
+  <div class="hbsc-page">
+    <section class="hbsc-hero" aria-labelledby="hbsc-title">
+      <div class="container hbsc-hero-grid">
+        <div>
+          <p class="eyebrow">ZSZ nr 5 we Wrocławiu · HBSC 2026</p>
+          <h1 id="hbsc-title">Zdrowie i codzienność młodych ludzi.</h1>
+          <p class="hbsc-intro">Badanie HBSC — informacje dla uczniów, rodziców i opiekunów.</p>
+          <p class="hbsc-lead">Wybrani w drodze losowania uczniowie naszej szkoły zostali zaproszeni do międzynarodowego badania. Tutaj można spokojnie zapoznać się z jego celem, tematami pytań i dokumentami przed podjęciem decyzji o udziale.</p>
+          <div class="button-row">
+            <a class="button primary" href="#dokumenty">Dokumenty do pobrania <ArrowDown size={18} aria-hidden="true" /></a>
+            <a class="button" href="#dla-rodzicow">Jak przekazać zgodę</a>
+          </div>
+        </div>
+        <aside class="hbsc-essentials" aria-label="Najważniejsze informacje o udziale">
+          <p class="eyebrow">Zanim podejmiesz decyzję</p>
+          <h2>Twój głos.<br />Twój wybór.</h2>
+          <ul>
+            <li><Check size={21} aria-hidden="true" /><span><strong>Udział jest dobrowolny.</strong> Można nie wyrazić zgody lub ją wycofać.</span></li>
+            <li><ShieldCheck size={21} aria-hidden="true" /><span><strong>Ankieta jest anonimowa.</strong> Bez imienia i nazwiska.</span></li>
+            <li><Clock3 size={21} aria-hidden="true" /><span><strong>Około 1–2 godzin lekcyjnych.</strong> Na szkolnym komputerze, pod opieką prowadzącego.</span></li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section class="hbsc-partners" aria-label="Logotypy z materiałów badania HBSC">
+      <div class="container">
+        <div class="hbsc-logo-strip"><img src={sitePath("/assets/hbsc-2026/logotypy-organizatorow.png")} alt="Ministerstwo Zdrowia, Narodowy Program Zdrowia, Instytut Matki i Dziecka, HBSC" width="911" height="104" /></div>
+        <p>Zadanie zrealizowane ze środków Narodowego Programu Zdrowia na lata 2021–2026, finansowane przez Ministra Zdrowia.</p>
+      </div>
+    </section>
+
+    <nav class="container hbsc-sections" aria-label="Na tej stronie">
+      <a href="#o-badaniu">O badaniu</a><a href="#zakres">Tematy ankiety</a><a href="#dla-uczniow">Dla uczniów</a><a href="#dla-rodzicow">Dla rodziców</a><a href="#dokumenty">Dokumenty</a><a href="#pytania">Pytania i kontakt</a>
+    </nav>
+
+    <section class="container hbsc-section hbsc-about" id="o-badaniu" aria-labelledby="about-title">
+      <div><p class="eyebrow">Poznać potrzeby młodzieży</p><h2 id="about-title">Czym jest HBSC?</h2></div>
+      <div class="hbsc-prose">
+        <p><strong>Health Behaviour in School-aged Children</strong> to międzynarodowe badanie zdrowia i zachowań zdrowotnych młodzieży szkolnej, realizowane we współpracy z Biurem Regionalnym Światowej Organizacji Zdrowia (WHO) dla Europy.</p>
+        <p>W Polsce badanie prowadzi <strong>Instytut Matki i Dziecka we współpracy z Uniwersytetem Warszawskim</strong>. Według informacji organizatorów polską edycją kierują dr n. społ. Anna Dzielska oraz dr n. hum. Agnieszka Małkowska-Szkutnik.</p>
+        <p>Odpowiedzi pomagają lepiej zrozumieć codzienne doświadczenia, samopoczucie i potrzeby młodych ludzi. Wyniki służą m.in. planowaniu edukacji zdrowotnej i działań wspierających dobrostan młodzieży.</p>
+        <p>Projekt uzyskał pozytywną opinię Komisji Bioetycznej przy Instytucie Matki i Dziecka. Dokument opinii znajduje się w pakiecie poniżej.</p>
+      </div>
+    </section>
+
+    <section class="hbsc-topics" id="zakres" aria-labelledby="topics-title">
+      <div class="container hbsc-section">
+        <div class="hbsc-section-heading"><p class="eyebrow">Zakres pytań</p><h2 id="topics-title">O czym opowiada ankieta?</h2><p>O zdrowiu, relacjach i zwyczajach, które składają się na codzienne życie uczniów.</p></div>
+        <dl class="hbsc-topic-grid">
+          <div><dt>Zdrowie i samopoczucie</dt><dd>Zdrowie fizyczne i psychiczne, emocje oraz radzenie sobie z trudnościami.</dd></div>
+          <div><dt>Codzienne nawyki</dt><dd>Ruch, odżywianie, sen i spędzanie wolnego czasu.</dd></div>
+          <div><dt>Szkoła i relacje</dt><dd>Życie szkolne, stres, rodzina, nauczyciele i rówieśnicy.</dd></div>
+          <div><dt>Życie w internecie</dt><dd>Media społecznościowe, gry i korzystanie z narzędzi sztucznej inteligencji.</dd></div>
+          <div><dt>Używki i przemoc</dt><dd>Pytania dotyczą również używek, przemocy i cyberprzemocy.</dd></div>
+          <div><dt>Zdrowie seksualne</dt><dd>Ta część jest przeznaczona dla wskazanych starszych grup uczniów.</dd></div>
+        </dl>
+        <p class="hbsc-scope-note"><strong>Zakres zależy od grupy wiekowej.</strong> Nie wszystkie pytania są kierowane do każdego ucznia. Przed podjęciem decyzji warto przeczytać <a href={pdfPath("wzor-ankiety.pdf")} rel="nofollow">pełny wzór ankiety (PDF)</a>.</p>
+      </div>
+    </section>
+
+    <section class="container hbsc-section hbsc-student" id="dla-uczniow" aria-labelledby="student-title">
+      <div><p class="eyebrow">Dla uczennic i uczniów</p><h2 id="student-title">Nie ma dobrych ani złych odpowiedzi.</h2></div>
+      <div class="hbsc-prose">
+        <p>Liczy się to, co naprawdę myślisz i czujesz. Czytaj uważnie pytania i wskazówki: w jednych pytaniach wybierzesz jedną odpowiedź, w innych możesz zaznaczyć kilka.</p>
+        <p><strong>Jeśli pytanie jest zbyt trudne lub niewygodne, możesz je pominąć i przejść dalej.</strong> Udział w badaniu jest dobrowolny.</p>
+        <p>Zgodnie z informacją zespołu HBSC nie podajesz imienia ani nazwiska, a Twoich indywidualnych odpowiedzi nie zobaczą nauczyciele ani rodzice. Dostęp do nich mają wyłącznie osoby prowadzące badanie.</p>
+        <p>Badanie odbędzie się online na szkolnym komputerze, pod opieką osoby prowadzącej. PDF na tej stronie to wzór do zapoznania się z pytaniami.</p>
+      </div>
+    </section>
+
+    <section class="hbsc-parents" id="dla-rodzicow" aria-labelledby="parents-title">
+      <div class="container hbsc-section">
+        <div class="hbsc-section-heading"><p class="eyebrow">Dla rodziców i opiekunów</p><h2 id="parents-title">Spokojna, świadoma decyzja.</h2><p>Prosimy o zapoznanie się z dokumentami i przekazanie szkole decyzji zgodnie z wiadomością otrzymaną od nauczyciela.</p></div>
+        <ol class="hbsc-steps">
+          <li><strong>Zapoznaj się z badaniem.</strong><p>Przeczytaj informację dla rodziców i wzór ankiety. Sprawdź także klauzulę RODO dołączoną do formularza zgody.</p></li>
+          <li><strong>Przekaż swoją decyzję.</strong><p>Udział jest dobrowolny. Możesz nie wyrazić zgody na udział dziecka lub wycofać ją w każdej chwili.</p></li>
+          <li><strong>Jeśli wyrażasz zgodę — podpisz formularz.</strong><p>Wypełniony i podpisany dokument przekaż przed rozpoczęciem badania w sposób wskazany przez szkołę.</p></li>
+        </ol>
+        <div class="hbsc-parent-note"><strong>Ważne przy przekazywaniu zgody</strong><p>Odpowiedź w dzienniku elektronicznym nie zastępuje podpisanego formularza. Termin badania oraz sposób i termin zwrotu zgody szkoła przekaże bezpośrednio. W razie wątpliwości skontaktuj się z nauczycielem przez dziennik.</p></div>
+      </div>
+    </section>
+
+    <section class="container hbsc-section" id="dokumenty" aria-labelledby="documents-title">
+      <div class="hbsc-section-heading"><p class="eyebrow">Komplet materiałów</p><h2 id="documents-title">Dokumenty do pobrania</h2><p>Cztery oryginalne pliki przekazane przez organizatorów. Możesz otworzyć je w przeglądarce, zapisać lub wydrukować.</p></div>
+      <div class="hbsc-documents">
+        {documents.map((document) => (
+          <a class="hbsc-document" href={pdfPath(document.file)} rel="nofollow">
+            <FileText class="hbsc-file-icon" size={28} aria-hidden="true" />
+            <span><strong>{document.title}</strong><span class="hbsc-document-description">{document.description}</span><small>PDF · {document.meta}</small></span>
+            <ArrowUpRight class="hbsc-open-icon" size={22} aria-hidden="true" />
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <section class="container hbsc-section hbsc-faq" id="pytania" aria-labelledby="faq-title">
+      <div class="hbsc-section-heading"><p class="eyebrow">Warto wiedzieć</p><h2 id="faq-title">Najczęstsze pytania</h2></div>
+      <div class="hbsc-questions">{questions.map((question) => <details><summary>{question.title}</summary><p>{question.answer}</p></details>)}</div>
+    </section>
+
+    <section class="hbsc-contact" aria-labelledby="contact-title">
+      <div class="container hbsc-section hbsc-contact-grid">
+        <div><p class="eyebrow">Masz dodatkowe pytania?</p><h2 id="contact-title">Zapytaj przed podjęciem decyzji.</h2><p>W sprawie celu, przebiegu i dokumentacji badania skontaktuj się z zespołem HBSC. W sprawach organizacji w naszej szkole napisz do nauczyciela przez dziennik elektroniczny.</p></div>
+        <address><strong>Zespół badawczy HBSC</strong><a href="mailto:anna.dzielska@hbsc.org"><Mail size={20} aria-hidden="true" />anna.dzielska@hbsc.org</a><a href="tel:+48223277202"><Phone size={20} aria-hidden="true" />22 32 77 202</a><span>Dane kontaktowe z informacji dla rodziców.</span></address>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .hbsc-page { --hbsc-accent: #155b75; --hbsc-soft: #edf5f7; }
+  :global(html[data-theme="dark"]) .hbsc-page { --hbsc-accent: #95d5e5; --hbsc-soft: #1b3138; }
+  .hbsc-page h1, .hbsc-page h2, .hbsc-page h3 { letter-spacing: -.035em; }
+  .hbsc-page h2 { font-size: clamp(1.8rem, 3.3vw, 2.6rem); line-height: 1.16; margin: 0 0 22px; }
+  .hbsc-page .eyebrow { color: var(--hbsc-accent); margin: 0 0 17px; }
+  .hbsc-page p { text-wrap: pretty; }
+  .hbsc-page section[id] { scroll-margin-top: 130px; }
+  .hbsc-hero { padding: 76px 0 64px; background: var(--soft); }
+  .hbsc-hero-grid { display: grid; grid-template-columns: 1.6fr 1fr; gap: 70px; align-items: center; }
+  .hbsc-hero h1 { font-size: clamp(2.5rem, 4.6vw, 4rem); line-height: 1.05; max-width: 16ch; margin: 0 0 26px; }
+  .hbsc-intro { color: var(--hbsc-accent); font-size: 1.32rem; font-weight: 600; line-height: 1.4; max-width: 32ch; }
+  .hbsc-lead { max-width: 59ch; color: var(--muted); margin: 20px 0 28px; font-size: 1.06rem; }
+  .hbsc-essentials { background: var(--paper); border-top: 4px solid var(--hbsc-accent); padding: 32px; border-radius: 0 0 12px 12px; }
+  .hbsc-essentials h2 { font-size: 2rem; }
+  .hbsc-essentials ul { padding: 0; list-style: none; margin: 26px 0 0; display: grid; gap: 23px; }
+  .hbsc-essentials li { display: grid; grid-template-columns: 22px 1fr; gap: 12px; font-size: .95rem; color: var(--muted); }
+  .hbsc-essentials li :global(svg) { color: var(--hbsc-accent); margin-top: 3px; }
+  .hbsc-essentials strong { display: block; color: var(--ink); }
+  .hbsc-partners { padding: 34px 0 26px; border-bottom: 1px solid var(--line); }
+  .hbsc-logo-strip { max-width: 820px; background: white; border-radius: 4px; padding: 15px 18px; margin-inline: auto; }
+  .hbsc-logo-strip img { width: 100%; height: auto; display: block; }
+  .hbsc-partners p { max-width: 740px; text-align: center; margin: 12px auto 0; color: var(--muted); font-size: .82rem; }
+  .hbsc-sections { display: flex; flex-wrap: wrap; gap: 12px 28px; padding-block: 22px; font-size: .92rem; font-weight: 600; }
+  .hbsc-sections a { text-decoration: none; }
+  .hbsc-sections a:hover { text-decoration: underline; color: var(--hbsc-accent); }
+  .hbsc-section { padding-block: 72px; }
+  .hbsc-about, .hbsc-student { display: grid; grid-template-columns: 1fr 1.65fr; gap: 80px; }
+  .hbsc-prose p { margin: 0 0 20px; }
+  .hbsc-prose p:last-child { margin-bottom: 0; }
+  .hbsc-section-heading { max-width: 710px; margin-bottom: 32px; }
+  .hbsc-section-heading > p:last-child { color: var(--muted); font-size: 1.05rem; }
+  .hbsc-topics { background: var(--hbsc-soft); }
+  .hbsc-topic-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px 40px; margin: 38px 0; }
+  .hbsc-topic-grid div { border-left: 2px solid var(--hbsc-accent); padding-left: 20px; }
+  .hbsc-topic-grid dt { font-size: 1.12rem; font-weight: 700; margin-bottom: 8px; }
+  .hbsc-topic-grid dd { margin: 0; color: var(--muted); }
+  .hbsc-scope-note { max-width: 850px; margin-bottom: 0; }
+  .hbsc-parents { background: var(--soft); }
+  .hbsc-steps { list-style: none; counter-reset: hbsc-step; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin: 44px 0 32px; }
+  .hbsc-steps li { counter-increment: hbsc-step; }
+  .hbsc-steps li::before { content: counter(hbsc-step); display: grid; place-items: center; width: 34px; height: 34px; margin-bottom: 18px; border-radius: 50%; background: var(--hbsc-accent); color: var(--paper); font-weight: 700; }
+  .hbsc-steps strong { font-size: 1.12rem; line-height: 1.4; display: block; }
+  .hbsc-steps p { margin: 12px 0 0; color: var(--muted); }
+  .hbsc-parent-note { background: var(--paper); border-left: 4px solid var(--hbsc-accent); padding: 22px 26px; max-width: 970px; }
+  .hbsc-parent-note p { margin: 6px 0 0; }
+  .hbsc-documents { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+  .hbsc-document { display: grid; grid-template-columns: 28px 1fr 22px; gap: 17px; align-items: start; border: 1px solid var(--line); padding: 26px; border-radius: 10px; text-decoration: none; transition: border-color .15s, background .15s; }
+  .hbsc-document:hover { border-color: var(--hbsc-accent); background: var(--hbsc-soft); }
+  .hbsc-file-icon, .hbsc-open-icon { color: var(--hbsc-accent); margin-top: 3px; }
+  .hbsc-document strong { display: block; font-size: 1.14rem; line-height: 1.35; }
+  .hbsc-document-description { display: block; color: var(--muted); margin-block: 10px 16px; }
+  .hbsc-document small { color: var(--hbsc-accent); font-weight: 600; font-size: .84rem; }
+  .hbsc-faq { padding-top: 0; max-width: 960px; }
+  .hbsc-questions details { border-bottom: 1px solid var(--line); }
+  .hbsc-questions summary { padding: 22px 4px; cursor: pointer; font-weight: 600; font-size: 1.1rem; }
+  .hbsc-questions details[open] summary { color: var(--hbsc-accent); }
+  .hbsc-questions details p { color: var(--muted); margin: 0 4px 24px; max-width: 75ch; }
+  .hbsc-contact { background: var(--hbsc-soft); }
+  .hbsc-contact-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 90px; align-items: center; }
+  .hbsc-contact p { max-width: 60ch; margin-bottom: 0; }
+  .hbsc-contact address { font-style: normal; display: grid; gap: 15px; }
+  .hbsc-contact address > strong { font-size: 1.15rem; }
+  .hbsc-contact address a { display: flex; gap: 12px; align-items: center; overflow-wrap: anywhere; }
+  .hbsc-contact address span { color: var(--muted); font-size: .84rem; }
+  @media (max-width: 900px) {
+    .hbsc-hero-grid { gap: 28px; grid-template-columns: 1.3fr 1fr; }
+    .hbsc-about, .hbsc-student { gap: 32px; }
+    .hbsc-contact-grid { gap: 40px; }
+    .hbsc-topic-grid { grid-template-columns: repeat(2, 1fr); }
+    .hbsc-steps { gap: 24px; }
+  }
+  @media (max-width: 640px) {
+    .hbsc-hero { padding: 40px 0; }
+    .hbsc-hero-grid, .hbsc-about, .hbsc-student, .hbsc-documents, .hbsc-contact-grid, .hbsc-steps { grid-template-columns: 1fr; }
+    .hbsc-hero-grid { gap: 32px; }
+    .hbsc-hero h1 { max-width: 15ch; }
+    .hbsc-essentials { padding: 26px; }
+    .hbsc-section { padding-block: 44px; }
+    .hbsc-faq { padding-top: 0; }
+    .hbsc-about, .hbsc-student { gap: 10px; }
+    .hbsc-topic-grid { gap: 28px; grid-template-columns: 1fr; }
+    .hbsc-sections { gap: 12px 24px; }
+    .hbsc-steps { gap: 28px; }
+    .hbsc-steps li::before { margin-bottom: 10px; }
+    .hbsc-document { padding: 20px; gap: 12px; }
+    .hbsc-logo-strip { padding: 9px 4px; }
+    .hbsc-contact-grid { gap: 30px; }
+  }
+  @media (prefers-reduced-motion: reduce) { .hbsc-document { transition: none; } }
+  @media print {
+    .hbsc-sections, .hbsc-hero .button-row { display: none; }
+    .hbsc-section { padding-block: 22px; }
+    .hbsc-page { color: #000; background: white; }
+    .hbsc-document, .hbsc-essentials { break-inside: avoid; }
+    .hbsc-questions details { break-inside: avoid; }
+  }
+</style>
