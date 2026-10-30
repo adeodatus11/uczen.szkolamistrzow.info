@@ -1,0 +1,327 @@
+---
+import { ArrowLeft, Clock3, ExternalLink, MessageCircle, School, ShieldAlert } from "lucide-astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { articleBySlug } from "@data/articles";
+import { fullDate } from "../../lib/eventDate";
+import { sitePath } from "../../lib/paths";
+
+const article = articleBySlug("trudne-wiadomosci-rozmowa-z-dzieckiem")!;
+
+const situations = [
+  {
+    title: "Dziecko nie słyszało o wydarzeniu",
+    body: "Nie musisz wprowadzać tematu, jeśli wiadomość do niego nie dotarła i sytuacja go nie dotyczy. Jeżeli prawdopodobnie usłyszy o niej w szkole, możesz je krótko uprzedzić - bez drastycznych szczegółów.",
+    say: "„Możesz usłyszeć w szkole, że w innej szkole wydarzyło się coś niebezpiecznego. Jeśli będziesz mieć pytania, możesz mnie zapytać”.",
+  },
+  {
+    title: "Dziecko słyszało albo pyta",
+    body: "Zaproś do rozmowy. Sprawdź, co usłyszało, jak to rozumie i czy coś je niepokoi. Nie zakładaj z góry, co czuje.",
+    say: "„Co o tym wiesz? Chcesz o coś zapytać?”.",
+  },
+  {
+    title: "Dziecko było świadkiem albo zdarzenie dotyczyło go bezpośrednio",
+    body: "Najpierw zadbaj o bezpieczeństwo i potrzebną pomoc. Dowiedz się tylko tyle, ile jest konieczne, żeby je ochronić. Nie wymagaj pełnej relacji ani powtarzania opowieści; jeśli chce mówić, wysłuchaj. Może potrzebować wsparcia specjalisty.",
+    say: "",
+  },
+];
+
+const tips = [
+  {
+    title: "Najpierw słuchaj i dopytuj",
+    body: "Zapytaj, co dziecko usłyszało, skąd to wie i co o tym myśli. Jeśli się boi, ustal, czego konkretnie - na przykład powrotu do szkoły. Gdy samo zaczyna rozmowę, poświęć mu uwagę; jeśli teraz nie możesz, umów konkretny czas i dotrzymaj słowa.",
+    say: "„Co o tym słyszałeś? Czy jest coś, co Cię martwi?”",
+  },
+  {
+    title: "Mów prosto i o tym, co pewne",
+    body: "Podaj tylko potrzebne, sprawdzone informacje. Oddziel fakty od plotek. Jeśli w wiadomościach kilka razy pokazują to samo nagranie, wyjaśnij, że chodzi o jedno wydarzenie, a nie kilka. Możesz przyznać: „nie wiem”. Nie zgaduj motywów sprawcy. Ze starszym dzieckiem sprawdzaj wiarygodne źródła.",
+    say: "„Nie wiem jeszcze wszystkiego. Sprawdzę, co potwierdziła szkoła”.",
+  },
+  {
+    title: "Traktuj emocje poważnie",
+    body: "Wysłuchaj obaw, ale nie utwierdzaj dziecka w katastroficznych scenariuszach. Nie uspokajaj na siłę ani nie zapewniaj w kółko, że nic mu nie grozi - to może podtrzymywać lęk. Zaproponuj przerwę lub przytulenie, jeśli dziecko tego chce; nie narzucaj bliskości. Możesz okazać smutek, ale nie oczekuj, że dziecko będzie cię uspokajać.",
+    say: "„Słyszę, że się boisz. Wolisz porozmawiać czy chwilę razem posiedzieć?”",
+  },
+  {
+    title: "Wyjaśnij, gdzie szukać pomocy",
+    body: "Nie obiecuj, że nic złego nigdy się nie stanie. Podaj przykłady działań: policja sprawdza groźby, także w internecie, a szkoła może wdrażać środki ochronne. Sprawdź, co rzeczywiście robi wasza szkoła. Wskaż, komu zgłaszać groźby - reagowanie to zadanie dorosłych. Jeśli dziecko obwinia się za doznaną przemoc, wyjaśnij, że to nie jego wina.",
+    say: "„Powiedz mi lub wychowawcy, jeśli coś Cię zaniepokoi. Zajmiemy się tym”.",
+  },
+  {
+    title: "Dopasuj słowa i sposób rozmowy",
+    body: "Dobierz język do sposobu rozumienia dziecka, nie tylko do wieku. Uwzględnij indywidualne potrzeby, także związane z neuroróżnorodnością lub niepełnosprawnością. Mów krótko i daj czas na odpowiedź. Jeśli pomaga, użyjcie pisania, rysunków lub komunikatora. Ogranicz hałas, nie wymagaj kontaktu wzrokowego i pozwól pytać także o trudne sprawy.",
+    say: "„Wolisz mi to opowiedzieć, napisać czy narysować?”",
+  },
+  {
+    title: "Zakończ bez presji i pozostań dostępny",
+    body: "Zapytaj, czy dziecko ma jeszcze pytania i czego teraz potrzebuje. Nie wymagaj, by od razu poczuło ulgę. Zaproponuj zwykłe zajęcie lub przerwę. Przypomnij, że może wracać z pytaniami, i ustal, do kogo zwróci się pod twoją nieobecność.",
+    say: "„Możemy do tego wrócić. Ustalmy, z kim porozmawiasz, jeśli mnie nie będzie”.",
+  },
+];
+
+const startingPoints = [
+  { who: "Wychowawca, pedagog lub psycholog szkolny", what: "Pomogą ustalić sytuację w szkole, sprawdzić bezpieczeństwo i zaplanować wsparcie." },
+  { who: "Poradnia psychologiczno-pedagogiczna", what: "Pomaga dzieciom i rodzicom w trudnościach emocjonalnych, wychowawczych i szkolnych, może ocenić potrzeby dziecka i wskazać wsparcie. Pomoc w publicznej poradni jest bezpłatna." },
+  { who: "Lekarz podstawowej opieki zdrowotnej", what: "Oceni stan zdrowia dziecka, także dolegliwości fizyczne, i wskaże dalsze kroki." },
+  { who: "Psycholog lub psychoterapeuta (NFZ, I poziom) i psychiatra dziecięcy (NFZ, II poziom)", what: "Pomoc psychologiczna, psychoterapeutyczna i środowiskowa bez skierowania oraz poradnia zdrowia psychicznego dla dzieci i młodzieży, także bez skierowania. Wykaz placówek: nfz.gov.pl, infolinia NFZ: 800 190 590." },
+  { who: "Specjalista, który już zna dziecko", what: "Jeśli dziecko jest pod opieką psychologa, terapeuty lub lekarza, skontaktuj się z nim. Może znać potrzeby dziecka i sposoby wspierania, także przy neuroróżnorodności czy niepełnosprawności." },
+];
+
+const leave = [
+  { when: "Chcesz pójść z dzieckiem do szkoły lub na konsultację", what: "Opieka nad dzieckiem do 14. urodzin: 2 dni albo 16 godzin wolnego w roku, z wynagrodzeniem; dziecko nie musi być chore.", base: "art. 188 Kodeksu pracy" },
+  { when: "Dziecko zostało ranne lub nagle zachorowało i musisz natychmiast przyjechać", what: "Zwolnienie z powodu siły wyższej: 2 dni albo 16 godzin w roku, z prawem do połowy wynagrodzenia.", base: "art. 148¹ Kodeksu pracy" },
+  { when: "Dziecko jest chore albo jego szkoła została nagle zamknięta", what: "Możliwy zasiłek opiekuńczy w wysokości 80% podstawy wymiaru. Przy nieprzewidzianym zamknięciu szkoły dotyczy zdrowego dziecka poniżej 8. roku życia.", base: "ZUS" },
+  { when: "Po urazie bliski potrzebuje opieki z poważnych względów medycznych", what: "Urlop opiekuńczy: 5 dni pracy w roku bez wynagrodzenia. Może dotyczyć także dorosłego syna lub córki.", base: "art. 173¹ Kodeksu pracy" },
+  { when: "Przez dłuższy czas potrzebujesz innego grafiku lub pracy zdalnej", what: "Porozmawiaj z pracodawcą. Przy dziecku poniżej 8. roku życia możesz wnioskować o elastyczną organizację pracy.", base: "art. 188¹ Kodeksu pracy" },
+  { when: "Podobna lub inna sprawa wymagająca szybkiej reakcji", what: "Urlop na żądanie: 4 dni pracy w roku, z wynagrodzeniem. Wniosek najpóźniej w dniu rozpoczęcia urlopu, najlepiej przed rozpoczęciem pracy.", base: "art. 167² Kodeksu pracy" },
+];
+
+const familySupport = [
+  { when: "Dziecko zostało pokrzywdzone przestępstwem lub było jego świadkiem", what: "Znajdź ośrodek pomocy albo zadzwoń pod numer 116 006." },
+  { when: "Po trudnym wydarzeniu cała rodzina przeżywa kryzys", what: "Ośrodek interwencji kryzysowej może zapewnić niezwłoczną pomoc psychologiczną, a według potrzeb także poradnictwo socjalne i prawne (bez kryterium dochodowego)." },
+  { when: "Potrzebujesz porady o prawach dziecka lub sytuacji rodziny", what: "W ośrodku pomocy społecznej lub powiatowym centrum pomocy rodzinie zapytaj o poradnictwo prawne, psychologiczne lub rodzinne (bez kryterium dochodowego)." },
+  { when: "Po kryzysie utrzymują się trudności z codzienną opieką i wychowaniem", what: "Zapytaj w gminie o poradnictwo, wsparcie dzienne albo - po ocenie sytuacji - asystenta rodziny." },
+  { when: "Dziecko ze szczególnymi potrzebami wymaga po zdarzeniu więcej opieki", what: "Zapytaj w gminie o poradnictwo i usługi dla rodzin z dziećmi, także z niepełnosprawnością." },
+  { when: "Jesteś rodziną zastępczą i potrzebujesz wsparcia", what: "Zwróć się do koordynatora pieczy zastępczej lub jej organizatora, na przykład powiatowego centrum pomocy rodzinie." },
+];
+---
+
+<BaseLayout title={`${article.title} | Strefa Ucznia ZSZ5`} description={article.summary}>
+  <header class:list={["topic-hero", `tone-${article.tone}`]}>
+    <div class="container">
+      <a class="text-link" href={sitePath("/aktualnosci/")}><ArrowLeft size={18} aria-hidden="true" /> Aktualności</a>
+      <p class="eyebrow">{article.eyebrow}</p>
+      <h1>{article.title}</h1>
+      <p class="lead">{article.lead}</p>
+      <p class="article-meta">
+        <time datetime={article.publishedAt}>{fullDate(article.publishedAt)}</time>
+        <span><Clock3 size={16} aria-hidden="true" /> czas czytania: {article.readingMinutes} minut</span>
+      </p>
+    </div>
+  </header>
+
+  <div class="container article-layout">
+    <article class="article-body">
+      <p class="article-intro">Wiadomość o groźnym zdarzeniu w jakiejś szkole często dociera do nastolatka wcześniej niż do rodzica: w komunikatorze, na tablicy w mediach społecznościowych, w opowieści kolegi. Każde dziecko reaguje inaczej, a my nie zawsze wiemy, czy i jak o tym rozmawiać.</p>
+
+      <p>Ten tekst jest uporządkowaną wersją materiału „Drogowskaz dla rodziców. Kiedy do dziecka docierają trudne wiadomości”, który przekazujemy rodzicom. Nie trzeba czytać wszystkiego - zacznij od pytania, które dotyczy waszej sytuacji. Całość składa się z pięciu pytań: czy dziecko potrzebuje rozmowy, jak rozmawiać, kiedy szukać pomocy, jakie wsparcie można uzyskać w pracy i dokąd zwrócić się, gdy rodzina potrzebuje dodatkowego wsparcia.</p>
+
+      <h2>Dwa przypomnienia na początek</h2>
+
+      <p><strong>Znacie się najlepiej.</strong> Ty znasz swoje dziecko i jego codzienność. Ono zna własne przeżycia, choć nie zawsze umie je nazwać. Korzystaj z tego, co naprawdę wam pomaga.</p>
+
+      <p><strong>Nie musisz reagować idealnie.</strong> Nie zawsze od razu rozpoznasz potrzeby dziecka, dobierzesz właściwe słowa czy znajdziesz odpowiednią pomoc. Jeśli coś nie wyjdzie, bądź dla siebie wyrozumiały. Możesz zapytać, spróbować inaczej lub sięgnąć po wsparcie. Ważny jest kierunek.</p>
+
+      <h2>1. Czy moje dziecko potrzebuje rozmowy?</h2>
+
+      <p>Najpierw sprawdź, co dziecko wie i czego potrzebuje. Nie każde będzie odczuwało lęk czy miało potrzebę rozmowy - i to też jest w porządku. Poniżej trzy sytuacje, od których można zacząć.</p>
+
+      {situations.map((item) => (
+        <div class="guide-item">
+          <h3>{item.title}</h3>
+          <p>{item.body}</p>
+          {item.say && <p class="guide-say">{item.say}</p>}
+        </div>
+      ))}
+
+      <p><strong>Dziecko nie chce rozmawiać?</strong> Nie naciskaj. Możecie pobyć razem albo wrócić do zwykłych zajęć. Można powiedzieć: „Nie musimy teraz rozmawiać. Możesz wrócić później”.</p>
+
+      <div class="article-box">
+        <h2 class="box-heading"><MessageCircle size={24} aria-hidden="true" /> Zachowaj miejsce na zwykłe życie</h2>
+        <p>Niezależnie od sytuacji dziecka, jeśli jest bezpiecznie, utrzymuj zwykłe pory posiłków, snu, nauki i zabawy. Pozwól mu odpoczywać i się śmiać. Nie trzeba stale wracać do zdarzenia. Jeśli dziecko czuje się winne, że się bawi, wyjaśnij, że współczucie nie wymaga rezygnowania z przyjemności.</p>
+      </div>
+
+      <h2>2. Jak rozmawiać z dzieckiem?</h2>
+
+      <p>Nie musisz stosować wszystkich wskazówek ani prowadzić jednej długiej rozmowy. Wybierz te, które odpowiadają potrzebom dziecka. Przy każdej podpowiedzi jest przykład zdania - możesz go użyć własnymi słowami.</p>
+
+      {tips.map((tip, index) => (
+        <div class="guide-item">
+          <h3>{index + 1}. {tip.title}</h3>
+          <p>{tip.body}</p>
+          <p class="guide-say">{tip.say}</p>
+        </div>
+      ))}
+
+      <p><strong>Kiedy rozmawiać?</strong> Jeśli możesz, wybierz spokojny czas, nie tuż przed snem. Gdy dziecko samo pyta wieczorem, wysłuchaj je i odpowiedz.</p>
+
+      <p><strong>Czego unikać?</strong> Zdań w rodzaju „nie przesadzaj” albo „musisz być dzielny”. Warto też ograniczyć drastyczne nagrania i alarmistyczne rozmowy dorosłych przy dziecku oraz nie odcinać go od wspierających znajomych.</p>
+
+      <h2>3. Kiedy i gdzie szukać pomocy?</h2>
+
+      <p>Nie każda trudna reakcja wymaga leczenia. Zwróć uwagę na zmiany snu, apetytu, nauki, relacji i zachowania - szczególnie na ich nasilenie, czas trwania i wpływ na codzienne życie.</p>
+
+      <p><strong>Umów konsultację, gdy</strong> trudności są silne, nasilają się, utrzymują bez poprawy albo utrudniają sen, naukę czy kontakty z innymi. Zwróć uwagę także na bóle brzucha lub głowy, wycofanie i drażliwość. Nie zakładaj, że każda zmiana jest związana z wydarzeniem. Przy poważnych objawach nie czekaj. Możesz też skonsultować się ze specjalistą i ustalić, jak reagować.</p>
+
+      <p><strong>Dziecko boi się szkoły?</strong> Ustal ze szkołą, czy zagrożenie ustało i co zrobiono, żeby chronić uczniów. Wspólnie zaplanujcie bezpieczny powrót, na przykład z pomocą zaufanego nauczyciela. Przy silnym lęku lub po bezpośrednim doświadczeniu przemocy skorzystaj z pomocy specjalisty.</p>
+
+      <div class="callout danger">
+        <ShieldAlert size={28} aria-hidden="true" />
+        <div>
+          <h2>Nie zwlekaj z pomocą</h2>
+          <p>Jeśli dziecko mówi, że chce umrzeć lub zrobić sobie krzywdę, potraktuj to poważnie. Zostań przy nim i zapewnij pilne wsparcie specjalisty. Gdy życie lub zdrowie jest bezpośrednio zagrożone, dzwoń pod numer 112.</p>
+          <div class="button-row">
+            <a class="button" href="tel:112">Numer alarmowy 112</a>
+            <a class="button" href="tel:116111">Telefon zaufania 116 111</a>
+          </div>
+        </div>
+      </div>
+
+      <h3>Od kogo zacząć</h3>
+
+      <dl class="guide-list">
+        {startingPoints.map((point) => (
+          <div><dt>{point.who}</dt><dd>{point.what}</dd></div>
+        ))}
+      </dl>
+
+      <p><strong>Telefony, pod które można zadzwonić od razu.</strong> Dla dzieci i młodzieży: <a href="tel:116111">116 111</a> - bezpłatny, całodobowy telefon zaufania, z kontaktem także przez 116111.pl; nie zastępuje numeru 112 w nagłym zagrożeniu. Dla rodziców i nauczycieli: <a href="tel:800100100">800 100 100</a> - bezpłatne konsultacje w sprawie bezpieczeństwa dzieci i sposobów ich wspierania.</p>
+
+      <h2>4. Jakie wsparcie w pracy możesz uzyskać?</h2>
+
+      <p>Jeśli po trudnym wydarzeniu potrzebujesz czasu dla dziecka albo pomocy w pogodzeniu pracy i opieki, sprawdź możliwe rozwiązania i ich warunki.</p>
+
+      <p class="guide-note">Zanim pójdziesz do pracodawcy: część rozwiązań dotyczy dzieci młodszych - do 14. albo do 8. roku życia. Większość naszych uczniów jest starsza, więc dla ich rodziców najczęściej będą to urlop opiekuńczy, urlop na żądanie i zwolnienie z powodu siły wyższej. Szczegóły i aktualne warunki najlepiej potwierdzić w dziale kadr.</p>
+
+      <dl class="guide-list">
+        {leave.map((item) => (
+          <div>
+            <dt>{item.when}</dt>
+            <dd>{item.what} <span class="guide-base">({item.base})</span></dd>
+          </div>
+        ))}
+      </dl>
+
+      <p>Przy zwolnieniu na opiekę nad dzieckiem limit dni lub godzin jest wspólny dla obojga rodziców, a w pierwszym wniosku wybiera się, czy liczy się dni, czy godziny. Zwolnienie z powodu siły wyższej dotyczy pilnej sprawy rodzinnej wynikającej z choroby lub wypadku. Wniosek o urlop opiekuńczy składa się najpóźniej dzień wcześniej, a wniosek o elastyczną organizację pracy co najmniej 21 dni wcześniej; pracodawca może go odmówić, podając przyczynę.</p>
+
+      <h2>5. Gdy rodzina potrzebuje dodatkowego wsparcia</h2>
+
+      <p>Po trudnym wydarzeniu rodzina może potrzebować więcej niż rozmowy. Warto sprawdzić, jakie instytucje i formy pomocy mogą być odpowiednie dla waszej sytuacji.</p>
+
+      <dl class="guide-list">
+        {familySupport.map((item) => (
+          <div><dt>{item.when}</dt><dd>{item.what}</dd></div>
+        ))}
+      </dl>
+
+      <div class="article-box school-box">
+        <h2 class="box-heading"><School size={24} aria-hidden="true" /> Co możesz zrobić z nami</h2>
+        <p>Zawsze możesz zacząć od szkoły - nie musisz mieć pewności, że sprawa jest poważna.</p>
+        <ul class="box-list">
+          <li>Z wychowawcą kontaktujesz się przez dziennik elektroniczny albo przez sekretariat: <a href="tel:+48717986934">71 798 69 34, wew. 100</a>.</li>
+          <li>Szkolny pedagog i psycholog przyjmują w gabinecie 04; dyżury, numery wewnętrzne i adresy e-mail są na stronie <a href={sitePath("/pomoc-psychologiczno-pedagogiczna/")}>pomocy psychologiczno-pedagogicznej</a>. Spotkanie warto umówić wcześniej.</li>
+          <li>Jak zgłosić niepokojącą sytuację i co dzieje się po zgłoszeniu, opisaliśmy na stronie <a href={sitePath("/bezpieczenstwo-uczniow/")}>bezpieczeństwa uczniów</a>.</li>
+          <li>Jeśli dziecko boi się wrócić na lekcje, napisz do wychowawcy albo umów rozmowę z pedagogiem lub psychologiem szkolnym - to dobry początek planowania bezpiecznego powrotu.</li>
+        </ul>
+      </div>
+
+      <section class="article-sources" aria-labelledby="article-sources-heading">
+        <h2 id="article-sources-heading">Gdzie szukać dalej</h2>
+        <p>Treść tego tekstu pochodzi z materiału „Drogowskaz dla rodziców” przekazanego szkole. Poniższe strony prowadzą do instytucji, o których w nim mowa.</p>
+        <div class="topic-resource-list">
+          {article.furtherReading.map((link) => (
+            <a href={link.href} target="_blank" rel="noreferrer">
+              <span><strong>{link.label}</strong><small>{link.description}</small></span>
+              <ExternalLink size={20} aria-hidden="true" />
+            </a>
+          ))}
+        </div>
+        <p class="source-note">Informacje o urlopach, zasiłku i formach pomocy rodzinie pochodzą z materiału „Drogowskaz dla rodziców” z października 2026 r. Przepisy i warunki mogą się zmieniać, dlatego przed złożeniem wniosku potwierdź je u pracodawcy, w ZUS lub w ośrodku pomocy społecznej. Tekst nie zastępuje porady psychologa, lekarza ani prawnika.</p>
+      </section>
+    </article>
+
+    <aside class="topic-sidebar">
+      <p class="eyebrow">Powiązane informacje</p>
+      <nav aria-label="Skróty">
+        <a href={sitePath("/pomoc-psychologiczno-pedagogiczna/")}>Pomoc psychologiczno-pedagogiczna</a>
+        <a href={sitePath("/bezpieczenstwo-uczniow/")}>Bezpieczeństwo uczniów</a>
+        <a href={sitePath("/rodzice/")}>Informacje dla rodziców</a>
+        <a href={sitePath("/aktualnosci/higiena-cyfrowa/")}>Telefony i higiena cyfrowa</a>
+        <a href={sitePath("/pomoc/")}>Pomoc i kontakt</a>
+      </nav>
+    </aside>
+  </div>
+</BaseLayout>
+
+<style>
+  .topic-hero .text-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    margin-bottom: 24px;
+    color: var(--muted);
+    font-weight: 750;
+  }
+
+  .article-body h3 {
+    margin: 28px 0 0;
+    font-size: 1.2rem;
+    line-height: 1.3;
+  }
+
+  .guide-item {
+    margin-top: 22px;
+    border-left: 4px solid var(--blue);
+    padding-left: 18px;
+  }
+
+  .guide-item h3 {
+    margin-top: 0;
+  }
+
+  .guide-item p {
+    margin-top: 8px;
+  }
+
+  .article-body .guide-say {
+    color: var(--blue-dark);
+    font-style: italic;
+    font-weight: 650;
+  }
+
+  .article-body .guide-note {
+    border-left: 4px solid var(--yellow);
+    background: var(--yellow-soft);
+    padding: 14px 18px;
+    font-size: 1rem;
+  }
+
+  .guide-list {
+    display: grid;
+    gap: 10px;
+    margin: 18px 0 0;
+  }
+
+  .guide-list > div {
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: var(--paper);
+    padding: 14px 18px;
+  }
+
+  .guide-list dt {
+    font-weight: 800;
+  }
+
+  .guide-list dd {
+    margin: 6px 0 0;
+    color: var(--muted);
+  }
+
+  .guide-base {
+    white-space: nowrap;
+    font-size: 0.9rem;
+  }
+
+  .article-body .callout {
+    margin-top: 32px;
+  }
+
+  .article-body .callout h2 {
+    margin-top: 0;
+    font-size: 1.4rem;
+  }
+
+  .article-body .callout .button-row {
+    margin-top: 14px;
+  }
+</style>

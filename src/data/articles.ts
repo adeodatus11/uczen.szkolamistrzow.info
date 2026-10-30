@@ -18,6 +18,48 @@ export type Article = {
 
 export const articles: Article[] = [
   {
+    slug: "trudne-wiadomosci-rozmowa-z-dzieckiem",
+    title: "Nie musisz reagować idealnie",
+    eyebrow: "Drogowskaz dla rodziców · trudne wiadomości",
+    lead: "Co jakiś czas media obiegają informacje o groźnych zdarzeniach, także w szkołach. Do nastolatka docierają szybciej niż do nas - przez telefon, zanim zdążymy cokolwiek sprawdzić. Ten tekst pomaga zdecydować, co zrobić dalej.",
+    summary: "Jak sprawdzić, czego dziecko potrzebuje, jak z nim rozmawiać i czego unikać, po czym poznać, że sprawa jest dla specjalisty, gdzie szukać pomocy i jakie wolne w pracy przysługuje rodzicowi nastolatka.",
+    publishedAt: "2026-10-30",
+    readingMinutes: 8,
+    tone: "blue",
+    furtherReading: [
+      {
+        label: "Telefon zaufania dla dzieci i młodzieży 116 111",
+        description: "Bezpłatna, całodobowa linia dla nastolatków; kontakt także przez czat na 116111.pl.",
+        href: "https://116111.pl/",
+      },
+      {
+        label: "Fundacja Dajemy Dzieciom Siłę",
+        description: "Organizacja wymieniona w materiale jako źródło wsparcia dla dzieci i rodziców; materiały dla rodziców i informacje o pomocy.",
+        href: "https://fdds.pl/",
+      },
+      {
+        label: "Linia Pomocy Pokrzywdzonym 116 006",
+        description: "Całodobowe wsparcie prawne i psychologiczne dla osób pokrzywdzonych przestępstwem, świadków i ich bliskich.",
+        href: "https://www.gov.pl/web/sprawiedliwosc/linia-pomocy-pokrzywdzonym",
+      },
+      {
+        label: "NFZ: gdzie szukać pomocy psychologicznej i psychiatrycznej",
+        description: "Wykaz placówek I i II poziomu dla dzieci i młodzieży; infolinia NFZ: 800 190 590.",
+        href: "https://www.nfz.gov.pl/",
+      },
+      {
+        label: "Poradnia Psychologiczno-Pedagogiczna nr 9 we Wrocławiu",
+        description: "Przykład publicznej poradni we Wrocławiu; pomoc w publicznych poradniach jest bezpłatna. Ta poradnia prowadzi też kurs dla rodziców opisany w Aktualnościach.",
+        href: "https://ppp9-wroc.pl/",
+      },
+      {
+        label: "UNICEF Polska: zdrowie psychiczne dzieci i młodzieży",
+        description: "Poradniki dla rodziców i opiekunów, w tym o rozmowie po trudnych wydarzeniach.",
+        href: "https://unicef.pl/",
+      },
+    ],
+  },
+  {
     slug: "zajecia-grupowe-iskierka",
     title: "Zostały miejsca w grupach dla nastolatków",
     eyebrow: "Wsparcie poza szkołą · nabór jesień 2026",
