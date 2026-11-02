@@ -1,0 +1,280 @@
+---
+import { ArrowLeft, Clock3, Download, ExternalLink, Phone, School, ShieldAlert } from "lucide-astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { articleBySlug } from "@data/articles";
+import { fullDate } from "../../lib/eventDate";
+import { sitePath } from "../../lib/paths";
+
+const article = articleBySlug("telefon-zaufania-mlodych-itaka")!;
+
+const posterPdf = sitePath("/documents/itaka-telefon-zaufania-mlodych/plakat-telefon-zaufania-mlodych.pdf");
+const posterImage = sitePath("/documents/itaka-telefon-zaufania-mlodych/plakat.jpg");
+
+---
+
+<BaseLayout title={`${article.title} | Strefa Ucznia ZSZ5`} description={article.summary}>
+  <header class:list={["topic-hero", `tone-${article.tone}`]}>
+    <div class="container">
+      <a class="text-link" href={sitePath("/aktualnosci/")}><ArrowLeft size={18} aria-hidden="true" /> Aktualności</a>
+      <p class="eyebrow">{article.eyebrow}</p>
+      <h1>{article.title}</h1>
+      <p class="lead">{article.lead}</p>
+      <p class="article-meta">
+        <time datetime={article.publishedAt}>{fullDate(article.publishedAt)}</time>
+        <span><Clock3 size={16} aria-hidden="true" /> czas czytania: {article.readingMinutes} minuty</span>
+      </p>
+    </div>
+  </header>
+
+  <div class="container article-layout">
+    <article class="article-body">
+      <p class="article-intro">Fundacja ITAKA, w porozumieniu z Ministerstwem Zdrowia oraz Ministerstwem Edukacji Narodowej, zachęca do korzystania z dostępnych form wsparcia psychologicznego. Skierowane są do dzieci, młodzieży, młodych dorosłych oraz osób dorosłych doświadczających kryzysów psychicznych.</p>
+
+      <p>Informacja trafiła do szkół i placówek w województwie dolnośląskim wraz z prośbą o upowszechnienie jej wśród uczniów, rodziców i pracowników oświaty. Przekazujemy ją dalej. Poniżej opisujemy dwie formy wsparcia, o których w niej mowa.</p>
+
+      <h2>Dla dzieci, nastolatków i młodych dorosłych</h2>
+
+      <div class="contact-card tone-yellow">
+        <p class="contact-card-label">Telefon Zaufania Młodych</p>
+        <p class="contact-card-number"><a href="tel:+48224848804"><Phone size={30} aria-hidden="true" /> 22 484 88 04</a></p>
+        <p>Bezpłatne wsparcie specjalistyczne dla dzieci, nastolatków i młodych dorosłych do 25. roku życia.</p>
+      </div>
+
+      <p>Pod numerem 22 484 88 04 można uzyskać wsparcie psychologa, seksuologa lub terapeuty zaburzeń odżywiania.</p>
+
+      <dl class="contact-list">
+        <div><dt>Telefon</dt><dd>codziennie, w godzinach 13:00-20:00</dd></div>
+        <div><dt>Czat</dt><dd>w soboty, w godzinach 17:00-20:00</dd></div>
+        <div><dt>Konsultacje online</dt><dd>bezpłatne pakiety siedmiu indywidualnych sesji psychologicznych online, oferowane w ramach projektu</dd></div>
+      </dl>
+
+      <p>Informacje o bezpłatnych konsultacjach online: <a href="https://telefonmlodych.pl/nieodplatne-sesje-wsparciowe-online/" target="_blank" rel="noreferrer">telefonmlodych.pl/nieodplatne-sesje-wsparciowe-online</a>.</p>
+
+      <p class="contact-note"><strong>Uwaga szkoły.</strong> Informacja przekazana szkołom mówi o bezpłatnym wsparciu specjalistycznym, ale nie określa kosztu samego połączenia z numerem 22 484 88 04 - jeśli opłata jest naliczana, zależy od operatora. Warunki korzystania z konsultacji online znajdziesz na stronie projektu.</p>
+
+      <h2>Dla osób dorosłych</h2>
+
+      <div class="contact-card tone-blue">
+        <p class="contact-card-label">Centrum Wsparcia dla Osób Dorosłych w Stanie Kryzysu Psychicznego</p>
+        <p class="contact-card-number"><a href="tel:+48800702222"><Phone size={30} aria-hidden="true" /> 800 70 2222</a></p>
+        <p>Osoby dorosłe doświadczające trudności emocjonalnych lub kryzysu psychicznego mogą skorzystać ze wsparcia pod tym numerem.</p>
+      </div>
+
+      <p>Szczegółowe informacje o dostępnych formach pomocy: <a href="https://centrumwsparcia.pl/" target="_blank" rel="noreferrer">centrumwsparcia.pl</a>.</p>
+
+      <h2>Plakat do wydrukowania</h2>
+
+      <p>Do informacji dołączony jest plakat przygotowany przez Fundację ITAKA. Można go wydrukować w formacie A4 i umieścić w widocznym miejscu - w szkole, w pracy, w domu.</p>
+
+      <figure class="poster">
+        <a href={posterImage} target="_blank" rel="noreferrer" aria-label="Otwórz plakat w pełnym rozmiarze">
+          <img
+            src={posterImage}
+            width="1225"
+            height="1718"
+            alt="Plakat Fundacji ITAKA. Telefon Zaufania Młodych 22 484 88 04. Ta linia zapewnia wsparcie zdrowia psychicznego. Możesz skorzystać z bezpłatnej pomocy psychologicznej lub wsparcia seksuologa i specjalisty zaburzeń odżywiania. Porozmawiaj z nami na czacie w każdą sobotę od 17.00 do 20.00. Kod QR prowadzi do strony telefonmlodych.pl."
+            loading="lazy"
+            decoding="async"
+          />
+        </a>
+        <figcaption>Plakat Fundacji ITAKA, format A4. Kod QR prowadzi do strony telefonmlodych.pl.</figcaption>
+      </figure>
+
+      <p class="poster-actions">
+        <a class="button primary" href={posterPdf} target="_blank" rel="noreferrer"><Download size={18} aria-hidden="true" /> Pobierz plakat (PDF, A4)</a>
+      </p>
+
+      <p class="article-closing">Pamiętajmy, że rozmowa i skorzystanie z profesjonalnego wsparcia mogą być pierwszym krokiem do przezwyciężenia kryzysu.</p>
+
+      <div class="callout danger">
+        <ShieldAlert size={28} aria-hidden="true" />
+        <div>
+          <h2>Gdy pomoc jest potrzebna natychmiast</h2>
+          <p>Wymienione tu formy wsparcia nie zastępują numeru alarmowego. W bezpośrednim zagrożeniu zdrowia lub życia dzwoń pod numer 112.</p>
+          <div class="button-row">
+            <a class="button" href="tel:112">Numer alarmowy 112</a>
+            <a class="button" href="tel:116111">Telefon zaufania dla dzieci i młodzieży 116 111</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="article-box school-box">
+        <h2 class="box-heading"><School size={24} aria-hidden="true" /> W szkole</h2>
+        <p>Zawsze można zacząć od rozmowy w szkole.</p>
+        <ul class="box-list">
+          <li>Pedagog i psycholog szkolny: dyżury, numery wewnętrzne i adresy e-mail są na stronie <a href={sitePath("/pomoc-psychologiczno-pedagogiczna/")}>pomocy psychologiczno-pedagogicznej</a>.</li>
+          <li>Rodzicom, którzy chcą porozmawiać z dzieckiem o trudnych wiadomościach, polecamy materiał <a href={sitePath("/aktualnosci/trudne-wiadomosci-rozmowa-z-dzieckiem/")}>„Drogowskaz dla rodziców”</a>.</li>
+          <li>Jak zgłosić niepokojącą sytuację: <a href={sitePath("/bezpieczenstwo-uczniow/")}>bezpieczeństwo uczniów</a>.</li>
+        </ul>
+      </div>
+
+      <section class="article-sources" aria-labelledby="article-sources-heading">
+        <h2 id="article-sources-heading">Linki</h2>
+        <p>Strony wskazane w informacji Fundacji ITAKA.</p>
+        <div class="topic-resource-list">
+          {article.furtherReading.map((link) => (
+            <a href={link.href} target="_blank" rel="noreferrer">
+              <span><strong>{link.label}</strong><small>{link.description}</small></span>
+              <ExternalLink size={20} aria-hidden="true" />
+            </a>
+          ))}
+        </div>
+        <p class="source-note">Informacja Fundacji ITAKA, przygotowana w porozumieniu z Ministerstwem Zdrowia i Ministerstwem Edukacji Narodowej, przekazana szkołom i placówkom w województwie dolnośląskim. Godziny działania i warunki korzystania mogą się zmieniać - aktualne dane są na stronach organizatorów.</p>
+      </section>
+    </article>
+
+    <aside class="topic-sidebar">
+      <p class="eyebrow">Powiązane informacje</p>
+      <nav aria-label="Skróty">
+        <a href={sitePath("/pomoc-psychologiczno-pedagogiczna/")}>Pomoc psychologiczno-pedagogiczna</a>
+        <a href={sitePath("/aktualnosci/trudne-wiadomosci-rozmowa-z-dzieckiem/")}>Drogowskaz dla rodziców</a>
+        <a href={sitePath("/bezpieczenstwo-uczniow/")}>Bezpieczeństwo uczniów</a>
+        <a href={sitePath("/rodzice/")}>Informacje dla rodziców</a>
+        <a href={sitePath("/pomoc/")}>Pomoc i kontakt</a>
+      </nav>
+    </aside>
+  </div>
+</BaseLayout>
+
+<style>
+  .topic-hero .text-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    margin-bottom: 24px;
+    color: var(--muted);
+    font-weight: 750;
+  }
+
+  .contact-card {
+    margin-top: 20px;
+    border: 1px solid var(--line);
+    border-left: 8px solid var(--yellow);
+    border-radius: 8px;
+    background: var(--paper);
+    padding: 22px 26px;
+  }
+
+  .contact-card.tone-blue {
+    border-left-color: var(--blue);
+  }
+
+  .contact-card p {
+    margin: 0;
+  }
+
+  .article-body .contact-card p {
+    margin-top: 8px;
+    font-size: 1.05rem;
+  }
+
+  .article-body .contact-card .contact-card-label {
+    margin-top: 0;
+    color: var(--muted);
+    font-size: 0.95rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .article-body .contact-card .contact-card-number {
+    margin-top: 6px;
+    font-size: 2rem;
+    font-weight: 800;
+    line-height: 1.15;
+  }
+
+  .contact-card-number a {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+  }
+
+  .contact-list {
+    display: grid;
+    gap: 10px;
+    margin: 18px 0 0;
+  }
+
+  .contact-list > div {
+    display: grid;
+    grid-template-columns: 150px minmax(0, 1fr);
+    gap: 14px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: var(--paper);
+    padding: 14px 18px;
+  }
+
+  .contact-list dt {
+    font-weight: 800;
+  }
+
+  .contact-list dd {
+    margin: 0;
+  }
+
+  .article-body .contact-note {
+    border-left: 4px solid var(--yellow);
+    background: var(--yellow-soft);
+    padding: 14px 18px;
+    font-size: 1rem;
+  }
+
+  .poster {
+    margin: 22px 0 0;
+    max-width: 420px;
+  }
+
+  .poster img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+  }
+
+  .poster a:focus-visible {
+    outline: 3px solid var(--blue);
+    outline-offset: 4px;
+    border-radius: 8px;
+  }
+
+  .poster figcaption {
+    margin-top: 10px;
+    color: var(--muted);
+    font-size: 0.95rem;
+    font-weight: 700;
+  }
+
+  .article-body .poster-actions {
+    margin-top: 18px;
+  }
+
+  .article-body .article-closing {
+    margin-top: 32px;
+    font-size: 1.16rem;
+    font-weight: 650;
+  }
+
+  .article-body .callout {
+    margin-top: 32px;
+  }
+
+  .article-body .callout h2 {
+    margin-top: 0;
+    font-size: 1.4rem;
+  }
+
+  .article-body .callout .button-row {
+    margin-top: 14px;
+  }
+
+  @media (max-width: 640px) {
+    .contact-list > div {
+      grid-template-columns: 1fr;
+      gap: 4px;
+    }
+  }
+</style>

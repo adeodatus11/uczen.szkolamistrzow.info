@@ -18,6 +18,33 @@ export type Article = {
 
 export const articles: Article[] = [
   {
+    slug: "telefon-zaufania-mlodych-itaka",
+    title: "Telefon Zaufania Młodych i Centrum Wsparcia: gdzie szukać pomocy w kryzysie",
+    eyebrow: "Wsparcie psychologiczne · Fundacja ITAKA",
+    lead: "Trudności emocjonalne, stres, samotność czy kryzysy psychiczne mogą dotknąć każdego, niezależnie od wieku. W takich sytuacjach ważne jest, aby wiedzieć, gdzie można uzyskać profesjonalną pomoc.",
+    summary: "Fundacja ITAKA, w porozumieniu z Ministerstwem Zdrowia i Ministerstwem Edukacji Narodowej, przypomina o dwóch formach wsparcia: Telefonie Zaufania Młodych (do 25. roku życia) i Centrum Wsparcia dla dorosłych w kryzysie psychicznym. Jest też plakat do wydrukowania.",
+    publishedAt: "2026-11-02",
+    readingMinutes: 3,
+    tone: "yellow",
+    furtherReading: [
+      {
+        label: "Telefon Zaufania Młodych",
+        description: "Strona projektu, do której prowadzi kod QR z plakatu.",
+        href: "https://telefonmlodych.pl/",
+      },
+      {
+        label: "Telefon Zaufania Młodych: bezpłatne konsultacje online",
+        description: "Informacje o pakietach siedmiu indywidualnych sesji psychologicznych online oraz zasadach korzystania z nich.",
+        href: "https://telefonmlodych.pl/nieodplatne-sesje-wsparciowe-online/",
+      },
+      {
+        label: "Centrum Wsparcia dla Osób Dorosłych w Stanie Kryzysu Psychicznego",
+        description: "Szczegółowe informacje o dostępnych formach pomocy dla osób dorosłych.",
+        href: "https://centrumwsparcia.pl/",
+      },
+    ],
+  },
+  {
     slug: "trudne-wiadomosci-rozmowa-z-dzieckiem",
     title: "Drogowskaz dla rodziców: kiedy do dziecka docierają trudne wiadomości",
     eyebrow: "Materiał dla rodziców · Ministerstwo Rodziny, Pracy i Polityki Społecznej",
