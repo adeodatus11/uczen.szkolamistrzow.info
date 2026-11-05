@@ -17,3 +17,10 @@ import { sitePath } from "../lib/paths";
     </div>
   </section>
 </BaseLayout>
+
+<script is:inline>
+  // Skrót /ZPE: GitHub Pages rozróżnia wielkość liter, a przekierowanie istnieje tylko pod /zpe.
+  if (location.pathname.replace(/\/+$/, "").toLowerCase() === "/zpe") {
+    location.replace("/aktualnosci/zpe-pierwsze-logowanie/");
+  }
+</script>
