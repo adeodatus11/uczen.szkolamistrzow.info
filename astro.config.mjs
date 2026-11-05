@@ -11,5 +11,6 @@ export default defineConfig({
     "/dzialania-szkoly/higiena-cyfrowa": "/aktualnosci/higiena-cyfrowa",
     "/nasze-dzialania": "/aktualnosci",
     "/nasze-dzialania/higiena-cyfrowa": "/aktualnosci/higiena-cyfrowa",
+    "/zpe": "/aktualnosci/zpe-pierwsze-logowanie",
   },
 });
