@@ -1,0 +1,307 @@
+---
+import { ArrowLeft, Camera, Clock3, Download, ExternalLink, IdCard, School } from "lucide-astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { articleBySlug } from "@data/articles";
+import { fullDate } from "../../lib/eventDate";
+import { sitePath } from "../../lib/paths";
+
+const article = articleBySlug("zpe-pierwsze-logowanie")!;
+
+const instructionPdf = sitePath("/documents/zpe-pierwsze-logowanie/uczen-pierwsze-logowanie-zpe.pdf");
+const loginImage = sitePath("/documents/zpe-pierwsze-logowanie/okno-logowania.png");
+const passwordImage = sitePath("/documents/zpe-pierwsze-logowanie/ustaw-haslo.png");
+---
+
+<BaseLayout title={`${article.title} | Strefa Ucznia ZSZ5`} description={article.summary}>
+  <header class:list={["topic-hero", `tone-${article.tone}`]}>
+    <div class="container">
+      <a class="text-link" href={sitePath("/aktualnosci/")}><ArrowLeft size={18} aria-hidden="true" /> Aktualności</a>
+      <p class="eyebrow">{article.eyebrow}</p>
+      <h1>{article.title}</h1>
+      <p class="lead">{article.lead}</p>
+      <p class="article-meta">
+        <time datetime={article.publishedAt}>{fullDate(article.publishedAt)}</time>
+        <span><Clock3 size={16} aria-hidden="true" /> czas czytania: {article.readingMinutes} minuty</span>
+      </p>
+    </div>
+  </header>
+
+  <div class="container article-layout">
+    <article class="article-body">
+      <p class="article-intro">Uczniowie dostaną w szkole kartki z loginem i hasłem do ZPE. To nie jest kolejna pamiątka z początku roku: to klucz do konta, z którego będziesz korzystać przez całą naukę. Poświęć na nie kwadrans, póki kartka jest jeszcze w ręku.</p>
+
+      <h2>Czym jest ZPE</h2>
+
+      <p>ZPE to Zintegrowana Platforma Edukacyjna Ministerstwa Edukacji i Nauki, czyli strona <a href="https://zpe.gov.pl/" target="_blank" rel="noreferrer">zpe.gov.pl</a>. Znajdziesz na niej e-materiały do nauki w szkole i w domu, a konto ucznia daje dostęp do usług dla uczniów, w tym do mLegitymacji.</p>
+
+      <p>Nauczyciele będą chcieli korzystać z platformy na lekcjach, więc konto przyda się nie tylko do legitymacji. Dlatego nie warto zostawiać tego na później.</p>
+
+      <div class="article-box key-box">
+        <h2 class="box-heading"><IdCard size={24} aria-hidden="true" /> Dlaczego to ważne</h2>
+        <ul class="box-list">
+          <li><strong>Bez konta w ZPE nie dodasz legitymacji do telefonu.</strong> Kod do mLegitymacji generuje się właśnie tam, po zalogowaniu na konto ucznia.</li>
+          <li><strong>Bez własnego adresu e-mail nie odzyskasz hasła sam.</strong> Zapomniane hasło oznacza wtedy kłopot, którego sam nie rozwiążesz.</li>
+          <li><strong>Kartka z loginem i hasłem zaginie.</strong> Hasło z kartki i tak zmienisz przy pierwszym logowaniu, więc liczy się to, które ustawisz sam.</li>
+        </ul>
+      </div>
+
+      <h2>Jak zalogować się po raz pierwszy</h2>
+
+      <p>Dane do logowania (login i hasło) przekazuje nauczyciel albo inna uprawniona osoba w szkole. Dopiero z nimi możesz zacząć.</p>
+
+      <ol class="login-steps">
+        <li>
+          <strong>Wejdź na stronę ZPE.</strong>
+          <span>Wpisz w przeglądarce adres <a href="https://zpe.gov.pl/" target="_blank" rel="noreferrer">zpe.gov.pl</a> i kliknij „Zaloguj się” w prawym górnym rogu.</span>
+        </li>
+        <li>
+          <strong>Wpisz login i hasło z kartki.</strong>
+          <span>W oknie „Zaloguj się do platformy ZPE” wpisz login w pierwsze pole, a hasło w drugie, potem kliknij „Zaloguj się”. Wpisuj dokładnie to, co jest na kartce, z zachowaniem wielkich i małych liter.</span>
+        </li>
+        <li>
+          <strong>Podaj swój adres e-mail.</strong>
+          <span>Przy pierwszym prawidłowym logowaniu platforma poprosi o weryfikację adresu e-mail i ustawienie nowego hasła. Wpisz adres, do którego naprawdę się logujesz (patrz niżej).</span>
+        </li>
+        <li>
+          <strong>Ustaw nowe hasło.</strong>
+          <span>W polu „Aktualne hasło” wpisz hasło z kartki, a potem dwa razy nowe: w polach „Nowe hasło” i „Powtórz hasło”. Kliknij „Zapisz”.</span>
+        </li>
+        <li>
+          <strong>Zaloguj się ponownie.</strong>
+          <span>Po zapisaniu zmian platforma przeniesie Cię do okna logowania. Zaloguj się już swoim nowym hasłem, żeby upewnić się, że działa.</span>
+        </li>
+      </ol>
+
+      <figure class="screenshot narrow">
+        <img
+          src={loginImage}
+          width="430"
+          height="575"
+          alt="Okno „Zaloguj się do platformy ZPE”: pola „Login lub e-mail” i „Hasło”, odnośniki „Nie pamiętam hasła” i „Wyślij ponownie link aktywacyjny”, przycisk „Zaloguj się” oraz przycisk „Zarejestruj się”."
+          loading="lazy"
+          decoding="async"
+        />
+        <figcaption>Okno logowania do ZPE. Konto ucznia dostaje się od szkoły, więc przycisku „Zarejestruj się” nie używasz.</figcaption>
+      </figure>
+
+      <h2>E-mail do odzyskiwania hasła: wpisz taki, do którego się logujesz</h2>
+
+      <p>Formularz zawiera ostrzeżenie, które warto potraktować poważnie: pozostawienie adresu systemowego albo takiego, do którego się nie logujesz, sprawi, że nie odzyskasz hasła samodzielnie, jeśli je zapomnisz.</p>
+
+      <p>W polu e-mail może być już wpisany adres nadany przez system. Jeśli nie masz do niego dostępu, zmień go na własny, z którego korzystasz na co dzień. Z tego adresu skorzystasz, gdy będziesz musiał odzyskać hasło.</p>
+
+      <figure class="screenshot">
+        <img
+          src={passwordImage}
+          width="950"
+          height="595"
+          alt="Formularz „Informacje podstawowe” w ZPE: pole „Email” z wpisanym adresem przykładowym, pola „Aktualne hasło”, „Nowe hasło” i „Powtórz hasło”, wskaźnik „Siła hasła” oraz informacja, że hasło musi zawierać dużą i małą literę, cyfrę lub znak specjalny oraz co najmniej 8 znaków."
+          loading="lazy"
+          decoding="async"
+        />
+        <figcaption>Formularz pierwszego logowania. Adres e-mail widoczny na zrzucie jest przykładowy.</figcaption>
+      </figure>
+
+      <div class="callout">
+        <School size={28} aria-hidden="true" />
+        <div>
+          <h2>Jakie hasło ustawić</h2>
+          <p>Hasło musi mieć co najmniej 8 znaków, w tym dużą i małą literę oraz cyfrę lub znak specjalny. Wskaźnik „Siła hasła” pod polami pokazuje, czy hasło jest wystarczające.</p>
+        </div>
+      </div>
+
+      <h2>Zapisz hasło i login. Najlepiej zrób zdjęcie</h2>
+
+      <p>Hasło, które ustawisz, będzie Ci potrzebne za miesiąc, za pół roku i przy zmianie telefonu. Nikt go za Ciebie nie wyświetli. Gdy zapomnisz hasła i nie będziesz miał dostępu do e-maila, zostaje kontakt ze wsparciem.</p>
+
+      <div class="article-box save-box">
+        <h2 class="box-heading"><Camera size={24} aria-hidden="true" /> Co zapisać i jak</h2>
+        <ol class="box-list">
+          <li><strong>Login z kartki.</strong> Będzie Ci potrzebny przy każdym logowaniu, więc zrób zdjęcie kartki, zanim ją zgubisz.</li>
+          <li><strong>Nowe hasło.</strong> Zapisz je od razu po ustawieniu. Najprościej: zrób zdjęcie ekranu albo kartki z hasłem, które właśnie wpisałeś.</li>
+          <li><strong>Adres e-mail do odzyskiwania hasła.</strong> Zapisz, jaki podałeś. Za rok możesz nie pamiętać.</li>
+        </ol>
+        <p>Zdjęcie trzymaj tylko u siebie: w telefonie albo w notatkach. Nie wrzucaj go na czat klasowy ani do mediów społecznościowych i nie pokazuj nikomu, kto nie ma prawa znać Twojego hasła.</p>
+      </div>
+
+      <h2>mLegitymacja: zrób to jak najszybciej</h2>
+
+      <p>Konto w ZPE daje dostęp do usługi mLegitymacja, czyli cyfrowej legitymacji szkolnej w aplikacji mObywatel Junior. Ma taką samą funkcję jak plastikowa legitymacja, m.in. potwierdza uprawnienie do ulg. Po aktywacji możesz ją okazywać także bez dostępu do internetu.</p>
+
+      <p>Żeby ją dodać, zaloguj się na konto ucznia w ZPE, otwórz usługę <a href="https://zpe.gov.pl/applications/mlegitymacja" target="_blank" rel="noreferrer">mLegitymacja</a> i wygeneruj kod. Potem zeskanuj go w aplikacji mObywatel Junior. Kod jest ważny tylko 10 minut, więc zacznij od przygotowania telefonu. Do mObywatela Juniora nie potrzebujesz profilu zaufanego.</p>
+
+      <p>Zrób to w pierwszych dniach po otrzymaniu danych. Wtedy ewentualne kłopoty (np. brak kodu w ZPE) wyjdą od razu i szkoła zdąży je sprawdzić, zanim legitymacja naprawdę będzie Ci potrzebna. Pełna instrukcja z filmem jest na stronie <a href={sitePath("/temat/mlegitymacja-szkolna/")}>Legitymacja szkolna w mObywatelu</a>.</p>
+
+      <p class="poster-actions">
+        <a class="button primary" href="https://zpe.gov.pl/applications/mlegitymacja" target="_blank" rel="noreferrer">Przejdź do mLegitymacji w ZPE</a>
+      </p>
+
+      <h2>Coś nie działa</h2>
+
+      <ul class="plain-list">
+        <li><strong>Nie pamiętasz hasła:</strong> w oknie logowania kliknij „Nie pamiętam hasła”. To zadziała, jeśli w koncie jest adres e-mail, do którego masz dostęp.</li>
+        <li><strong>Potrzebujesz nowego linku aktywacyjnego:</strong> w oknie logowania jest odnośnik „Wyślij ponownie link aktywacyjny”.</li>
+        <li><strong>Nic nie pomaga:</strong> na stronie zpe.gov.pl, w stopce, kliknij „Zgłoś problem”. W formularzu podaj swój e-mail, wybierz charakter wiadomości, opisz problem i kliknij „Wyślij”.</li>
+        <li><strong>Brakuje kodu do legitymacji:</strong> dopiero gdy ZPE nie pokazuje kodu, zgłoś się do szkoły. Sprawdzi, czy Twoje dane są kompletne.</li>
+      </ul>
+
+      <p><strong>Pamiętaj:</strong> konto ucznia w ZPE nie może łączyć się z innymi kontami.</p>
+
+      <p class="poster-actions">
+        <a class="button" href={instructionPdf} target="_blank" rel="noreferrer"><Download size={18} aria-hidden="true" /> Pobierz instrukcję ZPE (PDF)</a>
+      </p>
+
+      <div class="article-box school-box">
+        <h2 class="box-heading"><School size={24} aria-hidden="true" /> W skrócie</h2>
+        <ol class="box-list">
+          <li>Dostaniesz od szkoły kartkę z loginem i hasłem do ZPE. Nie wyrzucaj jej.</li>
+          <li>Wejdź na zpe.gov.pl, kliknij „Zaloguj się” i wpisz dane z kartki.</li>
+          <li>Podaj e-mail, do którego naprawdę się logujesz. Inaczej nie odzyskasz hasła.</li>
+          <li>Ustaw nowe hasło (min. 8 znaków, duża i mała litera, cyfra lub znak specjalny).</li>
+          <li>Zapisz login i nowe hasło. Najlepiej zrób zdjęcie.</li>
+          <li>Wygeneruj w ZPE kod i dodaj mLegitymację do mObywatela Juniora.</li>
+        </ol>
+      </div>
+
+      <section class="article-sources" aria-labelledby="article-sources-heading">
+        <h2 id="article-sources-heading">Linki</h2>
+        <p>Oficjalne strony, na których oparto ten tekst.</p>
+        <div class="topic-resource-list">
+          {article.furtherReading.map((link) => (
+            <a href={link.href} target="_blank" rel="noreferrer">
+              <span><strong>{link.label}</strong><small>{link.description}</small></span>
+              <ExternalLink size={20} aria-hidden="true" />
+            </a>
+          ))}
+        </div>
+        <p class="source-note">Tekst powstał na podstawie instrukcji ZPE „Uczeń - pierwsze logowanie” oraz informacji o mLegitymacji ze stron ZPE i mObywatela. Wygląd platformy i szczegóły mogą się zmieniać - aktualne informacje są na zpe.gov.pl.</p>
+      </section>
+    </article>
+
+    <aside class="topic-sidebar">
+      <p class="eyebrow">Powiązane informacje</p>
+      <nav aria-label="Skróty">
+        <a href={sitePath("/temat/mlegitymacja-szkolna/")}>Legitymacja szkolna w mObywatelu</a>
+        <a href={sitePath("/pomoc/")}>Pomoc i kontakt</a>
+        <a href={sitePath("/aktualnosci/")}>Wszystkie aktualności</a>
+      </nav>
+    </aside>
+  </div>
+</BaseLayout>
+
+<style>
+  .topic-hero .text-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    margin-bottom: 24px;
+    color: var(--muted);
+    font-weight: 750;
+  }
+
+  .login-steps {
+    display: grid;
+    gap: 12px;
+    margin: 20px 0 0;
+    padding: 0;
+    list-style: none;
+    counter-reset: step;
+  }
+
+  .login-steps li {
+    position: relative;
+    display: grid;
+    gap: 4px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: var(--paper);
+    padding: 16px 18px 16px 62px;
+    counter-increment: step;
+  }
+
+  .login-steps li::before {
+    content: counter(step);
+    position: absolute;
+    top: 16px;
+    left: 18px;
+    width: 30px;
+    height: 30px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: var(--blue);
+    color: #fff;
+    font-weight: 800;
+  }
+
+  html[data-theme="dark"] .login-steps li::before {
+    color: #0b1a10;
+  }
+
+  .login-steps li span {
+    color: var(--muted);
+  }
+
+  .screenshot {
+    margin: 22px 0 0;
+    max-width: 640px;
+  }
+
+  .screenshot.narrow {
+    max-width: 330px;
+  }
+
+  .screenshot img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: #fff;
+  }
+
+  .screenshot figcaption {
+    margin-top: 10px;
+    color: var(--muted);
+    font-size: 0.95rem;
+    font-weight: 700;
+  }
+
+  .article-box.key-box {
+    border-left-color: var(--red);
+  }
+
+  .article-box.save-box {
+    border-left-color: var(--yellow);
+  }
+
+  .article-body .box-heading {
+    margin-top: 0;
+  }
+
+  .article-body .article-box p {
+    font-size: 1rem;
+  }
+
+  .article-body .callout {
+    margin-top: 24px;
+  }
+
+  .article-body .callout h2 {
+    margin-top: 0;
+    font-size: 1.3rem;
+  }
+
+  .plain-list {
+    margin: 16px 0 0;
+    padding-left: 22px;
+  }
+
+  .plain-list li + li {
+    margin-top: 10px;
+  }
+
+  .article-body .poster-actions {
+    margin-top: 18px;
+  }
+</style>

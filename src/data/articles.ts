@@ -18,6 +18,38 @@ export type Article = {
 
 export const articles: Article[] = [
   {
+    slug: "zpe-pierwsze-logowanie",
+    title: "ZPE: kartka z loginem i hasłem to nie makulatura",
+    eyebrow: "Dla uczniów · Zintegrowana Platforma Edukacyjna",
+    lead: "Wkrótce dostaniesz w szkole kartkę z loginem i hasłem do ZPE. Zanim ją schowasz na dno plecaka: zaloguj się, ustaw własne hasło i zapisz je razem z loginem. Bez tego nie wygenerujesz kodu do mLegitymacji.",
+    summary: "Czym jest ZPE, jak zalogować się pierwszy raz, dlaczego trzeba podać adres e-mail do odzyskiwania hasła, jak zapisać dane (najlepiej zdjęciem) i dlaczego to konto jest potrzebne do mLegitymacji.",
+    publishedAt: "2026-11-05",
+    readingMinutes: 4,
+    tone: "blue",
+    furtherReading: [
+      {
+        label: "ZPE: Zintegrowana Platforma Edukacyjna",
+        description: "Strona główna platformy; przycisk „Zaloguj się” jest w prawym górnym rogu. Na dole strony jest formularz „Zgłoś problem”.",
+        href: "https://zpe.gov.pl/",
+      },
+      {
+        label: "ZPE: mLegitymacja szkolna",
+        description: "Po zalogowaniu na konto ucznia tu wygenerujesz kod do dodania legitymacji w aplikacji.",
+        href: "https://zpe.gov.pl/applications/mlegitymacja",
+      },
+      {
+        label: "ZPE: FAQ mObywatel Junior i mLegitymacja",
+        description: "Odpowiedzi m.in. o ważności kodu, kodach dla kolejnych urządzeń i błędach aktywacji.",
+        href: "https://zpe.gov.pl/b/faq-mjunior-webinar/PUJJ25ZMR",
+      },
+      {
+        label: "mObywatel: dodawanie legitymacji do mObywatela Juniora",
+        description: "Oficjalna instrukcja uruchomienia aplikacji i dodania legitymacji szkolnej.",
+        href: "https://info.mobywatel.gov.pl/aktualnosci/mobywatel-junior-dodaj-legitymacje-szkolna-do-aplikacji",
+      },
+    ],
+  },
+  {
     slug: "telefon-zaufania-mlodych-itaka",
     title: "Telefon Zaufania Młodych i Centrum Wsparcia: gdzie szukać pomocy w kryzysie",
     eyebrow: "Wsparcie psychologiczne · Fundacja ITAKA",
